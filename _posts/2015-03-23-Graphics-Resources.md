@@ -25,4 +25,6 @@ containing lotsof detailed description of OpenGL design. Perhaps We should regar
 concrete description about 3D API of Khonoros group. It provides a family tree clearly depicting the relationship between
 OpenGL, OpenGL ES, WebGL. It is very helpful to new beginners. Next generation API design is the main focus of slide, a
 comparison list about traditional API and next-generation API design can tell lots of stories. Platform diversity and
-radically changed GPU architecture drive such changes.
+radically changed GPU architecture drive such changes. 
+- [Ambient Diffuse Specular Lighting Model](http://www.learnopengl.com/#!Lighting/Basic-Lighting) The web link may help to understand 
+basic ideas of ADS. 

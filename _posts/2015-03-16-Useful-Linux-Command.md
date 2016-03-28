@@ -16,6 +16,7 @@ date: 2015-03-16
 You can query driver infomation by lspci command as `lspci -vs 00:02.0`. It can tell you what driver is in use now.   
 - `buildcommand 2>&1 | tee build.log` this command can save the build log to a local file at the same time output it 
  to the screen. A very useful command to analyse build errors.
+- `cat /proc/cmdline` Retrieve kernel command line info for current booting from proc file system.
  
 ## Search and Replace
 
