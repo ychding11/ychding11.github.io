@@ -27,10 +27,26 @@ f equals to regular file, d equals to directory.
 - `find ./misc/ -exec file '{}' \;` Execute file command to every file in directory ./misc. -exec option 
 specifies the command to execute, ';' indicates the ending of command. \ is to escape in case of shell 
 interpret it as another meaning. {} stands for the current processing file.   
-- `grep -i question -r ./` Search all files recursively in current directory to find lines containing key word *question*.  
-Another grep command `grep -i question -rl ./`, it can list all files in current directory containing the key 
-word *question*.  
+- *find* command matchs file name other than file content. `find . -regex '.*\.\(c\|cpp\|h\)$' -print` print whole file 
+name matching the regular expression. `-print` append each matching item with new line, default behavior, while `-print0`  
+with null character. It lists all c files, cpp files and h files in current directories and its subdirectories.   
+- *find* has many options, such as *-regex*, *-name*, *-iname*. They belog to the same category telling *find* 
+how to match the specified *pattern* in command line. Command manual has detail info, here I give a brief description.   
+*-name* only matches file name excluding the pre directories.  
+*-iname* the same with *-name*, except that the match is case insensitive.    
+*-regex* matches whole file path, including pre directories and regular expression is different with *-name*.
+- `grep -i 'question' -r ./` Search all files recursively in current directory to find lines containing key word *question*.  
+Another grep command `grep -i question -rl ./`, it lists all files in current directory containing the key 
+word *question* instead of displaying matched lines. Default match mode is *NOT* exact whole world match.    
+`'\bquestion\b'` pattern tell *grep* matches whole world only. 
 - `sed -i 's/Do_Movement/cameraMovement/g' ./shadow_mapping.cpp` Find and replace Do_Movement with cameraMovement 
 in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp file created.  
 - *sed* and *grep* can cooperate. That is *grep* can suply the file list containing the specified pattern while 
 *sed* edit those files one by one. for example: sed -i 's/pattern/newstr/g' `grep -rl pattern ./`.
+
+## VIM Tips for quick Reference
+
+- *Display full file path when editing a file* Sometimes It is helpful to us. `:set statusline+=%F` serves that purpose.     
+`:set laststatus=2` to make the status bar visible. `:help statusline` and `:help laststatus` can give detailed info. 
+- Sometimes we want *case insensitive* search. `:set ignorecase` or `:set ic` can do that. `:set noic` reset the previous
+settings.

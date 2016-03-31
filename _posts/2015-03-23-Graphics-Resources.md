@@ -37,5 +37,9 @@ techniques widely used in OpenGL, including per-pixel illumination model, bump m
 ## Bump mapping, Normal mapping and Displacement mapping
 
 - [Bump Normal Displacement mapping comparison](http://blog.digitaltutors.com/bump-normal-and-displacement-maps/) This blog post gives 
-a comparison about bump mapping, normal mapping, displacement mapping. It is helpful for beginners to construct  
+a comparison about bump mapping, normal mapping, displacement mapping. It is helpful for beginners to construct
 overview concepts about those techniques. 
+- [Displacement Mapping Slide](https://perso.limsi.fr/jacquemi/OGL-4/OGL-4-slides.pdf) I thinks first things we need to know in those
+techniques is  what info is stored and in what format. Then How these info is used or applied to what? light calculation?
+geometry modification? or others? These differences are key to identify them and that would enhance our understanding.
+Today I explore on google and find a nice slide about displacement mapping by accidently.
