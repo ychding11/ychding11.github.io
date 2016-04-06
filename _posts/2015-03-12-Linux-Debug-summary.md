@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Linux Debug Summary" 
+title: "Debug Summary" 
 date: 2015-03-12
 ---
 
-## core dump
+## Core Dump
 
 - Check core dump state. using command to check default core file size. `ulimit -c` command is to query the default size of dumped core file size. 0 means core dump is currently not enabled. You must enble core dump functionaliy first.
 - Enable core dump. set default core file size to unlimited using command.Note that the setting is active only in current terminal.
@@ -19,6 +19,23 @@ For reference.
 + *%e*  executable filename (without path prefix) 
 + *%p*  PID of dumped process, as seen in the PID namespace in which the process resides
 + *%t*  time of dump, expressed as seconds since the Epoch,1970-01-01 00:00:00 +0000 (UTC)
+
+## x64 Assembly Disassemble
+
+   When program crashes, Windows will pop a dialog informing user of error, mostly memory access violation. 
+We need assembly language knowledge to analyse disassembly code. x64 assembly language is different from 
+32-bit version. Register files and calling conventions are key to understand disassemble code.     
+   C++ non-static member function calling convention: implicit first parameter is *this* pointer transferred by rcx register. 
+Implicit second parameter is for returning object which is not fit rax register. Usually return value is transferred by *rax* register.
+But for user-defined complex type register *rax* is unable to transfer. It requires an implicit parameter to transfer.     
+   By default, second parameter is transferred by register *rdx*. Totally, the max number of parameters which can be transferred
+by register is 4.
+
+[Calling Conventions for different platform C++ compilers](http://www.agner.org/optimize/calling_conventions.pdf) It is a very
+comprehensive material for reference. It should be referenced at first time when having problems.    
+[MicroSoft's document about disassembly code](https://msdn.microsoft.com/en-us/library/windows/hardware/ff538083(v=vs.85).aspx) has 
+lots of C++ disassembly code. 
+
 
 ### reference
 - [Detailed core pattern setting](http://man7.org/linux/man-pages/man5/core.5.html) 
