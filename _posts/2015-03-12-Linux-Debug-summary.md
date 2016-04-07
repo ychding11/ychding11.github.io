@@ -34,7 +34,13 @@ by register is 4.
 [Calling Conventions for different platform C++ compilers](http://www.agner.org/optimize/calling_conventions.pdf) It is a very
 comprehensive material for reference. It should be referenced at first time when having problems.    
 [MicroSoft's document about disassembly code](https://msdn.microsoft.com/en-us/library/windows/hardware/ff538083(v=vs.85).aspx) has 
-lots of C++ disassembly code. 
+lots of C++ disassembly code examples. Learning such examples does much help to debug crash issues.
+[C++ this pointer storage](http://stackoverflow.com/questions/16585562/where-is-the-this-pointer-stored-in-computer-memory)     
+[Introduce to x64 assemble under Linux Platform](https://cs.nyu.edu/courses/fall11/CSCI-GA.2130-001/x64-intro.pdf) The paper 
+mainly focus on C Compiler.      
+[intel LEA instruction explaination](https://courses.engr.illinois.edu/ece390/archive/spr2002/books/labmanual/inst-ref-lea.html) 
+The [link](http://stackoverflow.com/questions/1699748/what-is-the-difference-between-mov-and-lea) gives an comparison between *lea* 
+instruction and *mov* instruction.
 
 
 ### reference
