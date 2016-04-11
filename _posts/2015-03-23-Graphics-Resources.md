@@ -12,8 +12,8 @@ of shadow mapping which widely used in shadow computation. No math formula in pa
 first time. 
 
 ## Graphic Course 
-- [Real-Time High Quality Rendering](http://cseweb.ucsd.edu/~ravir/274/15/274.html) The course has some advanced topics, so it is not 
-a good choice for beginners. 
+- [Real-Time High Quality Rendering](http://cseweb.ucsd.edu/~ravir/274/15/274.html) The course has some advanced topics,
+maybe it is not a good choice for beginners. 
 - [CMU Graphics Course Collection](http://graphics.cs.cmu.edu/?page_id=16) Lots of materials for you to start CG explore.
 - [Stanford Graphics Course Collection](http://graphics.stanford.edu/courses/) Slides Papers and Assignments   
 - [Introduction to 3D Image Generation](http://web.cse.ohio-state.edu/~hwshen/781/Site/Main.html)
@@ -36,10 +36,17 @@ techniques widely used in OpenGL, including per-pixel illumination model, bump m
 
 ## Bump mapping, Normal mapping and Displacement mapping
 
-- [Bump Normal Displacement mapping comparison](http://blog.digitaltutors.com/bump-normal-and-displacement-maps/) This blog post gives 
-a comparison about bump mapping, normal mapping, displacement mapping. It is helpful for beginners to construct
-overview concepts about those techniques. 
-- [Displacement Mapping Slide](https://perso.limsi.fr/jacquemi/OGL-4/OGL-4-slides.pdf) I thinks first things we need to know in those
-techniques is  what info is stored and in what format. Then How these info is used or applied to what? light calculation?
-geometry modification? or others? These differences are key to identify them and that would enhance our understanding.
-Today I explore on google and find a nice slide about displacement mapping by accidently.
+- [Bump Normal Displacement mapping comparison](http://blog.digitaltutors.com/bump-normal-and-displacement-maps/)
+This blog post gives a comparison about bump mapping, normal mapping, displacement mapping.
+It is helpful for beginners to construct overview concepts about those techniques. 
+
+- [Displacement Mapping Slide](https://perso.limsi.fr/jacquemi/OGL-4/OGL-4-slides.pdf)
+I thinks first things we need to know in those techniques is what info is stored and
+in what format. Then how these info is used or applied to what, light calculation?
+geometry modification? or others? These differences are key to identify them and that
+would enhance our understanding. Today I explore on google and find a nice slide about
+displacement mapping by accidently. So I put it here.
+
+## Geometry Shader & Subdivision
+
+## Ray Tracing

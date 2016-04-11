@@ -22,19 +22,27 @@ For reference.
 
 ## x64 Assembly Disassemble
 
-   When program crashes, Windows will pop a dialog informing user of error, mostly memory access violation. 
-We need assembly language knowledge to analyse disassembly code. x64 assembly language is different from 
-32-bit version. Register files and calling conventions are key to understand disassemble code.     
-   C++ non-static member function calling convention: implicit first parameter is *this* pointer transferred by rcx register. 
-Implicit second parameter is for returning object which is not fit rax register. Usually return value is transferred by *rax* register.
-But for user-defined complex type register *rax* is unable to transfer. It requires an implicit parameter to transfer.     
-   By default, second parameter is transferred by register *rdx*. Totally, the max number of parameters which can be transferred
-by register is 4.
+   When program crashes, Windows will pop a dialog informing user of error,
+   mostly memory access violation. We need assembly language knowledge to 
+   analyse disassembly code. x64 assembly language is different from that of  
+   32-bit version. Register files and function calling conventions are key 
+   to understand disassemble code. C++ non-static member function calling 
+   convention: Implicit first parameter is *this* pointer transferred by 
+   rcx register. Implicit second parameter is used for returning object 
+   which is not fit rax register. Usually return value is transferred by 
+   *rax* register. But for user-defined complex type register *rax* is unable 
+   to transfer. It requires an implicit parameter to transfer. By default, 
+   second parameter is transferred by register *rdx*. In addition, the max 
+   number of parameters which can be transferred by register is 4.
+
+   Because the first four parameters are transferred by register, in function 
+   design should keep this point in mind. Register access is much faster than 
+   memory access.
 
 [Calling Conventions for different platform C++ compilers](http://www.agner.org/optimize/calling_conventions.pdf) It is a very
 comprehensive material for reference. It should be referenced at first time when having problems.    
-[MicroSoft's document about disassembly code](https://msdn.microsoft.com/en-us/library/windows/hardware/ff538083(v=vs.85).aspx) has 
-lots of C++ disassembly code examples. Learning such examples does much help to debug crash issues.
+[MicroSoft's document about disassembly code](https://msdn.microsoft.com/en-us/library/windows/hardware/ff538083(v=vs.85).aspx) 
+has lots of C++ disassembly code examples. Learning such examples does much help to debug crash issues.
 [C++ this pointer storage](http://stackoverflow.com/questions/16585562/where-is-the-this-pointer-stored-in-computer-memory)     
 [Introduce to x64 assemble under Linux Platform](https://cs.nyu.edu/courses/fall11/CSCI-GA.2130-001/x64-intro.pdf) The paper 
 mainly focus on C Compiler.      
