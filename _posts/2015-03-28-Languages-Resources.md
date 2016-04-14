@@ -15,6 +15,10 @@ reference, I list some frequently used GCC compile options here. More compile
 options please read gcc manual. 
 
 - Werror, Treat all warnings as errors.
+- Wall, 
+- Wextra,
+- Wl,option, pass options to linker, *option* is linker's 
+option.
 
 ## const reference
 Under what condition is this keyword usefull? What problems will it cause?
