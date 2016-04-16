@@ -5,6 +5,7 @@ date: 2015-03-28
 ---
 
 ## overloaded virtual function
+
 [Discussion of GCC -Woverloaded-virtual option](https://gcc.gnu.org/ml/gcc/1999-02n/msg00180.html) 
 Compiler is unable to tell "I am creating a new virtual function" from
 "I am overriding a virtual function from my baseclass". So GCC adds this option 
@@ -21,6 +22,7 @@ options please read gcc manual.
 option.
 
 ## const reference
+
 Under what condition is this keyword usefull? What problems will it cause?
 When user-defined complex type used as an input parameter, it is a good choice.
 It is highly recommanded in google's c++ code style.     
@@ -40,11 +42,25 @@ struct Holder
 };
 ```
 
+## using statement
 
+using keyword can introduce base class's member into derived class.
+For example expose base class's protected member to public in drived 
+class.     `using base::member` if member is name of overloaded function 
+in base class, then all functions with the same name will be introduced 
+into derived class. The point is very important.     In such case, if 
+derived class already have a member with same name, parameter list and 
+qualifications, then derived class member will hiden or override the 
+newly introduced ones, but they won't conflict with each other.
+[The web link](http://en.cppreference.com/w/cpp/language/using_declaration)
+gives the detailed info.
 
 ## Learning materials
-- [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive contents about c++, very good materials for references.
-- [C and C++ API Reference](http://www.cplusplus.com/) Very good websit for C++ STL API lookup, lots of usage demoes facilitate beginners.
+- [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
+contents about c++, very good materials for references.
+- [C and C++ API Reference](http://www.cplusplus.com/) 
+Very good websit for C++ STL API lookup, lots of usage 
+demoes facilitate beginners.
 - [A simple inroduction to C++ Object Memory layout](http://lifegoo.pluskid.org/upload/doc/object_models/C++%20Object%20Model.pdf)
 - [Paper about C++ multiple inheritance object layout](http://lifegoo.pluskid.org/upload/doc/object_models/C++%20Object%20Model.pdf) 
 A little difficult to understand.

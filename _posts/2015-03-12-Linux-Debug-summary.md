@@ -42,16 +42,41 @@ For reference.
 [Calling Conventions for different platform C++ compilers](http://www.agner.org/optimize/calling_conventions.pdf) It is a very
 comprehensive material for reference. It should be referenced at first time when having problems.    
 [MicroSoft's document about disassembly code](https://msdn.microsoft.com/en-us/library/windows/hardware/ff538083(v=vs.85).aspx) 
-has lots of C++ disassembly code examples. Learning such examples does much help to debug crash issues.
+has lots of C++ disassembly code examples. Learning such examples 
+does much help to crash issues.
 [C++ this pointer storage](http://stackoverflow.com/questions/16585562/where-is-the-this-pointer-stored-in-computer-memory)     
 [Introduce to x64 assemble under Linux Platform](https://cs.nyu.edu/courses/fall11/CSCI-GA.2130-001/x64-intro.pdf) The paper 
 mainly focus on C Compiler.      
 [intel LEA instruction explaination](https://courses.engr.illinois.edu/ece390/archive/spr2002/books/labmanual/inst-ref-lea.html) 
-The [link](http://stackoverflow.com/questions/1699748/what-is-the-difference-between-mov-and-lea) gives an comparison between *lea* 
-instruction and *mov* instruction.
+*lea* instruction only calculate effective memory address, no memory 
+access happens.
+The [link](http://stackoverflow.com/questions/1699748/what-is-the-difference-between-mov-and-lea) 
+gives an comparison between *lea* instruction and *mov* instruction.
 
 
 ### reference
 - [Detailed core pattern setting](http://man7.org/linux/man-pages/man5/core.5.html) 
 - [An introduce to core dump](http://www.cnblogs.com/hazir/p/linxu_core_dump.html)
-- [How to write shared Libaries](https://www.akkadia.org/drepper/dsohowto.pdf)
+
+## Dynamic Shared Library
+
+[How to write shared Libaries](https://www.akkadia.org/drepper/dsohowto.pdf) 
+Program using dynamic shared libraries need to know dynamic linker's location. 
+Dynamic linker need to be loaded to memory by OS, then OS transfer control to 
+dynamic linker.     Dynamic linker will do 3 things: determine and load all 
+dependencies, relocation all addresses in program and dependencies, initialize 
+program and all dependencies only once.      In a complex software, dependencies 
+need to apply toplogical sort to determine the correct order. 
+
+Symbol relocation is a very expensive process.Relocated results are stored in data segment.
+Hash algorithm is applied in symbol search. For each resolving symbol, dynamic 
+linker will loop each dynamic shared lib in current lookup scope. Every shared lib 
+organise its symbols in hash bucket. So the match process is to use resolving symbol's
+hash value to match has chain in each lib. Once matched, the process ends. 
+So multiple definition for a same symbol is ok, the first matched will be used. 
+The average hash chain length both for successfull match and unsuccessful match 
+determines effectiveness of dynamic liner's hash algorithms design.
+
+symbol relocation process can be delayed to some later time when the symbol is 
+actually used. This is called *lazy relocation process*. Use *-z now* linker 
+option to cancell it.
