@@ -80,3 +80,6 @@ determines effectiveness of dynamic liner's hash algorithms design.
 symbol relocation process can be delayed to some later time when the symbol is 
 actually used. This is called *lazy relocation process*. Use *-z now* linker 
 option to cancell it.
+[This paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf)
+introduces some debug skils for solving load dependencies. Some of them 
+are very interesting.

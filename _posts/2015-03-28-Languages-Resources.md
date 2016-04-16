@@ -55,7 +55,25 @@ newly introduced ones, but they won't conflict with each other.
 [The web link](http://en.cppreference.com/w/cpp/language/using_declaration)
 gives the detailed info.
 
+## type casting
+
+### const_cast
+Const type cast is used to add or remove the constness of an object pointed
+by a pointer. For example `const_cast< const type*>(pointer)` or 
+`const_cast<type*>(pointer)`. The latter one is always used to match interface.
+*When using, be caution, write operation will cause undefined behavior.*
+
+### static_cast & dynamic_cast
+These two type cast can do pointer upcast and downcast. Upcast is converting
+a pointer-to-derived to a pointer-to-base. Downcast is converting a 
+pointer-to-base to a pointer-to-derived. static_cast does it without runtime 
+checking. `Base *pb = new Base(); static_cast<Derived*>(pb);` is valid.
+Dynamic_cast requires runtime type info to check object type, so above usage
+will get a NULL pointer. Some compilers don't support runtime-type-info,
+in such case, the above usage won't work properly.
+
 ## Learning materials
+
 - [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
 contents about c++, very good materials for references.
 - [C and C++ API Reference](http://www.cplusplus.com/) 
