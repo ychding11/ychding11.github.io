@@ -55,6 +55,10 @@ newly introduced ones, but they won't conflict with each other.
 [The web link](http://en.cppreference.com/w/cpp/language/using_declaration)
 gives the detailed info.
 
+## vtbl & vptr
+where is vtable stored? Is this a specification or implementation dependent?
+vptr is always in offset 0 in a object memory layout?
+
 ## type casting
 
 ### const_cast
@@ -79,7 +83,8 @@ contents about c++, very good materials for references.
 - [C and C++ API Reference](http://www.cplusplus.com/) 
 Very good websit for C++ STL API lookup, lots of usage 
 demoes facilitate beginners.
-- [A simple inroduction to C++ Object Memory layout](http://lifegoo.pluskid.org/upload/doc/object_models/C++%20Object%20Model.pdf)
-- [Paper about C++ multiple inheritance object layout](http://lifegoo.pluskid.org/upload/doc/object_models/C++%20Object%20Model.pdf) 
-A little difficult to understand.
+- [Slide about C++ multiple inheritance object layout](http://lifegoo.pluskid.org/upload/doc/object_models/C++%20Object%20Model.pdf) 
+A simple introduce to c++ memory layout, mainly focus on vptr implementation 
+and runtime-type-info implementaion. It also mentioned the object construct 
+order, but no detailed explanations.
 
