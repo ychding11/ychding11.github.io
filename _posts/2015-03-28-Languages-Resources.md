@@ -76,6 +76,8 @@ Dynamic_cast requires runtime type info to check object type, so above usage
 will get a NULL pointer. Some compilers don't support runtime-type-info,
 in such case, the above usage won't work properly.
 
+## cross initialization && switch-case
+
 ## Learning materials
 
 - [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
