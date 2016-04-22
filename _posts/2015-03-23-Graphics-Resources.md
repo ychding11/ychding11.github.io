@@ -63,3 +63,5 @@ It introduce the basic ideas about ray tracing.
 - [ray tracing overview](http://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
 - [pixar's explanation about tray tracing](https://renderman.pixar.com/view/raytracing-fundamentals)
 - [ray tracing's tutorial](https://www.ics.uci.edu/~gopi/CS211B/RayTracing%20tutorial.pdf)
+- [light transport simulation algorithms](http://iliyan.com/publications/VertexMerging)
+This page includes paper, code, results and other usefull materials.

@@ -78,6 +78,23 @@ in such case, the above usage won't work properly.
 
 ## cross initialization && switch-case
 
+```
+switch(a)
+{
+	case 1: 
+		int num = 1; // in c++, cross initialization error.
+		break
+	default:
+		break
+}
+```
+
+switch-case is something like jump table.
+[stackoverflow link](http://stackoverflow.com/questions/92396/why-cant-variables-be-declared-in-a-switch-statement)
+has a detailed discussion about this type error.
+This [page](http://www.complete-concrete-concise.com/programming/c/keyword-switch-case-default)
+explains c/c++ switch-case keyword.
+
 ## Learning materials
 
 - [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
