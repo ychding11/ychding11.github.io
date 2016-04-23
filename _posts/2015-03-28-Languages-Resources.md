@@ -23,11 +23,11 @@ option.
 
 ## const reference
 
-Under what condition is this keyword usefull? What problems will it cause?
-When user-defined complex type used as an input parameter, it is a good choice.
-It is highly recommanded in google's c++ code style.     
+Under what condition is this type useful? What problems will it cause?
+When user-defined complex type used as an input parameter, it's a good 
+choice. It's  highly recommanded in google's c++ code style.     
 But used as a data holder is a very bad idea. It almost have no flexibility.
-For example, following design is impossible for reference type. But sometimes 
+For example, following design is impossible for reference type. Sometimes 
 it is a very efficient design. In this case, const pointer type is good choice.
 
 ```
@@ -56,8 +56,8 @@ newly introduced ones, but they won't conflict with each other.
 gives the detailed info.
 
 ## vtbl & vptr
-where is vtable stored? Is this a specification or implementation dependent?
-vptr is always in offset 0 in a object memory layout?
+where is vtable stored? Is this implementation dependent?
+Is vptr always offset 0 in an object memory layout?
 
 ## type casting
 
@@ -94,6 +94,29 @@ switch-case is something like jump table.
 has a detailed discussion about this type error.
 This [page](http://www.complete-concrete-concise.com/programming/c/keyword-switch-case-default)
 explains c/c++ switch-case keyword.
+
+## auto_ptr
+*ownership* is the key to understand the auto_ptr. At any time 
+an auto_ptr has an ownership to an object or in null state.
+So copy operation will make one auto_ptr lose ownership. 
+Because of this reason, std containers are not suitable for 
+auto_ptr, because some operations of these container may need
+copy operation.     For const auto_ptr, it can only be used to 
+do dereference. Copy from it will cause error.
+[using auto_ptr effectively](http://www.gotw.ca/publications/using_auto_ptr_effectively.htm)
+gives several examples for reference.
+
+## private inheritance
+private inheritance is something like composition(has-a).
+while, Inheritance, in general, is a is-a. It has some
+unique features compared to composition.
+
+- use protected interface of Base class.
+- tye case to Base class.
+- call Base class interface directly.
+
+This [page](https://isocpp.org/wiki/faq/private-inheritance) 
+has a detailed explanation.
 
 ## Learning materials
 
