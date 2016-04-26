@@ -129,4 +129,4 @@ demoes facilitate beginners.
 A simple introduce to c++ memory layout, mainly focus on vptr implementation 
 and runtime-type-info implementaion. It also mentioned the object construct 
 order, but no detailed explanations.
-
+-[Standford CS106L 2010 Fall](http://www.keithschwarz.com/cs106l/fall2010/)

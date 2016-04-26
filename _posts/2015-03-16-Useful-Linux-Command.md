@@ -24,6 +24,9 @@ from proc file system.
 mounting a movable device but don't know it's device name. `sudo fdisk -l /dev/sda` 
 for example, the command can tell some detailed info about the device, such as file 
 system type. NOTE command needs root's prevelige.
+- `vim --version | grep clipboard` It can tell whether vim is able 
+to transfer data with clipboard. `sudo apt-get install vim-gnome` 
+in ubuntu can enhance vim with the abiltiy.
  
 ## Search and Replace
 
