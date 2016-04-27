@@ -54,9 +54,6 @@ The [link](http://stackoverflow.com/questions/1699748/what-is-the-difference-bet
 gives an comparison between *lea* instruction and *mov* instruction.
 
 
-### reference
-- [Detailed core pattern setting](http://man7.org/linux/man-pages/man5/core.5.html) 
-- [An introduce to core dump](http://www.cnblogs.com/hazir/p/linxu_core_dump.html)
 
 ## Dynamic Shared Library
 
@@ -83,3 +80,12 @@ option to cancell it.
 [This paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf)
 introduces some debug skils for solving load dependencies. Some of them 
 are very interesting.
+
+### reference
+- [Detailed core pattern setting](http://man7.org/linux/man-pages/man5/core.5.html) 
+- [An introduce to core dump](http://www.cnblogs.com/hazir/p/linxu_core_dump.html)    
+- The [page](http://dirac.org/linux/gdb/06-Debugging_A_Running_Process.php)
+tells the story about how to debug a running process with gdb.
+
+
+
