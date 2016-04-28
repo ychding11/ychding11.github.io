@@ -53,15 +53,19 @@ It has an detailed info about nurbs modeling. nurbs modeling is an
 comparison to subdivision surface. When modeling complex object, it 
 need lots of nurbs and deforming the object lead to cracks at seams.
 - [Standford slide](http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf)
-It's a very good material about subdivision, containing background 
+It is  a very good material about subdivision, containing background 
 introduction, basic ideas and comparison.
 
 ## Ray Tracing
 - [Stanford course](http://candela.stanford.edu/cs348b-14/doku.php)
-It introduce the basic ideas about ray tracing.
+It introduces the basic ideas about ray tracing.
 - [99 lines ray tracer toy](http://www.kevinbeason.com/smallpt/)
 - [ray tracing overview](http://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
-- [pixar's explanation about tray tracing](https://renderman.pixar.com/view/raytracing-fundamentals)
-- [ray tracing's tutorial](https://www.ics.uci.edu/~gopi/CS211B/RayTracing%20tutorial.pdf)
+- [pixar explanation about tray tracing](https://renderman.pixar.com/view/raytracing-fundamentals)
+- [ray tracing tutorial](https://www.ics.uci.edu/~gopi/CS211B/RayTracing%20tutorial.pdf)
 - [light transport simulation algorithms](http://iliyan.com/publications/VertexMerging)
 This page includes paper, code, results and other usefull materials.
+- [Monte Carlo Method](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/monte-carlo-integration)
+- [Random number generator](http://www.agner.org/random/?e=0,34)
+- Random number generator [pdf](http://www.maths.manchester.ac.uk/~ahazel/VBAC++_coursework3.pdf)
+- [Monte Carlo Simulation](http://ww2.odu.edu/~agodunov/teaching/notes/Cp01_random.pdf)
