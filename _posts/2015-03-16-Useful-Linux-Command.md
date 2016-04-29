@@ -23,10 +23,16 @@ from proc file system.
 - `sudo fdisk -l` List storage devices of current system. It is usefull when 
 mounting a movable device but don't know it's device name. `sudo fdisk -l /dev/sda` 
 for example, the command can tell some detailed info about the device, such as file 
-system type. NOTE command needs root's prevelige.
+system type. NOTE command needs root prevelige.
 - `vim --version | grep clipboard` It can tell whether vim is able 
 to transfer data with clipboard. `sudo apt-get install vim-gnome` 
 in ubuntu can enhance vim with the abiltiy.
+- `sudo lshw -class network` command displays the detailed info 
+about network adapter information such as discription, product 
+name, vendor, configuration and so on. By these info, we can 
+check device driver version in use. `modinfo driver-name` 
+can do that. It is very helpful to solve problems such as 
+wifi does not work.
  
 ## Search and Replace
 
