@@ -33,6 +33,8 @@ name, vendor, configuration and so on. By these info, we can
 check device driver version in use. `modinfo driver-name` 
 can do that. It is very helpful to solve problems such as 
 wifi does not work.
+- ` sudo apt-get install bcmwl-kernel-source` install BCM43142 
+wifi driver.
  
 ## Search and Replace
 
