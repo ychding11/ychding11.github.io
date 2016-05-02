@@ -116,14 +116,61 @@ unique features compared to composition.
 - call Base class interface directly.
 
 This [page](https://isocpp.org/wiki/faq/private-inheritance) 
-has a detailed explanation.
+has a detailed explanation about private inheritance.
+
+## operator overload
+*operator overload* is to compiler how built-in operators apply to 
+user-defined data types by function overloading. Properly written
+operator overload can lead to more readable and maintainable code.
+
+- overloaded operators are just regular function.
+- operator overload can be implemented as a class
+member function or a free function.
+- lvalue and rvalue are key concepts in operator 
+overload. The overloaded operators need to return 
+somethings. When they returns const type, it is 
+rvalue. non-const type, lvalue.
+- *operator ++* and *operator --* are different, 
+because they have two versions: prefix and postfix.
+When overloading, compiler needs to tell one from 
+another. They are unary operators. when overloading 
+as a member function, no input parameter is needed.
+In order to different them, postfix operator accepts
+an int type parameter. 
+- In operator overload, prefix ++ and -- are more 
+efficient than posfix ones and implement posfix ones 
+in terms of prefix ones.
+- Rational operator overload, just need to overload 
+operator < correctly. All other rational operators
+can based on it. For a user-defined data type, after
+implementing operator <, it can be insert into STL 
+containers. In addition, operator < must adhere two 
+laws: Trichotomy and tansitivity.
+- stream insert operator << and >> should be 
+overloaded as a free function and decare the 
+function as an friend of the user-defined 
+data type. 
+- Some operators can not be overloaded, because 
+from their meaning, they should be reinterpreted 
+by user-defined data type. For example, scop resolution 
+::, member selection ., sizeof, typid, typcast, 
+ternary condition ?:.
+- [reference](http://www.keithschwarz.com/cs106l/fall2010/course-reader/Ch10_OperatorOverloading.pdf)
+
+## random number generator
+[Page](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/generating-random-numbers)
+is a good reference about the backgroud of random number 
+generator. Presudorandom-number-generator is more easily integrated 
+into software. It based on some generating algorithms, for example,
+middle-square-method presented by Von Neumann. So the generated 
+random sequence is periodic because of the limitation of computer.
 
 ## Learning materials
 
 - [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
 contents about c++, very good materials for references.
 - [C and C++ API Reference](http://www.cplusplus.com/) 
-Very good websit for C++ STL API lookup, lots of usage 
+Very good website for C++ STL API lookup, lots of usage 
 demoes facilitate beginners.
 - [Slide about C++ multiple inheritance object layout](http://lifegoo.pluskid.org/upload/doc/object_models/C++%20Object%20Model.pdf) 
 A simple introduce to c++ memory layout, mainly focus on vptr implementation 
