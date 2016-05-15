@@ -56,6 +56,10 @@ need lots of nurbs and deforming the object lead to cracks at seams.
 It is  a very good material about subdivision, containing background 
 introduction, basic ideas and comparison.
 
+## parametric surface
+The creation of the surface is based 
+on equation.
+
 ## Ray Tracing
 - [Stanford course](http://candela.stanford.edu/cs348b-14/doku.php)
 It introduces the basic ideas about ray tracing.

@@ -50,14 +50,15 @@ class.     `using base::member` if member is name of overloaded function
 in base class, then all functions with the same name will be introduced 
 into derived class. The point is very important.     In such case, if 
 derived class already have a member with same name, parameter list and 
-qualifications, then derived class member will hiden or override the 
-newly introduced ones, but they won't conflict with each other.
+qualifier then derived class member will hide or override the 
+newly introduced ones, but they  are not conflict with each other.
 [The web link](http://en.cppreference.com/w/cpp/language/using_declaration)
 gives the detailed info.
 
 ## vtbl & vptr
-where is vtable stored? Is this implementation dependent?
+Where is vtable stored? Is this compiler dependent?
 Is vptr always offset 0 in an object memory layout?
+How about multiple inheritance?
 
 ## type casting
 
@@ -91,9 +92,21 @@ switch(a)
 
 switch-case is something like jump table.
 [stackoverflow link](http://stackoverflow.com/questions/92396/why-cant-variables-be-declared-in-a-switch-statement)
-has a detailed discussion about this type error.
+has a detailed discussion about this kind of error.
 This [page](http://www.complete-concrete-concise.com/programming/c/keyword-switch-case-default)
 explains c/c++ switch-case keyword.
+
+## inline and virtual
+Using *inline* and *virtual* for the same member function does 
+make sense. virtual function is also a member function. When 
+calling virtual function by base class pointer or reference,
+late binding applies. But for a known object, resolving function 
+call can be decided at compile time, so *inline* makes sense here.
+And remember thant *inline* is just a hint to compiler, it is up 
+to compiler to decide inline it or not.
+
+## default member initializer
+
 
 ## auto_ptr
 *ownership* is the key to understand the auto_ptr. At any time 
@@ -158,8 +171,8 @@ ternary condition ?:.
 - [reference](http://www.keithschwarz.com/cs106l/fall2010/course-reader/Ch10_OperatorOverloading.pdf)
 
 ## random number generator
-[Page](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/generating-random-numbers)
-is a good reference about the backgroud of random number 
+[This page](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/generating-random-numbers)
+is a good introduction to the backgroud of random number 
 generator. Presudorandom-number-generator is more easily integrated 
 into software. It based on some generating algorithms, for example,
 middle-square-method presented by Von Neumann. So the generated 
