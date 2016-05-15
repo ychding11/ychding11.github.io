@@ -41,7 +41,7 @@ For reference.
 
 [Calling Conventions for different platform C++ compilers](http://www.agner.org/optimize/calling_conventions.pdf) It is a very
 comprehensive material for reference. It should be referenced at first time when having problems.    
-[MicroSoft's document about disassembly code](https://msdn.microsoft.com/en-us/library/windows/hardware/ff538083(v=vs.85).aspx) 
+[MicroSoft document about disassembly code](https://msdn.microsoft.com/en-us/library/windows/hardware/ff538083(v=vs.85).aspx) 
 has lots of C++ disassembly code examples. Learning such examples 
 does much help to crash issues.
 [C++ this pointer storage](http://stackoverflow.com/questions/16585562/where-is-the-this-pointer-stored-in-computer-memory)     
@@ -54,16 +54,15 @@ The [link](http://stackoverflow.com/questions/1699748/what-is-the-difference-bet
 gives an comparison between *lea* instruction and *mov* instruction.
 
 
-
 ## Dynamic Shared Library
 
 [How to write shared Libaries](https://www.akkadia.org/drepper/dsohowto.pdf) 
-Program using dynamic shared libraries need to know dynamic linker's location. 
+Program using dynamic shared libraries need to know dynamic linker location. 
 Dynamic linker need to be loaded to memory by OS, then OS transfer control to 
 dynamic linker.     Dynamic linker will do 3 things: determine and load all 
 dependencies, relocation all addresses in program and dependencies, initialize 
 program and all dependencies only once.      In a complex software, dependencies 
-need to apply toplogical sort to determine the correct order. 
+need to apply toplogical sort to determine correct order. 
 
 Symbol relocation is a very expensive process.Relocated results are stored in data segment.
 Hash algorithm is applied in symbol search. For each resolving symbol, dynamic 
@@ -74,12 +73,24 @@ So multiple definition for a same symbol is ok, the first matched will be used.
 The average hash chain length both for successfull match and unsuccessful match 
 determines effectiveness of dynamic liner's hash algorithms design.
 
-symbol relocation process can be delayed to some later time when the symbol is 
-actually used. This is called *lazy relocation process*. Use *-z now* linker 
-option to cancell it.
+Symbol relocation process may be delayed to some later time when a symbol is 
+actually used. This is called *lazy relocation process*. Using *-z now* linker 
+option can cancell it.
 [This paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf)
-introduces some debug skils for solving load dependencies. Some of them 
+introduces some debug skils about load dependencies errors. Some of them 
 are very interesting.
+
+## gdb debuger
+A debuger is an important tool to analyse runtime errors.
+Compared with MSVC debuger, I found gdb is not so friendly.
+
+- browser source code quickly.
+- set breakpoints quickly.
+- display complex object clearly.
+- eximamine memory friendly.
+
+Only meeting above requirements, a debuger is a good debuger.
+
 
 ### reference
 - [Detailed core pattern setting](http://man7.org/linux/man-pages/man5/core.5.html) 
