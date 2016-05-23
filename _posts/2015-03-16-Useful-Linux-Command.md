@@ -41,16 +41,16 @@ wifi driver.
 - `locate -b '\qmake'` find qmake path using exact name. Another equal command is `locate -r /qmake$` here *r* 
   does not mean recursive.
 - `find /home/ding/ -type f` Find regular files in directory /home/ding. -type option specifies file type. 
-f equals to regular file, d equals to directory.  
+  f equals to regular file, d equals to directory.  
 - `find ./misc/ -exec file '{}' \;` Execute file command to every file in directory ./misc. -exec option 
-specifies the command to execute, ';' indicates the ending of command. \ is to escape in case of shell 
-interpret it as another meaning. {} stands for the current processing file.   
+  specifies the command to execute, ';' indicates the ending of command. \ is to escape in case of shell 
+  interpret it as another meaning. {} stands for the current processing file.   
 - *find* command matchs file name other than file content. 
-`find . -regex '.*\.\(c\|cpp\|h\)$' -print` print whole file name matching 
-the regular expression. `-print` append each matching item with new line, 
-it is a default behavior, while `-print0` with null character. The command 
-lists all c source files, including cpp files and h files in current 
-directories and its subdirectories.   
+  `find . -regex '.*\.\(c\|cpp\|h\)$' -print` print whole file name matching 
+  the regular expression. `-print` append each matching item with new line, 
+  it is a default behavior, while `-print0` with null character. The command 
+  lists all c source files, including cpp files and h files in current 
+  directories and its subdirectories.   
 - *find* has many options, such as *-regex*, *-name*, *-iname*. They belog 
 to the same category, telling *find* how to match the specified *pattern* 
 in command line. Command manual has detail info, here I just give a brief 
@@ -72,14 +72,12 @@ in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp fil
 ## VIM Tips for quick Reference
 
 - *Display full file path when editing a file* Sometimes It is helpful to us.
-`:set statusline+=%F` serves that purpose.`:set laststatus=2` to make the status
-bar visible. `:help statusline` and `:help laststatus` give detailed info for 
-reference.
-
+  `:set statusline+=%F` serves that purpose.`:set laststatus=2` to make the status
+  bar visible. `:help statusline` and `:help laststatus` give detailed info for 
+  reference.
 - Sometimes we want *case insensitive* search. `:set ignorecase` or `:set ic` 
-can do that. `:set noic` reset the previous settings.
-
+  can do that. `:set noic` reset the previous settings.
 - `set ruler` When set, display colum number and row number on the right and bottom 
-coner.
+  coner.
 - `set tabstop=4` Set the number of spaces a *TAB* counts for, default value is 8.
 - `set expandtab` When set, use a certain number of space to insert a *TAB*.
