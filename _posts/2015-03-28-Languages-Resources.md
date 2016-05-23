@@ -178,6 +178,13 @@ into software. It based on some generating algorithms, for example,
 middle-square-method presented by Von Neumann. So the generated 
 random sequence is periodic because of the limitation of computer.
 
+## IEE745 float point number representation
+[IEEE745](http://cs.boisestate.edu/~alark/cs354/lectures/ieee754.pdf)
+introduction includes its binary format, its ranges and examples.
+Web based [demo](http://babbage.cs.qc.cuny.edu/IEEE-754/), it gives
+binary format when texting an real number. Very interesting place to 
+learn IEEE745 standard.
+
 ## Learning materials
 
 - [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
