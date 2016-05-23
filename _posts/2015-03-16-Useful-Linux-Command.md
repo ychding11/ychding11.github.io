@@ -64,6 +64,8 @@ to find lines containing key word *question*. Another grep command
 word *question* instead of displaying matched lines. Default match mode is *NOT* 
 exact match the whole word. `'\bquestion\b'` pattern tell *grep* matches whole 
 world only. 
+- `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;` search 
+  "menuMode" in all mel files. "{}" represents the current processing file.
 - `sed -i 's/Do_Movement/cameraMovement/g' ./shadow_mapping.cpp` Find and replace Do_Movement with cameraMovement 
 in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp file created.  
 - *sed* and *grep* can cooperate. That is *grep* can suply the file list containing the specified pattern while 
@@ -71,13 +73,13 @@ in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp fil
 
 ## VIM Tips for quick Reference
 
-- *Display full file path when editing a file* Sometimes It is helpful to us.
-  `:set statusline+=%F` serves that purpose.`:set laststatus=2` to make the status
-  bar visible. `:help statusline` and `:help laststatus` give detailed info for 
-  reference.
+- *Display full file path when editing a file* Sometimes is helpful to us.
+bar visible. `:help statusline` and `:help laststatus` give detailed info for 
+reference.
 - Sometimes we want *case insensitive* search. `:set ignorecase` or `:set ic` 
-  can do that. `:set noic` reset the previous settings.
+can do that. `:set noic` reset the previous settings.
 - `set ruler` When set, display colum number and row number on the right and bottom 
   coner.
 - `set tabstop=4` Set the number of spaces a *TAB* counts for, default value is 8.
 - `set expandtab` When set, use a certain number of space to insert a *TAB*.
+- % jumps to matching braces.
