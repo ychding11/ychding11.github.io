@@ -193,6 +193,11 @@ object and meet special requirements such that memory alignment. Usually in
 this case, explicitly calling destructor is needed. It is reasonable because
 that you take the role of comiler here.
 
+## only destructor be declared as private or protected
+It can force the class only can be allocate dynamically. 
+That is object can only be created by new(). Object 
+allocate in such way `Type obj` is forbidden.
+
 ## Learning materials
 
 - [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
