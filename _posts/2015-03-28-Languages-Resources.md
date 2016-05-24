@@ -185,6 +185,14 @@ Web based [demo](http://babbage.cs.qc.cuny.edu/IEEE-754/), it gives
 binary format when texting an real number. Very interesting place to 
 learn IEEE745 standard.
 
+## placement new
+It provides a method to place an object to a paticular location in memory 
+when calling constructor. It also transfers the responsibility to programmer 
+that the memory address passed to "placement new" is big enough to hold the 
+object and meet special requirements such that memory alignment. Usually in 
+this case, explicitly calling destructor is needed. It is reasonable because
+that you take the role of comiler here.
+
 ## Learning materials
 
 - [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
