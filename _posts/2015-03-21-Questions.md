@@ -26,7 +26,16 @@ out of bound. How the system distinguish one from another?
 Question: From perspective of assembly language, is *this* an address?	
 
 - What is the purpose of a protected or private destructor except that it prevents
-  class instanced?
+  class instanced? Singleton pattern is not included.
+
+- Suppose that I want to design a set of APIs to draw geometry shape such as point,
+  lines, quads, triangles and so on. A common way to do that is to create a base 
+  class to define interfaces with pure virtual functions and leave implementation 
+  to derived classes. It sounds fine. In some cases, we may encouter problems. For 
+  example, we want APIs to support both float and double precision. Because virtual 
+  function can not be a template, so there will be two sets of APIs and they are only 
+  different in data type. That means you have duplicate code in your design. Any good 
+  ideas to solve this problems? 
 
 
 
