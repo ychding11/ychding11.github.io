@@ -25,5 +25,8 @@ out of bound. How the system distinguish one from another?
 
 Question: From perspective of assembly language, is *this* an address?	
 
+- What is the purpose of a protected or private destructor except that it prevents
+  class instanced?
+
 
 
