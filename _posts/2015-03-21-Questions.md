@@ -28,6 +28,8 @@ Question: From perspective of assembly language, is *this* an address?
 - What is the purpose of a protected or private destructor except that it prevents
   class instanced? Singleton pattern is not included.
 
+- How can I disassemble a function from .o obj file? `objdump -d` just disassemble all. 
+
 - Suppose that I want to design a set of APIs to draw geometry shape such as point,
   lines, quads, triangles and so on. A common way to do that is to create a base 
   class to define interfaces with pure virtual functions and leave implementation 
