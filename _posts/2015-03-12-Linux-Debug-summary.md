@@ -88,9 +88,17 @@ Compared with MSVC debuger, I found gdb is not so friendly.
 - set breakpoints quickly.
 - display complex object clearly.
 - eximamine memory friendly.
+- `disassemble/m $pc-20, $pc+20`
+- `print $pc`
+- `break filename:lineno`
+- `layout src` 
 
 Only meeting above requirements, a debuger is a good debuger.
 
+## gcc __attribute__
+`void __attribute__((optimize("O0"))) func() { }` can assure no optimization 
+applied to specified function. Sometimes it is helpful to analyse errors only 
+occured in release version. Even if func is a template.
 
 ### reference
 - [Detailed core pattern setting](http://man7.org/linux/man-pages/man5/core.5.html) 
