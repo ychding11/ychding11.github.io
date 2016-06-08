@@ -24,9 +24,8 @@ from proc file system.
 mounting a movable device but don't know it's device name. `sudo fdisk -l /dev/sda` 
 for example, the command can tell some detailed info about the device, such as file 
 system type. NOTE command needs root prevelige.
-- `vim --version | grep clipboard` It can tell whether vim is able 
-to transfer data with clipboard. `sudo apt-get install vim-gnome` 
-in ubuntu can enhance vim with the abiltiy.
+- `lshw -class disk` Command lists all available disk in your machine.
+  `lshw -short -C disk` run this command with root, it can give a summary.
 - `sudo lshw -class network` command displays the detailed info 
 about network adapter information such as discription, product 
 name, vendor, configuration and so on. By these info, we can 
@@ -73,6 +72,9 @@ in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp fil
 
 ## VIM Tips for quick Reference
 
+- `vim --version | grep clipboard` It can tell whether vim is able 
+to transfer data with clipboard. `sudo apt-get install vim-gnome` 
+in ubuntu can enhance vim with the abiltiy.
 - *Display full file path when editing a file* Sometimes is helpful to us.
   bar visible. `:help statusline` and `:help laststatus` give detailed info for 
   reference.
