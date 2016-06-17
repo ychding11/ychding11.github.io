@@ -19,7 +19,12 @@ It can tell you what driver is in use now.
 log to a local file at the same time output it to the screen. A very 
 useful command to analyse build errors.
 - `cat /proc/cmdline` Retrieve kernel command line info of current booting 
-from proc file system.
+   from proc file system. When reinstalling a new video card, graphic interface
+   may not started successfully. So we need to start linux at text mode to install 
+   video card driver. In grub edit mode, we can modify linux kernel command line 
+   temporarily to let linux start at text mode this time. For example,
+   `BOOT_IMAGE=/vmlinuz-3.10.0-327.4.4.el7.x86_64 root=/dev/mapper/centos-root ro rd.lvm.lv=centos/root rd.lvm.lv=centos/swap crashkernel=auto rhgb quiet rdblacklist=nouveau
+    3 `
 - `sudo fdisk -l` List storage devices of current system. It is usefull when 
 mounting a movable device but don't know it's device name. `sudo fdisk -l /dev/sda` 
 for example, the command can tell some detailed info about the device, such as file 
