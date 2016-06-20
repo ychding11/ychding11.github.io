@@ -39,6 +39,7 @@ can do that. It is very helpful to solve problems such as
 wifi does not work.
 - ` sudo apt-get install bcmwl-kernel-source` install BCM43142 
 wifi driver.
+- `mount -t "ntfs" -o ro /dev/sda1 /mountpoint` mount with read only.
  
 ## Search and Replace
 
