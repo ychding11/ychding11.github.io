@@ -40,5 +40,8 @@ Question: From perspective of assembly language, is *this* an address?
   different in data type. That means you have duplicate code in your design. Any good 
   ideas to solve this problems? 
 
+- How does a c++ compiler know a virtual funcation is called?
+  `pBasepter->f()` How it knows f() is a virtual function or
+  ordinary member function?
 
 
