@@ -87,28 +87,30 @@ Compared with MSVC debuger, I found gdb is not so friendly.
 - set breakpoints quickly.
 - display complex object clearly.
 - eximamine memory friendly.
-- `disassemble/m $pc-20, $pc+20`
-- `print $pc`
-- `break filename:lineno`
-- `layout src` 
+- disassemble binary code. `disassemble/m $pc-20, $pc+20`
+- check current instruction. `print $pc`
+- set break points. `break filename:lineno`
+- check source file. `layout src` 
 
-Only meeting above requirements, a debuger is a good debuger.
 When encounter a memory access violation, progress will receive a signal to 
 terminate itself. 
+
 + It need to know which address caused the fault. `p $_siginfo._sifields._sigfault.si_addr`
 + current instruction. `layout asm` and `ctrl+x+a` quit layout mode.
 + check register value. `info registers`
 + check PC value. `p $pc`, $pc = %rip.
 + check progress memory map. `cat /proc/pid/maps`
++ list source files. `info source` and `info files`
++ check type details. `ptype typename`
 
 ## gcc __attribute__
 `void __attribute__((optimize("O0"))) func() { }` can assure no optimization 
 applied to specified function. Sometimes it is helpful to analyse errors only 
 occured in release version. Even if func is a template.
 
-### reference
-- [Detailed core pattern setting](http://man7.org/linux/man-pages/man5/core.5.html) 
-- [An introduce to core dump](http://www.cnblogs.com/hazir/p/linxu_core_dump.html)    
+## reference
+- A detailed core pattern [setting](http://man7.org/linux/man-pages/man5/core.5.html) 
+- An introduce to [core dump](http://www.cnblogs.com/hazir/p/linxu_core_dump.html)    
 - The [page](http://dirac.org/linux/gdb/06-Debugging_A_Running_Process.php)
   tells the story about how to debug a running process with gdb. Use gdb help command
   `help running`.
