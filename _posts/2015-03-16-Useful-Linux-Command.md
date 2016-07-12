@@ -79,15 +79,14 @@ in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp fil
 ## VIM Tips for quick Reference
 
 - `vim --version | grep clipboard` It can tell whether vim is able 
-to transfer data with clipboard. `sudo apt-get install vim-gnome` 
-in ubuntu can enhance vim with the abiltiy.
+  to transfer data with clipboard. `sudo apt-get install vim-gnome` 
+  in ubuntu can enhance vim with the abiltiy.
 - *Display full file path when editing a file* Sometimes is helpful to us.
   bar visible. `:help statusline` and `:help laststatus` give detailed info for 
   reference.
 - Sometimes we want *case insensitive* search. `:set ignorecase` or `:set ic` 
   can do that. `:set noic` reset the previous settings.
-- `set ruler` When set, display colum number and row number on the right and bottom 
-  coner.
+- `set ruler` display colum number and row number on the right bottom coner.
 - `set incsearch` Vim default behavior is that search begins after you enter pattern.
   When set incsearch, incremental search begins.
 - `set tabstop=4` Set the number of spaces a *TAB* counts for, default value is 8.
@@ -95,3 +94,5 @@ in ubuntu can enhance vim with the abiltiy.
 - `%` jumps to matching braces. `y%` yanking contents between an item and its matching 
   item. `d%` deleting in the same way. vim object-select can do the similar block 
   selection in virsual mode. `:help object-select` and `:help text-objects`for details.
+
+[vim regular expression](http://www.cnblogs.com/PegasusWang/p/3153300.html)
