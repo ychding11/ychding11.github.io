@@ -6,9 +6,13 @@ date: 2015-03-12
 
 ## Core Dump
 
-- Check core dump state. using command to check default core file size. `ulimit -c` command is to query the default size of dumped core file size. 0 means core dump is currently not enabled. You must enble core dump functionaliy first.
-- Enable core dump. set default core file size to unlimited using command.Note that the setting is active only in current terminal.
-`ulimit -c unlimited` command set core file size, unlimited means that dumped core file size has no limitation.
+- Check whether core dump is enabled. Using command to check default core file size.
+  `ulimit -c` command is to query the default size of dumped core size. 0 means core
+  dump is not enabled yet. You must enble core dump functionaliy first.
+- Enable core dump. This can be done by setting default core file size
+  to unlimited. Note that the setting is active only for current terminal.
+  `ulimit -c unlimited` command is to set core file size, unlimited means
+  dumped core file size has no limitation.
 - Customizing dumped file name. Configure file */proc/sys/kernel/core_pattern*  controls core file name convention.
 `echo "/tmp/corefiles/core-%e-%p-%t" >> /proc/sys/kernel/core_pattern` set a new pattern for generated core file. To ensure command takes effects, use command `cat /proc/sys/kernel/core_pattern` to check the settings. Below is an explanations for some wildcard for references.   
 - Analyse dumped core file with gdb. Rebuild code with debug info added,for example adding -g compile option for gcc. 
@@ -102,6 +106,12 @@ terminate itself.
 + check progress memory map. `cat /proc/pid/maps`
 + list source files. `info source` and `info files`
 + check type details. `ptype typename`
++ check macro info. `p macro-name` print evaluated value.
+  `macro expand macro-name` print expanded expression.
+  NOTE: add -g3 compiler option to keey macro info presented
+  in program.
+
+[GDB docs](http://sourceware.org/gdb/current/onlinedocs/gdb/)
 
 ## gcc __attribute__
 `void __attribute__((optimize("O0"))) func() { }` can assure no optimization 
