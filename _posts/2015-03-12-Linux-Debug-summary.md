@@ -112,6 +112,7 @@ terminate itself.
   in program.
 
 [GDB docs](http://sourceware.org/gdb/current/onlinedocs/gdb/)
+char extend to int using sign extension.
 
 ## gcc __attribute__
 `void __attribute__((optimize("O0"))) func() { }` can assure no optimization 
