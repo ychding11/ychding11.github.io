@@ -9,47 +9,49 @@ date: 2015-03-16
 - `readelf -p .comment ./a.out` read .comment section info from elf file a.out
 - `ls | wc -l` tell how many files in current directory 
 - `ls -l | grep ^d` list directory items in current directory
-- `lspci | grep -i vga` query graphic cards info   
+- `lspci | grep -i vga` query graphic cards info as following   
+
 ```
 00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
 ```   
-You can query driver infomation by lspci command as `lspci -vs 00:02.0`. 
+
+You can query driver infomation by lspci command: `lspci -vs 00:02.0`. 
 It can tell you what driver is in use now.   
+
 - `buildcommand 2>&1 | tee build.log` This command can save the build 
-log to a local file at the same time output it to the screen. A very 
-useful command to analyse build errors.
+   log to a local file and at the same time output it to the screen. A very 
+   useful command to analyse build errors.
 - `cat /proc/cmdline` Retrieve kernel command line info of current booting 
-   from proc file system. When reinstalling a new video card, graphic interface
-   may not started successfully. So we need to start linux at text mode to install 
+   from proc file system. When reinstalling a new graphics card, graphic interface
+   may not started successfully. So we need to start linux in text mode to install 
    video card driver. In grub edit mode, we can modify linux kernel command line 
-   temporarily to let linux start at text mode this time. For example,
+   temporarily to let linux start in text mode this time. For example,
    `BOOT_IMAGE=/vmlinuz-3.10.0-327.4.4.el7.x86_64 root=/dev/mapper/centos-root ro rd.lvm.lv=centos/root rd.lvm.lv=centos/swap crashkernel=auto rhgb quiet rdblacklist=nouveau
     3 `
 - `sudo fdisk -l` List storage devices of current system. It is usefull when 
-mounting a movable device but don't know it's device name. `sudo fdisk -l /dev/sda` 
-for example, the command can tell some detailed info about the device, such as file 
-system type. NOTE command needs root prevelige.
-- `lshw -class disk` Command lists all available disk in your machine.
+   mounting a movable device but don't know it's device name. `sudo fdisk -l /dev/sda` 
+   for example, the command can display some detailed info about the device /dev/sda,
+   such as file system type. NOTE: this command needs root.
+- `lshw -class disk` command lists all available disk in system.
   `lshw -short -C disk` run this command with root, it can give a summary.
 - `sudo lshw -class network` command displays the detailed info 
-about network adapter information such as discription, product 
-name, vendor, configuration and so on. By these info, we can 
-check device driver version in use. `modinfo driver-name` 
-can do that. It is very helpful to solve problems such as 
-wifi does not work.
-- ` sudo apt-get install bcmwl-kernel-source` install BCM43142 
-wifi driver.
-- `mount -t "ntfs" -o ro /dev/sda1 /mountpoint` mount with read only.
+  about network adapter such as discription, product name, vendor,
+  configuration and so on. By these info, we can check device driver
+  version in use. `modinfo driver-name` command can do that. It is
+  very helpful to solve problems such as wifi does not work.
+- ` sudo apt-get install bcmwl-kernel-source` install BCM43142 wifi driver.
+- `mount -t "ntfs" -o ro /dev/sda1 /mountpoint` mount with read-only option.
  
 ## Search and Replace
 
-- `locate -b '\qmake'` find qmake path using exact name. Another equal command is `locate -r /qmake$` here *r* 
-  does not mean recursive.
-- `find /home/ding/ -type f` Find regular files in directory /home/ding. -type option specifies file type. 
-  f equals to regular file, d equals to directory.  
-- `find ./misc/ -exec file '{}' \;` Execute file command to every file in directory ./misc. -exec option 
-  specifies the command to execute, ';' indicates the ending of command. \ is to escape in case of shell 
-  interpret it as another meaning. {} stands for the current processing file.   
+- `locate -b '\qmake'` find qmake location using exact name match.
+  Another equal command is `locate -r /qmake$` here *r* does not mean recursive.
+- `find /home/ding/ -type f` Find regular files in directory /home/ding.
+  `-type` option specifies file type.  f equals to regular file, d equals to directory.  
+- `find ./misc/ -exec file '{}' \;`. Execute `file` command to every file in directory
+  `./misc`. `-exec` option specifies the command to execute. ';' indicates the ending
+  of command. `\` is to escape in case of shell interpreting it as another meaning.
+  `{}` stands for the current processing file.   
 - *find* command matchs file name other than file content. 
   `find . -regex '.*\.\(c\|cpp\|h\)$' -print` print whole file name matching 
   the regular expression. `-print` append each matching item with new line, 
