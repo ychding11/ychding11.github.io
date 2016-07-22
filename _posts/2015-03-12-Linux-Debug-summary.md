@@ -78,10 +78,13 @@ determines effectiveness of dynamic liner's hash algorithms design.
 
 Symbol relocation process may be delayed to some later time when a symbol is 
 actually used. This is called *lazy relocation process*. Using *-z now* linker 
-option can cancell it.
-[This paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf)
+option can cancell it.  This [paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf)
 introduces some debug skils about load dependencies errors. Some of them 
 are very interesting.
+
+`-Wl,option` is an gcc option to transfer option into linkers. For example
+`-Wl,-rpath,'$ORIGIN'` option will tell linker to search current directory
+for needed libraries.
 
 ## gdb debuger
 A debuger is an important tool to analyse runtime errors.
