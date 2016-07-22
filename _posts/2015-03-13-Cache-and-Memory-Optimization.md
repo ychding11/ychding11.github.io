@@ -3,13 +3,14 @@ layout: post
 title: "Cache and Memory Optimization" 
 date: 2015-03-13
 ---
-According to past trend, processor-memory performance gap will become larger and software larger and more complex. So design 
-cache-conscious data layout in software design phase is important.  
+According to past trend, processor-memory performance gap will become larger,software larger and more complex. So design 
+cache-conscious data layout in software design is important.  
 
 ## restrict key word 
 According to C99 N1256 draft.    
 
->The intended use of the restrict qualifier (like the register storage class) is to promote optimization, and deleting all instances of the qualifier from all preprocessing translation units composing a conforming program does not change its meaning (i.e., observable behavior).
+>The intended use of the restrict qualifier (like the register storage class) is to promote optimization,
+ and deleting all instances of the qualifier from all preprocessing translation units composing a conforming program does not change its meaning (i.e., observable behavior).
 
 ### reference
 - [Memory Optimization GDC2003](http://www.research.scea.com/research/pdfs/GDC2003_Memory_Optimization_18Mar03.pdf)
