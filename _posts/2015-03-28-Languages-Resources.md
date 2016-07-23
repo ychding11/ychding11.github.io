@@ -7,28 +7,29 @@ date: 2015-03-28
 ## overloaded virtual function
 
 [Discussion of GCC -Woverloaded-virtual option](https://gcc.gnu.org/ml/gcc/1999-02n/msg00180.html) 
-Compiler is unable to tell "I am creating a new virtual function" from
+introduce this issue. Compiler is unable to tell "I am creating a new virtual function" from
 "I am overriding a virtual function from my baseclass". So GCC adds this option 
 to detect potential errors. But I think the option is not a good idea, especially
-when c++11 introduce a new key word *override* to explicitly tell compiler to 
-override existing virtual function or create new virtual function. For quick
-reference, I list some frequently used GCC compile options here. More compile
-options please read gcc manual. 
+when c++11 introduce a new key word *override* to explicitly tell compiler whether
+it wants to override existing virtual function or create new virtual function.
+For quick reference, I list some frequently used GCC compile options here. More
+compiler options please refer gcc manual. 
 
 - Werror, Treat all warnings as errors.
 - Wall, 
 - Wextra,
-- Wl,option, pass options to linker, *option* is linker's 
-option.
+- Wl,option, pass options to linker, *option* is linker 
+  option.
+- g3, include macro infomation into built binary.
 
 ## const reference
 
 Under what condition is this type useful? What problems will it cause?
-When user-defined complex type used as an input parameter, it's a good 
-choice. It's  highly recommanded in google's c++ code style.     
-But used as a data holder is a very bad idea. It almost have no flexibility.
-For example, following design is impossible for reference type. Sometimes 
-it is a very efficient design. In this case, const pointer type is good choice.
+When user-defined complex type used as an input parameter, it is a good 
+choice and  highly recommanded in google c++ code style.     
+It is a very bad idea when used as a data holder It almost have no flexibility.
+For example, following design is impossible for reference type. In this case,
+const pointer type is good choice.
 
 ```
 struct Holder
@@ -44,21 +45,24 @@ struct Holder
 
 ## using statement
 
-using keyword can introduce base class's member into derived class.
-For example expose base class's protected member to public in drived 
-class.     `using base::member` if member is name of overloaded function 
+`using` keyword can introduce base class member into derived class.
+For example expose base class protected member to public in drived 
+class.`using base::member` if member is name of overloaded function 
 in base class, then all functions with the same name will be introduced 
-into derived class. The point is very important.     In such case, if 
+into derived class. This is very important. In such case, if 
 derived class already have a member with same name, parameter list and 
 qualifier then derived class member will hide or override the 
 newly introduced ones, but they  are not conflict with each other.
 [The web link](http://en.cppreference.com/w/cpp/language/using_declaration)
-gives the detailed info.
+gives the detailed info and a good example.
 
 ## vtbl & vptr
 Where is vtable stored? Is this compiler dependent?
 Is vptr always offset 0 in an object memory layout?
 How about multiple inheritance?
+
+Is vtbl class specified? Derived class and base class
+have their own vtbl even no function override occur?
 
 ## type casting
 
@@ -66,7 +70,7 @@ How about multiple inheritance?
 Const type cast is used to add or remove the constness of an object pointed
 by a pointer. For example `const_cast< const type*>(pointer)` or 
 `const_cast<type*>(pointer)`. The latter one is always used to match interface.
-*When using, be caution, write operation will cause undefined behavior.*
+*When used, be caution, write operation will cause undefined behavior.*
 
 ### static_cast & dynamic_cast
 These two type cast can do pointer upcast and downcast. Upcast is converting
@@ -101,15 +105,15 @@ Using *inline* and *virtual* for the same member function does
 make sense. virtual function is also a member function. When 
 calling virtual function by base class pointer or reference,
 late binding applies. But for a known object, resolving function 
-call can be decided at compile time, so *inline* makes sense here.
-And remember thant *inline* is just a hint to compiler, it is up 
+call can be decided at compile time, *inline* makes sense here.
+Remember that *inline* is just a hint to compiler, it is up 
 to compiler to decide inline it or not.
 
 ## default member initializer
 
 
 ## auto_ptr
-*ownership* is the key to understand the auto_ptr. At any time 
+*ownership* is the key to understand auto_ptr. At any time 
 an auto_ptr has an ownership to an object or in null state.
 So copy operation will make one auto_ptr lose ownership. 
 Because of this reason, std containers are not suitable for 
@@ -117,7 +121,7 @@ auto_ptr, because some operations of these container may need
 copy operation.     For const auto_ptr, it can only be used to 
 do dereference. Copy from it will cause error.
 [using auto_ptr effectively](http://www.gotw.ca/publications/using_auto_ptr_effectively.htm)
-gives several examples for reference.
+gives several good examples for reference.
 
 ## private inheritance
 private inheritance is something like composition(has-a).
