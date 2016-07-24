@@ -136,42 +136,42 @@ This [page](https://isocpp.org/wiki/faq/private-inheritance)
 has a detailed explanation about private inheritance.
 
 ## operator overload
-*operator overload* is to compiler how built-in operators apply to 
+*operator overload* is to tell compiler how built-in operators apply to 
 user-defined data types by function overloading. Properly written
 operator overload can lead to more readable and maintainable code.
 
 - overloaded operators are just regular function.
 - operator overload can be implemented as a class
-member function or a free function.
+  member function or a free function.
 - lvalue and rvalue are key concepts in operator 
-overload. The overloaded operators need to return 
-somethings. When they returns const type, it is 
-rvalue. non-const type, lvalue.
-- *operator ++* and *operator --* are different, 
-because they have two versions: prefix and postfix.
-When overloading, compiler needs to tell one from 
-another. They are unary operators. when overloading 
-as a member function, no input parameter is needed.
-In order to different them, postfix operator accepts
-an int type parameter. 
+  overload. The overloaded operators need to return 
+  somethings. When they returns const type, it is 
+  rvalue. non-const type, lvalue.
+- *operator ++* and *operator --* are different from
+  other operators. Because they have two versions:
+  prefix and postfix. When overloading, compiler
+  needs to tell one from another. They are unary operators.
+  when overloading as a member function, no input parameter is needed.
+  In order to different them, postfix operator accepts
+  an int type parameter. 
 - In operator overload, prefix ++ and -- are more 
-efficient than posfix ones and implement posfix ones 
-in terms of prefix ones.
+  efficient than posfix ones and implement posfix ones 
+  in terms of prefix ones.
 - Rational operator overload, just need to overload 
-operator < correctly. All other rational operators
-can based on it. For a user-defined data type, after
-implementing operator <, it can be insert into STL 
-containers. In addition, operator < must adhere two 
-laws: Trichotomy and tansitivity.
+  operator < correctly. All other rational operators
+  can based on it. For a user-defined data type, after
+  implementing operator <, it can be insert into STL 
+  containers. In addition, operator < must adhere two 
+  laws: Trichotomy and tansitivity.
 - stream insert operator << and >> should be 
-overloaded as a free function and decare the 
-function as an friend of the user-defined 
-data type. 
+  overloaded as a free function and decare the 
+  function as an friend of the user-defined 
+  data type. 
 - Some operators can not be overloaded, because 
-from their meaning, they should be reinterpreted 
-by user-defined data type. For example, scop resolution 
-::, member selection ., sizeof, typid, typcast, 
-ternary condition ?:.
+  from their meaning, they should not be reinterpreted 
+  by user-defined data type. For example, scop resolution 
+  ::, member selection ., sizeof, typid, typcast, 
+  ternary condition ?:.
 - [reference](http://www.keithschwarz.com/cs106l/fall2010/course-reader/Ch10_OperatorOverloading.pdf)
 
 ## random number generator
@@ -185,11 +185,12 @@ random sequence is periodic because of the limitation of computer.
 ## IEE745 float point number representation
 [IEEE745](http://cs.boisestate.edu/~alark/cs354/lectures/ieee754.pdf)
 introduction includes its binary format, its ranges and examples.
-Web based [demo](http://babbage.cs.qc.cuny.edu/IEEE-754/), it gives
+Web based [demo](http://babbage.cs.qc.cuny.edu/IEEE-754/) gives
 binary format when texting an real number. Very interesting place to 
 learn IEEE745 standard.
 
 ## placement new
+
 It provides a method to place an object to a paticular location in memory 
 when calling constructor. It also transfers the responsibility to programmer 
 that the memory address passed to "placement new" is big enough to hold the 
@@ -198,6 +199,7 @@ this case, explicitly calling destructor is needed. It is reasonable because
 that you take the role of comiler here.
 
 ## only destructor be declared as private or protected
+
 It can force the class only can be allocate dynamically. 
 That is object can only be created by new(). Object 
 allocate in such way `Type obj` is forbidden.
@@ -205,12 +207,12 @@ allocate in such way `Type obj` is forbidden.
 ## Learning materials
 
 - [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
-contents about c++, very good materials for references.
+  contents about c++, very good materials for references.
 - [C and C++ API Reference](http://www.cplusplus.com/) 
-Very good website for C++ STL API lookup, lots of usage 
-demoes facilitate beginners.
+  Very good website for C++ STL API lookup, lots of usage 
+  demoes facilitate beginners.
 - [Slide about C++ multiple inheritance object layout](http://lifegoo.pluskid.org/upload/doc/object_models/C++%20Object%20Model.pdf) 
-A simple introduce to c++ memory layout, mainly focus on vptr implementation 
-and runtime-type-info implementaion. It also mentioned the object construct 
-order, but no detailed explanations.
+  A simple introduce to c++ memory layout, mainly focus on vptr implementation 
+  and runtime-type-info implementaion. It also mentioned the object construct 
+  order, but no detailed explanations.
 - [Standford CS106L 2010 Fall](http://www.keithschwarz.com/cs106l/fall2010/)
