@@ -64,6 +64,140 @@ How about multiple inheritance?
 Is vtbl class specified? Derived class and base class
 have their own vtbl even no function override occur?
 
+derived class does not override base class virtual function.
+```
+ 43 class Base
+ 44 {
+ 45  public:
+ 46     Base() {}
+ 47     ~Base() { std::cout << "~Base()" << std::endl; }
+ 48     virtual void f(int, int)
+ 49     { std::cout << "Base::f(int, int)" << std::endl; }
+ 50     virtual void f(int)
+ 51     { std::cout << "Base::f(int)" << std::endl; }
+ 52 };
+ 53 
+ 54 class Derived : public Base
+ 55 {
+ 56 public:
+ 57     Derived() {}
+ 58     ~Derived(){}
+ 59 };
+ 60 
+ 61 int main()
+ 62 {
+ 63    Base base;
+ 64    Derived derive;
+ 65    return 0;
+ 66 }                                                    
+```
+vtbl info:
+```
+(gdb) info vtbl base
+vtable for 'Base' @ 0x400c30 (subobject @ 0x7fffffffdf20):
+[0]: 0x400a86 <Base::f(int, int)>
+[1]: 0x400ab6 <Base::f(int)>
+(gdb) info vtbl derive
+vtable for 'Derived' @ 0x400c10 (subobject @ 0x7fffffffdf10):
+[0]: 0x400a86 <Base::f(int, int)>
+[1]: 0x400ab6 <Base::f(int)>
+```
+
+derived class partly overrides base class virtual function
+```
+ 43 class Base
+ 44 {
+ 45  public:
+ 46     Base() {}
+ 47     ~Base() { std::cout << "~Base()" << std::endl; }
+ 48     virtual void f(int, int)
+ 49     { std::cout << "Base::f(int, int)" << std::endl; }
+ 50     virtual void f(int)
+ 51     { std::cout << "Base::f(int)" << std::endl; }
+ 52 };
+ 53 
+ 54 class Derived : public Base
+ 55 {
+ 56 public:
+ 57     Derived() {}
+ 58     ~Derived(){}
+ 59     virtual void f(int)
+ 60     { std::cout << "Derived::f(int)" << std::endl; }
+ 61 };
+ 62 
+ 63 int main()
+ 64 {
+ 65    Base base; // will be instanced with protected destructor?
+ 66    Derived derive;
+ 67    return 0;
+ 68 }                                                   
+```
+```
+(gdb) info vtbl base
+vtable for 'Base' @ 0x400c70 (subobject @ 0x7fffffffdf20):
+[0]: 0x400a86 <Base::f(int, int)>
+[1]: 0x400ab6 <Base::f(int)>
+(gdb) info vtbl derive
+vtable for 'Derived' @ 0x400c50 (subobject @ 0x7fffffffdf10):
+[0]: 0x400a86 <Base::f(int, int)>
+[1]: 0x400b30 <Derived::f(int)>
+```
+
+derived class completely overrides base class virtual function and 
+create new virtual function.
+```
+ 43 class Base
+ 44 {
+ 45  public:
+ 46     Base() {}
+ 47     ~Base() { std::cout << "~Base()" << std::endl; }
+ 48     virtual void f(int, int)
+ 49     { std::cout << "Base::f(int, int)" << std::endl; }
+ 50     virtual void f(int)
+ 51     { std::cout << "Base::f(int)" << std::endl; }
+ 52 };
+ 53 
+ 54 class Derived : public Base
+ 55 {
+ 56 public:
+ 57     Derived() {}
+ 58     ~Derived(){}
+ 59     //using Base::f;
+ 60     virtual void f(int, int, int)
+ 61     { std::cout << "Derived::f(int, int, int)" << std::endl; }
+ 62     virtual void f(int, int)
+ 63     { std::cout << "Derived::f(int, int)" << std::endl; }
+ 64     virtual void f(int)
+ 65     { std::cout << "Derived::f(int)" << std::endl; }
+ 66 };
+ 67 
+ 68 int main()
+ 69 {
+ 70    Base base;
+ 71    Derived derive;
+ 72    Base *b = &derive;
+ 73    b->f(0, 1);
+ 74    return 0;
+ 75 }                                     
+```
+Corresponding vtbl info:
+```
+(gdb) info vtbl base
+vtable for 'Base' @ 0x400df0 (subobject @ 0x7fffffffdf20):
+[0]: 0x400b52 <Base::f(int, int)>
+[1]: 0x400b82 <Base::f(int)>
+(gdb) info vtbl derive
+vtable for 'Derived' @ 0x400db0 (subobject @ 0x7fffffffdf10):
+[0]: 0x400c30 <Derived::f(int, int)>
+[1]: 0x400c60 <Derived::f(int)>
+[2]: 0x400bfc <Derived::f(int, int, int)>
+(gdb) info vtbl b
+vtable for 'Base' @ 0x400db0 (subobject @ 0x7fffffffdf10):
+[0]: 0x400c30 <Derived::f(int, int)>
+[1]: 0x400c60 <Derived::f(int)>
+
+```
+
 ## type casting
 
 ### const_cast
