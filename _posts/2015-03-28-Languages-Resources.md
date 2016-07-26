@@ -65,6 +65,7 @@ Is vtbl class specified? Derived class and base class
 have their own vtbl even no function override occur?
 
 derived class does not override base class virtual function.
+
 ```
  43 class Base
  44 {
@@ -91,7 +92,9 @@ derived class does not override base class virtual function.
  65    return 0;
  66 }                                                    
 ```
+
 vtbl info:
+
 ```
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400c30 (subobject @ 0x7fffffffdf20):
@@ -104,6 +107,7 @@ vtable for 'Derived' @ 0x400c10 (subobject @ 0x7fffffffdf10):
 ```
 
 derived class partly overrides base class virtual function
+
 ```
  43 class Base
  44 {
@@ -132,6 +136,7 @@ derived class partly overrides base class virtual function
  67    return 0;
  68 }                                                   
 ```
+
 ```
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400c70 (subobject @ 0x7fffffffdf20):
@@ -145,6 +150,7 @@ vtable for 'Derived' @ 0x400c50 (subobject @ 0x7fffffffdf10):
 
 derived class completely overrides base class virtual function and 
 create new virtual function.
+
 ```
  43 class Base
  44 {
@@ -181,6 +187,7 @@ create new virtual function.
  75 }                                     
 ```
 Corresponding vtbl info:
+
 ```
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400df0 (subobject @ 0x7fffffffdf20):
