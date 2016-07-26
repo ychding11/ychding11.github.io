@@ -199,7 +199,6 @@ vtable for 'Base' @ 0x400db0 (subobject @ 0x7fffffffdf10):
 ```
 
 ## type casting
-
 ### const_cast
 Const type cast is used to add or remove the constness of an object pointed
 by a pointer. For example `const_cast< const type*>(pointer)` or 
@@ -216,7 +215,6 @@ will get a NULL pointer. Some compilers don't support runtime-type-info,
 in such case, the above usage won't work properly.
 
 ## cross initialization && switch-case
-
 ```
 switch(a)
 {
