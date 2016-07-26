@@ -205,6 +205,50 @@ vtable for 'Base' @ 0x400db0 (subobject @ 0x7fffffffdf10):
 
 ```
 
+```
+ 43 class Base
+ 44 {
+ 45  public:
+ 46     Base() {}
+ 47     ~Base() { std::cout << "~Base()" << std::endl; }
+ 48     virtual void f(int, int)
+ 49     { std::cout << "Base::f(int, int)" << std::endl; }
+ 50     virtual void f(int)
+ 51     { std::cout << "Base::f(int)" << std::endl; }
+ 52 };
+ 53 
+ 54 class Derived : public Base
+ 55 {
+ 56 public:
+ 57     Derived() {}
+ 58     ~Derived(){}
+ 59     virtual void f(int)
+ 60     { std::cout << "Derived::f(int)" << std::endl; }
+ 61     virtual void f(int, int)
+ 62     { std::cout << "Derived::f(int, int)" << std::endl; }
+ 63 };
+ 64 
+ 65 int main()
+ 66 {
+ 67    Base base; // will be instanced with protected destructor?
+ 68    Derived derive;
+ 69    Base *p = &derive;
+ 70    p->f(0);
+ 71    return 0;
+ 72 }                            
+```
+
+```
+(gdb) info vtbl base
+vtable for 'Base' @ 0x400d70 (subobject @ 0x7fffffffdf20):
+[0]: 0x400b52 <Base::f(int, int)>
+[1]: 0x400b82 <Base::f(int)>
+(gdb) info vtbl derive
+vtable for 'Derived' @ 0x400d50 (subobject @ 0x7fffffffdf10):
+[0]: 0x400c2a <Derived::f(int, int)>
+[1]: 0x400bfc <Derived::f(int)>
+```
+
 ## type casting
 
 ### const_cast
