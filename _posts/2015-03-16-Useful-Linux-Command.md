@@ -41,6 +41,8 @@ It can tell you what driver is in use now.
   very helpful to solve problems such as wifi does not work.
 - ` sudo apt-get install bcmwl-kernel-source` install BCM43142 wifi driver.
 - `mount -t "ntfs" -o ro /dev/sda1 /mountpoint` mount with read-only option.
+- `rpm -qa`, list all installed package in centos system. `rpm -q --list package-name` 
+  list all files related to package. `rpm -q --state package-name`, query package state. 
  
 ## Search and Replace
 
@@ -59,18 +61,18 @@ It can tell you what driver is in use now.
   lists all c source files, including cpp files and h files in current 
   directories and its subdirectories.   
 - *find* has many options, such as *-regex*, *-name*, *-iname*. They belog 
-to the same category, telling *find* how to match the specified *pattern* 
-in command line. Command manual has detail info, here I just give a brief 
-description.    *-name* only matches file name excluding the pre directories.  
-*-iname* the same with *-name*, except that the match is case insensitive.    
-*-regex* matches whole file path, including pre directories and regular 
-expression is different with *-name*.
+  to the same category, telling *find* how to match the specified *pattern* 
+  in command line. Command manual has detail info, here I just give a brief 
+  description.  *-name* only matches file name excluding the pre-directories.  
+  *-iname* the same with *-name*, except that the match is case insensitive.    
+  *-regex* matches whole file path, including pre directories and regular 
+  expression is different with *-name*.
 - `grep -i 'question' -r ./` Search all files recursively in current directory 
-to find lines containing key word *question*. Another grep command 
-`grep -i question -rl ./`, it lists all files in current directory containing key 
-word *question* instead of displaying matched lines. Default match mode is *NOT* 
-exact match the whole word. `'\bquestion\b'` pattern tell *grep* matches whole 
-world only. 
+  to find lines containing key word *question*. Another grep command 
+  `grep -i question -rl ./`, it lists all files in current directory containing key 
+  word *question* instead of displaying matched lines. Default match mode is *NOT* 
+  exact match the whole word. `'\<question\>'` pattern tell *grep* matches whole 
+  world only. 
 - `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;` search 
   "menuMode" in all mel files. "{}" represents the current processing file.
 - `sed -i 's/Do_Movement/cameraMovement/g' ./shadow_mapping.cpp` Find and replace Do_Movement with cameraMovement 

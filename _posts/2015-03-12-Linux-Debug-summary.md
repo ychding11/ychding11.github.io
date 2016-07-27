@@ -113,6 +113,7 @@ terminate itself.
   `macro expand macro-name` print expanded expression.
   NOTE: add -g3 compiler option to keey macro info presented
   in program.
++ set source files search path, `dir path-to-source`
 
 [GDB docs](http://sourceware.org/gdb/current/onlinedocs/gdb/)
 char extend to int using sign extension.
