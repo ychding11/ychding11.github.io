@@ -114,6 +114,9 @@ terminate itself.
   NOTE: add -g3 compiler option to keey macro info presented
   in program.
 + set source files search path, `dir path-to-source`
++ set breakpoints, `b file::line`
++ disable breakpoints, `disable b` and `disable b no`
++ query breakpoints, `info b`
 
 [GDB docs](http://sourceware.org/gdb/current/onlinedocs/gdb/)
 char extend to int using sign extension.
