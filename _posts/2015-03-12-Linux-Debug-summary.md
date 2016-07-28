@@ -126,6 +126,14 @@ char extend to int using sign extension.
 applied to specified function. Sometimes it is helpful to analyse errors only 
 occured in release version. Even if func is a template.
 
+## case summary
+1. Param *this* is overrided by write operations on stack. It leads to memory
+   access violation when accessing object member variable. In addition the
+   bug I fixed only occurs on Linux platform. So I trend to believe stack is
+   different between Linux and Windows.
+2. When an image library parses a psd file. It consumes lots of time and crash
+   program. 
+
 ## reference
 - A detailed core pattern [setting](http://man7.org/linux/man-pages/man5/core.5.html) 
 - An introduce to [core dump](http://www.cnblogs.com/hazir/p/linxu_core_dump.html)    
