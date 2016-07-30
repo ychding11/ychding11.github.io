@@ -132,7 +132,12 @@ occured in release version. Even if func is a template.
    bug I fixed only occurs on Linux platform. So I trend to believe stack is
    different between Linux and Windows.
 2. When an image library parses a psd file. It consumes lots of time and crash
-   program. 
+   the running program. Crash issue maybe caused by memory access violation or
+   stack overflow. Performance issue is always difficult to handle. This time
+   I use debugger to step every statements to dig the bottleneck. At the end
+   I found several parsed elements is extremely large. They control loops and
+   decide memory allocation size. These operations do non-sense things and consume
+   lots of time. 
 
 ## reference
 - A detailed core pattern [setting](http://man7.org/linux/man-pages/man5/core.5.html) 
