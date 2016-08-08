@@ -14,9 +14,11 @@ date: 2015-03-12
   `ulimit -c unlimited` command is to set core file size, unlimited means
   dumped core file size has no limitation.
 - Customizing dumped file name. Configure file */proc/sys/kernel/core_pattern*  controls core file name convention.
-`echo "/tmp/corefiles/core-%e-%p-%t" >> /proc/sys/kernel/core_pattern` set a new pattern for generated core file. To ensure command takes effects, use command `cat /proc/sys/kernel/core_pattern` to check the settings. Below is an explanations for some wildcard for references.   
+  `echo "/tmp/corefiles/core-%e-%p-%t" >> /proc/sys/kernel/core_pattern` set a new pattern for generated core file.
+  To ensure command takes effects, read `cat /proc/sys/kernel/core_pattern` to check the settings. Below is simple list
+  for some wildcard for references.   
 - Analyse dumped core file with gdb. Rebuild code with debug info added,for example adding -g compile option for gcc. 
-Use following command to open core file. `gdb a.out /tmp/corefiles/core-a.out-12754-1457789593`
+  Use command to open core file. `gdb a.out /tmp/corefiles/core-a.out-12754-1457789593`
 
 For reference.  
 
@@ -51,11 +53,9 @@ has lots of C++ disassembly code examples. Learning such examples does much help
 [Introduce to x64 assemble under Linux Platform](https://cs.nyu.edu/courses/fall11/CSCI-GA.2130-001/x64-intro.pdf) The paper 
 mainly focus on C Compiler. 
 [intel LEA instruction explaination](https://courses.engr.illinois.edu/ece390/archive/spr2002/books/labmanual/inst-ref-lea.html) 
-*lea* instruction only calculate effective memory address, no memory 
-access happens.
+*lea* instruction only calculate effective memory address, no memory access happens.
 The [link](http://stackoverflow.com/questions/1699748/what-is-the-difference-between-mov-and-lea) 
 gives an comparison between *lea* instruction and *mov* instruction.
-
 
 ## Dynamic Shared Library
 
@@ -78,7 +78,8 @@ determines effectiveness of dynamic liner's hash algorithms design.
 
 Symbol relocation process may be delayed to some later time when a symbol is 
 actually used. This is called *lazy relocation process*. Using *-z now* linker 
-option can cancell it.  This [paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf)
+option can cancell it. 
+This [paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf)
 introduces some debug skils about load dependencies errors. Some of them 
 are very interesting.
 
