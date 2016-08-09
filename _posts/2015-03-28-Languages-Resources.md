@@ -368,12 +368,34 @@ into software. It based on some generating algorithms, for example,
 middle-square-method presented by Von Neumann. So the generated 
 random sequence is periodic because of the limitation of computer.
 
-## IEE745 float point number representation
+## IEE745 Float Point Number Representation
+
 [IEEE745](http://cs.boisestate.edu/~alark/cs354/lectures/ieee754.pdf)
-introduction includes its binary format, its ranges and examples.
+introduction includes binary formats, ranges and examples.
 Web based [demo](http://babbage.cs.qc.cuny.edu/IEEE-754/) gives
 binary format when texting an real number. Very interesting place to 
 learn IEEE745 standard.
+
+It is different from integer number that when diving by an zero, it
+does not cause an exception, instead you get an inf. Sample code:
+
+```
+  5 int main()
+  6 {
+  7 
+  8     cout << 1.0 / 0.0 << std::endl;
+  9     cout << -1.0 / 0.0 << std::endl;
+ 10     return 0;                                                                                                                                                                                                  
+ 11 }   
+```
+
+Result:
+
+```
+$ ./a.out 
+inf
+-inf
+```
 
 ## placement new
 
