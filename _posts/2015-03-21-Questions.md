@@ -3,7 +3,10 @@ layout: post
 title: "Questions" 
 date: 2015-03-21
 ---
-- Infinite Function Call Loop can lead to stack overflow, How can we detect it in runtime?   
+
+## Infinite Function call loop
+
+  Infinite Function Call Loop can lead to stack overflow, How can we detect it in runtime?   
   For example,A-->B-->C-->A. In other case, a very deep function call may also produce
   the same problem. It is more an design issue than a bug. In our design, for example,
   evaluating value in a DAG we should add such detection to avoid crash.
@@ -23,7 +26,7 @@ date: 2015-03-21
 00007FFC54FC9D87  mov  rcx,qword ptr [rcx]   the instruction loads rcx referenced memory into rcx. 
 ```
 
-Question: From perspective of assembly language, is *this* an address?	
+## Question: From perspective of assembly language, is *this* an address?	
 
 - What is the purpose of a protected or private destructor except that it prevents
   class instanced? Singleton pattern is not included.
@@ -40,10 +43,24 @@ Question: From perspective of assembly language, is *this* an address?
   different in data type. That means you have duplicate code in your design. Any good 
   ideas to solve this problems? 
 
-- How does a c++ compiler know a virtual funcation is called?
+## How does a c++ compiler know a virtual funcation is called
+
   `pBasepter->f()` How it knows f() is a virtual function or
   ordinary member function?
-- Suppose designing a class which has static member variables. When do these static members
-  destroyed? Can anything cause these member partially destroyed?
+ 
+## When was static class member destroyed
 
+  Suppose designing a class which has static member variables. When do these static members
+  destroyed? If they resides in a shared lib, lib unload operation can lead these variables 
+  to destroy. Can anything makes these static members partially destroyed?
+
+## delete[] operation causes crash issue.
+
+```
+delete[] mPtr;
+```
+
+The statement cause a segment fault error on Linux platform. But on Windows, it runs ok.
+I am sure mPtr is allocated by new[] operator and no double delete operation to mPtr.
+So what is the root cause?
 
