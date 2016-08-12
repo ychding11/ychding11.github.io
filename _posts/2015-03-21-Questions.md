@@ -15,7 +15,9 @@ date: 2015-03-21
   run faster than before or use less memory? Does this expression debug friendly? Watch varible,
   set breakpoints, evaluate expression is more convenient?   
 
-- Access violation at address XXXX is a popular runtime error. Address 0x00000 always means 
+## Access Violation
+
+  Access violation at address XXXX is a popular runtime error. Address 0x00000 always means 
   null pointer access, Address 0x12345AB or something like that maybe indicate array index is 
   out of bound. How the system distinguish one from another?
 
@@ -63,4 +65,8 @@ delete[] mPtr;
 The statement cause a segment fault error on Linux platform. But on Windows, it runs ok.
 I am sure mPtr is allocated by new[] operator and no double delete operation to mPtr.
 So what is the root cause?
+Sometimes this dynamic memory issue is very difficult. It is unwise to analyse it by 
+simply reviewing code. We need tools to help, for example, valgrind. At last I found
+it is not the delete[] operation cause the problems but memory copy operation where 
+destination and source have different sizes.
 
