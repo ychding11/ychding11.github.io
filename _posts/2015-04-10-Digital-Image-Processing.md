@@ -3,12 +3,21 @@ layout: post
 title: "Digital Image Processing" 
 date: 2015-04-10
 ---
-## Image format
+
+## Image Format
+
 + PSD file [format](http://www.adobe.com/devnet-apps/photoshop/fileformatashtml/)
 + PSD file parser [source code](http://telegraphics.com.au/sw/product/psdparse)
 
 ## Image Processing Library
+
 + [ImageMagick](http://git.imagemagick.org/repos/ImageMagick)
+
+## Image Algorithms
+
+### Tone Mapping
+It is an color mapping method used in HDR to LDR conversion.
+- Tone mapping [wiki](https://en.wikipedia.org/wiki/Tone_mapping)
 
 ## Reference
 + [CNN for visual recognition](http://vision.stanford.edu/teaching/cs231n/)
