@@ -100,3 +100,5 @@ in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp fil
   selection in virsual mode. `:help object-select` and `:help text-objects`for details.
 
 [vim regular expression](http://www.cnblogs.com/PegasusWang/p/3153300.html)
+
++ Input `chrome://version` into chrome browser to check chrome info.
