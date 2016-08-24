@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Graphics Resources" 
-date: 2015-03-23
+date: 2016-03-23
 ---
 
 ## SIGGRAPH 
@@ -35,7 +35,7 @@ date: 2015-03-23
 - [OpenGL Shader tutorials](https://www.opengl.org/sdk/docs/tutorials/TyphoonLabs/Chapter_4.pdf) talks about some advancted lighting 
   techniques widely used in OpenGL, including per-pixel illumination model, bump mapping, displacement mapping and so on.
 
-## Bump mapping, Normal mapping and Displacement mapping
+## Bump Mapping, Normal Mapping and Displacement mapping
 
 - [Bump Normal Displacement mapping comparison](http://blog.digitaltutors.com/bump-normal-and-displacement-maps/)
   This blog post gives a comparison about bump mapping, normal mapping, displacement mapping.
@@ -54,7 +54,7 @@ date: 2015-03-23
   It has an detailed info about nurbs modeling. nurbs modeling is an 
   comparison to subdivision surface. When modeling complex object, it 
   need lots of nurbs and deforming the object lead to cracks at seams.
-- [Standford slide](http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf)
+- [Standford graphic course slide](http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf)
   It is  a very good material about subdivision, containing background 
   introduction, basic ideas and comparison.
 
@@ -74,6 +74,7 @@ on equation.
 - [Math fun](https://www.mathsisfun.com/geometry/tessellation.html)
 - [Cool Math](http://www.coolmath.com/lesson-tessellations-1)
 - [Intel Vtune](https://software.intel.com/en-us/node/596501)
+
 ## Ray Tracing
 
 - [Stanford course](http://candela.stanford.edu/cs348b-14/doku.php)
