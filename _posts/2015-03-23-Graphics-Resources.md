@@ -63,12 +63,23 @@ date: 2015-03-23
 The creation of the surface is based 
 on equation.
 
+## BRDF
+
+- Disney BRDF analysis [tool](http://www.disneyanimation.com/technology/brdf.html)
+
+## Tessellation
+
+- [Nvida](http://www.nvidia.com/object/tessellation.html)
+- [Math forum](http://mathforum.org/sum95/suzanne/whattess.html)
+- [Math fun](https://www.mathsisfun.com/geometry/tessellation.html)
+- [Cool Math](http://www.coolmath.com/lesson-tessellations-1)
+- [Intel Vtune](https://software.intel.com/en-us/node/596501)
 ## Ray Tracing
 
 - [Stanford course](http://candela.stanford.edu/cs348b-14/doku.php)
   It introduces the basic ideas about ray tracing.
 - [99 lines ray tracer toy](http://www.kevinbeason.com/smallpt/)
-- [ray tracing overview](http://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
+- Ray tracing [overview](http://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
 - [pixar explanation about tray tracing](https://renderman.pixar.com/view/raytracing-fundamentals)
 - [ray tracing tutorial](https://www.ics.uci.edu/~gopi/CS211B/RayTracing%20tutorial.pdf)
 - [light transport simulation algorithms](http://iliyan.com/publications/VertexMerging)
