@@ -98,6 +98,8 @@ in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp fil
 - `%` jumps to matching braces. `y%` yanking contents between an item and its matching 
   item. `d%` deleting in the same way. vim object-select can do the similar block 
   selection in virsual mode. `:help object-select` and `:help text-objects`for details.
+- `:set invlist` Makes invisible characters visible. For example, $ for enter and ^I 
+  for tab. `:set nolist` Makes vim return to normal mode.
 
 [vim regular expression](http://www.cnblogs.com/PegasusWang/p/3153300.html)
 
