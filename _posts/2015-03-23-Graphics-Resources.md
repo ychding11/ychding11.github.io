@@ -76,13 +76,13 @@ The creation of the surface is based on equation.
 
 ## Maya
 
--[Coding Training Material](https://github.com/ADN-DevTech/Maya-Training-Material)
--[Maya plugins on github](https://github.com/illmillrig?tab=repositories)
--[Maya plugins](https://github.com/appleseedhq)
--[Maya Face Tracking Plugins](https://github.com/oscarwestberg/Face-Tracking-Maya)
--[Kara Blog](http://www.karajensen.com/)
--[Tree Generator](https://github.com/karajensen/tree-generator)
--[Maya Plugin](https://github.com/illmillrig/SurfaceAttach)
+- [Coding Training Material](https://github.com/ADN-DevTech/Maya-Training-Material)
+- [Maya plugins on github](https://github.com/illmillrig?tab=repositories)
+- [Maya plugins](https://github.com/appleseedhq)
+- [Maya Face Tracking Plugins](https://github.com/oscarwestberg/Face-Tracking-Maya)
+- [Kara Blog](http://www.karajensen.com/)
+- [Tree Generator](https://github.com/karajensen/tree-generator)
+- [Maya Plugin](https://github.com/illmillrig/SurfaceAttach)
 
 
 ## Ray Tracing
