@@ -54,9 +54,11 @@ date: 2016-03-23
   It has an detailed info about nurbs modeling. nurbs modeling is an 
   comparison to subdivision surface. When modeling complex object, it 
   need lots of nurbs and deforming the object lead to cracks at seams.
-- [Standford graphic course slide](http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf)
-  It is  a very good material about subdivision, containing background 
-  introduction, basic ideas and comparison.
+- [Survey on NURBS](http://design.osu.edu/carlson/history/PDFs/Piegl-NURBS-91.pdf)
+- [OpenGL Programming about NURBS](http://www.glprogramming.com/red/chapter12.html)
+- [NURBS Patch](http://www.3dtutorials.michaelorourke.com/tutorials/Modeling/Basics/NurbsPatchsIntro12.pdf)    
+- [Standford graphic course slide about Subdivision](http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf)
+  It is  a very good material about subdivision, containing background introduction, basic ideas and comparison.
 
 ## Parametric surface
 
@@ -73,6 +75,9 @@ The creation of the surface is based on equation.
 - [Math fun](https://www.mathsisfun.com/geometry/tessellation.html) 
 - [Cool Math](http://www.coolmath.com/lesson-tessellations-1) 
 - [Intel Vtune](https://software.intel.com/en-us/node/596501) 
+- [OpenGL wiki about Tessellation](https://www.opengl.org/wiki/Tessellation)
+- [CodeFlow about Tessellation](http://codeflow.org/entries/2010/nov/07/opengl-4-tessellation/)
+    
 
 ## Maya
 
