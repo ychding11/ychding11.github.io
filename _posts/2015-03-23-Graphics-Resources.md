@@ -75,6 +75,17 @@ on equation.
 - [Cool Math](http://www.coolmath.com/lesson-tessellations-1)
 - [Intel Vtune](https://software.intel.com/en-us/node/596501)
 
+## Maya
+
+-[Coding Training Material](https://github.com/ADN-DevTech/Maya-Training-Material)
+-[Maya plugins on github](https://github.com/illmillrig?tab=repositories)
+-[Maya plugins](https://github.com/appleseedhq)
+-[Maya Face Tracking Plugins](https://github.com/oscarwestberg/Face-Tracking-Maya)
+-[Kara Blog](http://www.karajensen.com/)
+-[Tree Generator](https://github.com/karajensen/tree-generator)
+-[Maya Plugin](https://github.com/illmillrig/SurfaceAttach)
+
+
 ## Ray Tracing
 
 - [Stanford course](http://candela.stanford.edu/cs348b-14/doku.php)
