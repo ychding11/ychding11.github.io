@@ -87,7 +87,8 @@ are very interesting.
 `-Wl,-rpath,'$ORIGIN'` option will tell linker to search current directory
 for needed libraries.
 
-## gdb debuger
+## GDB debuger
+
 A debuger is an important tool to analyse runtime errors.
 Compared with MSVC debuger, I found gdb is not so friendly.
 
@@ -118,6 +119,7 @@ terminate itself.
 + set breakpoints, `b file::line`
 + disable breakpoints, `disable b` and `disable b no`
 + query breakpoints, `info b`
++ display all thread stack info, `thread apply all bt`
 
 [GDB docs](http://sourceware.org/gdb/current/onlinedocs/gdb/)
 char extend to int using sign extension.
