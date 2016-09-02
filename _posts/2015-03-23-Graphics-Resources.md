@@ -60,8 +60,7 @@ date: 2016-03-23
 
 ## Parametric surface
 
-The creation of the surface is based 
-on equation.
+The creation of the surface is based on equation.
 
 ## BRDF
 
@@ -69,11 +68,11 @@ on equation.
 
 ## Tessellation
 
-- [Nvida](http://www.nvidia.com/object/tessellation.html)
-- [Math forum](http://mathforum.org/sum95/suzanne/whattess.html)
-- [Math fun](https://www.mathsisfun.com/geometry/tessellation.html)
-- [Cool Math](http://www.coolmath.com/lesson-tessellations-1)
-- [Intel Vtune](https://software.intel.com/en-us/node/596501)
+- [Nvida](http://www.nvidia.com/object/tessellation.html) 
+- [Math forum](http://mathforum.org/sum95/suzanne/whattess.html) 
+- [Math fun](https://www.mathsisfun.com/geometry/tessellation.html) 
+- [Cool Math](http://www.coolmath.com/lesson-tessellations-1) 
+- [Intel Vtune](https://software.intel.com/en-us/node/596501) 
 
 ## Maya
 
