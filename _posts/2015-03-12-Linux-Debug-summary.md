@@ -120,16 +120,20 @@ terminate itself.
 + disable breakpoints, `disable b` and `disable b no`
 + query breakpoints, `info b`
 + display all thread stack info, `thread apply all bt`
++ display loaded shared libraries, `info shared`
++ display how to run program. `help running`
 
 [GDB docs](http://sourceware.org/gdb/current/onlinedocs/gdb/)
 char extend to int using sign extension.
 
-## gcc __attribute__
+## GCC __attribute__
+
 `void __attribute__((optimize("O0"))) func() { }` can assure no optimization 
 applied to specified function. Sometimes it is helpful to analyse errors only 
 occured in release version. Even if func is a template.
 
-## case summary
+## Case Summary
+
 1. Param *this* is overrided by write operations on stack. It leads to memory
    access violation when accessing object member variable. In addition the
    bug I fixed only occurs on Linux platform. So I trend to believe stack is
@@ -142,12 +146,7 @@ occured in release version. Even if func is a template.
    decide memory allocation size. These operations do non-sense things and consume
    lots of time. 
 
-## reference
-- A detailed core pattern [setting](http://man7.org/linux/man-pages/man5/core.5.html) 
-- An introduce to [core dump](http://www.cnblogs.com/hazir/p/linxu_core_dump.html)    
-- The [page](http://dirac.org/linux/gdb/06-Debugging_A_Running_Process.php)
-  tells the story about how to debug a running process with gdb. Use gdb help command
-  `help running`.
-
-
-
+## Reference
+- [A core pattern setting](http://man7.org/linux/man-pages/man5/core.5.html) 
+- [An introduce to core dump](http://www.cnblogs.com/hazir/p/linxu_core_dump.html)    
+- [Debug a runnig process](http://dirac.org/linux/gdb/06-Debugging_A_Running_Process.php)
