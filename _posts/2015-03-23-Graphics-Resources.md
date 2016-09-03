@@ -40,7 +40,6 @@ date: 2016-03-23
 - [Bump Normal Displacement mapping comparison](http://blog.digitaltutors.com/bump-normal-and-displacement-maps/)
   This blog post gives a comparison about bump mapping, normal mapping, displacement mapping.
   It is helpful for beginners to construct overview concepts about those techniques. 
-
 - [Displacement Mapping Slide](https://perso.limsi.fr/jacquemi/OGL-4/OGL-4-slides.pdf)
   I thinks first things we need to know in those techniques is what info is stored and
   in what format. Then how these info is used or applied to what, light calculation?
@@ -66,7 +65,7 @@ The creation of the surface is based on equation.
 
 ## BRDF
 
-- Disney BRDF analysis [tool](http://www.disneyanimation.com/technology/brdf.html)
+- [Disney BRDF analysis Tool](http://www.disneyanimation.com/technology/brdf.html)
 
 ## Tessellation
 
@@ -92,15 +91,14 @@ The creation of the surface is based on equation.
 
 ## Ray Tracing
 
-- [Stanford course](http://candela.stanford.edu/cs348b-14/doku.php)
-  It introduces the basic ideas about ray tracing.
+- [Stanford course](http://candela.stanford.edu/cs348b-14/doku.php) It introduces the basic ideas about ray tracing.
 - [99 lines ray tracer toy](http://www.kevinbeason.com/smallpt/)
-- Ray tracing [overview](http://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
+- [Ray tracing overview](http://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
 - [pixar explanation about tray tracing](https://renderman.pixar.com/view/raytracing-fundamentals)
 - [ray tracing tutorial](https://www.ics.uci.edu/~gopi/CS211B/RayTracing%20tutorial.pdf)
 - [light transport simulation algorithms](http://iliyan.com/publications/VertexMerging)
   This page includes paper, code, results and other usefull materials.
 - [Monte Carlo Method](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/monte-carlo-integration)
 - [Random number generator](http://www.agner.org/random/?e=0,34)
-- Random number generator [pdf](http://www.maths.manchester.ac.uk/~ahazel/VBAC++_coursework3.pdf)
+- [Random number generator](http://www.maths.manchester.ac.uk/~ahazel/VBAC++_coursework3.pdf)
 - [Monte Carlo Simulation](http://ww2.odu.edu/~agodunov/teaching/notes/Cp01_random.pdf)
