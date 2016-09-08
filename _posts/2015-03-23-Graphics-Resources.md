@@ -49,14 +49,14 @@ date: 2016-03-23
 
 ## Geometry Shader & Subdivision
 
-- [NURBS Modeling](https://courses.cs.washington.edu/courses/cse459/06wi/help/mayaguide/Complete/NURBS.pdf)
+- [Maya NURBS Modeling](https://courses.cs.washington.edu/courses/cse459/06wi/help/mayaguide/Complete/NURBS.pdf)
   It has an detailed info about nurbs modeling. nurbs modeling is an 
   comparison to subdivision surface. When modeling complex object, it 
   need lots of nurbs and deforming the object lead to cracks at seams.
 - [Survey on NURBS](http://design.osu.edu/carlson/history/PDFs/Piegl-NURBS-91.pdf)
 - [OpenGL Programming about NURBS](http://www.glprogramming.com/red/chapter12.html)
-- [NURBS Patch](http://www.3dtutorials.michaelorourke.com/tutorials/Modeling/Basics/NurbsPatchsIntro12.pdf)    
-- [Standford graphic course slide about Subdivision](http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf)
+- [Maya NURBS Patch](http://www.3dtutorials.michaelorourke.com/tutorials/Modeling/Basics/NurbsPatchsIntro12.pdf)    
+- [Standford graphic course about Subdivision](http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf)
   It is  a very good material about subdivision, containing background introduction, basic ideas and comparison.
 
 ## Parametric surface
