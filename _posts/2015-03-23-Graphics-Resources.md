@@ -76,6 +76,10 @@ The creation of the surface is based on equation.
 - [Intel Vtune](https://software.intel.com/en-us/node/596501) 
 - [OpenGL wiki about Tessellation](https://www.opengl.org/wiki/Tessellation)
 - [CodeFlow about Tessellation](http://codeflow.org/entries/2010/nov/07/opengl-4-tessellation/)
+- [Tessellation Shader on github](https://github.com/NCCA/TessellationShader)
+- [Tessellate Bezier Surface dynamicly](https://github.com/Jakub-Ciecierski/TessellationGFX)
+- [Terrain Tessellation](https://github.com/hardware/TerrainTessellation)
+- [Maya Subdiv Plugin](https://github.com/dnkv/MayaTSubdiv)
     
 
 ## Maya
