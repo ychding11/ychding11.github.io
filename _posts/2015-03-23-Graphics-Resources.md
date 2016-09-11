@@ -63,6 +63,8 @@ date: 2016-03-23
     It is  a very good material about subdivision, containing background introduction, basic ideas and comparison.
 - [Catmull-Clark Subdivision](http://www.rorydriscoll.com/2008/08/01/catmull-clark-subdivision-the-basics/)
 - [GPU Subdiv on Windows](https://github.com/astrolagrange/GPU-based-feature-adaptive-rendering-of-Loop-subdivision-surfaces)
+- [Planet LOD](https://github.com/sp4cerat/Planet-LOD)
+- [Deformation Styles](https://github.com/sp4cerat/Deformation-Styles-using-Spline-Skinning)
 
 ## Parametric surface
 
