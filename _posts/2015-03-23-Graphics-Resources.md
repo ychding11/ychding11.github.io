@@ -11,13 +11,16 @@ date: 2016-03-23
 - [Simulation of Wrinkled Surfaces](http://research.microsoft.com/pubs/73939/p286-blinn.pdf) The paper presents normal mapping ideas
   first time. 
 
-## Graphic Course 
+## Graphic Course & Homepage 
 
 - [Real-Time High Quality Rendering](http://cseweb.ucsd.edu/~ravir/274/15/274.html) The course has some advanced topics,
   maybe it is not a good choice for beginners. 
 - [CMU Graphics Course Collection](http://graphics.cs.cmu.edu/?page_id=16) Lots of materials for you to start CG explore.
 - [Stanford Graphics Course Collection](http://graphics.stanford.edu/courses/) Slides Papers and Assignments   
 - [Introduction to 3D Image Generation](http://web.cse.ohio-state.edu/~hwshen/781/Site/Main.html)
+- [Matt Homepage](https://graphics.stanford.edu/~mdfisher/index.html)
+- [Prideout github homepage](http://github.prideout.net/)
+- [hardware github repo](https://github.com/hardware)
 
 ## OpenGL
 
@@ -50,14 +53,16 @@ date: 2016-03-23
 ## Geometry Shader & Subdivision
 
 - [Maya NURBS Modeling](https://courses.cs.washington.edu/courses/cse459/06wi/help/mayaguide/Complete/NURBS.pdf)
-  It has an detailed info about nurbs modeling. nurbs modeling is an 
-  comparison to subdivision surface. When modeling complex object, it 
-  need lots of nurbs and deforming the object lead to cracks at seams.
+    It has an detailed info about nurbs modeling. nurbs modeling is an 
+    comparison to subdivision surface. When modeling complex object, it 
+    need lots of nurbs and deforming the object lead to cracks at seams.
 - [Survey on NURBS](http://design.osu.edu/carlson/history/PDFs/Piegl-NURBS-91.pdf)
 - [OpenGL Programming about NURBS](http://www.glprogramming.com/red/chapter12.html)
 - [Maya NURBS Patch](http://www.3dtutorials.michaelorourke.com/tutorials/Modeling/Basics/NurbsPatchsIntro12.pdf)    
 - [Standford graphic course about Subdivision](http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf)
-  It is  a very good material about subdivision, containing background introduction, basic ideas and comparison.
+    It is  a very good material about subdivision, containing background introduction, basic ideas and comparison.
+- [Catmull-Clark Subdivision](http://www.rorydriscoll.com/2008/08/01/catmull-clark-subdivision-the-basics/)
+- [GPU Subdiv on Windows](https://github.com/astrolagrange/GPU-based-feature-adaptive-rendering-of-Loop-subdivision-surfaces)
 
 ## Parametric surface
 
@@ -66,6 +71,7 @@ The creation of the surface is based on equation.
 ## BRDF
 
 - [Disney BRDF analysis Tool](http://www.disneyanimation.com/technology/brdf.html)
+- [Survey on BRDF Representation](http://www.cs.princeton.edu/~smr/cs348c-97/surveypaper.html)
 
 ## Tessellation
 
@@ -80,6 +86,7 @@ The creation of the surface is based on equation.
 - [Tessellate Bezier Surface dynamicly](https://github.com/Jakub-Ciecierski/TessellationGFX)
 - [Terrain Tessellation](https://github.com/hardware/TerrainTessellation)
 - [Maya Subdiv Plugin](https://github.com/dnkv/MayaTSubdiv)
+- [pyglet wiki](https://bitbucket.org/pyglet/pyglet/wiki/Home)
     
 
 ## Maya
