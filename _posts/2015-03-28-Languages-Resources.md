@@ -412,6 +412,10 @@ It can force the class only can be allocate dynamically.
 That is object can only be created by new(). Object 
 allocate in such way `Type obj` is forbidden.
 
+## in-class member initializer
+
+[Stroustrup talks](http://www.stroustrup.com/C++11FAQ.html#member-init)
+
 ## Learning materials
 
 - [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
