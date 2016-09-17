@@ -9,5 +9,9 @@ date: 2016-09-17
 - [Source Code Analysis]()
 - [Programming Language Pragmatics](http://www.cs.rochester.edu/~scott/pragmatics/)
 - [Python 2.7 manual](http://docs.pythontab.com/python/python2.7/modules.html)
+
+## Python Library
+
+- [peuclid doc](https://github.com/ezag/pyeuclid/blob/master/euclid.rst)
+- [Vertex Welding by Python](http://prideout.net/blog/?p=46)
 - [Fluid Dynamics](http://http.developer.nvidia.com/GPUGems/gpugems_ch38.html)
-- [Vertex Weld by Python](http://prideout.net/blog/?p=46)
