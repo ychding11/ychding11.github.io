@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Graphics Resources" 
+title: "Graphics Resources Collection" 
 date: 2016-03-23
 ---
 
@@ -14,41 +14,41 @@ date: 2016-03-23
 ## Graphic Course & Homepage 
 
 - [Real-Time High Quality Rendering](http://cseweb.ucsd.edu/~ravir/274/15/274.html) The course has some advanced topics,
-  maybe it is not a good choice for beginners. 
+    maybe it is not a good choice for beginners. 
 - [CMU Graphics Course Collection](http://graphics.cs.cmu.edu/?page_id=16) Lots of materials for you to start CG explore.
 - [Stanford Graphics Course Collection](http://graphics.stanford.edu/courses/) Slides Papers and Assignments   
 - [Introduction to 3D Image Generation](http://web.cse.ohio-state.edu/~hwshen/781/Site/Main.html)
 - [Matt Homepage](https://graphics.stanford.edu/~mdfisher/index.html)
-- [Prideout github homepage](http://github.prideout.net/)
+- [Prideout github page](http://github.prideout.net/)
 - [hardware github repo](https://github.com/hardware)
 
 ## OpenGL
 
 - [OpenGL3.x Specification](https://www.opengl.org/registry/doc/glspec32.core.20091207.pdf) This is an OpenGL specifications 
-  containing lotsof detailed description of OpenGL design. Perhaps We should regard it as a dictionary for lookup when in need.  
+    containing lotsof detailed description of OpenGL design. Perhaps We should regard it as a dictionary for lookup when in need.  
 - [Next Generation OpenGL](https://www.khronos.org/assets/uploads/events/Next-Generation-OpenGL-Dec14.pdf)The slide has a very
-  concrete description about 3D API of Khonoros group. It provides a family tree clearly depicting the relationship between
-  OpenGL, OpenGL ES, WebGL. It is very helpful to new beginners. Next generation API design is the main focus of slide, a
-  comparison list about traditional API and next-generation API design can tell lots of stories. Platform diversity and
-  radically changed GPU architecture drive such changes. 
+    concrete description about 3D API of Khonoros group. It provides a family tree clearly depicting the relationship between
+    OpenGL, OpenGL ES, WebGL. It is very helpful to new beginners. Next generation API design is the main focus of slide, a
+    comparison list about traditional API and next-generation API design can tell lots of stories. Platform diversity and
+    radically changed GPU architecture drive such changes. 
 - [Ambient Diffuse Specular Lighting Model](http://www.learnopengl.com/#!Lighting/Basic-Lighting) The web link may help to understand 
-  basic ideas of ADS.  
+    basic ideas of ADS.  
 - [Graphics Gems PDF Version](https://github.com/tl3shi/books/tree/master/GameDev/Graphics) It is a very good collection of Graphics 
-  related books.  
+    related books.  
 - [OpenGL Shader tutorials](https://www.opengl.org/sdk/docs/tutorials/TyphoonLabs/Chapter_4.pdf) talks about some advancted lighting 
-  techniques widely used in OpenGL, including per-pixel illumination model, bump mapping, displacement mapping and so on.
+    techniques widely used in OpenGL, including per-pixel illumination model, bump mapping, displacement mapping and so on.
 
 ## Bump Mapping, Normal Mapping and Displacement mapping
 
 - [Bump Normal Displacement mapping comparison](http://blog.digitaltutors.com/bump-normal-and-displacement-maps/)
-  This blog post gives a comparison about bump mapping, normal mapping, displacement mapping.
-  It is helpful for beginners to construct overview concepts about those techniques. 
+    This blog post gives a comparison about bump mapping, normal mapping, displacement mapping.
+    It is helpful for beginners to construct overview concepts about those techniques. 
 - [Displacement Mapping Slide](https://perso.limsi.fr/jacquemi/OGL-4/OGL-4-slides.pdf)
-  I thinks first things we need to know in those techniques is what info is stored and
-  in what format. Then how these info is used or applied to what, light calculation?
-  geometry modification? or others? These differences are key to identify them and that
-  would enhance our understanding. Today I explore on google and find a nice slide about
-  displacement mapping by accidently. So I put it here.
+    I thinks first things we need to know in those techniques is what info is stored and
+    in what format. Then how these info is used or applied to what, light calculation?
+    geometry modification? or others? These differences are key to identify them and that
+    would enhance our understanding. Today I explore on google and find a nice slide about
+    displacement mapping by accidently. So I put it here.
 
 ## Geometry Shader & Subdivision
 
@@ -61,19 +61,23 @@ date: 2016-03-23
 - [Maya NURBS Patch](http://www.3dtutorials.michaelorourke.com/tutorials/Modeling/Basics/NurbsPatchsIntro12.pdf)    
 - [Standford graphic course about Subdivision](http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf)
     It is  a very good material about subdivision, containing background introduction, basic ideas and comparison.
-- [Catmull-Clark Subdivision](http://www.rorydriscoll.com/2008/08/01/catmull-clark-subdivision-the-basics/)
-- [GPU Subdiv on Windows](https://github.com/astrolagrange/GPU-based-feature-adaptive-rendering-of-Loop-subdivision-surfaces)
-- [Planet LOD](https://github.com/sp4cerat/Planet-LOD)
-- [Deformation Styles](https://github.com/sp4cerat/Deformation-Styles-using-Spline-Skinning)
+- [Catmull-Clark Subdivision demo by example](http://www.rorydriscoll.com/2008/08/01/catmull-clark-subdivision-the-basics/)
+- [GPU Subdiv on Windows on github repo](https://github.com/astrolagrange/GPU-based-feature-adaptive-rendering-of-Loop-subdivision-surfaces)
+- [Planet LOD on github repo](https://github.com/sp4cerat/Planet-LOD)
+- [Deformation Styles on github repo](https://github.com/sp4cerat/Deformation-Styles-using-Spline-Skinning)
 
 ## Parametric surface
 
 The creation of the surface is based on equation.
 
+- [Splines Surface Math Representation](http://mrl.nyu.edu/~perlin/courses/spring2009/splines4.html)
+    clear to understand.
+
 ## BRDF
 
 - [Disney BRDF analysis Tool](http://www.disneyanimation.com/technology/brdf.html)
 - [Survey on BRDF Representation](http://www.cs.princeton.edu/~smr/cs348c-97/surveypaper.html)
+
 
 ## Tessellation
 
@@ -83,12 +87,13 @@ The creation of the surface is based on equation.
 - [Cool Math](http://www.coolmath.com/lesson-tessellations-1) 
 - [Intel Vtune](https://software.intel.com/en-us/node/596501) 
 - [OpenGL wiki about Tessellation](https://www.opengl.org/wiki/Tessellation)
-- [CodeFlow about Tessellation](http://codeflow.org/entries/2010/nov/07/opengl-4-tessellation/)
-- [Tessellation Shader on github](https://github.com/NCCA/TessellationShader)
-- [Tessellate Bezier Surface dynamicly](https://github.com/Jakub-Ciecierski/TessellationGFX)
-- [Terrain Tessellation](https://github.com/hardware/TerrainTessellation)
+- [Tessellation on CodeFlow](http://codeflow.org/entries/2010/nov/07/opengl-4-tessellation/)
+- [Tessellation Shader on github repo](https://github.com/NCCA/TessellationShader)
+- [Tessellate Bezier Surface dynamicly on github repo](https://github.com/Jakub-Ciecierski/TessellationGFX)
+- [Terrain Tessellation on github repo](https://github.com/hardware/TerrainTessellation)
 - [Maya Subdiv Plugin](https://github.com/dnkv/MayaTSubdiv)
 - [pyglet wiki](https://bitbucket.org/pyglet/pyglet/wiki/Home)
+- [pyglet on pip](https://pypi.python.org/pypi/pyglet)
     
 
 ## Maya
@@ -110,7 +115,7 @@ The creation of the surface is based on equation.
 - [pixar explanation about tray tracing](https://renderman.pixar.com/view/raytracing-fundamentals)
 - [ray tracing tutorial](https://www.ics.uci.edu/~gopi/CS211B/RayTracing%20tutorial.pdf)
 - [light transport simulation algorithms](http://iliyan.com/publications/VertexMerging)
-  This page includes paper, code, results and other usefull materials.
+    This page includes paper, code, results and other usefull materials.
 - [Monte Carlo Method](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/monte-carlo-integration)
 - [Random number generator](http://www.agner.org/random/?e=0,34)
 - [Random number generator](http://www.maths.manchester.ac.uk/~ahazel/VBAC++_coursework3.pdf)
