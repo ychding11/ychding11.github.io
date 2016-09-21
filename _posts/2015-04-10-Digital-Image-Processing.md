@@ -27,6 +27,11 @@ It is an color mapping method used in HDR to LDR conversion.
 - [How Kinect works](http://users.dickinson.edu/~jmac/selected-talks/kinect.pdf)
 - [How Kinect works](https://courses.engr.illinois.edu/cs498dh/fa2011/lectures/Lecture%2025%20-%20How%20the%20Kinect%20Works%20-%20CP%20Fall%202011.pdf)
 
+### Background replacement
+
+- [Video Background Replacement](http://vr.sdu.edu.cn/~zf/projects/slippage/)
+- [Recovery sound from video](http://people.csail.mit.edu/mrub/VisualMic/)
+
 ## Reference
 + [CNN for visual recognition](http://vision.stanford.edu/teaching/cs231n/)
 + [awesome computer vision on github](https://github.com/jbhuang0604/awesome-computer-vision)
