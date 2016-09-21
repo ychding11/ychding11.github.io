@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Python Resources Summary" 
+title: "Python Resources Collection" 
 date: 2016-09-17
 ---
 
 ## Python Internal 
 
-- [Source Code Analysis]()
+- [Source Code Analysis](https://github.com/stormzhang/free-programming-books)
 - [Programming Language Pragmatics](http://www.cs.rochester.edu/~scott/pragmatics/)
 - [Python 2.7 manual](http://docs.pythontab.com/python/python2.7/modules.html)
 
