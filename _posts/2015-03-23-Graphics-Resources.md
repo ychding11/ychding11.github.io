@@ -7,19 +7,19 @@ date: 2016-03-23
 ## SIGGRAPH 
 
 - [Casting curved shadows on curved surface](http://cseweb.ucsd.edu/~ravir/274/15/papers/p270-williams.pdf) This is the original idea 
-  of shadow mapping which widely used in shadow computation. No math formula in paper, it is very good for beginners.
-- [Simulation of Wrinkled Surfaces](http://research.microsoft.com/pubs/73939/p286-blinn.pdf) The paper presents normal mapping ideas
-  first time. 
+    of shadow mapping which widely used in shadow computation. No math formula in paper, it is very good for beginners.
+- [Simulation of Wrinkled Surfaces](http://research.microsoft.com/pubs/73939/p286-blinn.pdf) The paper presents normal mapping ideas first time. 
+- [Computer Graphics Paper collection](http://kesen.realtimerendering.com/) 
 
 ## Graphic Course & Homepage 
 
-- [Real-Time High Quality Rendering](http://cseweb.ucsd.edu/~ravir/274/15/274.html) The course has some advanced topics,
-    maybe it is not a good choice for beginners. 
+- [Real-Time High Quality Rendering](http://cseweb.ucsd.edu/~ravir/274/15/274.html) The course has some advanced topics.
 - [CMU Graphics Course Collection](http://graphics.cs.cmu.edu/?page_id=16) Lots of materials for you to start CG explore.
 - [Stanford Graphics Course Collection](http://graphics.stanford.edu/courses/) Slides Papers and Assignments   
+- [UBC Computer Graphics Course Modeling](http://www.cs.ubc.ca/~sheffa/dgp/sylabus.html)
 - [Introduction to 3D Image Generation](http://web.cse.ohio-state.edu/~hwshen/781/Site/Main.html)
-- [Matt Homepage](https://graphics.stanford.edu/~mdfisher/index.html)
-- [Prideout github page](http://github.prideout.net/)
+- [Stanford Matt homepage](https://graphics.stanford.edu/~mdfisher/index.html)
+- [Pixar Engineer Prideout github page](http://github.prideout.net/)
 - [hardware github repo](https://github.com/hardware)
 
 ## OpenGL
@@ -52,32 +52,30 @@ date: 2016-03-23
 
 ## Geometry Shader & Subdivision
 
+- [Pixar Open Subdiv](http://graphics.pixar.com/opensubdiv/docs/subdivision_surfaces.html)
 - [Maya NURBS Modeling](https://courses.cs.washington.edu/courses/cse459/06wi/help/mayaguide/Complete/NURBS.pdf)
-    It has an detailed info about nurbs modeling. nurbs modeling is an 
-    comparison to subdivision surface. When modeling complex object, it 
+    It has an detailed info about nurbs modeling. nurbs modeling is an comparison to subdivision surface. When modeling complex object, it 
     need lots of nurbs and deforming the object lead to cracks at seams.
-- [Survey on NURBS](http://design.osu.edu/carlson/history/PDFs/Piegl-NURBS-91.pdf)
-- [OpenGL Programming about NURBS](http://www.glprogramming.com/red/chapter12.html)
-- [Maya NURBS Patch](http://www.3dtutorials.michaelorourke.com/tutorials/Modeling/Basics/NurbsPatchsIntro12.pdf)    
 - [Standford graphic course about Subdivision](http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf)
-    It is  a very good material about subdivision, containing background introduction, basic ideas and comparison.
+    It is a very good material about subdivision, containing background introduction, basic ideas and comparison.
 - [Catmull-Clark Subdivision demo by example](http://www.rorydriscoll.com/2008/08/01/catmull-clark-subdivision-the-basics/)
 - [GPU Subdiv on Windows on github repo](https://github.com/astrolagrange/GPU-based-feature-adaptive-rendering-of-Loop-subdivision-surfaces)
 - [Planet LOD on github repo](https://github.com/sp4cerat/Planet-LOD)
-- [Deformation Styles on github repo](https://github.com/sp4cerat/Deformation-Styles-using-Spline-Skinning)
 
 ## Parametric surface
 
 The creation of the surface is based on equation.
 
+- [Survey on NURBS](http://design.osu.edu/carlson/history/PDFs/Piegl-NURBS-91.pdf)
+- [OpenGL Programming about NURBS](http://www.glprogramming.com/red/chapter12.html)
 - [Splines Surface Math Representation](http://mrl.nyu.edu/~perlin/courses/spring2009/splines4.html)
     clear to understand.
+- [Deformation Styles on github repo](https://github.com/sp4cerat/Deformation-Styles-using-Spline-Skinning)
 
 ## BRDF
 
 - [Disney BRDF analysis Tool](http://www.disneyanimation.com/technology/brdf.html)
 - [Survey on BRDF Representation](http://www.cs.princeton.edu/~smr/cs348c-97/surveypaper.html)
-
 
 ## Tessellation
 
@@ -103,8 +101,9 @@ The creation of the surface is based on equation.
 - [Maya plugins](https://github.com/appleseedhq)
 - [Maya Face Tracking Plugins](https://github.com/oscarwestberg/Face-Tracking-Maya)
 - [Kara Blog](http://www.karajensen.com/)
-- [Tree Generator](https://github.com/karajensen/tree-generator)
+- [Tree Generator Plugin](https://github.com/karajensen/tree-generator)
 - [Maya Plugin](https://github.com/illmillrig/SurfaceAttach)
+- [Maya NURBS Patch](http://www.3dtutorials.michaelorourke.com/tutorials/Modeling/Basics/NurbsPatchsIntro12.pdf)    
 
 
 ## Ray Tracing

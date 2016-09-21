@@ -16,8 +16,8 @@ date: 2015-04-10
 ## Image Algorithms
 
 ### Tone Mapping
-It is an color mapping method used in HDR to LDR conversion.
-- Tone mapping [wiki](https://en.wikipedia.org/wiki/Tone_mapping)
+- [Tone mapping wiki](https://en.wikipedia.org/wiki/Tone_mapping)
+    It is an color mapping method used in HDR to LDR conversion.
 
 ### Depth of Field
 
@@ -31,6 +31,11 @@ It is an color mapping method used in HDR to LDR conversion.
 
 - [Video Background Replacement](http://vr.sdu.edu.cn/~zf/projects/slippage/)
 - [Recovery sound from video](http://people.csail.mit.edu/mrub/VisualMic/)
+
+### Facial Landmark Detection
+
+- [Facial landmark detection](http://www.learnopencv.com/delaunay-triangulation-and-voronoi-diagram-using-opencv-c-python/)
+- [A PDF Miner](https://github.com/total-git/pdf2ic)
 
 ## Reference
 + [CNN for visual recognition](http://vision.stanford.edu/teaching/cs231n/)
