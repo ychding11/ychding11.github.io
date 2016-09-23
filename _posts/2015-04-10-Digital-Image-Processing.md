@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Digital Image Processing" 
-date: 2015-04-10
+date: 2016-09-23
 ---
 
 ## Image Format
@@ -12,6 +12,8 @@ date: 2015-04-10
 ## Image Processing Library
 
 + [ImageMagick](http://git.imagemagick.org/repos/ImageMagick)
++ [Python Image Processing Library](http://docs.python-guide.org/en/latest/scenarios/imaging/)
++ [PIL Download Link]( http://effbot.org/downloads/Imaging-1.1.6.tar.gz )
 
 ## Image Algorithms
 
@@ -23,6 +25,9 @@ date: 2015-04-10
 
 - [utah course project](http://graphics.cs.utah.edu/courses/cs6620/fall2013/?prj=9)
 - [CCSC-MW-2004-depth_of_field](https://www.cs.mtu.edu/~shene/PUBLICATIONS/2004/CCSC-MW-2004-depth_of_field.pdf)
+
+### Depth Camera
+
 - [Correct Fisheye](https://github.com/bovine/defish)
 - [How Kinect works](http://users.dickinson.edu/~jmac/selected-talks/kinect.pdf)
 - [How Kinect works](https://courses.engr.illinois.edu/cs498dh/fa2011/lectures/Lecture%2025%20-%20How%20the%20Kinect%20Works%20-%20CP%20Fall%202011.pdf)
@@ -36,6 +41,12 @@ date: 2015-04-10
 
 - [Facial landmark detection](http://www.learnopencv.com/delaunay-triangulation-and-voronoi-diagram-using-opencv-c-python/)
 - [A PDF Miner](https://github.com/total-git/pdf2ic)
+
+### Texture Synthesis
+
+- [Quilting](https://github.com/z-o-e/Texture-Synthesis)
+- [Patch Matching](https://github.com/z-o-e/PatchMatch-with-Randomized-Correspondence-Algorithm)
+- [Patch Matching](http://gfx.cs.princeton.edu/pubs/Barnes_2009_PAR/)
 
 ## Reference
 + [CNN for visual recognition](http://vision.stanford.edu/teaching/cs231n/)
