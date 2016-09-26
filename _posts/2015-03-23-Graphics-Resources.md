@@ -105,6 +105,14 @@ The creation of the surface is based on equation.
 - [Maya Plugin](https://github.com/illmillrig/SurfaceAttach)
 - [Maya NURBS Patch](http://www.3dtutorials.michaelorourke.com/tutorials/Modeling/Basics/NurbsPatchsIntro12.pdf)    
 
+## Nvida Sample Code
+
+- [NVIDIA Direct3D SDK 10 Code Samples](http://developer.download.nvidia.com/SDK/10.5/direct3d/samples.html#InstancedTessellation)
+- [GPU GEMS 3 Articles](https://developer.nvidia.com/gpugems/GPUGems3/gpugems3_ch01.html)
+- [GPU GEMS 2 CODE](http://http.download.nvidia.com/developer/GPU_Gems_2/CD/Index.html)
+- [DX Samples](https://developer.nvidia.com/gameworks-directx-samples)
+- [nVidia's logical pipeline](https://developer.nvidia.com/content/life-triangle-nvidias-logical-pipeline)
+- [nVidia's dx homepage](https://developer.nvidia.com/directx)
 
 ## Ray Tracing
 

@@ -46,8 +46,9 @@ date: 2016-09-23
 
 - [Quilting](https://github.com/z-o-e/Texture-Synthesis)
 - [Patch Matching](https://github.com/z-o-e/PatchMatch-with-Randomized-Correspondence-Algorithm)
-- [Patch Matching](http://gfx.cs.princeton.edu/pubs/Barnes_2009_PAR/)
+- [Patch Matching & Structure Image Edit](http://gfx.cs.princeton.edu/pubs/Barnes_2009_PAR/)
 - [Generate Terrain Mesh on GPU](http://www.geisswerks.com/about_terrain.html)
+- [GPU Caster](http://www.geisswerks.com/gpucaster/index.html)
 
 ## Reference
 + [CNN for visual recognition](http://vision.stanford.edu/teaching/cs231n/)
