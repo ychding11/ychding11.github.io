@@ -111,8 +111,9 @@ The creation of the surface is based on equation.
 - [GPU GEMS 3 Articles](https://developer.nvidia.com/gpugems/GPUGems3/gpugems3_ch01.html)
 - [GPU GEMS 2 CODE](http://http.download.nvidia.com/developer/GPU_Gems_2/CD/Index.html)
 - [DX Samples](https://developer.nvidia.com/gameworks-directx-samples)
-- [nVidia's logical pipeline](https://developer.nvidia.com/content/life-triangle-nvidias-logical-pipeline)
-- [nVidia's dx homepage](https://developer.nvidia.com/directx)
+- [nVidia's GPU logical pipeline](https://developer.nvidia.com/content/life-triangle-nvidias-logical-pipeline)
+- [nVidia's DX homepage](https://developer.nvidia.com/directx)
+- [nVidia's DX11 Overview pdf](http://www.nvidia.com/content/nvision2008/tech_presentations/game_developer_track/nvision08-direct3d_11_overview.pdf)
 
 ## Ray Tracing
 
