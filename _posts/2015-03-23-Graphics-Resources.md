@@ -118,6 +118,12 @@ The creation of the surface is based on equation.
 - [Introduce to Parallel Computing](http://courses.cs.washington.edu/courses/cse558/11wi/lectures/06-introToParallelProgramming_forWeb.pdf)
 - [Windows Download](https://developer.microsoft.com/en-us/windows/downloads)
 
+## Windows
+
+- [MSDN Subscription Download](https://msdn.microsoft.com/en-us/subscriptions/downloads/)
+- [Windows USB DVD Download Tool](https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool)
+- [Dx 11 tutorial](http://www.rastertek.com/tutdx11.html)
+
 ## Ray Tracing
 
 - [Stanford course](http://candela.stanford.edu/cs348b-14/doku.php) It introduces the basic ideas about ray tracing.
