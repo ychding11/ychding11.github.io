@@ -114,6 +114,9 @@ The creation of the surface is based on equation.
 - [nVidia's GPU logical pipeline](https://developer.nvidia.com/content/life-triangle-nvidias-logical-pipeline)
 - [nVidia's DX homepage](https://developer.nvidia.com/directx)
 - [nVidia's DX11 Overview pdf](http://www.nvidia.com/content/nvision2008/tech_presentations/game_developer_track/nvision08-direct3d_11_overview.pdf)
+- [How to Use DX11](https://msdn.microsoft.com/en-us/library/windows/desktop/ff476330(v=vs.85).aspx)
+- [Introduce to Parallel Computing](http://courses.cs.washington.edu/courses/cse558/11wi/lectures/06-introToParallelProgramming_forWeb.pdf)
+- [Windows Download](https://developer.microsoft.com/en-us/windows/downloads)
 
 ## Ray Tracing
 
