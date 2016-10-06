@@ -50,6 +50,13 @@ date: 2016-09-23
 - [Generate Terrain Mesh on GPU](http://www.geisswerks.com/about_terrain.html)
 - [GPU Caster](http://www.geisswerks.com/gpucaster/index.html)
 
+### Denoising and Keep sharp features
+
+- [Bilateral Filter](http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/MANDUCHI1/Bilateral_Filtering.html)
+- [Bilateral Filter python project on github](https://github.com/xidexia/Bilateral-Filtering)
+- [Image Smoothing via L0 Gradient Minimization](http://www.cse.cuhk.edu.hk/~leojia/projects/L0smoothing/)
+- [Image Smoothing via L0 Gradient Minimization python](https://github.com/kjzhang/kzhang-cs205-l0-smoothing)
+
 ## Reference
 + [CNN for visual recognition](http://vision.stanford.edu/teaching/cs231n/)
 + [awesome computer vision on github](https://github.com/jbhuang0604/awesome-computer-vision)
