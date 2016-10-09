@@ -14,6 +14,7 @@ date: 2016-09-23
 + [ImageMagick](http://git.imagemagick.org/repos/ImageMagick)
 + [Python Image Processing Library](http://docs.python-guide.org/en/latest/scenarios/imaging/)
 + [PIL Download Link]( http://effbot.org/downloads/Imaging-1.1.6.tar.gz )
++ [OpenCV Python tutorial](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_image_display/py_image_display.html#display-image)
 
 ## Image Algorithms
 
