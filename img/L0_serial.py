@@ -5,16 +5,21 @@ import argparse
 import time
 import os
 
-# Import User Libraries
+# Import  Libraries
 import L0_helpers
 
-# Image File Path on Linux
-#image_r = "images/flowers.jpg"
+# Actually I don't know how to solve subproblems-1 in paper
+# "Image Smoothing via L0 Gradient Minimization"
+# I just implement it according to formula-8 in above paper.
 
-# Image File Path on Window
-image_r = '.\\images\\flower.jpg'
+if os.name == 'nt':
+    # Image File Path on Window
+    image_r = '.\\images\\ding.jpg'
+else:
+    # Image File Path on Linux
+    image_r = "images/flowers.jpg"
 
-image_w = 'out_serial.png'
+image_w = 'ding.png'
 
 if os.name == 'nt':
     # Test cv functionality on windows platform
@@ -25,7 +30,9 @@ if os.name == 'nt':
 
 # L0 minimization parameters
 kappa = 2.0;
-_lambda = 2e-2;
+
+# less lambda value reserves more details.
+_lambda = 4e-2;
 
 # Verbose output
 verbose = False;
@@ -49,13 +56,15 @@ if __name__ == '__main__':
        image_w = args.image_w
        verbose = args.verbose
   else:
-        verbose = False
+      print "- Test Algorithms, no need to specify param."
+      verbose = True;
 
   # Read image I
   image = cv2.imread(image_r)
   #print(image)
   cv2.imshow('Original', image)
   cv2.waitKey(0)
+  cv2.destroyAllWindows()
 
   # Timers
   step_1 = 0.0
@@ -170,19 +179,21 @@ if __name__ == '__main__':
     fft_e = time.time()
     step_2_fft += fft_e - fft_s
 
+    # update beta for next iteration
+    beta *= kappa
+    iteration += 1
+
     # subproblem 2 end time
     e_time = time.time()
     step_2 =  step_2 + e_time - s_time
     if verbose:
       print "-subproblem 2: estimate S + 1"
       print "--time: %f (s)" % (e_time - s_time)
-      print ""
+      print "- iteration=%d."% iteration
 
-    # update beta for next iteration
-    beta *= kappa
-    iteration += 1
 
-  # Rescale image
+  # solve loop finished.
+  # Rescale matrix to integer
   S = S * 256
 
   # Total end time
@@ -196,3 +207,9 @@ if __name__ == '__main__':
   print "Iterations: %d" % (iteration)
 
   cv2.imwrite(image_w, S)
+  img = cv2.imread(image_w, 0)
+  cv2.imshow('Denoised',img)
+  edges = cv2.Canny(img,100,200)
+  cv2.imshow('Edges',edges)
+  cv2.waitKey(0)
+  cv2.destroyAllWindows()
