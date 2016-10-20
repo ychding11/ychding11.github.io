@@ -59,6 +59,7 @@ date: 2016-10-20
 
 - [Bilateral Filter](http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/MANDUCHI1/Bilateral_Filtering.html)
 - [Bilateral Filter python project on github](https://github.com/xidexia/Bilateral-Filtering)
+- [Bilateral Filter Material Collection include code](http://people.csail.mit.edu/sparis/bf_course/)
 - [Image Smoothing via L0 Gradient Minimization](http://www.cse.cuhk.edu.hk/~leojia/projects/L0smoothing/)
 - [Image Smoothing via L0 Gradient Minimization python](https://github.com/kjzhang/kzhang-cs205-l0-smoothing)
 
