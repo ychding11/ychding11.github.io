@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Graphics Resources Collection" 
-date: 2016-03-23
+date: 2016-10-20
 ---
 
 ## SIGGRAPH 
@@ -10,6 +10,12 @@ date: 2016-03-23
     of shadow mapping which widely used in shadow computation. No math formula in paper, it is very good for beginners.
 - [Simulation of Wrinkled Surfaces](http://research.microsoft.com/pubs/73939/p286-blinn.pdf) The paper presents normal mapping ideas first time. 
 - [Computer Graphics Paper collection](http://kesen.realtimerendering.com/) 
+- [Multi-View Intrinsic Images of Outdoors Scenes with an Application to Relighting](http://www-sop.inria.fr/reves/Basilic/2015/DRCLLPD15/)
+- [Real-Time Polygonal-Light Shading with Linearly Transformed Cosines](https://eheitzresearch.wordpress.com/415-2/)
+- [A System for Rapid Exploration of Shader Optimization Choices](http://graphics.cs.cmu.edu/projects/spire/)
+- [The Sketchy Database: Learning to Retrieve Badly Drawn Bunnies](http://sketchy.eye.gatech.edu/)
+- [Reconstruction of Personalized 3D Face Rigs from Monocular Video](http://gvv.mpi-inf.mpg.de/projects/PersonalizedFaceRig/)
+- [Realtime 3D Eye Gaze Animation Using a Single RGB Camera](http://faculty.cs.tamu.edu/jchai/projects/projects.htm)
 
 ## Graphic Course & Homepage 
 

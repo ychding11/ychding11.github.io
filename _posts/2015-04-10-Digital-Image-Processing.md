@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Digital Image Processing" 
-date: 2016-09-23
+date: 2016-10-20
 ---
 
 ## Image Format
@@ -9,12 +9,16 @@ date: 2016-09-23
 + PSD file [format](http://www.adobe.com/devnet-apps/photoshop/fileformatashtml/)
 + PSD file parser [source code](http://telegraphics.com.au/sw/product/psdparse)
 
+## Opencv
+
++ [OpenCV Python tutorial](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_image_display/py_image_display.html#display-image)
+
+
 ## Image Processing Library
 
 + [ImageMagick](http://git.imagemagick.org/repos/ImageMagick)
 + [Python Image Processing Library](http://docs.python-guide.org/en/latest/scenarios/imaging/)
 + [PIL Download Link]( http://effbot.org/downloads/Imaging-1.1.6.tar.gz )
-+ [OpenCV Python tutorial](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_image_display/py_image_display.html#display-image)
 
 ## Image Algorithms
 
@@ -57,6 +61,11 @@ date: 2016-09-23
 - [Bilateral Filter python project on github](https://github.com/xidexia/Bilateral-Filtering)
 - [Image Smoothing via L0 Gradient Minimization](http://www.cse.cuhk.edu.hk/~leojia/projects/L0smoothing/)
 - [Image Smoothing via L0 Gradient Minimization python](https://github.com/kjzhang/kzhang-cs205-l0-smoothing)
+
+### Image Morphing
+
+- [Automating image morphing using structural similarity on a halfway domain](http://hhoppe.com/proj/morph/)
+
 
 ## Reference
 + [CNN for visual recognition](http://vision.stanford.edu/teaching/cs231n/)
