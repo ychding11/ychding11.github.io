@@ -43,6 +43,7 @@ date: 2016-10-20
     related books.  
 - [OpenGL Shader tutorials](https://www.opengl.org/sdk/docs/tutorials/TyphoonLabs/Chapter_4.pdf) talks about some advancted lighting 
     techniques widely used in OpenGL, including per-pixel illumination model, bump mapping, displacement mapping and so on.
+- [glsl Debugger](http://glsl-debugger.github.io/)
 
 ## Bump Mapping, Normal Mapping and Displacement mapping
 
