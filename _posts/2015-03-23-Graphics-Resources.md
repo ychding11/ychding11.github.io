@@ -130,6 +130,8 @@ The creation of the surface is based on equation.
 - [MSDN Subscription Download](https://msdn.microsoft.com/en-us/subscriptions/downloads/)
 - [Windows USB DVD Download Tool](https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool)
 - [Dx 11 tutorial](http://www.rastertek.com/tutdx11.html)
+- [Where is DXSDK 2015 version](https://blogs.msdn.microsoft.com/chuckw/2015/08/05/where-is-the-directx-sdk-2015-edition/)
+- [DXSDK Sample](https://blogs.msdn.microsoft.com/chuckw/2013/09/20/directx-sdk-samples-catalog/)
 
 ## Ray Tracing
 
