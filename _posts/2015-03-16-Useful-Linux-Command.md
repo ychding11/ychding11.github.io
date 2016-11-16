@@ -93,7 +93,12 @@ in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp fil
   selection in virsual mode. `:help object-select` and `:help text-objects`for details.
 - `:set invlist` Makes invisible characters visible. For example, $ for enter and ^I 
   for tab. `:set nolist` Makes vim return to normal mode.
-
-[vim regular expression](http://www.cnblogs.com/PegasusWang/p/3153300.html)
-
+- vim regular expression[link](http://www.cnblogs.com/PegasusWang/p/3153300.html)
 + Input `chrome://version` into chrome browser to check chrome info.
+
+## Grub2
+
+- edit configure file /etc/default/grub to set kernel command line and other settings.
+- On Ubuntu `update-grub` to generate new settings for grub.
+- On CentOS `grub2-mkconfig` to generate new settings.
+- Parameter *nomodeset*,Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.
