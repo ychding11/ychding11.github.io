@@ -102,3 +102,4 @@ in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp fil
 - On Ubuntu `update-grub` to generate new settings for grub.
 - On CentOS `grub2-mkconfig` to generate new settings.
 - Parameter *nomodeset*,Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.
+- `control.exe /name Microsoft.ProgramsAndFeatures`

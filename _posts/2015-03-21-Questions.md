@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Questions" 
-date: 2015-03-21
+date: 2016-03-21
 ---
 
 ## Infinite Function call loop
@@ -61,12 +61,16 @@ date: 2015-03-21
 ```
 delete[] mPtr;
 ```
-
 The statement cause a segment fault error on Linux platform. But on Windows, it runs ok.
 I am sure mPtr is allocated by new[] operator and no double delete operation to mPtr.
-So what is the root cause?
-Sometimes this dynamic memory issue is very difficult. It is unwise to analyse it by 
-simply reviewing code. We need tools to help, for example, valgrind. At last I found
-it is not the delete[] operation cause the problems but memory copy operation where 
-destination and source have different sizes.
+So what is the root cause?  Sometimes this kind of dynamic memory issue is very difficult.
+It is unwise to analyse it by simply reviewing code. We need debug tools to help us,
+for example, valgrind. At last I found it is not the delete[] operation cause the problem.
+It is caused by memory copy operation on dynamic heap where destination and source have different sizes.
+
+## assert() cause segment fault when program exits
+
+It is an common error in huge software development. assert() may inform user with a message by a dialog.
+Sometimes GUI moudle already destroyed,So it will cause segments fault issue.
+
 
