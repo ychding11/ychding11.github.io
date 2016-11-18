@@ -63,15 +63,16 @@ date: 2015-03-16
 - `grep -i 'question' -r ./` Search all files recursively in current directory 
   to find lines containing key word *question*. Another grep command 
   `grep -i question -rl ./`, it lists all files in current directory containing key 
-  word *question* instead of displaying matched lines. Default match mode is *NOT* 
-  exact match the whole word. `'\<question\>'` pattern tell *grep* matches whole 
-  world only. 
+   word *question* instead of displaying matched lines. Default match mode is *NOT* 
+   exact match the whole word. `'\<question\>'` pattern tell *grep* matches whole 
+   world only. 
 - `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;` search 
   "menuMode" in all mel files. "{}" represents the current processing file.
 - `sed -i 's/Do_Movement/cameraMovement/g' ./shadow_mapping.cpp` Find and replace Do_Movement with cameraMovement 
-in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp file created.  
+   in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp file created.  
 - *sed* and *grep* can cooperate. That is *grep* can suply the file list containing the specified pattern while 
-*sed* edit those files one by one. for example: sed -i 's/pattern/newstr/g' `grep -rl pattern ./`.
+  *sed* edit those files one by one. for example: sed -i 's/pattern/newstr/g' `grep -rl pattern ./`.
+- [X.org](https://wiki.archlinux.org/index.php/Xorg)
 
 ## VIM Tips for quick Reference
 
@@ -102,4 +103,8 @@ in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp fil
 - On Ubuntu `update-grub` to generate new settings for grub.
 - On CentOS `grub2-mkconfig` to generate new settings.
 - Parameter *nomodeset*,Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.
+
+## Others
+
 - `control.exe /name Microsoft.ProgramsAndFeatures`
+- [vimvs faq](https://github.com/jaredpar/VsVim/wiki/faq)

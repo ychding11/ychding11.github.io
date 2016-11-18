@@ -112,6 +112,14 @@ The creation of the surface is based on equation.
 - [Maya Plugin](https://github.com/illmillrig/SurfaceAttach)
 - [Maya NURBS Patch](http://www.3dtutorials.michaelorourke.com/tutorials/Modeling/Basics/NurbsPatchsIntro12.pdf)    
 
+## Maya Mel
+
+-  string $result = getenv("MAYA_VP2_DEVICE_OVERRIDE");    print $result;
+-  string $result = `optionVar -query vp2RenderingEngine`; print $result;
+-  *radioButtonGrp* creates a radio button group UI.
+-  *editorTemplate -addControl* specifiy which attribute you want to control. It will generate a UI element automatically.
+
+
 ## Nvida Sample Code
 
 - [NVIDIA Direct3D SDK 10 Code Samples](http://developer.download.nvidia.com/SDK/10.5/direct3d/samples.html#InstancedTessellation)
