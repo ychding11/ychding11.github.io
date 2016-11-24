@@ -72,7 +72,6 @@ date: 2015-03-16
    in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp file created.  
 - *sed* and *grep* can cooperate. That is *grep* can suply the file list containing the specified pattern while 
   *sed* edit those files one by one. for example: sed -i 's/pattern/newstr/g' `grep -rl pattern ./`.
-- [X.org](https://wiki.archlinux.org/index.php/Xorg)
 
 ## VIM Tips for quick Reference
 
@@ -104,7 +103,12 @@ date: 2015-03-16
 - On CentOS `grub2-mkconfig` to generate new settings.
 - Parameter *nomodeset*,Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.
 
+## Shell script
+
+- *echo $?* query shell exit status. *man bash* and search *special parameters* for more details.
+
 ## Others
 
 - `control.exe /name Microsoft.ProgramsAndFeatures`
 - [vimvs faq](https://github.com/jaredpar/VsVim/wiki/faq)
+- [X.org](https://wiki.archlinux.org/index.php/Xorg)
