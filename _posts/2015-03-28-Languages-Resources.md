@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "C++ Features and Resources"
-date: 2015-03-28
+date: 2016-11-24
 ---
 
 ## overloaded virtual function
@@ -415,6 +415,15 @@ allocate in such way `Type obj` is forbidden.
 ## in-class member initializer
 
 [Stroustrup talks](http://www.stroustrup.com/C++11FAQ.html#member-init)
+
+## C++11 new features
++ defaulted and deleted function.To declare a deleted function, you can append the *=delete;* specifier to
+  the end of a function declaration. The compiler prohibits the usage of a deleted function.
++ [C++11 deleted function](https://www.ibm.com/developerworks/community/blogs/5894415f-be62-4bc0-81c5-3956e82276f3/entry/deleted_functions_in_c_11?lang=en)
++ [MSDN comments on deleted and defulted functions](https://msdn.microsoft.com/en-us/library/dn457344.aspx)
++ C++11 use delete and defualt key word to instruct compliler default behaviors so as to 
+  reduce coding defects.
+
 
 ## Learning materials
 

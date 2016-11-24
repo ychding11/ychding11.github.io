@@ -118,6 +118,7 @@ The creation of the surface is based on equation.
 -  string $result = `optionVar -query vp2RenderingEngine`; print $result;
 -  *radioButtonGrp* creates a radio button group UI.
 -  *editorTemplate -addControl* specifiy which attribute you want to control. It will generate a UI element automatically.
+-  *pluginInfo -q -loaded "dgProfiler"*
 
 
 ## Nvida Sample Code
