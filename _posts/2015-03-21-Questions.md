@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Questions" 
-date: 2016-03-21
+date: 2016-11-24
 ---
 
 ## Infinite Function call loop
@@ -47,30 +47,41 @@ date: 2016-03-21
 
 ## How does a c++ compiler know a virtual funcation is called
 
-  `pBasepter->f()` How it knows f() is a virtual function or
-  ordinary member function?
+  `pBasepter->f()` How compiler knows f() is a virtual function or
+  an ordinary member function ?
  
-## When was static class member destroyed
+## When is static class member destroyed
 
   Suppose designing a class which has static member variables. When do these static members
   destroyed? If they resides in a shared lib, lib unload operation can lead these variables 
-  to destroy. Can anything makes these static members partially destroyed?
+  to destroy. Can any other things make these static members partially destroyed?
 
 ## delete[] operation causes crash issue.
 
 ```
 delete[] mPtr;
 ```
-The statement cause a segment fault error on Linux platform. But on Windows, it runs ok.
-I am sure mPtr is allocated by new[] operator and no double delete operation to mPtr.
+The statement cause a segment fault error on Linux platform. But on Windows, it works fine.
+I am sure mPtr is allocated by new[] operator and no double delete operation to mPtr pointer.
 So what is the root cause?  Sometimes this kind of dynamic memory issue is very difficult.
-It is unwise to analyse it by simply reviewing code. We need debug tools to help us,
-for example, valgrind. At last I found it is not the delete[] operation cause the problem.
-It is caused by memory copy operation on dynamic heap where destination and source have different sizes.
+It is unwise to analyse it by simply reviewing code line by line. We need debug tools help us,
+for example, valgrind.
+At last I found it is not the delete[] operation cause the problem. It is caused by memory
+copy operation on dynamic heap where destination and source have different sizes. But the 
+problems is not visible immediately. It appears at a later time when excute statements 
+*delete []mPtr*
 
 ## assert() cause segment fault when program exits
 
-It is an common error in huge software development. assert() may inform user with a message by a dialog.
-Sometimes GUI moudle already destroyed,So it will cause segments fault issue.
+It is an common error in huge software development that assert() may inform user with a message by a dialog.
+Sometimes GUI moudle destroyed earlier than the depended module,So it will cause segments fault issue.
 
+## badly designed public interface will cause desaster
+
+public interface is the key of module design.For example *int ASimpleTexture::SizeInMemory(EMemoryScope scope).*
+It is very unwise to use int to represent memory size. size_t is an obvious much better choice. Signed int can 
+represent very limited memory size in 64 bit times.It is also uncompatible with standard libary which uses sizt_t
+to respresent memory size in very common public interface such as *memcpy()*. Some day when you find the defects
+you will found it is widely used in your code at the same time. There is no rescue other than to reconstruct your
+code.
 
