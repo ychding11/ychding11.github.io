@@ -107,8 +107,15 @@ date: 2015-03-16
 
 - *echo $?* query shell exit status. *man bash* and search *special parameters* for more details.
 
+## X Windows
+
+- [X.org](https://wiki.archlinux.org/index.php/Xorg)
+- *ps aux | grep -i "xinit"* The  xinit  program  is  used to start the X Window System server and a first client program
+  on systems that are not using a display manager such as xdm or in environments that use multiple window systems.  When
+  this first client exits, xinit will kill the X server and then terminate.
+- *xkill -all* 
+
 ## Others
 
 - `control.exe /name Microsoft.ProgramsAndFeatures`
 - [vimvs faq](https://github.com/jaredpar/VsVim/wiki/faq)
-- [X.org](https://wiki.archlinux.org/index.php/Xorg)

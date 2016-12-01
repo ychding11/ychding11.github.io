@@ -44,6 +44,7 @@ date: 2016-10-20
 - [OpenGL Shader tutorials](https://www.opengl.org/sdk/docs/tutorials/TyphoonLabs/Chapter_4.pdf) talks about some advancted lighting 
     techniques widely used in OpenGL, including per-pixel illumination model, bump mapping, displacement mapping and so on.
 - [glsl Debugger](http://glsl-debugger.github.io/)
+- [OGL Extensions Introduce](https://www.opengl.org/archives/resources/features/OGLextensions/)
 
 ## Bump Mapping, Normal Mapping and Displacement mapping
 
@@ -134,13 +135,15 @@ The creation of the surface is based on equation.
 - [Introduce to Parallel Computing](http://courses.cs.washington.edu/courses/cse558/11wi/lectures/06-introToParallelProgramming_forWeb.pdf)
 - [Windows Download](https://developer.microsoft.com/en-us/windows/downloads)
 
-## Windows
+## Windows DX
 
 - [MSDN Subscription Download](https://msdn.microsoft.com/en-us/subscriptions/downloads/)
 - [Windows USB DVD Download Tool](https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool)
-- [Dx 11 tutorial](http://www.rastertek.com/tutdx11.html)
+- [DX 11 Tutorials](http://www.rastertek.com/tutdx11.html)
 - [Where is DXSDK 2015 version](https://blogs.msdn.microsoft.com/chuckw/2015/08/05/where-is-the-directx-sdk-2015-edition/)
 - [DXSDK Sample](https://blogs.msdn.microsoft.com/chuckw/2013/09/20/directx-sdk-samples-catalog/)
+- [What is WARP](https://msdn.microsoft.com/en-us/library/windows/desktop/gg615082%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396)
+- [HLSL Shader Model 5](https://msdn.microsoft.com/en-us/library/windows/desktop/ff471419(v=vs.85).aspx)
 
 ## Ray Tracing
 
