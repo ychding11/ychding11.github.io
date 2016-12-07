@@ -112,6 +112,8 @@ The creation of the surface is based on equation.
 - [Tree Generator Plugin](https://github.com/karajensen/tree-generator)
 - [Maya Plugin](https://github.com/illmillrig/SurfaceAttach)
 - [Maya NURBS Patch](http://www.3dtutorials.michaelorourke.com/tutorials/Modeling/Basics/NurbsPatchsIntro12.pdf)    
+- [PBRT Document](http://pbrt.org/users-guide.html)
+- [material X](http://www.materialx.org/)
 
 ## Maya Mel
 

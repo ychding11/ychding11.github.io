@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Debug Summary" 
-date: 2015-03-12
+date: 2016-12-7
 ---
 
 ## Core Dump
@@ -20,7 +20,7 @@ date: 2015-03-12
 - Analyse dumped core file with gdb. Rebuild code with debug info added,for example adding -g compile option for gcc. 
   Use command to open core file. `gdb a.out /tmp/corefiles/core-a.out-12754-1457789593`
 
-For reference.  
+Parameters Reference  
 
 + *%e*  executable filename (without path prefix) 
 + *%p*  PID of dumped process, as seen in the PID namespace in which the process resides
@@ -45,17 +45,17 @@ For reference.
    design we should keep this point in mind. Register access is much faster than 
    memory access.
 
-[Calling Conventions for different platform C++ compilers](http://www.agner.org/optimize/calling_conventions.pdf) It is a very
-comprehensive material for reference. It should be referenced at first time when having problems. 
-[MicroSoft document about disassembly code](https://msdn.microsoft.com/en-us/library/windows/hardware/ff538083(v=vs.85).aspx) 
-has lots of C++ disassembly code examples. Learning such examples does much help to crash issues.
-[C++ this pointer storage](http://stackoverflow.com/questions/16585562/where-is-the-this-pointer-stored-in-computer-memory)     
-[Introduce to x64 assemble under Linux Platform](https://cs.nyu.edu/courses/fall11/CSCI-GA.2130-001/x64-intro.pdf) The paper 
-mainly focus on C Compiler. 
-[intel LEA instruction explaination](https://courses.engr.illinois.edu/ece390/archive/spr2002/books/labmanual/inst-ref-lea.html) 
-*lea* instruction only calculate effective memory address, no memory access happens.
-The [link](http://stackoverflow.com/questions/1699748/what-is-the-difference-between-mov-and-lea) 
-gives an comparison between *lea* instruction and *mov* instruction.
+- [Calling Conventions for different platform C++ compilers](http://www.agner.org/optimize/calling_conventions.pdf) It is a very
+   comprehensive material for reference. It should be referenced at first time when having problems. 
+- [MicroSoft document about disassembly code](https://msdn.microsoft.com/en-us/library/windows/hardware/ff538083(v=vs.85).aspx) 
+   has lots of C++ disassembly code examples. Learning such examples does much help to crash issues.
+- [C++ this pointer storage](http://stackoverflow.com/questions/16585562/where-is-the-this-pointer-stored-in-computer-memory)     
+- [Introduce to x64 assemble under Linux Platform](https://cs.nyu.edu/courses/fall11/CSCI-GA.2130-001/x64-intro.pdf) The paper 
+   mainly focus on C Compiler. 
+- [intel LEA instruction explaination](https://courses.engr.illinois.edu/ece390/archive/spr2002/books/labmanual/inst-ref-lea.html) 
+   *lea* instruction only calculate effective memory address, no memory access happens.
+- [The link](http://stackoverflow.com/questions/1699748/what-is-the-difference-between-mov-and-lea) 
+   gives an comparison between *lea* instruction and *mov* instruction.
 
 ## Dynamic Shared Library
 
@@ -79,15 +79,15 @@ determines effectiveness of dynamic liner's hash algorithms design.
 Symbol relocation process may be delayed to some later time when a symbol is 
 actually used. This is called *lazy relocation process*. Using *-z now* linker 
 option can cancell it. 
-This [paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf)
-introduces some debug skils about load dependencies errors. Some of them 
-are very interesting.
+[This paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf)
+ introduces debug skils about load dependencies errors. Some of them 
+ are very interesting.
 
-`-Wl,option` is an gcc option to transfer option into linkers. For example
-`-Wl,-rpath,'$ORIGIN'` option will tell linker to search current directory
+*-Wl,option* is an gcc option to transfer option into linkers. For example
+*-Wl,-rpath,'$ORIGIN'* option will tell linker to search current directory
 for needed libraries.
 
-## GDB debuger
+## GDB Skills
 
 A debuger is an important tool to analyse runtime errors.
 Compared with MSVC debuger, I found gdb is not so friendly.
@@ -122,6 +122,9 @@ terminate itself.
 + display all thread stack info, `thread apply all bt`
 + display loaded shared libraries, `info shared`
 + display how to run program. `help running`
++ run shell command under gdb context. `shell ls -l`
++ search process name and id. `shell pgrep -l pattern`
++ stop current current process and put it into background. `Ctrl + z`
 
 [GDB docs](http://sourceware.org/gdb/current/onlinedocs/gdb/)
 char extend to int using sign extension.
@@ -130,9 +133,9 @@ char extend to int using sign extension.
 
 `void __attribute__((optimize("O0"))) func() { }` can assure no optimization 
 applied to specified function. Sometimes it is helpful to analyse errors only 
-occured in release version. Even if func is a template.
+occured in release version. This Gcc extension also applies to function template.
 
-## Case Summary
+## Debug Case Summary
 
 1. Param *this* is overrided by write operations on stack. It leads to memory
    access violation when accessing object member variable. In addition the
