@@ -98,7 +98,7 @@ date: 2015-03-16
 
 ## Grub2
 
-- edit configure file /etc/default/grub to set kernel command line and other settings.
+- Edit configure file /etc/default/grub to set kernel command line and other settings.
 - On Ubuntu `update-grub` to generate new settings for grub.
 - On CentOS `grub2-mkconfig` to generate new settings.
 - Parameter *nomodeset*,Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.
@@ -119,3 +119,4 @@ date: 2015-03-16
 
 - `control.exe /name Microsoft.ProgramsAndFeatures`
 - [vimvs faq](https://github.com/jaredpar/VsVim/wiki/faq)
+- `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -vcodec copy -acodec copy output-video-name`. This command is used to split a piece of video from original video. *-ss xxx* specifies starting time. *-t xxx* specifies the length of the video you want to split. *copy* means the same codec with original file.
