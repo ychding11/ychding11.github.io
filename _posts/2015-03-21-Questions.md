@@ -4,6 +4,8 @@ title: "Questions"
 date: 2016-11-24
 ---
 
+The post summarizes some debug and design cases.
+
 ## Infinite Function call loop
 
   Infinite Function Call Loop can lead to stack overflow, How can we detect it in runtime?   

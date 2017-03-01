@@ -3,6 +3,8 @@ layout: post
 title: "C++ Features and Resources"
 date: 2016-11-24
 ---
+The post summarizes new features of c++.
+
 
 ## overloaded virtual function
 

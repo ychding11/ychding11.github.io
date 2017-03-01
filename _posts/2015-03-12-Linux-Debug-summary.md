@@ -4,6 +4,8 @@ title: "Debug Summary"
 date: 2016-12-7
 ---
 
+This post summarizes debugging skills on Linux Platform.
+
 ## Core Dump
 
 - Check whether core dump is enabled. Using command to check default core file size.
