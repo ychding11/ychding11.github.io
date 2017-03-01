@@ -33,7 +33,8 @@ It is a very bad idea when used as a data holder It almost have no flexibility.
 For example, following design is impossible for reference type. In this case,
 const pointer type is good choice.
 
-```
+{% highlight cpp linenos %}
+
 struct Holder
 {
 	int type;
@@ -43,7 +44,9 @@ struct Holder
 		float &rf;
 	};
 };
-```
+
+{% endhighlight %}
+
 
 ## using statement
 
@@ -68,7 +71,8 @@ have their own vtbl even no function override occur?
 
 derived class does not override base class virtual function.
 
-```
+{% highlight cpp %}
+
  43 class Base
  44 {
  45  public:
@@ -93,7 +97,8 @@ derived class does not override base class virtual function.
  64    Derived derive;
  65    return 0;
  66 }                                                    
-```
+
+{% endhighlight %}
 
 vtbl info:
 
