@@ -3,7 +3,12 @@ layout: post
 title: "Usefull Linux Commands" 
 date: 2015-03-16
 ---
-- `pkg-config --static --libs glfw3`  tell you how to link glfw3 lib in correct order  
+
+This post summaries the commom usefull commands on Linux Platform. 
+
+## Linux Commands
+
+- `pkg-config --static --libs glfw3`  It tells how to link glfw3 dependency libs in correct order  
 - `objdump -t a.out` display symbol table of elf file a.out
 - `objdump -h a.out` display sections of elf file a.out
 - `readelf -p .comment ./a.out` read .comment section info from elf file a.out
