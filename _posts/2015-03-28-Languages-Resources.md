@@ -35,15 +35,15 @@ const pointer type is good choice.
 
 {% highlight cpp linenos %}
 
-struct Holder
-{
-	int type;
-	union
+	struct Holder
 	{
-		int &ri;
-		float &rf;
+		int type;
+		union
+		{
+			int &ri;
+			float &rf;
+		};
 	};
-};
 
 {% endhighlight %}
 
