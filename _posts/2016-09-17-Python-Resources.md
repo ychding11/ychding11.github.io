@@ -4,6 +4,8 @@ title: "Python Resources Collection"
 date: 2016-09-17
 ---
 
+This post list python related learning materials.
+
 ## Python Internal 
 
 - [Source Code Analysis](https://github.com/stormzhang/free-programming-books)

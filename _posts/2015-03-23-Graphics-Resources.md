@@ -4,6 +4,8 @@ title: "Graphics Resources Collection"
 date: 2016-10-20
 ---
 
+This post lists a collection of usefull graphic resources.
+
 ## SIGGRAPH 
 
 - [Casting curved shadows on curved surface](http://cseweb.ucsd.edu/~ravir/274/15/papers/p270-williams.pdf) This is the original idea 

@@ -4,7 +4,7 @@ title: "Questions"
 date: 2016-11-24
 ---
 
-The post summarizes some debug and design cases.
+The post summarizes some software bugs and how to debug thme. It also talk about some ideas about software design.
 
 ## Infinite Function call loop
 

@@ -4,7 +4,7 @@ title: "Debug Summary"
 date: 2016-12-7
 ---
 
-This post summarizes debugging skills on Linux Platform.
+This post summarizes debugging skills with usage example on Linux Platform.
 
 ## Core Dump
 
@@ -22,11 +22,11 @@ This post summarizes debugging skills on Linux Platform.
 - Analyse dumped core file with gdb. Rebuild code with debug info added,for example adding -g compile option for gcc. 
   Use command to open core file. `gdb a.out /tmp/corefiles/core-a.out-12754-1457789593`
 
-Parameters Reference  
+### Parameters Reference  
 
-+ *%e*  executable filename (without path prefix) 
-+ *%p*  PID of dumped process, as seen in the PID namespace in which the process resides
-+ *%t*  time of dump, expressed as seconds since the Epoch,1970-01-01 00:00:00 +0000 (UTC)
+	+ *%e*  executable filename (without path prefix) 
+	+ *%p*  PID of dumped process, as seen in the PID namespace in which the process resides
+	+ *%t*  time of dump, expressed as seconds since the Epoch,1970-01-01 00:00:00 +0000 (UTC)
 
 ## x64 Assembly Disassemble
 
@@ -82,8 +82,7 @@ Symbol relocation process may be delayed to some later time when a symbol is
 actually used. This is called *lazy relocation process*. Using *-z now* linker 
 option can cancell it. 
 [This paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf)
- introduces debug skils about load dependencies errors. Some of them 
- are very interesting.
+ introduces debug skils about load dependencies errors. Some of them are very interesting.
 
 *-Wl,option* is an gcc option to transfer option into linkers. For example
 *-Wl,-rpath,'$ORIGIN'* option will tell linker to search current directory
@@ -115,7 +114,7 @@ terminate itself.
 + check type details. `ptype typename`
 + check macro info. `p macro-name` print evaluated value.
   `macro expand macro-name` print expanded expression.
-  NOTE: add -g3 compiler option to keey macro info presented
+  NOTE: add -g3 compiler option to keep macro info presented
   in program.
 + set source files search path, `dir path-to-source`
 + set breakpoints, `b file::line`

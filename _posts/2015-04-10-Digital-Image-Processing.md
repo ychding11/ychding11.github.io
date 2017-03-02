@@ -4,6 +4,9 @@ title: "Digital Image Processing"
 date: 2016-10-20
 ---
 
+This post list digital image processing resources on internet. It includes image format 
+analysis and lots of algorithms.
+
 ## Image Format
 
 + PSD file [format](http://www.adobe.com/devnet-apps/photoshop/fileformatashtml/)
