@@ -40,19 +40,20 @@ a:hover {
 }
 
 h1 {
-border-bottom:1px solid #e5e5e5;
+border-bottom: 1px solid #e5e5e5;
 color:#0383c9;
 font-size:1.7em;
 font-weight:100;
+text-align: center;
 letter-spacing:-1px;
 margin:0 0 10px;
 padding:0px 2px 4px 5px;
 }
 
-#p {
-    font-size: 1.3em;
-    line-height: 1.0em;
-    color: #e5e5e5;
+p.meta {
+font-size: 1.0em;
+text-align: right;
+color: #0383c9;
 }
 
 p {
