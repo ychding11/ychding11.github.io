@@ -4,15 +4,26 @@ body {
     margin: 60px auto;
     width: 70%;
 }
-nav ul, footer ul {
+nav ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
     font-weight: bold;
+    font-size:1.3em;
+}
+footer ul {
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+    font-size: 1.0em;
+    text-align: right;
 }
 nav ul li, footer ul li {
     display: inline;
+    padding: 5px;
 }
+
 a {
     text-decoration: none;
     color:#0383c9;
