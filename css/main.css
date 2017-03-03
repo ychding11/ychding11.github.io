@@ -49,7 +49,6 @@ margin:0 0 10px;
 padding:0px 2px 4px 5px;
 }
 
-
 #p {
     font-size: 1.3em;
     line-height: 1.0em;
@@ -82,7 +81,7 @@ font-size: .8em;
 color:#888;
 }
 ul.posts li a { 
-font-weight:100;
+font-weight: 100;
 font-size: .8em;
 }
 
@@ -109,18 +108,20 @@ color: #23af4c;
 }
 
 ul li {
-    
 }
 
 .publish_date {
-	margin-top: 5px;
-	margin-bottom:0px;
-	text-align:right;
-	font-size:0.8em;
-	width:490px;
-	color: #23af4c;
+margin-top: 5px;
+margin-bottom: 0px;
+text-align: right;
+font-size: 0.8em;
+width: 490px;
+color: #23af4c;
 }
 
 a img {
 border:0;
 }
+
+
+/*** 404 Page ***/
