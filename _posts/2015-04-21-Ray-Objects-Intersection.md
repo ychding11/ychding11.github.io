@@ -7,6 +7,5 @@ This post give a simple summary of ray intersection with simple shapes.
 
 ### ray reflection angle
 
-![reflection angle formula](../../../img/reflection-angle.jpg)    
-The image demostrates how to calculate the reflection vector by 
-incident vector.
+![reflection]({{ site.url }}/images/shapeIntersection/reflection-angle.jpg)   
+The image demostrates how to calculate the reflection vector by incident vector.

@@ -58,7 +58,7 @@ padding:0px 2px 4px 5px;
 
 p {
 margin:0 0 15px 0px;
-font-size: 0.8em;
+font-size: 1.0em;
 }
 
 footer {
@@ -113,10 +113,14 @@ ul li {
 }
 
 .publish_date {
-	margin-top:-8px;
+	margin-top: 5px;
 	margin-bottom:0px;
 	text-align:right;
 	font-size:0.8em;
 	width:490px;
 	color: #23af4c;
+}
+
+a img {
+border:0;
 }
