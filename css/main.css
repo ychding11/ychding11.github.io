@@ -5,6 +5,8 @@ body {
     margin: 60px auto;
     width: 80%;
 }
+
+/**** Welcome page style ****/
 body#welcomeBody {
    /* background: #ffffff;*/
 background: 
@@ -59,6 +61,7 @@ footer#welcomeFooter ul li {
     padding: 5px;
 }
 
+/**** HypeLink style ****/
 a {
     text-decoration: none;
     color:#0383c9;
@@ -67,33 +70,44 @@ a:hover {
     text-decoration: underline;
     color: #f5a2c6;
 }
-#h1 {
-    color:#0383c9;
-    letter-spacing:-5px;
-    font-size: 3em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-}
 
+
+/**** Title style ****/
 h1 {
 border-bottom: 1px solid #e5e5e5;
-color:#0383c9;
-font-size:1.7em;
-font-weight:100;
+color: #0383c9;
+font-family:'Helvetica', 'Arial', 'Sans-Serif';
+font-size: 2.0em;
+font-weight: 100;
 text-align: center;
 letter-spacing:-1px;
-margin:0 0 10px;
+margin: 0 0 10px;
 padding:0px 2px 4px 5px;
 }
 
+h2 {
+color:#0383c9;
+font-family:'Helvetica', 'Arial', 'Sans-Serif';
+font-size: 1.5em;
+font-weight: 100;
+text-align: left;
+letter-spacing:-1px;
+margin: 10px 0 5px 0;
+}
+
+
+/**** Post date style ****/
 p.meta {
 font-size: 1.0em;
 text-align: right;
 color: #0383c9;
 }
 
+/**** Post content style ****/
 p {
-margin:0 0 15px 0px;
-font-size: 1.0em;
+margin:0 0 5px 0px;
+font-size: 1.1em;
+text-indent: 20px;
 }
 
 
@@ -104,17 +118,28 @@ ul.posts {
 
 ul.posts li {
     list-style: none;
+    margin: 20px auto 20px; 
 }
 
+/**** Post list date style ****/
 ul.posts li span { 
-float:right;
-font-family:monofur, monaco, courier;
-font-size: .8em;
-color:#888;
+float: right;
+font-family: monaco, courier;
+font-size: 0.8em;
+color: #e55;
 }
+
+/**** Post list title style ****/
 ul.posts li a { 
 font-weight: 100;
-font-size: .8em;
+font-size: 1.0em;
+}
+
+/**** Post list excerpt style ****/
+ul.posts li p { 
+font-weight: 100;
+font-size: 0.8em;
+color: #888;
 }
 
 pre { 
