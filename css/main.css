@@ -158,58 +158,48 @@ background: #222021;
 color: #23af4c;
 }
 
-ul li {
-}
-
-.publish_date {
-margin-top: 5px;
-margin-bottom: 0px;
-text-align: right;
-font-size: 0.8em;
-width: 490px;
-color: #23af4c;
-}
-
 a img {
 border:0;
 }
 
+/****  welcome avatar sketch wrap style ****/
+.wlecomContainer {
+margin: 40px auto 40px;
+}
+
+/****  welcome avatar image style ****/
 .avatar {
-clear: both;
 display: block;
 margin:auto;
 }
 
+/****  welcome avatar sketch text style ****/
 .avatarText {
-color:#000000;
-font-family:'Helvetica', 'Arial', 'Sans-Serif';
-font-size:1.0em;
-font-weight:80;
+color: #000000;
+font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+font-size: 1.0em;
+font-weight: 100;
 text-align: center;
 letter-spacing:-1px;
 }
 
-div#wrap {
-position:relative;
-width: 1280px;
-height: 720px;
-left: 50%;
-margin-left: -640px;
-}
 
+/****  welcome avatar sketch style ****/
 div#avatardiv {
-position:relative;
-background-color: #ffffff; 
-border:1px solid #FF0099; 
-vertical-align:middle; 
-display:table-cell; 
+/*position:relative;*/
+background: linear-gradient(blue, white) #373737;
+border: 1px solid #559; 
+display: table-cell;
+vertical-align: middle; 
 width: 400px;
-height: 400px;
-left: 50%;
-margin-left: -200px;
+height: 650px;
+/*left: 50%;*/
+/*margin-left: -200px;*/
+margin:auto;
 /* text-align: center; */
 }
 
+/****  welcome avatar sketch links style ****/
 nav#avatarnav ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
@@ -218,4 +208,5 @@ nav#avatarnav ul {
     font-size: 1.0em;
     text-align: center;
 }
+
 /*** 404 Page ***/
