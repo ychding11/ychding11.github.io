@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Questions" 
+title: "Design and debug case study" 
 date: 2016-11-24
 ---
 
@@ -21,14 +21,10 @@ The post summarizes some software bugs and how to debug thme. It also talk about
 
   Access violation at address XXXX is a popular runtime error. Address 0x00000 always means 
   null pointer access, Address 0x12345AB or something like that maybe indicate array index is 
-  out of bound. How the system distinguish one from another?
+  out of bound. How the system distinguish one from another? following disassembly code confused me. 
 
-- Following disassembly code confused me. 
-
-```
-00007FFC54FC9D76  mov  rax,qword ptr [this]  the instruction just loads this value into rax, not the value pointed by this.
-00007FFC54FC9D87  mov  rcx,qword ptr [rcx]   the instruction loads rcx referenced memory into rcx. 
-```
+	00007FFC54FC9D76  mov  rax,qword ptr [this]  just loads this value into rax, not the value pointed by this.
+	00007FFC54FC9D87  mov  rcx,qword ptr [rcx]   loads rcx referenced memory into rcx. 
 
 ## Question: From perspective of assembly language, is *this* an address?	
 
@@ -87,3 +83,40 @@ to respresent memory size in very common public interface such as *memcpy()*. So
 you will found it is widely used in your code at the same time. There is no rescue other than to reconstruct your
 code.
 
+## steps of debugging OpenGL lib loading error On Linux
+
+For example:
+
+	libGL error: unable to load driver: swrast_dri.so
+	libGL error: failed to load driver: swrast
+
+You can use the following steps to locate the problem.
+
+1. set `export LIBGL_DEBUG=verbose` and run program again. More details will be output.  
+```
+libGL: screen 0 does not appear to be DRI2 capable
+libGL: OpenDriver: trying /usr/lib/dri/tls/swrast_dri.so
+libGL: OpenDriver: trying /usr/lib/dri/swrast_dri.so
+libGL: dlopen /usr/lib/dri/swrast_dri.so failed (/usr/lib/dri/swrast_dri.so: cannot open shared object file: No such file or directory)
+libGL: OpenDriver: trying /usr/lib64/dri/tls/swrast_dri.so
+libGL: OpenDriver: trying /usr/lib64/dri/swrast_dri.so
+libGL: dlopen /usr/lib64/dri/swrast_dri.so failed (/usr/lib64/dri/swrast_dri.so: undefined symbol: _glapi_tls_Dispatch)
+libGL error: unable to load driver: swrast_dri.so
+libGL error: failed to load driver: swrast
+``` 
+It use the software raster, but I have a nvidia graphic card installed. 
+2. check lib symbols `readelf -Ws /usr/lib64/dri/swrast_dri.so |grep _glapi_tls`
+```
+109: 0000000000000000     0 TLS     GLOBAL DEFAULT  UND _glapi_tls_Dispatch 
+401: 0000000000000000     0 TLS     GLOBAL DEFAULT  UND _glapi_tls_Context 
+```	
+3. explore systme log `cat /var/log/Xorg.0.log | grep  "GL"` to check graphics related modules.
+4. check GL lib on my 64bit arch, `find /usr/lib64 -name "libGL.so*" `
+```
+/usr/lib64/libGL.so.1
+/usr/lib64/libGL.so.352.63  hardware driver
+/usr/lib64/libGL.so   this links to softwar one
+/usr/lib64/libGL.so.1.2.0  software driver
+```
+
+So I believe system configuration makes mistakes. After reinstall graphic card driver, the problem disapears.
