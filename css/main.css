@@ -162,8 +162,9 @@ a img {
 border:0;
 }
 
-/****  welcome avatar sketch wrap style ****/
-.wlecomContainer {
+/****  welcome avatar sketch wrap div style ****/
+div.wlecomContainer {
+position: relative;
 margin: 40px auto 40px;
 }
 
@@ -186,16 +187,15 @@ letter-spacing:-1px;
 
 /****  welcome avatar sketch style ****/
 div#avatardiv {
-/*position:relative;*/
 background: linear-gradient(blue, white) #373737;
 border: 1px solid #559; 
 display: table-cell;
 vertical-align: middle; 
 width: 400px;
 height: 650px;
-/*left: 50%;*/
-/*margin-left: -200px;*/
-margin:auto;
+position: relative;
+left: 60%;
+margin: auto;
 /* text-align: center; */
 }
 
