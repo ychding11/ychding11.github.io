@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "C++ Features and Resources"
+title: "C++ features and resources"
 date: 2016-11-24
 ---
-The post summarizes new features of c++.
+
+The post summarizes new features of c++ and list available internet resources about cpp.
 
 
 ## overloaded virtual function
@@ -20,9 +21,8 @@ compiler options please refer gcc manual.
 - Werror, Treat all warnings as errors.
 - Wall, 
 - Wextra,
-- Wl,option, pass options to linker, *option* is linker 
-  option.
-- g3, include macro infomation into built binary.
+- Wl,option, pass options to linker, *option* is linker option.
+- g3, include macro infomation into debug info.
 
 ## const reference
 
@@ -276,6 +276,9 @@ will get a NULL pointer. Some compilers don't support runtime-type-info,
 in such case, the above usage won't work properly.
 
 ## cross initialization && switch-case
+
+Following code demostrate this kind of error.
+
 ```
 switch(a)
 {
@@ -294,6 +297,7 @@ This [page](http://www.complete-concrete-concise.com/programming/c/keyword-switc
 explains c/c++ switch-case keyword.
 
 ## inline and virtual
+
 Using *inline* and *virtual* for the same member function does 
 make sense. virtual function is also a member function. When 
 calling virtual function by base class pointer or reference,
@@ -304,8 +308,10 @@ to compiler to decide inline it or not.
 
 ## default member initializer
 
+The behavior is the same with constructor initializing list.
 
 ## auto_ptr
+
 *ownership* is the key to understand auto_ptr. At any time 
 an auto_ptr has an ownership to an object or in null state.
 So copy operation will make one auto_ptr lose ownership. 
@@ -317,6 +323,7 @@ do dereference. Copy from it will cause error.
 gives several good examples for reference.
 
 ## private inheritance
+
 private inheritance is something like composition(has-a).
 while, Inheritance, in general, is a is-a. It has some
 unique features compared to composition.
@@ -325,10 +332,10 @@ unique features compared to composition.
 - tye case to Base class.
 - call Base class interface directly.
 
-This [page](https://isocpp.org/wiki/faq/private-inheritance) 
-has a detailed explanation about private inheritance.
+This [page](https://isocpp.org/wiki/faq/private-inheritance) has a detailed explanation about private inheritance.
 
 ## operator overload
+
 *operator overload* is to tell compiler how built-in operators apply to 
 user-defined data types by function overloading. Properly written
 operator overload can lead to more readable and maintainable code.
