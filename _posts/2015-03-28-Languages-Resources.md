@@ -375,6 +375,7 @@ operator overload can lead to more readable and maintainable code.
 - [reference](http://www.keithschwarz.com/cs106l/fall2010/course-reader/Ch10_OperatorOverloading.pdf)
 
 ## random number generator
+
 [This page](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/generating-random-numbers)
 is a good introduction to the backgroud of random number 
 generator. Presudorandom-number-generator is more easily integrated 
@@ -420,7 +421,7 @@ object and meet special requirements such that memory alignment. Usually in
 this case, explicitly calling destructor is needed. It is reasonable because
 that you take the role of comiler here.
 
-## only destructor be declared as private or protected
+## only destructor declared as private or protected
 
 It can force the class only can be allocate dynamically. 
 That is object can only be created by new(). Object 
@@ -431,6 +432,7 @@ allocate in such way `Type obj` is forbidden.
 [Stroustrup talks](http://www.stroustrup.com/C++11FAQ.html#member-init)
 
 ## C++11 new features
+
 + defaulted and deleted function.To declare a deleted function, you can append the *=delete;* specifier to
   the end of a function declaration. The compiler prohibits the usage of a deleted function.
 + [C++11 deleted function](https://www.ibm.com/developerworks/community/blogs/5894415f-be62-4bc0-81c5-3956e82276f3/entry/deleted_functions_in_c_11?lang=en)
@@ -439,7 +441,7 @@ allocate in such way `Type obj` is forbidden.
   reduce coding defects.
 
 
-## Learning materials
+## other learning materials
 
 - [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
   contents about c++, very good materials for references.
