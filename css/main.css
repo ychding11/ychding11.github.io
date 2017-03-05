@@ -110,6 +110,9 @@ font-size: 1.1em;
 text-indent: 20px;
 }
 
+em {
+font-size: 1.2em;
+}
 
 ul.posts { 
     margin: 20px auto 40px; 
@@ -161,6 +164,7 @@ color: #23af4c;
 a img {
 border:0;
 }
+
 
 /****  welcome avatar sketch wrap div style ****/
 div.wlecomContainer {
