@@ -126,6 +126,11 @@ This post summaries the commom usefull commands on Linux Platform.
   this first client exits, xinit will kill the X server and then terminate.
 - *xkill -all* 
 
+## simulate keyboard and mouse event
+
+On windows platform, *autohotky* is a good choice and *xdotool* for Linux platform.
+
+
 ## Others
 
 - `control.exe /name Microsoft.ProgramsAndFeatures`
