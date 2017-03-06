@@ -14,8 +14,14 @@ This post summaries the commom usefull commands on Linux Platform.
 - `readelf -p .comment ./a.out` read .comment section info from elf file a.out
 - `ls | wc -l` tell how many files in current directory 
 - `ls -l | grep ^d` list directory items in current directory
-- `lspci | grep -i vga` query graphic cards info as following. ` 00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)`   
-   You can query driver infomation by lspci command: `lspci -vs 00:02.0`.  It can tell you what driver is in use now.   
+- `lspci | grep -i vga` query graphic cards info as following. Output maybe like this:
+
+```
+00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
+```
+  In addition, you can query driver info by lspci command, for example: `lspci -vs 00:02.0`. 
+  It can tell you which driver module is in use now.   
+
 - `buildcommand 2>&1 | tee build.log` This command can save the build 
    log to a local file and at the same time output it to the screen. A very 
    useful command to analyse build errors.
@@ -23,9 +29,8 @@ This post summaries the commom usefull commands on Linux Platform.
    from proc file system. When reinstalling a new graphics card, graphic interface
    may not started successfully. So we need to start linux in text mode to install 
    video card driver. In grub edit mode, we can modify linux kernel command line 
-   temporarily to let linux start in text mode this time. For example,
-   `BOOT_IMAGE=/vmlinuz-3.10.0-327.4.4.el7.x86_64 root=/dev/mapper/centos-root ro rd.lvm.lv=centos/root rd.lvm.lv=centos/swap crashkernel=auto rhgb quiet rdblacklist=nouveau
-    3 `
+   temporarily to let linux start in text mode this time. For example, `BOOT_IMAGE=/vmlinuz-3.10.0-327.4.4.el7.x86_64 root=/dev/mapper/centos-root ro rd.lvm.lv=centos/root rd.lvm.lv=centos/swap crashkernel=auto rhgb quiet rdblacklist=nouveau
+   3 `
 - `sudo fdisk -l` List storage devices of current system. It is usefull when 
    mounting a movable device but don't know it's device name. `sudo fdisk -l /dev/sda` 
    for example, the command can display some detailed info about the device /dev/sda,
@@ -41,6 +46,7 @@ This post summaries the commom usefull commands on Linux Platform.
 - `mount -t "ntfs" -o ro /dev/sda1 /mountpoint` mount with read-only option.
 - `rpm -qa`, list all installed package in centos system. `rpm -q --list package-name` 
   list all files related to package. `rpm -q --state package-name`, query package state. 
+- `df -lf` query current available volume on mounted devices.
  
 ## Search and Replace
 
