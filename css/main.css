@@ -161,8 +161,12 @@ background: #222021;
 color: #23af4c;
 }
 
-a img {
-border:0;
+img {
+border: 1px solid #559; 
+width:  200px;
+height: 200px;
+display: block;
+margin:auto;
 }
 
 
