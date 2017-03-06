@@ -128,7 +128,7 @@ This post summaries the commom usefull commands on Linux Platform.
 
 ## simulate keyboard and mouse event
 
-On windows platform, *autohotky* is a good choice and *xdotool* for Linux platform.
+On windows platform, [autohotky](https://autohotkey.com/) is a good choice and [xdotool](http://tuxradar.com/content/xdotool-script-your-mouse) for Linux platform.
 
 
 ## Others
