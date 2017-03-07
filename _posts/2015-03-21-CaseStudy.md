@@ -121,7 +121,7 @@ It use the software raster, but I have a nvidia graphic card installed.
 
 So I believe system configuration makes mistakes. After reinstall graphic card driver, the problem disapears.
 
-## random crash cased by unintialized local varibles
+## random crash caused by unintialized local varibles
 
 Following code:
 ```
@@ -144,6 +144,7 @@ float2 normal(v1.y - v0.y, v0.x - v1.x);
 float2 normalAbs(abs(normal.x), abs(normal.y));
 
 ```
+
 [abs function](http://www.cplusplus.com/reference/cmath/abs/) accept `int` as input parameter in C runtime library. 
 C++ runtime library provides overloads for abs function and called by std::abs(xxx). The risk of the above code is 
 that it is not obvious to use which one. The runtime result is that It works fine on windows platform by accepting 
