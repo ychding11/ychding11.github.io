@@ -136,5 +136,17 @@ other GL external modules. The risk is that when your context does not support G
 `glGetIntegerv`, it leaves params `major` and `minor` unchanged. The uninitialized variable
 with random value will make systme behavior unpredictable and very hard to guess failing root cause.
 
+## abs() cause unwanted behavior
 
+Following code:
+```
+float2 normal(v1.y - v0.y, v0.x - v1.x);
+float2 normalAbs(abs(normal.x), abs(normal.y));
+
+```
+[abs function](http://www.cplusplus.com/reference/cmath/abs/) accept `int` as input parameter in C runtime library. 
+C++ runtime library provides overloads for abs function and called by std::abs(xxx). The risk of the above code is 
+that it is not obvious to use which one. The runtime result is that It works fine on windows platform by accepting 
+`float` type param, while behavioring strangely on *Linux and Mac* platform by accepting `int` param. In this case 
+I prefer to use function `fabs` because the data type is float under current context.
 
