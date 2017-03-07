@@ -124,12 +124,14 @@ So I believe system configuration makes mistakes. After reinstall graphic card d
 ## random crash caused by unintialized local varibles
 
 Following code:
+
 ```
  GLint major, minor;
  glGetIntegerv(GL_MAJOR_VERSION, &major);
  glGetIntegerv(GL_MINOR_VERSION, &minor);
 
 ```
+
 It try to fetch OpenGL version No by a GL call with two uninitialized variables.
 The following code will check the fetched version NO. and decide to whether to init 
 other GL external modules. The risk is that when your context does not support GL call to 
@@ -139,6 +141,7 @@ with random value will make systme behavior unpredictable and very hard to guess
 ## abs() cause unwanted behavior
 
 Following code:
+
 ```
 float2 normal(v1.y - v0.y, v0.x - v1.x);
 float2 normalAbs(abs(normal.x), abs(normal.y));
