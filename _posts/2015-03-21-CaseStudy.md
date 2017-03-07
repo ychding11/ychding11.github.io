@@ -120,3 +120,21 @@ It use the software raster, but I have a nvidia graphic card installed.
 ```
 
 So I believe system configuration makes mistakes. After reinstall graphic card driver, the problem disapears.
+
+## random crash cased by unintialized local varibles
+
+Following code:
+```
+ GLint major, minor;
+ glGetIntegerv(GL_MAJOR_VERSION, &major);
+ glGetIntegerv(GL_MINOR_VERSION, &minor);
+
+```
+It try to fetch OpenGL version No by a GL call with two uninitialized variables.
+The following code will check the fetched version NO. and decide to whether to init 
+other GL external modules. The risk is that when your context does not support GL call to 
+`glGetIntegerv`, it leaves params `major` and `minor` unchanged. The uninitialized variable
+with random value will make systme behavior unpredictable and very hard to guess failing root cause.
+
+
+
