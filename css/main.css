@@ -111,7 +111,11 @@ text-indent: 20px;
 }
 
 em {
-font-size: 1.2em;
+font-family: Monaco, Courier;
+font-size: 1.0em;
+letter-spacing:-1px;
+color:#0a0;
+background: #191919;
 }
 
 ul.posts { 
@@ -162,8 +166,8 @@ color: #23af4c;
 }
 
 img {
-border: 1px solid #559; 
-width:  200px;
+border: 3px solid #559; 
+width:  266px;
 height: 200px;
 display: block;
 margin:auto;
