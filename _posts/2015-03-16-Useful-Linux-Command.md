@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Usefull Linux Commands" 
+title: "Usefull Linux commands" 
 date: 2015-03-16
 ---
 
@@ -84,14 +84,13 @@ This post summaries the commom usefull commands on Linux Platform.
 - *sed* and *grep* can cooperate. That is *grep* can suply the file list containing the specified pattern while 
   *sed* edit those files one by one. for example: sed -i 's/pattern/newstr/g' `grep -rl pattern ./`.
 
-## VIM Tips for quick Reference
+## VIM tips for quick Reference
 
 - `vim --version | grep clipboard` It can tell whether vim is able 
   to transfer data with clipboard. `sudo apt-get install vim-gnome` 
-  in ubuntu can enhance vim with the abiltiy.
+  in Ubuntu can enhance vim with the abiltiy.
 - *Display full file path when editing a file* Sometimes is helpful to us.
-  bar visible. `:help statusline` and `:help laststatus` give detailed info for 
-  reference.
+  bar visible. `:help statusline` and `:help laststatus` give detailed info for reference.
 - Sometimes we want *case insensitive* search. `:set ignorecase` or `:set ic` 
   can do that. `:set noic` reset the previous settings.
 - `set ruler` display colum number and row number on the right bottom coner.
@@ -102,10 +101,15 @@ This post summaries the commom usefull commands on Linux Platform.
 - `%` jumps to matching braces. `y%` yanking contents between an item and its matching 
   item. `d%` deleting in the same way. vim object-select can do the similar block 
   selection in virsual mode. `:help object-select` and `:help text-objects`for details.
-- `:set invlist` Makes invisible characters visible. For example, $ for enter and ^I 
+- `:set invlist` Makes invisible characters visible. For example, $ represents for enter and ^I 
   for tab. `:set nolist` Makes vim return to normal mode.
-- vim regular expression[link](http://www.cnblogs.com/PegasusWang/p/3153300.html)
-+ Input `chrome://version` into chrome browser to check chrome info.
+- vim regular expression [refrence link](http://www.cnblogs.com/PegasusWang/p/3153300.html)
+- 3 types of visual modes:
+```
+	v --> visual mode for multi-character selection and edit    
+	V --> visual line mode for multi-line selection and edit    
+	Ctrl + v --> visual mode for block selection and edit, it is more flexible    
+```
 
 ## Grub2
 
@@ -116,23 +120,24 @@ This post summaries the commom usefull commands on Linux Platform.
 
 ## Shell script
 
-- *echo $?* query shell exit status. *man bash* and search *special parameters* for more details.
+- `echo $?` query shell exit status. *man bash* and search *special parameters* for more details about Linux bash special parameters.
 
 ## X Windows
 
-- [X.org](https://wiki.archlinux.org/index.php/Xorg)
-- *ps aux | grep -i "xinit"* The  xinit  program  is  used to start the X Window System server and a first client program
+- [X Window offical site](https://wiki.archlinux.org/index.php/Xorg)
+- `ps aux | grep -i "xinit"` The  xinit  program  is  used to start the X Window System server and a first client program
   on systems that are not using a display manager such as xdm or in environments that use multiple window systems.  When
   this first client exits, xinit will kill the X server and then terminate.
-- *xkill -all* 
+- `xkill -all` 
 
 ## simulate keyboard and mouse event
 
-On windows platform, [autohotky](https://autohotkey.com/) is a good choice and [xdotool](http://tuxradar.com/content/xdotool-script-your-mouse) for Linux platform.
+On windows platform, [autohotky](https://autohotkey.com/) is a good choice and
+[xdotool](http://tuxradar.com/content/xdotool-script-your-mouse) for Linux platform.
 
+## miscs
 
-## Others
-
-- `control.exe /name Microsoft.ProgramsAndFeatures`
+- `control.exe /name Microsoft.ProgramsAndFeatures` Open program windows in command mode.
+- Input `chrome://version` into chrome browser to check chrome info.
 - [vimvs faq](https://github.com/jaredpar/VsVim/wiki/faq)
 - `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -vcodec copy -acodec copy output-video-name`. This command is used to split a piece of video from original video. *-ss xxx* specifies starting time. *-t xxx* specifies the length of the video you want to split. *copy* means the same codec with original file.
