@@ -14,10 +14,9 @@ This post summaries the commom usefull commands on Linux Platform.
 - `readelf -p .comment ./a.out` read .comment section info from elf file a.out
 - `ls | wc -l` tell how many files in current directory 
 - `ls -l | grep ^d` list directory items in current directory
-- `lspci | grep -i vga` query graphic cards info as following. Output maybe like this:
-
+- `lspci | grep -i vga` query graphic cards info as following. Output maybe like this: 
 ```
-00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
+	00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
 ```
   In addition, you can query driver info by lspci command, for example: `lspci -vs 00:02.0`. 
   It can tell you which driver module is in use now.   
