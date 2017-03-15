@@ -97,12 +97,11 @@ int main()
    Derived derive;
    return 0;
 }                                                    
-
 {% endhighlight %}
 
 vtbl info:
 
-```
+{% highlight bash %}
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400c30 (subobject @ 0x7fffffffdf20):
 [0]: 0x400a86 <Base::f(int, int)>
@@ -111,11 +110,11 @@ vtable for 'Base' @ 0x400c30 (subobject @ 0x7fffffffdf20):
 vtable for 'Derived' @ 0x400c10 (subobject @ 0x7fffffffdf10):
 [0]: 0x400a86 <Base::f(int, int)>
 [1]: 0x400ab6 <Base::f(int)>
-```
+{% endhighlight %}
 
 derived class partly overrides base class virtual function
 
-```
+{% highlight cpp linenos %}
 class Base
 {
  public:
@@ -142,9 +141,11 @@ int main()
    Derived derive;
    return 0;
 }                                                   
-```
+{% endhighlight %}
 
-```
+virtual function pointer info.
+
+{% highlight bash %}
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400c70 (subobject @ 0x7fffffffdf20):
 [0]: 0x400a86 <Base::f(int, int)>
@@ -153,12 +154,12 @@ vtable for 'Base' @ 0x400c70 (subobject @ 0x7fffffffdf20):
 vtable for 'Derived' @ 0x400c50 (subobject @ 0x7fffffffdf10):
 [0]: 0x400a86 <Base::f(int, int)>
 [1]: 0x400b30 <Derived::f(int)>
-```
+{% endhighlight %}
 
 derived class completely overrides base class virtual function and 
 create new virtual function.
 
-```
+{% highlight cpp linenos %}
 class Base
 {
  public:
@@ -188,14 +189,15 @@ int main()
 {
    Base base;
    Derived derive;
-   Base *b = &derive;
+   Base * b = &derive;
    b->f(0, 1);
    return 0;
 }                                     
-```
+{% endhighlight %}
+
 Corresponding vtbl info:
 
-```
+{% highlight bash %}
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400df0 (subobject @ 0x7fffffffdf20):
 [0]: 0x400b52 <Base::f(int, int)>
@@ -209,10 +211,11 @@ vtable for 'Derived' @ 0x400db0 (subobject @ 0x7fffffffdf10):
 vtable for 'Base' @ 0x400db0 (subobject @ 0x7fffffffdf10):
 [0]: 0x400c30 <Derived::f(int, int)>
 [1]: 0x400c60 <Derived::f(int)>
+{% endhighlight %}
 
-```
+virtual function pointer order in vtbl is determined by declare order in Base class.
 
-```
+{% highlight cpp linenos %}
 class Base
 {
  public:
@@ -239,14 +242,15 @@ int main()
 {
    Base base; // will be instanced with protected destructor?
    Derived derive;
-   Base *p = &derive;
+   Base * p = &derive;
    p->f(0);
    return 0;
 }                            
-```
+{% endhighlight %}
+
 Check the virutal table.
 
-```
+{% highlight bash %}
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400d70 (subobject @ 0x7fffffffdf20):
 [0]: 0x400b52 <Base::f(int, int)>
@@ -255,7 +259,7 @@ vtable for 'Base' @ 0x400d70 (subobject @ 0x7fffffffdf20):
 vtable for 'Derived' @ 0x400d50 (subobject @ 0x7fffffffdf10):
 [0]: 0x400c2a <Derived::f(int, int)>
 [1]: 0x400bfc <Derived::f(int)>
-```
+{% endhighlight %}
 
 ## type casting
 
@@ -280,7 +284,7 @@ in such case, the above usage won't work properly.
 
 Following code demostrate this kind of error.
 
-```
+{% highlight cpp linenos %}
 switch(a)
 {
 	case 1: 
@@ -289,7 +293,7 @@ switch(a)
 	default:
 		break
 }
-```
+{% endhighlight %}
 
 switch-case is something like jump table.
 [stackoverflow link](http://stackoverflow.com/questions/92396/why-cant-variables-be-declared-in-a-switch-statement)
@@ -394,22 +398,24 @@ learn IEEE745 standard.
 
 It is different from integer number that when diving by an zero, it
 does not cause an exception, instead you get an inf. Sample code:
-```
- int main()
- {
- 
-     cout << 1.0 / 0.0 << std::endl;
-     cout << -1.0 / 0.0 << std::endl;
-     return 0;                                                                                                                                                                                                  
- }   
-```
+
+{% highlight c++ linenos %}
+int main()
+{
+
+    cout << 1.0 / 0.0 << std::endl;
+    cout << -1.0 / 0.0 << std::endl;
+    return 0;                                                                                                                                                                                                  
+}
+{% endhighlight %}
 
 Result:
-```
+
+{% highlight bash %}
 $ ./a.out 
 inf
 -inf
-```
+{% endhighlight %}
 
 ## placement new
 
