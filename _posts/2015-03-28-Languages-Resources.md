@@ -116,32 +116,32 @@ vtable for 'Derived' @ 0x400c10 (subobject @ 0x7fffffffdf10):
 derived class partly overrides base class virtual function
 
 ```
- 43 class Base
- 44 {
- 45  public:
- 46     Base() {}
- 47     ~Base() { std::cout << "~Base()" << std::endl; }
- 48     virtual void f(int, int)
- 49     { std::cout << "Base::f(int, int)" << std::endl; }
- 50     virtual void f(int)
- 51     { std::cout << "Base::f(int)" << std::endl; }
- 52 };
- 53 
- 54 class Derived : public Base
- 55 {
- 56 public:
- 57     Derived() {}
- 58     ~Derived(){}
- 59     virtual void f(int)
- 60     { std::cout << "Derived::f(int)" << std::endl; }
- 61 };
- 62 
- 63 int main()
- 64 {
- 65    Base base; // will be instanced with protected destructor?
- 66    Derived derive;
- 67    return 0;
- 68 }                                                   
+class Base
+{
+ public:
+    Base() {}
+    ~Base() { std::cout << "~Base()" << std::endl; }
+    virtual void f(int, int)
+    { std::cout << "Base::f(int, int)" << std::endl; }
+    virtual void f(int)
+    { std::cout << "Base::f(int)" << std::endl; }
+};
+
+class Derived : public Base
+{
+public:
+    Derived() {}
+    ~Derived(){}
+    virtual void f(int)
+    { std::cout << "Derived::f(int)" << std::endl; }
+};
+
+int main()
+{
+   Base base; // will be instanced with protected destructor?
+   Derived derive;
+   return 0;
+}                                                   
 ```
 
 ```
@@ -159,39 +159,39 @@ derived class completely overrides base class virtual function and
 create new virtual function.
 
 ```
- 43 class Base
- 44 {
- 45  public:
- 46     Base() {}
- 47     ~Base() { std::cout << "~Base()" << std::endl; }
- 48     virtual void f(int, int)
- 49     { std::cout << "Base::f(int, int)" << std::endl; }
- 50     virtual void f(int)
- 51     { std::cout << "Base::f(int)" << std::endl; }
- 52 };
- 53 
- 54 class Derived : public Base
- 55 {
- 56 public:
- 57     Derived() {}
- 58     ~Derived(){}
- 59     //using Base::f;
- 60     virtual void f(int, int, int)
- 61     { std::cout << "Derived::f(int, int, int)" << std::endl; }
- 62     virtual void f(int, int)
- 63     { std::cout << "Derived::f(int, int)" << std::endl; }
- 64     virtual void f(int)
- 65     { std::cout << "Derived::f(int)" << std::endl; }
- 66 };
- 67 
- 68 int main()
- 69 {
- 70    Base base;
- 71    Derived derive;
- 72    Base *b = &derive;
- 73    b->f(0, 1);
- 74    return 0;
- 75 }                                     
+class Base
+{
+ public:
+    Base() {}
+    ~Base() { std::cout << "~Base()" << std::endl; }
+    virtual void f(int, int)
+    { std::cout << "Base::f(int, int)" << std::endl; }
+    virtual void f(int)
+    { std::cout << "Base::f(int)" << std::endl; }
+};
+
+class Derived : public Base
+{
+public:
+    Derived() {}
+    ~Derived(){}
+    //using Base::f;
+    virtual void f(int, int, int)
+    { std::cout << "Derived::f(int, int, int)" << std::endl; }
+    virtual void f(int, int)
+    { std::cout << "Derived::f(int, int)" << std::endl; }
+    virtual void f(int)
+    { std::cout << "Derived::f(int)" << std::endl; }
+};
+
+int main()
+{
+   Base base;
+   Derived derive;
+   Base *b = &derive;
+   b->f(0, 1);
+   return 0;
+}                                     
 ```
 Corresponding vtbl info:
 
