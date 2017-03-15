@@ -35,15 +35,15 @@ const pointer type is good choice.
 
 {% highlight cpp linenos %}
 
-	struct Holder
+struct Holder
+{
+	int type;
+	union
 	{
-		int type;
-		union
-		{
-			int &ri;
-			float &rf;
-		};
+		int &ri;
+		float &rf;
 	};
+};
 
 {% endhighlight %}
 
@@ -62,6 +62,7 @@ newly introduced ones, but they  are not conflict with each other.
 gives the detailed info and a good example.
 
 ## vtbl & vptr
+
 Where is vtable stored? Is this compiler dependent?
 Is vptr always offset 0 in an object memory layout?
 How about multiple inheritance?
@@ -73,30 +74,30 @@ derived class does not override base class virtual function.
 
 {% highlight cpp %}
 
- 43 class Base
- 44 {
- 45  public:
- 46     Base() {}
- 47     ~Base() { std::cout << "~Base()" << std::endl; }
- 48     virtual void f(int, int)
- 49     { std::cout << "Base::f(int, int)" << std::endl; }
- 50     virtual void f(int)
- 51     { std::cout << "Base::f(int)" << std::endl; }
- 52 };
- 53 
- 54 class Derived : public Base
- 55 {
- 56 public:
- 57     Derived() {}
- 58     ~Derived(){}
- 59 };
- 60 
- 61 int main()
- 62 {
- 63    Base base;
- 64    Derived derive;
- 65    return 0;
- 66 }                                                    
+class Base
+{
+	public:
+    Base() {}
+    ~Base() { std::cout << "~Base()" << std::endl; }
+    virtual void f(int, int)
+    { std::cout << "Base::f(int, int)" << std::endl; }
+    virtual void f(int)
+    { std::cout << "Base::f(int)" << std::endl; }
+};
+
+class Derived : public Base
+{
+public:
+    Derived() {}
+    ~Derived(){}
+};
+
+int main()
+{
+   Base base;
+   Derived derive;
+   return 0;
+}                                                    
 
 {% endhighlight %}
 
@@ -213,37 +214,38 @@ vtable for 'Base' @ 0x400db0 (subobject @ 0x7fffffffdf10):
 ```
 
 ```
- 43 class Base
- 44 {
- 45  public:
- 46     Base() {}
- 47     ~Base() { std::cout << "~Base()" << std::endl; }
- 48     virtual void f(int, int)
- 49     { std::cout << "Base::f(int, int)" << std::endl; }
- 50     virtual void f(int)
- 51     { std::cout << "Base::f(int)" << std::endl; }
- 52 };
- 53 
- 54 class Derived : public Base
- 55 {
- 56 public:
- 57     Derived() {}
- 58     ~Derived(){}
- 59     virtual void f(int)
- 60     { std::cout << "Derived::f(int)" << std::endl; }
- 61     virtual void f(int, int)
- 62     { std::cout << "Derived::f(int, int)" << std::endl; }
- 63 };
- 64 
- 65 int main()
- 66 {
- 67    Base base; // will be instanced with protected destructor?
- 68    Derived derive;
- 69    Base *p = &derive;
- 70    p->f(0);
- 71    return 0;
- 72 }                            
+class Base
+{
+ public:
+    Base() {}
+    ~Base() { std::cout << "~Base()" << std::endl; }
+    virtual void f(int, int)
+    { std::cout << "Base::f(int, int)" << std::endl; }
+    virtual void f(int)
+    { std::cout << "Base::f(int)" << std::endl; }
+};
+
+class Derived : public Base
+{
+public:
+    Derived() {}
+    ~Derived(){}
+    virtual void f(int)
+    { std::cout << "Derived::f(int)" << std::endl; }
+    virtual void f(int, int)
+    { std::cout << "Derived::f(int, int)" << std::endl; }
+};
+
+int main()
+{
+   Base base; // will be instanced with protected destructor?
+   Derived derive;
+   Base *p = &derive;
+   p->f(0);
+   return 0;
+}                            
 ```
+Check the virutal table.
 
 ```
 (gdb) info vtbl base
@@ -393,19 +395,17 @@ learn IEEE745 standard.
 
 It is different from integer number that when diving by an zero, it
 does not cause an exception, instead you get an inf. Sample code:
-
 ```
-  5 int main()
-  6 {
-  7 
-  8     cout << 1.0 / 0.0 << std::endl;
-  9     cout << -1.0 / 0.0 << std::endl;
- 10     return 0;                                                                                                                                                                                                  
- 11 }   
+ int main()
+ {
+ 
+     cout << 1.0 / 0.0 << std::endl;
+     cout << -1.0 / 0.0 << std::endl;
+     return 0;                                                                                                                                                                                                  
+ }   
 ```
 
 Result:
-
 ```
 $ ./a.out 
 inf
