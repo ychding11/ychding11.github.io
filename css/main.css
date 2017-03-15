@@ -151,13 +151,12 @@ color: #888;
 
 pre { 
 font-family: Monaco, Courier;
+font-size: 1em;
+line-height: 1em;
 background: #191919;
-border: dashed 2px #e5e5e5;
+/*border: dashed 1px #e5e5e5;*/
 width: auto;
-padding: 5px;
-font-size:1em;
-line-height: 2em;
-clear:both;
+/*padding: 5px;*/
 }
 
 code.highlighter-rouge {

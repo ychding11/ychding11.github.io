@@ -47,7 +47,6 @@ struct Holder
 
 {% endhighlight %}
 
-
 ## using statement
 
 `using` keyword can introduce base class member into derived class.
@@ -63,7 +62,7 @@ gives the detailed info and a good example.
 
 ## vtbl & vptr
 
-Where is vtable stored? Is this compiler dependent?
+Where is vtable stored? Is it compiler dependent?
 Is vptr always offset 0 in an object memory layout?
 How about multiple inheritance?
 
@@ -72,11 +71,11 @@ have their own vtbl even no function override occur?
 
 derived class does not override base class virtual function.
 
-{% highlight cpp %}
+{% highlight cpp linenos %}
 
 class Base
 {
-	public:
+public:
     Base() {}
     ~Base() { std::cout << "~Base()" << std::endl; }
     virtual void f(int, int)
