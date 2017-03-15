@@ -109,6 +109,7 @@ This post summaries the commom usefull commands on Linux Platform.
 	V --> visual line mode for multi-line selection and edit    
 	Ctrl + v --> visual mode for block selection and edit, it is more flexible    
 ```
+- in visual mode, press *<* and *>* can do auto-indent.
 
 ## Grub2
 
