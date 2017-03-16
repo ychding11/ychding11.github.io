@@ -28,3 +28,9 @@ Steps to configure git mergetool
 
 After ready, when conflicts occurs, run `git mergetool`, a GUI tool will be opened. Above all, you also can
 edit git config file directly by command `git config --global -e`.
+
+## How to use math formula in Github page
+
+- jekyll [math support](https://jekyllrb.com/docs/extras/#math-support)
+- visit [LaTex wiki](https://en.wikibooks.org/wiki/LaTeX/Mathematics) for mathematics.
+- sample [page](http://gastonsanchez.com/visually-enforced/opinion/2014/02/16/Mathjax-with-jekyll/)
