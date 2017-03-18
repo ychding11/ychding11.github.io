@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ray and shape intersection algorithms" 
-date: 2015-04-21
+date: 2016-04-21
 ---
 This post give a simple summary of ray intersection with simple shapes.
 
@@ -22,11 +22,13 @@ The wikipedia page contains the very detailed description about algorithm and gi
 ## ray and axis-aligned bounding-box intersection algorithms
 
 The algorithm is excerpted from *Physically Based Rendering - From Theory to Implementation 3rd edition*.     
-The main idea is to compute 3 slabs intersection with ray independently in 3D space, each slab is the space 
-determined by two planes. [Other materials](http://people.csail.mit.edu/amy/papers/box-jgt.pdf).    
-Given plane: $$ x = c $$ and normal is: $$ \overrightarrow{n}=(1,0,0)$$.
+The main idea is to compute 3 slabs intersection with ray independently in 3D space.
+Each slab is the space determined by two planes. [Other materials](http://people.csail.mit.edu/amy/papers/box-jgt.pdf).    
+
+Given plane: $$ x = c $$ and its normal is: $$ \overrightarrow{n}=(1,0,0)$$.
 
 ![ray and slab intersection]({{ site.url }}/images/shapeIntersection/intersection-slab.png  "ray and slab intersection")   
+
 Suppose axis-aligned bounding box is determined by: $$ Box_{min} = (x_1, y_1, z_1), Box_{max} = (x_2, y_2, z_2) $$.     
   ray formula:  $$ ray = o + t * d $$.     
   plane formula: $$ a * x + b * y + c * z + d = 0 $$.    
@@ -34,6 +36,16 @@ Suppose axis-aligned bounding box is determined by: $$ Box_{min} = (x_1, y_1, z_
    $$ t_1 = min \left\{(x_1-o_x)/d_x,(y_1-o_y)/d_y,(z_1-o_z)/d_z \right\} $$  
    $$ t_2 = max \left\{(x_2-o_x)/d_x,(y_2-o_y)/d_y,(z_2-o_z)/d_z \right\} $$  
    
+## point-triangle test in 2D
+
+This section is about  how to judge whether a point is within a triangle in 2D space. Following are definitions    
+edges: $$ e0, e1, e2 $$, vertex: $$ p0=(x_0,y_0), p1=(x_1,y_1), p2=(x_2,y_2) $$, testing vertex: $$ p=(0,0) $$.     
+define an edge function for $$ e0 $$: $$ f(e0)=(p-p1)cross(p2-p1), f(e0)= y_1 * x_2 - x_1 * y_2$$.    
+according to property of cross product:     
+
+1. if all edge function returns the same sign, the vertex is within triangle.
+2. if one edge function returns 0, the vertex is on the edge of triangle.
+
 ## ray-triangle intersection
 
 The algorithm is excerpted from *Physically Based Rendering - From Theory to Implementation 3rd edition*.    
