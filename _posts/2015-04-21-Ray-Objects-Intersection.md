@@ -38,15 +38,24 @@ Suppose axis-aligned bounding box is determined by: $$ Box_{min} = (x_1, y_1, z_
    
 ## point-triangle test in 2D
 
-This section is about  how to judge whether a point is within a triangle in 2D space. Following are definitions    
+This section is about  how to judge whether a point is within a triangle in 2D space. Following are definitions:    
 edges: $$ e0, e1, e2 $$, vertex: $$ p0=(x_0,y_0), p1=(x_1,y_1), p2=(x_2,y_2) $$, testing vertex: $$ p=(0,0) $$.     
-define an edge function for $$ e0 $$: $$ f(e0)=(p-p1)cross(p2-p1), f(e0)= y_1 * x_2 - x_1 * y_2$$.    
-according to property of cross product:     
+edge function for $$ e_0 $$: $$ f(e_0)=(p-p_1)\bigotimes(p_2-p_1)$$.    
+edge function for $$ e_1 $$: $$ f(e_1)=(p-p_0)\bigotimes(p_2-p_0)$$.    
+edge function for $$ e_2 $$: $$ f(e_2)=(p-p_0)\bigotimes(p_1-p_0)$$.    
+
+After simplification.    
+ $$ f(e_0)=p \bigotimes (p_2-p_1) + (p_2 \bigotimes p_1)$$.    
+ $$ f(e_1)=p \bigotimes (p_2-p_0) + (p_2 \bigotimes p_0)$$.    
+ $$ f(e_2)=p \bigotimes (p_1-p_0) + (p_1 \bigotimes p_0)$$.    
+If $$ p=(0,0)$$ then $$ f(e_0)= y_1 * x_2 - x_1 * y_2$$.    
+
+According to property of cross product:     
 
 1. if all edge function returns the same sign, the vertex is within triangle.
 2. if one edge function returns 0, the vertex is on the edge of triangle.
 
-## ray-triangle intersection
+## ray-triangle intersection test in 3D
 
 The algorithm is excerpted from *Physically Based Rendering - From Theory to Implementation 3rd edition*.    
 Main steps list as following.
