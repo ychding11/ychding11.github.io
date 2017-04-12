@@ -35,4 +35,10 @@ Given a PDF, how to draw samples from it, the book<sup>754</sup> gives steps:
 
 If PDF $$p(x)$$ is similar to $$f(x)$$ in shape, estimator converges more quickly. It is explained in pbrt book<sup>793</sup> 
 *Importance Sampling*. It is a common technique to reduce sampling variance in rendering. But it still has problems. In many
-cases, the integrand is the product of more than one function. How to find a PDF similar to integrand in such cases?
+cases, the integrand is the product of more than one function. How to find a PDF similar to integrand in such cases? For 
+example in computer graphics.   
+
+$$L_o(p,\omega_o)=\int_{\mathcal{s}^2} f(p,\omega_i,\omega_o) L_i(p,\omega_i) \cos(\theta) \, \mathrm{d}\omega $$.
+$$\approx \frac{1}{N} \displaystyle\sum_{j=1}^{N} \frac{f(p,\omega_j,\omega_o) L_i(p,\omega_j) \cos(\theta_j) }{p(\omega_j)} $$
+
+
