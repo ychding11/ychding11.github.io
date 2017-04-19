@@ -33,6 +33,7 @@ Given a PDF, how to draw samples from it, the book<sup>754</sup> gives steps:
 3. get uniform distributed random varible $$\xi$$.
 4. compute $$X_i$$ = $$ P(\xi)^{-1}$$
 
+<<<<<<< HEAD
 If PDF $$p(x)$$ is similar to $$f(x)$$ in shape, estimator converges more quickly. It is explained in pbrt book<sup>793</sup> 
 *Importance Sampling*. It is a common technique to reduce sampling variance in rendering. But it still has problems. In many
 cases, the integrand is the product of more than one function. How to find a PDF similar to integrand in such cases? For 
@@ -100,5 +101,8 @@ $$cos(\theta)$$ part of integral<sup>778</sup>. So the PDF of $$\omega$$ should 
 
 $$p(\omega) \propto cos(\theta)$$.
 
-According to Malley's method, the cosine weighted hemishere can be get by sampling on a unit disk uniformly and projecting
-it up to the hemishpere above it<sup>778<sup>. 
+According to Malley's method, the cosine weighted hemishere can be get by sampling on a unit disk uniformly
+and projecting it up to the hemishpere above it<sup>778<sup>. 
+
+### Importance Sampling
+If PDF $$p(x)$$ is similar to $$f(x)$$ in shape, estimator converges more quickly. It is explained in pbrt book<sup>793</sup>.
