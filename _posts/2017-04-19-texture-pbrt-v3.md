@@ -14,3 +14,10 @@ Because texture function is always available in a convenient analytic form. It i
 remove high frequencies be sampling or avoid to introduce high frequency when evaluating the function.
 First, we need to know how to calculate texture sampling rate in texture space<sup>602</sup>.
 
+After getting texture sampling rate, it may need to apply filtering to texture function to remove high
+frequencies beyond Nyquist limit.
+
+### Generate texture coordinate
+It is an active research area of computer graphics to create smooth parameterization of complex mesh with
+little distortion<sup>612</sup>.
+
