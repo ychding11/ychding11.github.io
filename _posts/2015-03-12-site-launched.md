@@ -29,6 +29,14 @@ Steps to configure git mergetool
 After ready, when conflicts occurs, run `git mergetool`, a GUI tool will be opened. Above all, you also can
 edit git config file directly by command `git config --global -e`.
 
+## pack two git commits into a single one
+
+*git rebase -i* can be used as a tool to compact two commits into one. It is an git interactive operation.
+There are commit log: commit A, commit B, commit C. If we combine A and B as a single one, for example, 
+commit A&B. Use git rebase -i "commit C id" to let git begins interactive mode. A commit message will appear in
+editor, modify commit B from pick to squash in editor and save. After git command finished, commit A and commit B
+will combined as a new one.
+
 ## How to use math formula in Github page
 
 - jekyll [math support](https://jekyllrb.com/docs/extras/#math-support)
