@@ -138,7 +138,7 @@ other GL external modules. The risk is that when your context does not support G
 `glGetIntegerv`, it leaves params `major` and `minor` unchanged. The uninitialized variable
 with random value will make systme behavior unpredictable and very hard to guess failing root cause.
 
-## abs() cause unwanted behavior
+## abs() result in unwanted behavior
 
 Following code:
 
@@ -154,3 +154,6 @@ that it is not obvious to use which one. The runtime result is that It works fin
 `float` type param, while behavioring strangely on *Linux and Mac* platform by accepting `int` param. In this case 
 I prefer to use function `fabs` because the data type is float under current context.
 
+## uncaught exception crashes system
+
+## operator overload leads to unpredicted behavor
