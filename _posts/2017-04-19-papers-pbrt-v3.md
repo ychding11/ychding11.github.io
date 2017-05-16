@@ -9,3 +9,7 @@ The post lists papers involving in pbrt book<sup>600</sup>.
 
 ### Boosting Monte Carlo Rendering by Ray Histogram Fusion
 This is  the [link](http://dev.ipol.im/~mdelbra/rhf/) of this paper.
+
+### cache and memory
+
+- [What Every Programmer Should Know About Memory](https://people.freebsd.org/~lstewart/articles/cpumemory.pdf)
