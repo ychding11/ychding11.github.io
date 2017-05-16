@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Python Resources Collection" 
+title: "Python resources collection" 
 date: 2016-09-17
 ---
 

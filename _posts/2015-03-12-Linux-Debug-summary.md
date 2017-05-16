@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Debug Summary" 
+title: "Debug summary" 
 date: 2016-12-7
 ---
 
-This post summarizes debugging skills with usage example on Linux Platform.
+This post summarizes debugging skills with examples on Linux Platform.
 
 ## Core Dump
 

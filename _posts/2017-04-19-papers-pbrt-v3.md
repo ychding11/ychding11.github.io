@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Papers involving pbrt"
+title: "Papers using pbrt"
 date: 2017-04-19
 ---
 

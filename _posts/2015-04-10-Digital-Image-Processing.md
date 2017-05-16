@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Digital Image Processing" 
+title: "Digital image processing" 
 date: 2016-10-20
 ---
 
