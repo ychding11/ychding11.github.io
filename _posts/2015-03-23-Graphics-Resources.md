@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Graphics Resources Collection" 
+title: "Graphics resources collection" 
 date: 2016-10-20
 ---
 
@@ -8,10 +8,10 @@ This post lists a collection of usefull graphic resources.
 
 ## SIGGRAPH 
 
+- [Computer Graphics Paper collection](http://kesen.realtimerendering.com/) 
 - [Casting curved shadows on curved surface](http://cseweb.ucsd.edu/~ravir/274/15/papers/p270-williams.pdf) This is the original idea 
     of shadow mapping which widely used in shadow computation. No math formula in paper, it is very good for beginners.
 - [Simulation of Wrinkled Surfaces](http://research.microsoft.com/pubs/73939/p286-blinn.pdf) The paper presents normal mapping ideas first time. 
-- [Computer Graphics Paper collection](http://kesen.realtimerendering.com/) 
 - [Multi-View Intrinsic Images of Outdoors Scenes with an Application to Relighting](http://www-sop.inria.fr/reves/Basilic/2015/DRCLLPD15/)
 - [Real-Time Polygonal-Light Shading with Linearly Transformed Cosines](https://eheitzresearch.wordpress.com/415-2/)
 - [A System for Rapid Exploration of Shader Optimization Choices](http://graphics.cs.cmu.edu/projects/spire/)

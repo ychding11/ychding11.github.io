@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Building system" 
+title: "Building tools" 
 date: 2016-11-08
 ---
-This post list some useful links for building systems.
+This post list links of widely used building tools.
 
 ## CMake 
 + [cmake useful variables](https://cmake.org/Wiki/CMake_Useful_Variables) 
