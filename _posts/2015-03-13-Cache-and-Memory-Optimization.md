@@ -16,7 +16,9 @@ According to C99 N1256 draft.
 
 ## cache and memory in pbrt book
 
-This topic is listed in pbrt<sup>1065</sup>. The following lists useful materials mentioned in book.
+This topic is listed in pbrt<sup>1065</sup>. It introduces concepts like *cache coherence*, *memory barrier* and 
+*MESI coherence protocal* in book <sup>1076</sup>. In this charpter it also gives bad examples causing performance
+penalty<sup>1077</sup>. The following lists useful materials mentioned in book.
 
 - [What Every Programmer Should Know About Memory](https://people.freebsd.org/~lstewart/articles/cpumemory.pdf)
 - Article by Drepper, [link](https://lwn.net/Articles/255364/)
