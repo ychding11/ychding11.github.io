@@ -35,6 +35,9 @@ edit git config file directly by command `git config --global -e`.
 2. `git checkout remote/branch-name`
 3. `git checkout -b branch-name`
 
+- `git branch -vv` check upstream branch tracked by local branch.
+- `git push --set-upstream server branch` push and set up-stream for local branch.
+
 ## pack two git commits into a single one
 
 *git rebase -i* can be used as a tool to compact two commits into one. It is an git interactive operation.
