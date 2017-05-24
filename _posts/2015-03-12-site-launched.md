@@ -29,6 +29,12 @@ Steps to configure git mergetool
 After ready, when conflicts occurs, run `git mergetool`, a GUI tool will be opened. Above all, you also can
 edit git config file directly by command `git config --global -e`.
 
+## branch operation
+
+1. `git branch -a` display all branchs including remote and local ones.
+2. `git checkout remote/branch-name`
+3. `git checkout -b branch-name`
+
 ## pack two git commits into a single one
 
 *git rebase -i* can be used as a tool to compact two commits into one. It is an git interactive operation.
