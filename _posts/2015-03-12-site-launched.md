@@ -29,7 +29,7 @@ Steps to configure git mergetool
 After ready, when conflicts occurs, run `git mergetool`, a GUI tool will be opened. Above all, you also can
 edit git config file directly by command `git config --global -e`.
 
-## branch operation
+## branch & remote operation
 
 1. `git branch -a` display all branchs including remote and local ones.
 2. `git checkout remote/branch-name`
@@ -37,6 +37,7 @@ edit git config file directly by command `git config --global -e`.
 
 - `git branch -vv` check upstream branch tracked by local branch.
 - `git push --set-upstream server branch` push and set up-stream for local branch.
+- `git remote -vv`, `git remote add`, `git remote remove`.
 
 ## pack two git commits into a single one
 
