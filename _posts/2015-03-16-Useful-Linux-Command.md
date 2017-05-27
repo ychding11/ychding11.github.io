@@ -141,3 +141,4 @@ On windows platform, [autohotky](https://autohotkey.com/) is a good choice and
 - Input `chrome://version` into chrome browser to check chrome info.
 - [vimvs faq](https://github.com/jaredpar/VsVim/wiki/faq)
 - `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -vcodec copy -acodec copy output-video-name`. This command is used to split a piece of video from original video. *-ss xxx* specifies starting time. *-t xxx* specifies the length of the video you want to split. *copy* means the same codec with original file.
+- `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -acodec copy -s wxh output-video-name`.  add resize video function.
