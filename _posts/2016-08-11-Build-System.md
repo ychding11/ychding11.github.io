@@ -10,5 +10,7 @@ This post list links of widely used building tools.
 - [cmake document](https://cmake.org/cmake/help/v3.5/manual/cmake-buildsystem.7.html)
 - `cmake -DCMAKE_BUILD_TYPE=Debug/Release  path-to-CMakeList.txt`
 + `cmake -h` checks available generator. `cmake -G generator_name` specifies the generator name.
+- [include()](https://cmake.org/cmake/help/v3.0/command/include.html) run cmake code frome an 
+  external file. Search path priorty is listed in link.
 
 ## CMakeLists.txt sample
