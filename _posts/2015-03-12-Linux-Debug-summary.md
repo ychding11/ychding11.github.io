@@ -126,6 +126,8 @@ terminate itself.
 + run shell command under gdb context. `shell ls -l`
 + search process name and id. `shell pgrep -l pattern`
 + stop current current process and put it into background. `Ctrl + z`
++ watch memory localtion `watch/rwatch -l expression`
+- running program, `next, step` and `nexti, stepi`
 
 [GDB docs](http://sourceware.org/gdb/current/onlinedocs/gdb/)
 char extend to int using sign extension.
