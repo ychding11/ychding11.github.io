@@ -86,6 +86,7 @@ The creation of the surface is based on equation.
 
 - [Disney BRDF analysis Tool](http://www.disneyanimation.com/technology/brdf.html)
 - [Survey on BRDF Representation](http://www.cs.princeton.edu/~smr/cs348c-97/surveypaper.html)
+- [BRDF Database](http://people.csail.mit.edu/wojciech/BRDFDatabase/)
 
 ## Tessellation
 
