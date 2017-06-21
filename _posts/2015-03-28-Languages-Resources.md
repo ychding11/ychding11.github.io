@@ -29,9 +29,9 @@ compiler options please refer gcc manual.
 Under what condition is this type useful? What problems will it cause?
 When user-defined complex type used as an input parameter, it is a good 
 choice and  highly recommanded in google c++ code style.     
-It is a very bad idea when used as a data holder It almost have no flexibility.
-For example, following design is impossible for reference type. In this case,
-const pointer type is good choice.
+It is a very bad idea when used as a data holder. It almost has no flexibility.
+For example, following design,  using reference type in union. Copiler always complains
+that xxx need to be initialized. Obviously, in this case, const pointer type is good choice.
 
 {% highlight cpp linenos %}
 
@@ -50,15 +50,14 @@ struct Holder
 ## using statement
 
 `using` keyword can introduce base class member into derived class.
-For example expose base class protected member to public in drived 
+For example it can expose base class protected member to be public in drived 
 class.`using base::member` if member is name of overloaded function 
 in base class, then all functions with the same name will be introduced 
-into derived class. This is very important. In such case, if 
+into derived class. This is very important. Because in such case, if 
 derived class already have a member with same name, parameter list and 
 qualifier then derived class member will hide or override the 
 newly introduced ones, but they  are not conflict with each other.
-[The web link](http://en.cppreference.com/w/cpp/language/using_declaration)
-gives the detailed info and a good example.
+The web [link](http://en.cppreference.com/w/cpp/language/using_declaration) gives the detailed info and a good example.
 
 ## vtbl & vptr
 
@@ -268,17 +267,16 @@ vtable for 'Derived' @ 0x400d50 (subobject @ 0x7fffffffdf10):
 Const type cast is used to add or remove the constness of an object pointed
 by a pointer. For example `const_cast< const type*>(pointer)` or 
 `const_cast<type*>(pointer)`. The latter one is always used to match interface.
-*When used, be caution, write operation will cause undefined behavior.*
+*When using, be caution, write operation will cause undefined behavior.*
 
 ### static_cast & dynamic_cast
 
 These two type cast can do pointer upcast and downcast. Upcast is converting
 a pointer-to-derived to a pointer-to-base. Downcast is converting a 
-pointer-to-base to a pointer-to-derived. static_cast does it without runtime 
-checking. `Base *pb = new Base(); static_cast<Derived*>(pb);` is valid.
-Dynamic_cast requires runtime type info to check object type, so above usage
-will get a NULL pointer. Some compilers don't support runtime-type-info,
-in such case, the above usage won't work properly.
+pointer-to-base to a pointer-to-derived. static_cast does this conversion without runtime 
+check. `Base *pb = new Base(); static_cast<Derived*>(pb);` is valid though it is error.
+Dynamic_cast requires runtime type info to check object type, and above usage will get a NULL pointer.
+Some compilers don't support runtime-type-info, dynamic_cast won't work correctly as expected.
 
 ## cross initialization && switch-case
 
@@ -304,12 +302,11 @@ explains c/c++ switch-case keyword.
 ## inline and virtual
 
 Using *inline* and *virtual* for the same member function does 
-make sense. virtual function is also a member function. When 
-calling virtual function by base class pointer or reference,
-late binding applies. But for a known object, resolving function 
-call can be decided at compile time, *inline* makes sense here.
-Remember that *inline* is just a hint to compiler, it is up 
-to compiler to decide inline it or not.
+make sense. virtual function is a member function. When calling
+virtual function by a base class pointer or reference, late binding
+applies. But for a known object, function call can be resolved at 
+ompile time, *inline* makes sense here. Remember that *inline* is 
+ust a hint to compiler, it is up to compiler to decide inline it or not.
 
 ## default member initializer
 
