@@ -8,6 +8,7 @@ The post summarizes new features of c++ and list available internet resources ab
 
 
 ## overloaded virtual function
+----------
 
 [Discussion of GCC -Woverloaded-virtual option](https://gcc.gnu.org/ml/gcc/1999-02n/msg00180.html) 
 introduce this issue. Compiler is unable to tell "I am creating a new virtual function" from
@@ -25,6 +26,7 @@ compiler options please refer gcc manual.
 - g3, include macro infomation into debug info.
 
 ## const reference
+----------
 
 Under what condition is this type useful? What problems will it cause?
 When user-defined complex type used as an input parameter, it is a good 
@@ -48,6 +50,7 @@ struct Holder
 {% endhighlight %}
 
 ## using statement
+----------
 
 `using` keyword can introduce base class member into derived class.
 For example it can expose base class protected member to be public in drived 
@@ -60,6 +63,7 @@ newly introduced ones, but they  are not conflict with each other.
 The web [link](http://en.cppreference.com/w/cpp/language/using_declaration) gives the detailed info and a good example.
 
 ## vtbl & vptr
+----------
 
 Where is vtable stored? Is it compiler dependent?
 Is vptr always offset 0 in an object memory layout?
@@ -261,6 +265,7 @@ vtable for 'Derived' @ 0x400d50 (subobject @ 0x7fffffffdf10):
 {% endhighlight %}
 
 ## type casting
+----------
 
 ### const_cast
 
@@ -279,6 +284,7 @@ Dynamic_cast requires runtime type info to check object type, and above usage wi
 Some compilers don't support runtime-type-info, dynamic_cast won't work correctly as expected.
 
 ## cross initialization && switch-case
+----------
 
 Following code demostrate this kind of error.
 
@@ -300,6 +306,7 @@ This [page](http://www.complete-concrete-concise.com/programming/c/keyword-switc
 explains c/c++ switch-case keyword.
 
 ## inline and virtual
+----------
 
 Using *inline* and *virtual* for the same member function does 
 make sense. virtual function is a member function. When calling
@@ -310,6 +317,7 @@ ust a hint to compiler, it is up to compiler to decide inline it or not.
 
 
 ## auto_ptr
+----------
 
 *ownership* is the key to understand auto_ptr. At any time 
 an auto_ptr has an ownership to an object or in null state.
@@ -322,6 +330,7 @@ do dereference. Copy from it will cause error.
 gives several good examples for reference.
 
 ## private inheritance
+----------
 
 private inheritance is something like composition(has-a).
 while, Inheritance, in general, is a is-a. It has some
@@ -334,6 +343,7 @@ unique features compared to composition.
 This [page](https://isocpp.org/wiki/faq/private-inheritance) has a detailed explaination about private inheritance.
 
 ## operator overload
+----------
 
 *operator overload* is to tell compiler how built-in operators apply to 
 user-defined data types by function overloading. Properly written
@@ -359,6 +369,7 @@ operator overload can lead to more readable and maintainable code.
 - [reference](http://www.keithschwarz.com/cs106l/fall2010/course-reader/Ch10_OperatorOverloading.pdf)
 
 ## random number generator
+----------
 
 [This page](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/generating-random-numbers)
 is a good introduction to the backgroud of random number generator. Presudorandom-number-generator is more easily integrated 
@@ -366,6 +377,7 @@ into software. It is based on some generating algorithms, for example, middle-sq
 Generated random sequence is periodic because of the limitation of computer.
 
 ## IEE745 Float Point Number Representation
+----------
 
 [IEEE745](http://cs.boisestate.edu/~alark/cs354/lectures/ieee754.pdf)
 introduction includes binary formats, ranges and examples.
