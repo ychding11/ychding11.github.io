@@ -308,9 +308,6 @@ applies. But for a known object, function call can be resolved at
 ompile time, *inline* makes sense here. Remember that *inline* is 
 ust a hint to compiler, it is up to compiler to decide inline it or not.
 
-## default member initializer
-
-The behavior is the same with constructor initializing list.
 
 ## auto_ptr
 
@@ -374,10 +371,11 @@ Generated random sequence is periodic because of the limitation of computer.
 introduction includes binary formats, ranges and examples.
 Web based [demo](http://babbage.cs.qc.cuny.edu/IEEE-754/) gives
 binary format when texting an real number. Very interesting place to 
-learn IEEE745 standard.
+learn IEEE745 standard.  
+It is different from integer number that diving by an zero
+does not cause an exception, instead it returns an inf. 
 
-It is different from integer number that when diving by an zero, it
-does not cause an exception, instead you get an inf. Sample code:
+Sample code:
 
 {% highlight c++ linenos %}
 int main()
@@ -398,13 +396,14 @@ inf
 {% endhighlight %}
 
 ## placement new
+----------
 
-It provides a method to place an object to a paticular location in memory 
+It provides a mechnism to place an object to a paticular location in memory 
 when calling constructor. It also transfers the responsibility to programmer 
 that the memory address passed to "placement new" is big enough to hold the 
 object and meet special requirements such that memory alignment. Usually in 
 this case, explicitly calling destructor is needed. It is reasonable because
-that you take the role of comiler here.
+that you take the role of comiler in such case.
 
 ## only destructor declared as private or protected
 
@@ -412,12 +411,16 @@ It can force the class only can be allocate dynamically.
 That is object can only be created by new(). Object 
 allocate in such way `Type obj` is forbidden.
 
+## default member initializer
+  The behavior is the same with constructor initializing list.
+
 ## in-class member initializer
 
-[Stroustrup talks](http://www.stroustrup.com/C++11FAQ.html#member-init)
+  [Stroustrup talks](http://www.stroustrup.com/C++11FAQ.html#member-init) about in-class member initializer.
 
 
 ## C++ 11 new feature
+----------
 
 + *defaulted function* and *deleted function*. To declare a deleted function, you can append *=delete* specifier to
   the end of a function declaration. The compiler prohibits the usage of a deleted function. C++ 11 use delete and
@@ -428,6 +431,7 @@ allocate in such way `Type obj` is forbidden.
 
 
 ## other learning materials
+----------
 
 - [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
   contents about c++, very good materials for references.
