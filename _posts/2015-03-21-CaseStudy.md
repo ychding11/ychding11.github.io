@@ -7,6 +7,7 @@ date: 2016-11-24
 The post summarizes some software bugs and how to debug thme. It also talk about some ideas about software design.
 
 ## Infinite Function call loop
+------------
 
   Infinite Function Call Loop can lead to stack overflow, How can we detect it in runtime?   
   For example,A-->B-->C-->A. In other case, a very deep function call may also produce
@@ -18,6 +19,7 @@ The post summarizes some software bugs and how to debug thme. It also talk about
   set breakpoints, evaluate expression is more convenient?   
 
 ## Access Violation
+------------
 
   Access violation at address XXXX is a popular runtime error. Address 0x00000 always means 
   null pointer access, Address 0x12345AB or something like that maybe indicate array index is 
@@ -27,6 +29,7 @@ The post summarizes some software bugs and how to debug thme. It also talk about
 	00007FFC54FC9D87  mov  rcx,qword ptr [rcx]   loads rcx referenced memory into rcx. 
 
 ## Question: From perspective of assembly language, is *this* an address?	
+------------
 
 - What is the purpose of a protected or private destructor except that it prevents
   class instanced? Singleton pattern is not included.
@@ -44,17 +47,20 @@ The post summarizes some software bugs and how to debug thme. It also talk about
   ideas to solve this problems? 
 
 ## How does a c++ compiler know a virtual funcation is called
+------------
 
   `pBasepter->f()` How compiler knows f() is a virtual function or
   an ordinary member function ?
  
 ## When is static class member destroyed
+------------
 
   Suppose designing a class which has static member variables. When do these static members
   destroyed? If they resides in a shared lib, lib unload operation can lead these variables 
   to destroy. Can any other things make these static members partially destroyed?
 
 ## delete[] operation causes crash issue.
+------------
 
 ```
 delete[] mPtr;
@@ -70,11 +76,13 @@ problems is not visible immediately. It appears at a later time when excute stat
 *delete []mPtr*
 
 ## assert() cause segment fault when program exits
+------------
 
 It is an common error in huge software development that assert() may inform user with a message by a dialog.
 Sometimes GUI moudle destroyed earlier than the depended module,So it will cause segments fault issue.
 
 ## badly designed public interface will cause desaster
+------------
 
 public interface is the key of module design.For example *int ASimpleTexture::SizeInMemory(EMemoryScope scope).*
 It is very unwise to use int to represent memory size. size_t is an obvious much better choice. Signed int can 
@@ -84,6 +92,7 @@ you will found it is widely used in your code at the same time. There is no resc
 code.
 
 ## steps of debugging OpenGL lib loading error On Linux
+------------
 
 For example:
 
@@ -122,6 +131,7 @@ It use the software raster, but I have a nvidia graphic card installed.
 So I believe system configuration makes mistakes. After reinstall graphic card driver, the problem disapears.
 
 ## random crash caused by unintialized local varibles
+------------
 
 Following code:
 
@@ -139,6 +149,7 @@ other GL external modules. The risk is that when your context does not support G
 with random value will make systme behavior unpredictable and very hard to guess failing root cause.
 
 ## abs() result in unwanted behavior
+------------
 
 Following code:
 
@@ -155,5 +166,9 @@ that it is not obvious to use which one. The runtime result is that It works fin
 I prefer to use function `fabs` because the data type is float under current context.
 
 ## uncaught exception crashes system
+------------
+waiting for updating.
 
 ## operator overload leads to unpredicted behavor
+------------
+waiting for updating.
