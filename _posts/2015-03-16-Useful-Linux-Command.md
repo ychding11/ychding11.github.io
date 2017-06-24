@@ -84,6 +84,7 @@ This post summaries the commom usefull commands on Linux Platform.
   *sed* edit those files one by one. for example: sed -i 's/pattern/newstr/g' `grep -rl pattern ./`.
 
 ## VIM tips for quick Reference
+----------
 
 - `vim --version | grep clipboard` It can tell whether vim is able 
   to transfer data with clipboard. `sudo apt-get install vim-gnome` 
@@ -112,6 +113,7 @@ This post summaries the commom usefull commands on Linux Platform.
 - In visual mode, press *<* and *>* can do auto-indent.
 
 ## Grub2
+----------
 
 - Edit configure file /etc/default/grub to set kernel command line and other settings.
 - On Ubuntu `update-grub` to generate new settings for grub.
@@ -119,26 +121,33 @@ This post summaries the commom usefull commands on Linux Platform.
 - Parameter *nomodeset*,Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.
 
 ## Shell script
+----------
 
 - `echo $?` query shell exit status. *man bash* and search *special parameters* for more details about Linux bash special parameters.
 
 ## X Windows
+----------
 
 - [X Window offical site](https://wiki.archlinux.org/index.php/Xorg)
-- `ps aux | grep -i "xinit"` The  xinit  program  is  used to start the X Window System server and a first client program
-  on systems that are not using a display manager such as xdm or in environments that use multiple window systems.  When
+- `ps aux | grep -i "xinit"` The  `xinit`  program  is  used to start the X Window System server and the first client program
+  on systems that are not using a display manager such as xdm or in environments using multiple window systems.  When
   this first client exits, xinit will kill the X server and then terminate.
 - `xkill -all` 
 
 ## simulate keyboard and mouse event
+----------
 
 On windows platform, [autohotky](https://autohotkey.com/) is a good choice and
 [xdotool](http://tuxradar.com/content/xdotool-script-your-mouse) for Linux platform.
 
 ## miscs
+----------
 
 - `control.exe /name Microsoft.ProgramsAndFeatures` Open program windows in command mode.
 - Input `chrome://version` into chrome browser to check chrome info.
 - [vimvs faq](https://github.com/jaredpar/VsVim/wiki/faq)
-- `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -vcodec copy -acodec copy output-video-name`. This command is used to split a piece of video from original video. *-ss xxx* specifies starting time. *-t xxx* specifies the length of the video you want to split. *copy* means the same codec with original file.
-- `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -acodec copy -s wxh output-video-name`.  add resize video function.
+- `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -vcodec copy -acodec copy output-video-name`. This command is used to
+  split a piece of video from original video. *-ss xxx* specifies starting time.
+  *-t xxx* specifies the length of the video you want to split. *copy* means the same codec with original file.
+- `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -acodec copy -s wxh output-video-name`.  add resize output video size.
+- `ffmpeg -ss xx:xx:xx -t xx:xx:xx -i input-video-name -f gif  output-file-name`.
