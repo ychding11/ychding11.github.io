@@ -38,7 +38,20 @@ memory from a large continuous memory region. This region is released only when 
 In book<sup>1078</sup>, there is a chapter about atomic operation. It is more efficient than mutex, but it only 
 available on a very limited memory about 8 bytes. It is always be preferred to mutex in design. With the help of
 atomic operation, we can desing *lock free* algorithms to increase cocurrency in programming. std::atomic does 
-not support operation on float-pointing data type see page<sup>1079</sup>.
+not support operation on float-pointing data type, see page<sup>1079</sup>. That is because float-point type 
+does not support cumulative law, a + b + c != a + (b + c). In concurrency, add operation order is random. 
+
+std::atomic<> support an atomic operation called "compar_exchange_xx(expected_ref, value)". It's a very useful
+operation which can be used to realize many other atomic operation. The workflow of "compar & swap" operation is that.
+
+1. compare atomic object *contained value* with *expected*.
+2. if match, use *value* to update *containd value*.
+3. if mismatch, use *contained value* update *expected*.
+
+
+### reference
+- [lock free programming](http://preshing.com/20120612/an-introduction-to-lock-free-programming/)
+- [compar_exchange in c++ std libray](http://www.cplusplus.com/reference/atomic/atomic/compare_exchange_weak/)
 
 ## thread local variable
 -----
