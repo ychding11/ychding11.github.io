@@ -15,12 +15,10 @@ sampling. The number of sample is independent of dimensionality of integral. A M
 $$ F_N=\frac{1}{N} \displaystyle \sum_{i=1}^{N} \frac{f(X_i)}{p(X_i)}$$
 
 $$ f(x) $$ is evaluated function, $$ p(x) $$ is PDF of random variable $$ X_i $$.
-We can easily understand that expect value of random varible $$ F_N $$ is equal to $$ \int_0^\infty f(x) \,\mathrm{d}x $$.   
+We can easily understand that the expect value of random varible $$ F_N $$ is equal to $$ \int_0^\infty f(x) \,\mathrm{d}x $$.   
 
 $$ E[F_N] $$ = $$ E[\frac{1}{N} \displaystyle \sum_{i=1}^{N} \frac{f(X_i)}{p(X_i)}] $$   
-
 $$ E[F_N] $$ = $$ \frac{1}{N} \displaystyle \sum_{i=1}^{N} \int_0^\infty \frac{f(x)}{p(x)} p(x) \, \mathrm{d}x $$   
-
 $$ E[F_N] $$ = $$  \int_0^\infty f(x) \, \mathrm{d}x $$   
 
 
