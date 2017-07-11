@@ -267,14 +267,14 @@ vtable for 'Derived' @ 0x400d50 (subobject @ 0x7fffffffdf10):
 ## type casting
 ----------
 
-### const_cast
+### const_cast<type-id>
 
 Const type cast is used to add or remove the constness of an object pointed
 by a pointer. For example `const_cast< const type*>(pointer)` or 
 `const_cast<type*>(pointer)`. The latter one is always used to match interface.
 *When using, be caution, write operation will cause undefined behavior.*
 
-### static_cast & dynamic_cast
+### static_cast<type-id> & dynamic_cast<type-id>
 
 These two type cast can do pointer upcast and downcast. Upcast is converting
 a pointer-to-derived to a pointer-to-base. Downcast is converting a 
@@ -282,6 +282,14 @@ pointer-to-base to a pointer-to-derived. static_cast does this conversion withou
 check. `Base *pb = new Base(); static_cast<Derived*>(pb);` is valid though it is error.
 Dynamic_cast requires runtime type info to check object type, and above usage will get a NULL pointer.
 Some compilers don't support runtime-type-info, dynamic_cast won't work correctly as expected.
+
+### reinterpret_cast<type-id>
+
+This operation is not safe other than reintepret a pointer into an intege which is not available for static_cast.
+
+### reference
+- [microsoft doc](https://msdn.microsoft.com/en-us/library/e0w9f63b.aspx)
+
 
 ## cross initialization && switch-case
 ----------
@@ -299,8 +307,7 @@ switch(a)
 }
 {% endhighlight %}
 
-switch-case is something like jump table.
-[stackoverflow link](http://stackoverflow.com/questions/92396/why-cant-variables-be-declared-in-a-switch-statement)
+switch-case is something like jump table. [stackoverflow link](http://stackoverflow.com/questions/92396/why-cant-variables-be-declared-in-a-switch-statement)
 has a detailed discussion about this kind of error.
 This [page](http://www.complete-concrete-concise.com/programming/c/keyword-switch-case-default)
 explains c/c++ switch-case keyword.
@@ -380,7 +387,7 @@ Generated random sequence is periodic because of the limitation of computer.
 ----------
 
 [IEEE745](http://cs.boisestate.edu/~alark/cs354/lectures/ieee754.pdf)
-introduction includes binary formats, ranges and examples.
+introduction document includes binary formats, ranges and examples.
 Web based [demo](http://babbage.cs.qc.cuny.edu/IEEE-754/) gives
 binary format when texting an real number. Very interesting place to 
 learn IEEE745 standard.  
@@ -415,13 +422,16 @@ when calling constructor. It also transfers the responsibility to programmer
 that the memory address passed to "placement new" is big enough to hold the 
 object and meet special requirements such that memory alignment. Usually in 
 this case, explicitly calling destructor is needed. It is reasonable because
-that you take the role of comiler in such case.
+that you take the role of comiler in such case. 
+
+In a user-defined memory management system, it's widely used. The possible use 
+case is like: `new (allocator.allocate(sizeof(DataType))) DataType()`.
+
 
 ## only destructor declared as private or protected
 
 It can force the class only can be allocate dynamically. 
-That is object can only be created by new(). Object 
-allocate in such way `Type obj` is forbidden.
+That is object can only be created by new(). Object allocate in such way `Type obj` is forbidden.
 
 ## default member initializer
   The behavior is the same with constructor initializing list.
@@ -434,12 +444,33 @@ allocate in such way `Type obj` is forbidden.
 ## C++ 11 new feature
 ----------
 
-+ *defaulted function* and *deleted function*. To declare a deleted function, you can append *=delete* specifier to
+### defaulted function and deleted function.
+
+ *defaulted function* and *deleted function*. To declare a deleted function, you can append io*=delete* specifier to
   the end of a function declaration. The compiler prohibits the usage of a deleted function. C++ 11 use delete and
   defualt key word to instruct compliler's default behaviors so as to reduce coding defects. If you want to prevent 
   the instance of a class to be prevented from copy and move, you can declare its copy construction and assignment 
   operator to be deleted function.
-  References are [IBM developerworks article](https://www.ibm.com/developerworks/community/blogs/5894415f-be62-4bc0-81c5-3956e82276f3/entry/deleted_functions_in_c_11?lang=en) and [MSDN comments](https://msdn.microsoft.com/en-us/library/dn457344.aspx)
+
+  The behind idea is obvious, the implicit behavior is very likey to cause unpredicted error. So you should delete
+  what you does not want and keep what you desired explicitly. 
+
+### override and final keyword
+
+### explicit keyword
+This keyword is used for constructor with a single parameter to prevent compiler from
+implicit data type conversion when calling function. Because implict type conversion always leads to
+some odd errors under some condition. "If you desire, you do it explicitly" is the correct way in software
+design.
+
+### auto keyword
+
+### lambda expression
+
+### reference
+
+- [IBM developerworks article](https://www.ibm.com/developerworks/community/blogs/5894415f-be62-4bc0-81c5-3956e82276f3/entry/deleted_functions_in_c_11?lang=en)
+- [MSDN comments](https://msdn.microsoft.com/en-us/library/dn457344.aspx)
 
 
 ## other learning materials
