@@ -17,7 +17,7 @@ $$ f(x) $$ is evaluated function, $$ p(x) $$ is PDF of random variable $$ X_i $$
 We can easily understand that the expect value of random varible $$ F_N $$ is equal to $$ \int_0^\infty f(x) \,\mathrm{d}x $$.
 The derivation is as following:
 
-<center> $$ E[F_N] $$ = $$ E[\frac{1}{N} \displaystyle \sum_{i=1}^{N} \frac{f(X_i)}{p(X_i)}] $$ </center>
+$$ E[F_N] $$ = $$ E[\frac{1}{N} \displaystyle \sum_{i=1}^{N} \frac{f(X_i)}{p(X_i)}] $$
 
 $$ E[F_N] $$ = $$ \frac{1}{N} \displaystyle \sum_{i=1}^{N} \int_0^\infty \frac{f(x)}{p(x)} p(x) \, \mathrm{d}x $$
 
@@ -33,16 +33,15 @@ So I am a little confused.
 3. get uniform distributed random varible $$\xi$$.
 4. compute $$X_i$$ = $$ P(\xi)^{-1}$$
 
-<<<<<<< HEAD
-If PDF $$p(x)$$ is similar to $$f(x)$$ in shape, estimator converges more quickly. It is explained in pbrt book<sup>793</sup> 
+If PDF $$p(x)$$ is similar to $$f(x)$$ in shape, estimator converges more quickly which is explained in pbrt book<sup>793</sup> 
 *Importance Sampling*. It is a common technique to reduce sampling variance in rendering. But it still has problems. In many
-cases, the integrand is the product of more than one function. How to find a PDF similar to integrand in such cases? For 
-example in computer graphics.   
+cases, the integrand is the product of more than one function. How to find a PDF similar to integrand in such cases? For
+example in computer graphics, the following formula.   
 
 $$L_o(p,\omega_o)=\int_{\mathcal{s}^2} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i) \cos(\theta_i) \, \mathrm{d}\omega_i $$.
 $$\approx \frac{1}{N} \displaystyle\sum_{j=1}^{N} \frac{f(p,\omega_j,\omega_o) L_i(p,\omega_j) \cos(\theta_j) }{p(\omega_j)} $$
 
-### Russian roulette
+### Russian Roulette
 It is a technique used to increase Monte Carlo estimator efficiency. When calculating estimator, there are samples
 contributing a little and cost a lot. In pbrt book<sup>786</sup>, there is an example to calculate reflected radiance
 with direct lighting.
@@ -94,12 +93,11 @@ $$\boldsymbol J_T(x)=
 $$.
 
 
-
 ### Consine Weighted Hemisphere Sampling 
 It is better to generate hemishpere samples close to the top of hemisphere. It means a smaller $$\theta$$ and a bigger
 $$cos(\theta)$$ part of integral<sup>778</sup>. So the PDF of $$\omega$$ should meet the requirement.   
 
-$$p(\omega) \propto cos(\theta)$$.
+    $$p(\omega) \propto cos(\theta)$$.
 
 According to Malley's method, the cosine weighted hemishere can be get by sampling on a unit disk uniformly
 and projecting it up to the hemishpere above it<sup>778<sup>. 
