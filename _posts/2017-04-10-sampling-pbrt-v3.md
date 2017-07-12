@@ -17,7 +17,7 @@ $$ f(x) $$ is evaluated function, $$ p(x) $$ is PDF of random variable $$ X_i $$
 We can easily understand that the expect value of random varible $$ F_N $$ is equal to $$ \int_0^\infty f(x) \,\mathrm{d}x $$.
 The derivation is as following:
 
-<center/> $$ E[F_N] $$ = $$ E[\frac{1}{N} \displaystyle \sum_{i=1}^{N} \frac{f(X_i)}{p(X_i)}] $$
+<center> $$ E[F_N] $$ = $$ E[\frac{1}{N} \displaystyle \sum_{i=1}^{N} \frac{f(X_i)}{p(X_i)}] $$ </center>
 
 $$ E[F_N] $$ = $$ \frac{1}{N} \displaystyle \sum_{i=1}^{N} \int_0^\infty \frac{f(x)}{p(x)} p(x) \, \mathrm{d}x $$
 
