@@ -90,8 +90,8 @@ The creation of the surface is based on equation.
 
 The MERL BRDF database contains reflectance functions of 100 different materials.
 Each reflectance function is stored as a densely measured Bidirectional Reflectance Distribution Function (BRDF)
-The data is stored in $$ (\theta_h \theta_d \phi_d) $$ format which is in "half angle and difference" coordinate.
-It is convert from $$ (\theta_i \phi_i \theta_o \phi_o)$$ to $$ (\theta_h \theta_d \phi_d) $$.
+The data is stored in $$ (\theta_h, \theta_d, \phi_d) $$ format which is in "half angle and difference" coordinate.
+It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \theta_d, \phi_d) $$.
 
 
 ## Tessellation
