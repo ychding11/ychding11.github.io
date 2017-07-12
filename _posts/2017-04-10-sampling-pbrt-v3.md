@@ -6,7 +6,6 @@ date: 2017-04-10
 
 The post summarizes sampling and monte carlo integration in computer graphics.
 
-
 ## Monte Carlo Integration 
 
 Why Monte Carlo integration is a must in computer graphics? It tries to estimate integral value by random 
@@ -15,18 +14,20 @@ sampling. The number of sample is independent of dimensionality of integral. A M
 $$ F_N=\frac{1}{N} \displaystyle \sum_{i=1}^{N} \frac{f(X_i)}{p(X_i)}$$
 
 $$ f(x) $$ is evaluated function, $$ p(x) $$ is PDF of random variable $$ X_i $$.
-We can easily understand that the expect value of random varible $$ F_N $$ is equal to $$ \int_0^\infty f(x) \,\mathrm{d}x $$.   
-The derivation is as following:    
+We can easily understand that the expect value of random varible $$ F_N $$ is equal to $$ \int_0^\infty f(x) \,\mathrm{d}x $$.
+The derivation is as following:
 
-$$ E[F_N] $$ = $$ E[\frac{1}{N} \displaystyle \sum_{i=1}^{N} \frac{f(X_i)}{p(X_i)}] $$     
-$$ E[F_N] $$ = $$ \frac{1}{N} \displaystyle \sum_{i=1}^{N} \int_0^\infty \frac{f(x)}{p(x)} p(x) \, \mathrm{d}x $$      
-$$ E[F_N] $$ = $$  \int_0^\infty f(x) \, \mathrm{d}x $$       
+$$ E[F_N] $$ = $$ E[\frac{1}{N} \displaystyle \sum_{i=1}^{N} \frac{f(X_i)}{p(X_i)}] $$
 
+$$ E[F_N] $$ = $$ \frac{1}{N} \displaystyle \sum_{i=1}^{N} \int_0^\infty \frac{f(x)}{p(x)} p(x) \, \mathrm{d}x $$
 
-How many samples does it need to estimate integral value correctly or with mimimal error? There is no detailed 
-explaination in pbrt book. I am confused.
+$$ E[F_N] $$ = $$  \int_0^\infty f(x) \, \mathrm{d}x $$
 
-Given a PDF, how to draw samples from it, the book<sup>754</sup> gives steps:
+How many samples does it need in order to estimate integral value correctly or with mimimal error? There is no detailed explaination in pbrt book.
+So I am a little confused.
+
+*Given a PDF, how to draw samples from it?* The book<sup>754</sup> gives steps:
+
 1. compute CDF from PDF $$p(x)$$, $$P(x)=\int_0^x f(y) \, \mathrm{d}y$$. 
 2. compute inverse function $$P(x)^{-1}$$.
 3. get uniform distributed random varible $$\xi$$.
