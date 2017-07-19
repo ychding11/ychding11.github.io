@@ -375,6 +375,19 @@ operator overload can lead to more readable and maintainable code.
   by user-defined data type. For example, scop resolution ::, member selection ., sizeof, typid, typcast, ternary condition ?:.
 - [reference](http://www.keithschwarz.com/cs106l/fall2010/course-reader/Ch10_OperatorOverloading.pdf)
 
+### new & delete
+----
+There are some special considerations about this memory allocating operator.
+
+1. *operator new* is an ordinary operator which is the same with other operators such as "operator+".
+   It can be overloaded, but jut allocates memory and does *NOT* call corresponding Constructor.
+   Return value should be "void*",first input parameter should be size_t to specify the size of allocated
+   memory.
+2. *new operator* is special. It cannot be overloaded. In addition to allocating memory, it also calls
+   Constructor on allocated, so constructor should be public.
+3. delete is similar to new.
+4. Can an operator be reloaed as static function of a class?
+
 ## random number generator
 ----------
 
