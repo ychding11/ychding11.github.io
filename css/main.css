@@ -95,6 +95,16 @@ letter-spacing:-1px;
 margin: 10px 0 5px 0;
 }
 
+h3 {
+color:#0383c9;
+font-family:'Helvetica', 'Arial', 'Sans-Serif';
+font-size: 1.0em;
+font-weight: 100;
+text-align: left;
+text-indent: 16px;
+letter-spacing:-1px;
+margin: 10px 0 5px 0;
+}
 
 /**** Post date style ****/
 p.meta {
