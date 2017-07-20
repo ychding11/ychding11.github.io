@@ -387,6 +387,40 @@ There are some special considerations about this memory allocating operator.
    Constructor on allocated, so constructor should be public.
 3. delete is similar to new.
 4. Can an operator be reloaed as static function of a class?
+5. [manual about operator new](http://www.cplusplus.com/reference/new/operator%20new/?kw=operator%20new)
+
+I write a sample code to demo how to use new to allocate an object when its constructor is declared as
+protected or private by this method.
+
+{% highlight c++ linenos %}
+class MyTest
+{
+public:
+	friend void * operator new(size_t n, int x);
+private:
+	MyTest(int x = 0) : dat(x) { printf("- Construct MyTest object with value %d\n", dat);  }
+
+	int dat;
+};
+
+// overload the operator new.
+void * operator new(size_t n, int x)
+{
+	assert(n > 0);
+	n = (n + 15) & ~(15); // 16 bytes alligned.
+	void * p = malloc(n);
+	MyTest *pi = new (p) MyTest(x); // placement new
+	return p;
+}
+
+int main(void)
+{
+	// How to call operator new, it is in global space.
+	MyTest *p = (MyTest*)::operator new (sizeof(MyTest), 10);
+	printf("- Press any key to exit.");
+	std::cin.get();
+}
+{% endhighlight %}
 
 ## random number generator
 ----------
