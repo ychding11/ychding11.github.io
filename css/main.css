@@ -167,12 +167,16 @@ border: dashed 1px #e5e5e5;
 width: auto;
 }
 */
-/*
+
 code.highlighter-rouge {
 background: #222021;
 color: #23af4c;
 }
-*/
+
+code {
+background: #222021;
+color: #23af4c;
+}
 
 img {
 border: 3px solid #559; 
