@@ -182,9 +182,10 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 - [Monte Carlo Simulation](http://ww2.odu.edu/~agodunov/teaching/notes/Cp01_random.pdf)
 - [PBRT Document](http://pbrt.org/users-guide.html)
 
-## GPU Hardware
+## GPU Hardware 
 ---
 
 - [GPGPU-Sim](http://gpgpu-sim.org/) provides a detailed simulation model of a contemporary GPU running CUDA and/or OpenCL workloads.
+- [softart](http://www.cnblogs.com/gongminmin/archive/2009/12/09/SoftArt.html)
 
 
