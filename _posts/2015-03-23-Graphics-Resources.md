@@ -7,6 +7,7 @@ date: 2016-10-20
 This post lists a collection of usefull graphic resources.
 
 ## SIGGRAPH 
+---
 
 - [Computer Graphics Paper collection](http://kesen.realtimerendering.com/) 
 - [Casting curved shadows on curved surface](http://cseweb.ucsd.edu/~ravir/274/15/papers/p270-williams.pdf) This is the original idea 
@@ -20,6 +21,7 @@ This post lists a collection of usefull graphic resources.
 - [Realtime 3D Eye Gaze Animation Using a Single RGB Camera](http://faculty.cs.tamu.edu/jchai/projects/projects.htm)
 
 ## Graphic Course & Homepage 
+---
 
 - [Real-Time High Quality Rendering](http://cseweb.ucsd.edu/~ravir/274/15/274.html) The course has some advanced topics.
 - [CMU Graphics Course Collection](http://graphics.cs.cmu.edu/?page_id=16) Lots of materials for you to start CG explore.
@@ -31,9 +33,10 @@ This post lists a collection of usefull graphic resources.
 - [hardware github repo](https://github.com/hardware)
 
 ## OpenGL
+---
 
 - [OpenGL3.x Specification](https://www.opengl.org/registry/doc/glspec32.core.20091207.pdf) This is an OpenGL specifications 
-    containing lotsof detailed description of OpenGL design. Perhaps We should regard it as a dictionary for lookup when in need.  
+    containing lots of detailed description of OpenGL design. Perhaps We should regard it as a dictionary for lookup when in need.  
 - [Next Generation OpenGL](https://www.khronos.org/assets/uploads/events/Next-Generation-OpenGL-Dec14.pdf)The slide has a very
     concrete description about 3D API of Khonoros group. It provides a family tree clearly depicting the relationship between
     OpenGL, OpenGL ES, WebGL. It is very helpful to new beginners. Next generation API design is the main focus of slide, a
@@ -49,6 +52,7 @@ This post lists a collection of usefull graphic resources.
 - [OGL Extensions Introduce](https://www.opengl.org/archives/resources/features/OGLextensions/)
 
 ## Bump Mapping, Normal Mapping and Displacement mapping
+----
 
 - [Bump Normal Displacement mapping comparison](http://blog.digitaltutors.com/bump-normal-and-displacement-maps/)
     This blog post gives a comparison about bump mapping, normal mapping, displacement mapping.
@@ -61,6 +65,7 @@ This post lists a collection of usefull graphic resources.
     displacement mapping by accidently. So I put it here.
 
 ## Geometry Shader & Subdivision
+----
 
 - [Pixar Open Subdiv](http://graphics.pixar.com/opensubdiv/docs/subdivision_surfaces.html)
 - [Maya NURBS Modeling](https://courses.cs.washington.edu/courses/cse459/06wi/help/mayaguide/Complete/NURBS.pdf)
@@ -83,6 +88,7 @@ The creation of the surface is based on equation.
 - [Deformation Styles on github repo](https://github.com/sp4cerat/Deformation-Styles-using-Spline-Skinning)
 
 ## BRDF
+---
 
 - [Disney BRDF analysis Tool](http://www.disneyanimation.com/technology/brdf.html)
 - [Survey on BRDF Representation](http://www.cs.princeton.edu/~smr/cs348c-97/surveypaper.html)
@@ -95,6 +101,7 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 
 
 ## Tessellation
+---
 
 - [Nvida](http://www.nvidia.com/object/tessellation.html) 
 - [Math forum](http://mathforum.org/sum95/suzanne/whattess.html) 
@@ -112,8 +119,9 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
     
 
 ## Maya
+---
 
-- [Coding Training Material](https://github.com/ADN-DevTech/Maya-Training-Material)
+- [Training Material of Maya Plugin](https://github.com/ADN-DevTech/Maya-Training-Material)
 - [Maya plugins on github](https://github.com/illmillrig?tab=repositories)
 - [Maya plugins](https://github.com/appleseedhq)
 - [Maya Face Tracking Plugins](https://github.com/oscarwestberg/Face-Tracking-Maya)
@@ -121,10 +129,9 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 - [Tree Generator Plugin](https://github.com/karajensen/tree-generator)
 - [Maya Plugin](https://github.com/illmillrig/SurfaceAttach)
 - [Maya NURBS Patch](http://www.3dtutorials.michaelorourke.com/tutorials/Modeling/Basics/NurbsPatchsIntro12.pdf)    
-- [PBRT Document](http://pbrt.org/users-guide.html)
 - [material X](http://www.materialx.org/)
 
-## Maya Mel
+### Maya Mel
 
 -  string $result = getenv("MAYA_VP2_DEVICE_OVERRIDE");    print $result;
 -  string $result = `optionVar -query vp2RenderingEngine`; print $result;
@@ -134,6 +141,7 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 
 
 ## Nvida Sample Code
+---
 
 - [NVIDIA Direct3D SDK 10 Code Samples](http://developer.download.nvidia.com/SDK/10.5/direct3d/samples.html#InstancedTessellation)
 - [GPU GEMS 3 Articles](https://developer.nvidia.com/gpugems/GPUGems3/gpugems3_ch01.html)
@@ -146,28 +154,37 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 - [Introduce to Parallel Computing](http://courses.cs.washington.edu/courses/cse558/11wi/lectures/06-introToParallelProgramming_forWeb.pdf)
 - [Windows Download](https://developer.microsoft.com/en-us/windows/downloads)
 
-## Windows DX
+## Windows DirectX
+---
 
 - [MSDN Subscription Download](https://msdn.microsoft.com/en-us/subscriptions/downloads/)
 - [Windows USB DVD Download Tool](https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool)
 - [DX 11 Tutorials](http://www.rastertek.com/tutdx11.html)
-- [Where is DXSDK 2015 version](https://blogs.msdn.microsoft.com/chuckw/2015/08/05/where-is-the-directx-sdk-2015-edition/)
-- [DXSDK Sample](https://blogs.msdn.microsoft.com/chuckw/2013/09/20/directx-sdk-samples-catalog/)
+- [Where is DX SDK 2015 version](https://blogs.msdn.microsoft.com/chuckw/2015/08/05/where-is-the-directx-sdk-2015-edition/)
+- [DX SDK Sample](https://blogs.msdn.microsoft.com/chuckw/2013/09/20/directx-sdk-samples-catalog/)
 - [What is WARP](https://msdn.microsoft.com/en-us/library/windows/desktop/gg615082%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396)
 - [HLSL Shader Model 5](https://msdn.microsoft.com/en-us/library/windows/desktop/ff471419(v=vs.85).aspx)
 - [msbuild  /p:Configuration=Release FaceOSC.vcxproj](http://code.dblock.org/2009/02/13/how-to-do-a-debug-release-or-both-builds-with-msbuild.html)
 
 
 ## Ray Tracing
+---
 
-- [Stanford course](http://candela.stanford.edu/cs348b-14/doku.php) It introduces the basic ideas about ray tracing.
+- [Stanford course](http://candela.stanford.edu/cs348b-14/doku.php), It introduces the basic ideas about ray tracing.
 - [99 lines ray tracer toy](http://www.kevinbeason.com/smallpt/)
 - [Ray tracing overview](http://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
 - [pixar explanation about tray tracing](https://renderman.pixar.com/view/raytracing-fundamentals)
 - [ray tracing tutorial](https://www.ics.uci.edu/~gopi/CS211B/RayTracing%20tutorial.pdf)
-- [light transport simulation algorithms](http://iliyan.com/publications/VertexMerging)
-    This page includes paper, code, results and other usefull materials.
+- [light transport simulation algorithms](http://iliyan.com/publications/VertexMerging), This page includes paper, code, results and other usefull materials.
 - [Monte Carlo Method](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/monte-carlo-integration)
 - [Random number generator](http://www.agner.org/random/?e=0,34)
 - [Random number generator](http://www.maths.manchester.ac.uk/~ahazel/VBAC++_coursework3.pdf)
 - [Monte Carlo Simulation](http://ww2.odu.edu/~agodunov/teaching/notes/Cp01_random.pdf)
+- [PBRT Document](http://pbrt.org/users-guide.html)
+
+## GPU Hardware
+---
+
+- [GPGPU-Sim](http://gpgpu-sim.org/) provides a detailed simulation model of a contemporary GPU running CUDA and/or OpenCL workloads.
+
+
