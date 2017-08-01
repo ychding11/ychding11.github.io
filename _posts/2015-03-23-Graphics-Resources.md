@@ -187,5 +187,7 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 
 - [GPGPU-Sim](http://gpgpu-sim.org/) provides a detailed simulation model of a contemporary GPU running CUDA and/or OpenCL workloads.
 - [softart](http://www.cnblogs.com/gongminmin/archive/2009/12/09/SoftArt.html)
+- [GPU memory type comparision](https://www.microway.com/hpc-tech-tips/gpu-memory-types-performance-comparison/), it points out that *SHared Memory* is a very 
+   important type of memory and introduce some internals in it.
 
 
