@@ -8,6 +8,7 @@ Today, I launches my tech blog site on github. This post gives a summary about
 how to setup jekyll environment and git operation.
 
 ## configure external git difftool
+---
 
 [diffmerge](http://sourcegear.com/diffmerge/index.html) is a good option. It is
 platform independent and free of charge. Steps to configure git difftool.
@@ -30,6 +31,7 @@ After ready, when conflicts occurs, run `git mergetool`, a GUI tool will be open
 edit git config file directly by command `git config --global -e`.
 
 ## branch & remote operation
+---
 
 1. `git branch -a` display all branchs including remote and local ones.
 2. `git checkout remote/branch-name`
@@ -40,6 +42,7 @@ edit git config file directly by command `git config --global -e`.
 - `git remote -vv`, `git remote add`, `git remote remove`.
 
 ## pack two git commits into a single one
+---
 
 *git rebase -i* can be used as a tool to compact two commits into one. It is an git interactive operation.
 There are commit log: commit A, commit B, commit C. If we combine A and B as a single one, for example, 
@@ -48,7 +51,24 @@ editor, modify commit B from pick to squash in editor and save. After git comman
 will combined as a new one.
 
 ## How to use math formula in Github page
+---
 
 - jekyll [math support](https://jekyllrb.com/docs/extras/#math-support)
 - visit [LaTex wiki](https://en.wikibooks.org/wiki/LaTeX/Mathematics) for mathematics.
 - sample [page](http://gastonsanchez.com/visually-enforced/opinion/2014/02/16/Mathjax-with-jekyll/)
+
+## p4 command
+---
+
+- *p4 have file*, check which revision of file in workspace.
+- *p4 where file*, output depot syntax of file, no checking.
+- *p4 filelog -l file*, check file history with long format.
+- *p4 describle cl*, display info of specifing change list.
+- *p4 change*, create a new change list.
+- *p4 edit -c cl file* and *p4 add -c cl file*.
+- *p4 revert -c cl file*.
+- *p4 changes -u xxx -s shelved -l*, query change list by user and change list status.
+
+### reference
+
+- [p4 manual](https://www.perforce.com/perforce/r15.2/manuals/cmdref/p4_revert.html)

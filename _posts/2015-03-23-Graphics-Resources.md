@@ -189,5 +189,6 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 - [softart](http://www.cnblogs.com/gongminmin/archive/2009/12/09/SoftArt.html)
 - [GPU memory type comparision](https://www.microway.com/hpc-tech-tips/gpu-memory-types-performance-comparison/), it points out that *SHared Memory* is a very 
    important type of memory and introduce some internals in it.
+- Texture memory is global memory. The difference is that it accessed by a dedicated cache. [reference](https://stackoverflow.com/questions/8767059/texture-memory-in-cuda-concept-and-simple-example-to-demonstrate-performance)
 
 
