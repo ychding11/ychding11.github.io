@@ -86,23 +86,18 @@ This post summaries the commom usefull commands on Linux Platform.
 ## VIM tips for quick Reference
 ----------
 
-- `vim --version | grep clipboard` It can tell whether vim is able 
-  to transfer data with clipboard. `sudo apt-get install vim-gnome` 
-  in Ubuntu can enhance vim with the abiltiy.
-- *Display full file path when editing a file* Sometimes is helpful to us.
-  bar visible. `:help statusline` and `:help laststatus` give detailed info for reference.
-- Sometimes we want *case insensitive* search. `:set ignorecase` or `:set ic` 
-  can do that. `:set noic` reset the previous settings.
+- `vim --version | grep clipboard`, It can tell whether vim is able to transfer data with clipboard.
+  `sudo apt-get install vim-gnome` in Ubuntu can enhance vim with the abiltiy.
+- *Display full file path when editing a file* Sometimes is helpful to us. `:help statusline` and `:help laststatus` give detailed info for reference.
+- Sometimes we want *case insensitive* search. `:set ignorecase` or `:set ic` can do that. `:set noic` cancel the previous settings.
 - `set ruler` display colum number and row number on the right bottom coner.
-- `set incsearch` Vim default behavior is that search begins after you enter pattern.
-  When set incsearch, incremental search begins.
+- `set incsearch` Vim default behavior is that search begins after you enter pattern. After setting incsearch, incremental search begins.
+- `set hlsearch`, highlight matched result.
 - `set tabstop=4` Set the number of spaces a *TAB* counts for, default value is 8.
 - `set expandtab` When set, use a certain number of space to insert a *TAB*.
-- `%` jumps to matching braces. `y%` yanking contents between an item and its matching 
-  item. `d%` deleting in the same way. vim object-select can do the similar block 
+- `:set invlist`, Make invisible characters visible. For example, $ represents for enter and ^I for tab. `:set nolist` Makes vim return to normal mode.
+- `%` jumps to matching braces. `y%` yanking contents between an item and its matching item. `d%` deleting in the same way. vim object-select can do the similar block 
   selection in virsual mode. `:help object-select` and `:help text-objects`for details.
-- `:set invlist` Makes invisible characters visible. For example, $ represents for enter and ^I 
-  for tab. `:set nolist` Makes vim return to normal mode.
 - vim regular expression [refrence link](http://www.cnblogs.com/PegasusWang/p/3153300.html)
 - 3 types of visual modes:
 ```
@@ -123,7 +118,8 @@ This post summaries the commom usefull commands on Linux Platform.
 ## Shell script
 ----------
 
-- `echo $?` query shell exit status. *man bash* and search *special parameters* for more details about Linux bash special parameters.
+- `echo $?`, query shell exit status. *man bash* and search *special parameters* for more details about Linux bash special parameters.
+- `echo $0`, display shell name used by terminal.
 
 ## X Windows
 ----------
