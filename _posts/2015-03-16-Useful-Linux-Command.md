@@ -123,6 +123,10 @@ This post summaries the commom usefull commands on Linux Platform.
 - `echo $PATH | awk -F: '{for(i=1; i <= NF; ++i) print "Path: ",$i;}' | grep "bin"`, display PATH content line by line. NF is field number.
    -F: specify ':' as delimeter.
 
+### reference
+- [awk blog1](http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
+- [awk blog2](http://www.cnblogs.com/zhuyp1015/archive/2012/07/14/2591842.html)
+
 ## X Windows
 ----------
 
