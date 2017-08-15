@@ -120,6 +120,8 @@ This post summaries the commom usefull commands on Linux Platform.
 
 - `echo $?`, query shell exit status. *man bash* and search *special parameters* for more details about Linux bash special parameters.
 - `echo $0`, display shell name used by terminal.
+- `echo $PATH | awk -F: '{for(i=1; i <= NF; ++i) print "Path: ",$i;}' | grep "bin"`, display PATH content line by line. NF is field number.
+   -F: specify ':' as delimeter.
 
 ## X Windows
 ----------
