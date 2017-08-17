@@ -139,7 +139,6 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 -  *editorTemplate -addControl* specifiy which attribute you want to control. It will generate a UI element automatically.
 -  *pluginInfo -q -loaded "dgProfiler"*
 
-
 ## Nvida Sample Code
 ---
 
@@ -154,9 +153,18 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 - [Introduce to Parallel Computing](http://courses.cs.washington.edu/courses/cse558/11wi/lectures/06-introToParallelProgramming_forWeb.pdf)
 - [Windows Download](https://developer.microsoft.com/en-us/windows/downloads)
 
-## Windows DirectX
+## Windows DirectX3D
 ---
 
+### resources
+vertex buffer, index buffer, constant buffer, stream output buffer, these four buffers can be bind to pipeline directly.
+Other buffers need a resource view to bind to pipeline.
+- render target view, pipeline output buffer.
+- depth-stencil view, pipeline output buffer.
+- shader resource view, bind to shader stage, read only.
+- unordered access view, only bind to pixel shader, read and write by lots of thread.
+
+### reference
 - [MSDN Subscription Download](https://msdn.microsoft.com/en-us/subscriptions/downloads/)
 - [Windows USB DVD Download Tool](https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool)
 - [DX 11 Tutorials](http://www.rastertek.com/tutdx11.html)
@@ -171,7 +179,7 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 ---
 
 - [Stanford course](http://candela.stanford.edu/cs348b-14/doku.php), It introduces the basic ideas about ray tracing.
-- [99 lines ray tracer toy](http://www.kevinbeason.com/smallpt/)
+- [99 ines ray tracer](http://www.kevinbeason.com/smallpt/)
 - [Ray tracing overview](http://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-overview)
 - [pixar explanation about tray tracing](https://renderman.pixar.com/view/raytracing-fundamentals)
 - [ray tracing tutorial](https://www.ics.uci.edu/~gopi/CS211B/RayTracing%20tutorial.pdf)
