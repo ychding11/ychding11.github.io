@@ -122,6 +122,7 @@ This post summaries the commom usefull commands on Linux Platform.
 - `echo $0`, display shell name used by terminal.
 - `echo $PATH | awk -F: '{for(i=1; i <= NF; ++i) print "Path: ",$i;}' | grep "bin"`, display PATH content line by line. NF is field number.
    -F: specify ':' as delimeter.
+- `awk 'BEGIN{IGNORECASE=1}NR>=1000&&NR<=2000&&(/pattern1/||/pattern2/){print NR,$0}' file`
 - *bash* and *csh* has much difference in *if-else* statement
 
 
