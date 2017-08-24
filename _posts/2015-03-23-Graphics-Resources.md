@@ -164,6 +164,15 @@ Other buffers need a resource view to bind to pipeline.
 - shader resource view, bind to shader stage, read only.
 - unordered access view, only bind to pixel shader, read and write by lots of thread.
 
+### rasterizer
+1. How many HW rasterizers in GPU? It handles a primitive one time.
+2. Before rasterize begin, the primitive should have transformed from world space into clip space,
+   divide by w and mapped into render target by viewport. Rasterizer determines primitive covered
+   square in render target.
+3. HW rasterizer just handles 3 kinds primitives: point, line and triangle. What's the rules for these
+   primitives? How about a "pixel square" shared by multiple primitives? What if MSAA applies?
+
+
 ### reference
 - [MSDN Subscription Download](https://msdn.microsoft.com/en-us/subscriptions/downloads/)
 - [Windows USB DVD Download Tool](https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool)

@@ -122,14 +122,18 @@ This post summaries the commom usefull commands on Linux Platform.
 - `echo $0`, display shell name used by terminal.
 - `echo $PATH | awk -F: '{for(i=1; i <= NF; ++i) print "Path: ",$i;}' | grep "bin"`, display PATH content line by line. NF is field number.
    -F: specify ':' as delimeter.
+- *bash* and *csh* has much difference in *if-else* statement
+
 
 ### reference
 - [awk blog1](http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
 - [awk blog2](http://www.cnblogs.com/zhuyp1015/archive/2012/07/14/2591842.html)
+- [sed command](http://man.linuxde.net/sed)
 
-## X Windows
+## Linux GUI 
 ----------
 
+### X Windows
 - [X Window offical site](https://wiki.archlinux.org/index.php/Xorg)
 - `ps aux | grep -i "xinit"` The  `xinit`  program  is  used to start the X Window System server and the first client program
   on systems that are not using a display manager such as xdm or in environments using multiple window systems.  When
