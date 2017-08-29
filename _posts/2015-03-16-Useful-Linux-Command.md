@@ -118,18 +118,27 @@ This post summaries the commom usefull commands on Linux Platform.
 ## Shell script
 ----------
 
+### useful commands
 - `echo $?`, query shell exit status. *man bash* and search *special parameters* for more details about Linux bash special parameters.
 - `echo $0`, display shell name used by terminal.
 - `echo $PATH | awk -F: '{for(i=1; i <= NF; ++i) print "Path: ",$i;}' | grep "bin"`, display PATH content line by line. NF is field number.
    -F: specify ':' as delimeter.
 - `awk 'BEGIN{IGNORECASE=1}NR>=1000&&NR<=2000&&(/pattern1/||/pattern2/){print NR,$0}' file`
 - *bash* and *csh* has much difference in *if-else* statement
+- `grep "patten" file --color=auto`, print matched pattern with highlight.
+
+### regular expression
+- `sed -n '/pattern/{=;p}' filename`, print matched lines with its line no.
+- `sed -n '/pattern/,+2p' filename`, print matched lines with its following 2 lines.
+- `sed -n '/\<aa/{=;p}' filename`,  match word begin with aa while `aa\>` matches word end. 
+- `\bxx` also matches word begins with *xx*.
+- `sed -n '/^.*R33.*R32.*$/p' file`, print lines which matches both R33 and R32.
 
 
 ### reference
 - [awk blog1](http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
 - [awk blog2](http://www.cnblogs.com/zhuyp1015/archive/2012/07/14/2591842.html)
-- [sed command](http://man.linuxde.net/sed)
+- [sed command](http://man.linuxde.net/sed), including it subcommands and regular expression.
 
 ## Linux GUI 
 ----------
