@@ -7,6 +7,7 @@ date: 2017-04-10
 The post summarizes sampling and monte carlo integration in computer graphics.
 
 ## Monte Carlo Integration 
+---
 
 Why Monte Carlo integration is a must in computer graphics? It tries to estimate integral value by random 
 sampling. The number of sample is independent of dimensionality of integral. A Monte Carlo estimator is defined by:
@@ -42,13 +43,13 @@ $$L_o(p,\omega_o)=\int_{\mathcal{s}^2} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i) 
 $$\approx \frac{1}{N} \displaystyle\sum_{j=1}^{N} \frac{f(p,\omega_j,\omega_o) L_i(p,\omega_j) \cos(\theta_j) }{p(\omega_j)} $$
 
 ### Russian Roulette
-It is a technique used to increase Monte Carlo estimator efficiency. When calculating estimator, there are samples
+
+It is a technique used to increase Monte Carlo estimator efficiency. When evaluating a estimator, there are samples
 contributing a little and cost a lot. In pbrt book<sup>786</sup>, there is an example to calculate reflected radiance
 with direct lighting.
 $$L_o(p,\omega_o)=\int_{\mathcal{s}^2} f_r(p,\omega_i,\omega_o) L_d(p,\omega_i) \cos(\theta_i) \, \mathrm{d}\omega_i $$.
 When $$f_r(p,\omega_i,\omega_o)$$ is very small and $$\omega_i$$ is close to the horizon, the integrand's value is very
-small and contribute little in final result.   
-
+small and contributes little in final result.   
 *Russian Roulette* solves this problem. It introduce a termination probability $$q$$ and some constant value $$c$$.
 When termination condition is meet, use constant value $$c$$ instead of evaluating integrand with sample. So there 
 are two cases, one is to evaluate integrand, another is constant value $$c$$. New estimator is combined by both with
@@ -60,16 +61,17 @@ F'=\begin{Bmatrix}
 \end{Bmatrix}
 $$.
 
-The expect value of new estimator is the same with the origin one. $$ E[F']=(1-q)(\frac{E[F]-qc}{1-q})+qc=E[F]$$.   
+The expect value of the new estimator is the same with the origin one. $$ E[F']=(1-q)(\frac{E[F]-qc}{1-q})+qc=E[F]$$.   
 Note that Russian Roulette cannot reduce variance but increase efficiency. A properly chesen termination is very 
 important to generate visually acceptable result.
 
 ### Splitting
-Splitting<sup>788</sup> is another technique to increase Monte Carlo integration efficiency. It can use different sample number 
+*Splitting*<sup>788</sup> is another technique to increase Monte Carlo integration efficiency. It can use different sample 
 for different dimension. For example it may increase light sample and decrease image sample to get better visual
 result without increasing total sample number.
 
 ## Metropolis Sampling
+---
 
 This technique is in book<sup>761</sup>. 
 
@@ -92,12 +94,11 @@ $$\boldsymbol J_T(x)=
 \end{pmatrix}
 $$.
 
-
 ### Consine Weighted Hemisphere Sampling 
 It is better to generate hemishpere samples close to the top of hemisphere. It means a smaller $$\theta$$ and a bigger
 $$cos(\theta)$$ part of integral<sup>778</sup>. So the PDF of $$\omega$$ should meet the requirement.   
 
-    $$p(\omega) \propto cos(\theta)$$.
+$$ p(\omega) \propto cos(\theta) $$.
 
 According to Malley's method, the cosine weighted hemishere can be get by sampling on a unit disk uniformly
 and projecting it up to the hemishpere above it<sup>778<sup>. 
