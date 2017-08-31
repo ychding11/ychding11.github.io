@@ -138,7 +138,9 @@ This post summaries the commom usefull commands on Linux Platform.
 ### reference
 - [awk blog1](http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
 - [awk blog2](http://www.cnblogs.com/zhuyp1015/archive/2012/07/14/2591842.html)
-- [sed command](http://man.linuxde.net/sed), including it subcommands and regular expression.
+- [sed command](http://man.linuxde.net/sed), including itsubcommands and regular expression.
+- [sed manual](https://www.gnu.org/software/sed/manual/sed.html), including address mode. 
+- [sed chinese doc](http://blog.jobbole.com/109088/#toc_29)
 
 ## Linux GUI 
 ----------
