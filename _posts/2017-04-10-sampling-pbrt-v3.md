@@ -9,12 +9,13 @@ The post summarizes sampling and monte carlo integration in computer graphics.
 ## Monte Carlo Integration 
 ---
 
+### Overview
 Why Monte Carlo integration is a must in computer graphics? It tries to estimate integral value by random 
-sampling. The number of sample is independent of dimensionality of integral. A Monte Carlo estimator is defined by:
+sampling. But the number of samples is independent of dimensionality of integral. A Monte Carlo estimator is defined as:
 
 $$ F_N=\frac{1}{N} \displaystyle \sum_{i=1}^{N} \frac{f(X_i)}{p(X_i)}$$
 
-$$ f(x) $$ is evaluated function, $$ p(x) $$ is PDF of random variable $$ X_i $$.
+$$ f(x) $$ is the evaluated function, $$ p(x) $$ is PDF of random variable $$ X_i $$.
 We can easily understand that the expect value of random varible $$ F_N $$ is equal to $$ \int_0^\infty f(x) \,\mathrm{d}x $$.
 The derivation is as following:
 
@@ -27,6 +28,7 @@ $$ E[F_N] $$ = $$  \int_0^\infty f(x) \, \mathrm{d}x $$
 How many samples does it need in order to estimate integral value correctly or with mimimal error? There is no detailed explaination in pbrt book.
 So I am a little confused.
 
+### How to sample random variable
 *Given a PDF, how to draw samples from it?* The book<sup>754</sup> gives steps:
 
 1. compute CDF from PDF $$p(x)$$, $$P(x)=\int_0^x f(y) \, \mathrm{d}y$$. 
@@ -40,6 +42,7 @@ cases, the integrand is the product of more than one function. How to find a PDF
 example in computer graphics, the following formula.   
 
 $$L_o(p,\omega_o)=\int_{\mathcal{s}^2} f_r(p,\omega_i,\omega_o) L_i(p,\omega_i) \cos(\theta_i) \, \mathrm{d}\omega_i $$.
+
 $$\approx \frac{1}{N} \displaystyle\sum_{j=1}^{N} \frac{f(p,\omega_j,\omega_o) L_i(p,\omega_j) \cos(\theta_j) }{p(\omega_j)} $$
 
 ### Russian Roulette
