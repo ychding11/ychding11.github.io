@@ -138,6 +138,7 @@ This shell is a improved c-shell in unix. It is not so friendly to use.
 - `sed -n '/\<aa/{=;p}' filename`,  match word begin with aa while `aa\>` matches word end. 
 - `\bxx` also matches word begins with *xx*.
 - `sed -n '/^.*R33.*R32.*$/p' file`, print lines which matches both R33 and R32.
+- `sed '/pattern/d -ibak file'`, delete the matched lines and save origin file as backup.
 
 ### reference
 - [awk blog1](http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
