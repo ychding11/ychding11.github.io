@@ -13,11 +13,14 @@ This post list python related learning materials.
 - [Programming Language Pragmatics](http://www.cs.rochester.edu/~scott/pragmatics/)
 - [Python 2.7 manual](http://docs.pythontab.com/python/python2.7/modules.html)
 
-
 ## Skills
 ---
 - python module search path `import sys; sys.path`.
+- env variable *PYTHONPATH* can  specify python module search path. Contents of this variable will be added into *sys.path*.
 
+
+### reference
+- [pdb docs](https://docs.python.org/2/library/pdb.html)
 
 ## Python Library
 ---

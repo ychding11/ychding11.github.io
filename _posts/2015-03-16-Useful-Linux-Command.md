@@ -118,6 +118,11 @@ This post summaries the commom usefull commands on Linux Platform.
 ## Shell script
 ----------
 
+### tcsh shell
+This shell is a improved c-shell in unix. It is not so friendly to use.
+- `setenv VAR XXXX`, set environment variable in terminal.
+- `:` is a special character in tcsh terminal.
+
 ### useful commands
 - `echo $?`, query shell exit status. *man bash* and search *special parameters* for more details about Linux bash special parameters.
 - `echo $0`, display shell name used by terminal.
@@ -133,7 +138,6 @@ This post summaries the commom usefull commands on Linux Platform.
 - `sed -n '/\<aa/{=;p}' filename`,  match word begin with aa while `aa\>` matches word end. 
 - `\bxx` also matches word begins with *xx*.
 - `sed -n '/^.*R33.*R32.*$/p' file`, print lines which matches both R33 and R32.
-
 
 ### reference
 - [awk blog1](http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)

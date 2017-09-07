@@ -6,7 +6,8 @@ date: 2016-12-7
 
 This post summarizes debugging skills with examples on Linux Platform.
 
-## Core Dump
+## Core dump
+---
 
 - Check whether core dump is enabled. Using command to check default core file size.
   `ulimit -c` command is to query the default size of dumped core size. 0 means core
@@ -22,13 +23,19 @@ This post summarizes debugging skills with examples on Linux Platform.
 - Analyse dumped core file with gdb. Rebuild code with debug info added,for example adding -g compile option for gcc. 
   Use command to open core file. `gdb a.out /tmp/corefiles/core-a.out-12754-1457789593`
 
-### Parameters Reference  
+### parameters reference  
 
 	+ *%e*  executable filename (without path prefix) 
 	+ *%p*  PID of dumped process, as seen in the PID namespace in which the process resides
 	+ *%t*  time of dump, expressed as seconds since the Epoch,1970-01-01 00:00:00 +0000 (UTC)
 
+### reference
+- [A core pattern setting](http://man7.org/linux/man-pages/man5/core.5.html) 
+- [An introduce to core dump](http://www.cnblogs.com/hazir/p/linxu_core_dump.html)    
+- [Debug a runnig process](http://dirac.org/linux/gdb/06-Debugging_A_Running_Process.php)
+
 ## x64 Assembly Disassemble
+---
 
    When program crashes, Windows will pop a dialog informing user of error,
    mostly memory access violation. We need assembly language knowledge to 
@@ -47,51 +54,48 @@ This post summarizes debugging skills with examples on Linux Platform.
    design we should keep this point in mind. Register access is much faster than 
    memory access.
 
+### reference
 - [Calling Conventions for different platform C++ compilers](http://www.agner.org/optimize/calling_conventions.pdf) It is a very
    comprehensive material for reference. It should be referenced at first time when having problems. 
 - [MicroSoft document about disassembly code](https://msdn.microsoft.com/en-us/library/windows/hardware/ff538083(v=vs.85).aspx) 
    has lots of C++ disassembly code examples. Learning such examples does much help to crash issues.
 - [C++ this pointer storage](http://stackoverflow.com/questions/16585562/where-is-the-this-pointer-stored-in-computer-memory)     
-- [Introduce to x64 assemble under Linux Platform](https://cs.nyu.edu/courses/fall11/CSCI-GA.2130-001/x64-intro.pdf) The paper 
-   mainly focus on C Compiler. 
-- [intel LEA instruction explaination](https://courses.engr.illinois.edu/ece390/archive/spr2002/books/labmanual/inst-ref-lea.html) 
-   *lea* instruction only calculate effective memory address, no memory access happens.
-- [The link](http://stackoverflow.com/questions/1699748/what-is-the-difference-between-mov-and-lea) 
-   gives an comparison between *lea* instruction and *mov* instruction.
+- [Introduce to x64 assemble under Linux Platform](https://cs.nyu.edu/courses/fall11/CSCI-GA.2130-001/x64-intro.pdf) The paper mainly focus on C Compiler. 
+- [LEA instruction explaination](https://courses.engr.illinois.edu/ece390/archive/spr2002/books/labmanual/inst-ref-lea.html) *lea* instruction only calculate effective memory address, no memory access happens.
+- [The link](http://stackoverflow.com/questions/1699748/what-is-the-difference-between-mov-and-lea) gives an comparison between *lea* instruction and *mov* instruction.
 
 ## Dynamic Shared Library
+---
 
-[How to write shared Libaries](https://www.akkadia.org/drepper/dsohowto.pdf) 
-Program using dynamic shared libraries need to know dynamic linker location. 
-Dynamic linker need to be loaded to memory by OS, then OS transfer control to 
-dynamic linker.     Dynamic linker will do 3 things: determine and load all 
-dependencies, relocation all addresses in program and dependencies, initialize 
-program and all dependencies only once.      In a complex software, dependencies 
-need to apply toplogical sort to determine correct order. 
+When loading into memory, program using dynamic shared libraries needs to know dynamic linker location. OS will load dynamic linker into memory, then transfer the control to 
+dynamic linker. It will do 3 things:
+	1. determine and load all dependencies,
+	2. relocation all addresses in program and dependencies,
+	3. initialize program and all dependencies only once.
+In a complex software, it may need to apply toplogical sort to determine correct odependencies order. 
 
-Symbol relocation is a very expensive process.Relocated results are stored in data segment.
-Hash algorithm is applied in symbol search. For each resolving symbol, dynamic 
-linker will loop each dynamic shared lib in current lookup scope. Every shared lib 
-organise its symbols in hash bucket. So the match process is to use resolving symbol's
-hash value to match has chain in each lib. Once matched, the process ends. 
-So multiple definition for a same symbol is ok, the first matched will be used. 
-The average hash chain length both for successfull match and unsuccessful match 
-determines effectiveness of dynamic liner's hash algorithms design.
+Symbol relocation is  very expensive. Relocated results are stored in data segment.Hash algorithm is applied in symbol search.
+Every shared lib organise its symbols in hash bucket. For every symbol, dynamic linker will loop each dynamic shared lib in current lookup scope.
+So the match alogrithm is to use resolving symbol's hash value to match hash chain in each lib. Once matched, the algorithm ends.
+So multiple definition for a same symbol is ok, the first matched will be used.
+The average hash chain length determines effectiveness of dynamic liner's hash algorithms. It is for both for successfull match and unsuccessful match. 
 
-Symbol relocation process may be delayed to some later time when a symbol is 
-actually used. This is called *lazy relocation process*. Using *-z now* linker 
-option can cancell it. 
-[This paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf)
- introduces debug skils about load dependencies errors. Some of them are very interesting.
+Symbol relocation may be delayed to some later time when a symbol is actually used. This is called *lazy relocation process*. linker option *-z now* can cancell this feature. 
 
-*-Wl,option* is an gcc option to transfer option into linkers. For example
-*-Wl,-rpath,'$ORIGIN'* option will tell linker to search current directory
-for needed libraries.
+### useful skills 
+- *-Wl,option* is an gcc option to transfer *option* into linkers.
+- *-Wl,-rpath,'$ORIGIN'* option will tell linker to search current directory for needed libraries.
+- env variable *LD_LIBRARY_PATH*, control dynamic library search path.
+- `readlink -f filename`, display the full path of file.
+
+### reference
+- [How to write shared Libaries](https://www.akkadia.org/drepper/dsohowto.pdf) 
+- [This paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf) introduces debug skils about load dependencies errors. Some of them are very interesting.
 
 ## GDB Skills
+---
 
-A debuger is an important tool to analyse runtime errors.
-Compared with MSVC debuger, I found gdb is not so friendly.
+A debuger is an important tool to analyse runtime errors. Compared with MSVC debuger, I found gdb is not friendly to use.
 
 - browser source code quickly.
 - set breakpoints quickly.
@@ -101,6 +105,7 @@ Compared with MSVC debuger, I found gdb is not so friendly.
 - check current instruction. `print $pc`
 - set break points. `break filename:lineno`
 - check source file. `layout src` 
+- show or set debuged program's arguments. `show args`, `set args xxxxx`
 
 When encounter a memory access violation, progress will receive a signal to 
 terminate itself. 
@@ -129,10 +134,13 @@ terminate itself.
 + watch memory localtion `watch/rwatch -l expression`
 - running program, `next, step` and `nexti, stepi`
 
-[GDB docs](http://sourceware.org/gdb/current/onlinedocs/gdb/)
-char extend to int using sign extension.
+### reference
+- [GDB mannual](http://sourceware.org/gdb/current/onlinedocs/gdb/) char extend to int using sign extension.
 
-## GCC __attribute__
+## GCC extension
+---
+
+### GCC __attribute__
 
 `void __attribute__((optimize("O0"))) func() { }` can assure no optimization 
 applied to specified function. Sometimes it is helpful to analyse errors only 
@@ -152,7 +160,3 @@ occured in release version. This Gcc extension also applies to function template
    decide memory allocation size. These operations do non-sense things and consume
    lots of time. 
 
-## Reference
-- [A core pattern setting](http://man7.org/linux/man-pages/man5/core.5.html) 
-- [An introduce to core dump](http://www.cnblogs.com/hazir/p/linxu_core_dump.html)    
-- [Debug a runnig process](http://dirac.org/linux/gdb/06-Debugging_A_Running_Process.php)
