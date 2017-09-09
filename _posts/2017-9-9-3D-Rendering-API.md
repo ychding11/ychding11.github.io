@@ -23,15 +23,30 @@ Geomery Shader is different from Vertex shader.
 - It is a per-primitive level processing. For example, point, line and triangle.
 - It eats in a primitive and output zero or multiple primitive.
 - New algorithms based on primitive can be applied. For example it can subdivison a surface.
+
 In DX11 a geometry shader example is as following:
 
-```
+{% highlight c++ %}
+
 //--------------------------------------------------------------------------------------
 // Geometry Shader
 //--------------------------------------------------------------------------------------
 [maxvertexcount(12)]
 void GS( triangle GSPS_INPUT input[3], inout TriangleStream<GSPS_INPUT> TriStream )
-```
+
+{% endhighlight %}
+
+- key word *maxvertexcount*, limit the output vertex number.
+- key word *triangle*, specify the operated primitive type.*GSPS_INPUT*, specify the vertex format, maybe user-defined structure.
+  identifier *input*, specify that 3 vertex will be eat in.
+- key word *TriangleStream*, specify the output will be *triangle strip*.
+- After assemble an triangle, *TriStream.RestartStrip()* function call will cut *triangle strip* into *triangle list*.
+
+There is a DX11 sample to implement exploding model by gemomery shader only.
+1. calculate surface normal of the triangle.
+2. calculate the cector position of the triangle.
+3. generate three triangles with center point with position extruding towards surface normal.
+
 
 ### rasterizer
 1. How many HW rasterizers in GPU? It handles a primitive one time.
