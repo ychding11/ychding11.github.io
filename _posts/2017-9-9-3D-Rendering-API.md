@@ -48,6 +48,16 @@ There is a DX11 sample to implement exploding model by gemomery shader only.
 3. generate three triangles with center point with position extruding towards surface normal.
 
 
+### tessellation
+It converts control patch into surface patch. GPU do it in parallel. It includes three stage: hull shader stage, fixed-function tessellator and
+domain shader.
+- Hull Shader accecpts control patch from vertex shader. It process every control point and its attribute indepently.
+- Constant Hull Shader processes every control patch indepently. 
+- Tessellator generates uv coordinates.
+- Domain Shader accepts Control patch, uv coordinates and generates final vertex.
+
+Bezeir surface is good example to demostrate this ideas, because it is very simple and easy to understand.
+
 ### rasterizer
 1. How many HW rasterizers in GPU? It handles a primitive one time.
 2. Before rasterize begin, the primitive should have transformed from world space into clip space,
