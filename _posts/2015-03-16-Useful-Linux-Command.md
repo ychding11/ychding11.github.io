@@ -98,7 +98,6 @@ This post summaries the commom usefull commands on Linux Platform.
 - `:set invlist`, Make invisible characters visible. For example, $ represents for enter and ^I for tab. `:set nolist` Makes vim return to normal mode.
 - `%` jumps to matching braces. `y%` yanking contents between an item and its matching item. `d%` deleting in the same way. vim object-select can do the similar block 
   selection in virsual mode. `:help object-select` and `:help text-objects`for details.
-- vim regular expression [refrence link](http://www.cnblogs.com/PegasusWang/p/3153300.html)
 - 3 types of visual modes:
 ```
 	v --> visual mode for multi-character selection and edit    
@@ -106,6 +105,12 @@ This post summaries the commom usefull commands on Linux Platform.
 	Ctrl + v --> visual mode for block selection and edit, it is more flexible    
 ```
 - In visual mode, press *<* and *>* can do auto-indent.
+- `Shift+V`, select current line and enter visual mode.
+- `/\%Vpattern`, search pattern in visual area.
+
+### reference
+- [vim regular expression](http://www.cnblogs.com/PegasusWang/p/3153300.html)
+- [vim doc](http://vimdoc.sourceforge.net/htmldoc/pattern.html)
 
 ## Grub2
 ----------
