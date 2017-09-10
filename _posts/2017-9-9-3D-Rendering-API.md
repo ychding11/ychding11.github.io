@@ -66,6 +66,13 @@ Bezeir surface is good example to demostrate this ideas, because it is very simp
 3. HW rasterizer just handles 3 kinds primitives: point, line and triangle. What's the rules for these
    primitives? How about a "pixel square" shared by multiple primitives? What if MSAA applies?
 
+### environment map
+It is a GPU programming hack to implement specular refelctive surface.
+- Generate a cube map to represent the eviroment irradiance. It depends on camera view, so it needs to be dynamically generated.
+- It is in Pixel Shader to sample cube map to get the reflected irradiance. The sample vector is key point.
+- In order to reduce compute, sample vector can be calculated in Vertex Shader in view space. Then interpolate in screnn space.
+
+A goode example is preferred.
 
 ### reference
 - [MSDN Subscription Download](https://msdn.microsoft.com/en-us/subscriptions/downloads/)
