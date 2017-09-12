@@ -74,6 +74,13 @@ It is a GPU programming hack to implement specular refelctive surface.
 
 A goode example is preferred.
 
+### shadow map
+It is to generate shadow by two pass render.
+1. render a depth map in light camera, that is so called shadow map.
+2. In Pixel Shader,when determin whether a pixel is in shadow.
+3. convert pixel(x, y) into world space, then convert into light camera clip space.
+4. compare newly generated z with stored in shadow map to determin whether it is in shadow.
+
 ### reference
 - [MSDN Subscription Download](https://msdn.microsoft.com/en-us/subscriptions/downloads/)
 - [Windows USB DVD Download Tool](https://www.microsoft.com/en-us/download/windows-usb-dvd-download-tool)
