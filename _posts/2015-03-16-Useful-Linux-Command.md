@@ -87,9 +87,10 @@ This post summaries the commom usefull commands on Linux Platform.
 ----------
 
 - `vim --version | grep clipboard`, It can tell whether vim is able to transfer data with clipboard.
-  `sudo apt-get install vim-gnome` in Ubuntu can enhance vim with the abiltiy.
+- `sudo apt-get install vim-gnome`, in Ubuntu it can enhance vim with the abiltiy.
 - *Display full file path when editing a file* Sometimes is helpful to us. `:help statusline` and `:help laststatus` give detailed info for reference.
-- Sometimes we want *case insensitive* search. `:set ignorecase` or `:set ic` can do that. `:set noic` cancel the previous settings.
+- `set ignorecase` or `:set ic`, Sometimes we want *case insensitive* search.
+- `set noic` cancel *case insensitive search*. 
 - `set ruler` display colum number and row number on the right bottom coner.
 - `set incsearch` Vim default behavior is that search begins after you enter pattern. After setting incsearch, incremental search begins.
 - `set hlsearch`, highlight matched result.
