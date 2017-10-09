@@ -137,6 +137,7 @@ This shell is a improved c-shell in unix. It is not so friendly to use.
 - `awk 'BEGIN{IGNORECASE=1}NR>=1000&&NR<=2000&&(/pattern1/||/pattern2/){print NR,$0}' file`
 - *bash* and *csh* has much difference in *if-else* statement
 - `grep "patten" file --color=auto`, print matched pattern with highlight.
+- `rm -rf `ls amod*.* -d``, remove matched subdirectories in current directory.
 
 ### regular expression
 - `sed -n '/pattern/{=;p}' filename`, print matched lines with its line no.
