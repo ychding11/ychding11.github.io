@@ -110,17 +110,15 @@ A debuger is an important tool to analyse runtime errors. Compared with MSVC deb
 When encounter a memory access violation, progress will receive a signal to 
 terminate itself. 
 
-+ It need to know which address caused the fault. `p $_siginfo._sifields._sigfault.si_addr`
++ check which address caused segment fault. `p $_siginfo._sifields._sigfault.si_addr`
 + current instruction. `layout asm` and `ctrl+x+a` quit layout mode.
 + check register value. `info registers`
 + check PC value. `p $pc`, $pc = %rip.
 + check progress memory map. `cat /proc/pid/maps`
 + list source files. `info source` and `info files`
 + check type details. `ptype typename`
-+ check macro info. `p macro-name` print evaluated value.
-  `macro expand macro-name` print expanded expression.
-  NOTE: add -g3 compiler option to keep macro info presented
-  in program.
++ check macro info. `p macro-name` print evaluated value. `macro expand macro-name` print expanded expression.
+  NOTE: add -g3 compiler option to keep macro info presented in program.
 + set source files search path, `dir path-to-source`
 + set breakpoints, `b file::line`
 + disable breakpoints, `disable b` and `disable b no`
@@ -144,13 +142,13 @@ terminate itself.
 
 `void __attribute__((optimize("O0"))) func() { }` can assure no optimization 
 applied to specified function. Sometimes it is helpful to analyse errors only 
-occured in release version. This Gcc extension also applies to function template.
+occured in release version. This Gcc extension can also be applied to function template.
 
-## Debug Case Summary
+## Simple debug Case Summary
+---
 
-1. Param *this* is overrided by write operations on stack. It leads to memory
-   access violation when accessing object member variable. In addition the
-   bug I fixed only occurs on Linux platform. So I trend to believe stack is
+1. Parameter *this* is overrided by write operations from within function. It leads to memory
+   access violation when accessing object member variable. In addition, the bug only occurs on Linux platform. So I trend to believe stack layout is
    different between Linux and Windows.
 2. When an image library parses a psd file. It consumes lots of time and crash
    the running program. Crash issue maybe caused by memory access violation or
