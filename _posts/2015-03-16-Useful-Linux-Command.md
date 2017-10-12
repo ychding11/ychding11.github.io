@@ -108,6 +108,7 @@ This post summaries the commom usefull commands on Linux Platform.
 - In visual mode, press *<* and *>* can do auto-indent.
 - `Shift+V`, select current line and enter visual mode.
 - `/\%Vpattern`, search pattern in visual area.
+- `:!commandname`, run shell command.
 
 ### reference
 - [vim regular expression](http://www.cnblogs.com/PegasusWang/p/3153300.html)
