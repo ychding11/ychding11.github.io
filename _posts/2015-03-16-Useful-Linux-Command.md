@@ -140,6 +140,7 @@ This shell is a improved c-shell in unix. It is not so friendly to use.
 - *bash* and *csh* has much difference in *if-else* statement
 - `grep "patten" file --color=auto`, print matched pattern with highlight.
 - `rm -rf `ls amod*.* -d``, remove matched subdirectories in current directory.
+- `sed -n '/tgen.pl.*amodel/p' dl.log | cat | sed 's/^.\{8\}//g'`, How to write multiple expression into one.
 
 ### regular expression
 - `sed -n '/pattern/{=;p}' filename`, print matched lines with its line no.
@@ -153,8 +154,9 @@ This shell is a improved c-shell in unix. It is not so friendly to use.
 - [awk blog1](http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
 - [awk blog2](http://www.cnblogs.com/zhuyp1015/archive/2012/07/14/2591842.html)
 - [sed command](http://man.linuxde.net/sed), including itsubcommands and regular expression.
-- [sed manual](https://www.gnu.org/software/sed/manual/sed.html), including address mode. 
+- [sed official manual](https://www.gnu.org/software/sed/manual/sed.html), including address mode. 
 - [sed chinese doc](http://blog.jobbole.com/109088/#toc_29)
+- [sed chinese blog](http://www.cnblogs.com/ctaixw/p/5860221.html), including *regular expression* summary.
 
 ## Linux GUI 
 ----------
