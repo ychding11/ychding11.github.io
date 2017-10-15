@@ -68,6 +68,9 @@ will combined as a new one.
 - *p4 edit -c cl file* and *p4 add -c cl file*.
 - *p4 revert -c cl file*.
 - *p4 changes -u xxx -s shelved -l*, query change list by user and change list status.
+- *p4 shelve -f -c 39231829*, shelve the change list into sever.
+- *p4 changes -u yaochuangd -l -c myturing*, query change lists on specified client.
+- *p4 reopen -c 39135190 //hw/testgen/mytest.csh*, move opened file into another changelist.
 
 ### reference
 
