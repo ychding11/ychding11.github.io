@@ -4,13 +4,13 @@ title: "3D Graphics Library"
 date: 2017-09-09
 ---
 
-This post lists a key points of graphic Library.
+This post lists key points of graphic Library.
 
 
 ## DirectX3D
 ---
 
-### resources
+### GPU resources and its view
 vertex buffer, index buffer, constant buffer, stream output buffer, these four buffers can be bind to pipeline directly.
 Other buffers need a resource view to bind to pipeline.
 - render target view, pipeline output buffer.
@@ -46,6 +46,7 @@ There is a DX11 sample to implement exploding model by gemomery shader only.
 1. calculate surface normal of the triangle.
 2. calculate the cector position of the triangle.
 3. generate three triangles with center point with position extruding towards surface normal.
+4. complete shader on [github](https://github.com/ychding11/directx-sdk-samples/blob/master/Direct3D11TutorialsFX11/Tutorial13/Tutorial13.fx).
 
 
 ### tessellation
@@ -62,12 +63,12 @@ Bezeir surface is good example to demostrate this ideas, because it is very simp
 1. How many HW rasterizers in GPU? It handles a primitive one time.
 2. Before rasterize begin, the primitive should have transformed from world space into clip space,
    divide by w and mapped into render target by viewport. Rasterizer determines primitive covered
-   square in render target.
+   square in render target. How about a "pixel square" shared by multiple primitives? What if MSAA applies?
 3. HW rasterizer just handles 3 kinds primitives: point, line and triangle. What's the rules for these
-   primitives? How about a "pixel square" shared by multiple primitives? What if MSAA applies?
+   primitives? 
 
 ### environment map
-It is a GPU programming hack to implement specular refelctive surface.
+It is a GPU programming hack to implement *specular refelctive surface* by a cube map.
 - Generate a cube map to represent the eviroment irradiance. It depends on camera view, so it needs to be dynamically generated.
 - It is in Pixel Shader to sample cube map to get the reflected irradiance. The sample vector is key point.
 - In order to reduce compute, sample vector can be calculated in Vertex Shader in view space. Then interpolate in screnn space.
