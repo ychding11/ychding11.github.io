@@ -79,7 +79,7 @@ This post lists a collection of usefull graphic resources.
 
 ## Parametric surface
 
-The creation of the surface is based on equation.
+The surface is based on math equation.
 
 - [Survey on NURBS](http://design.osu.edu/carlson/history/PDFs/Piegl-NURBS-91.pdf)
 - [OpenGL Programming about NURBS](http://www.glprogramming.com/red/chapter12.html)
@@ -90,6 +90,7 @@ The creation of the surface is based on equation.
 ## BRDF
 ---
 
+### useful links
 - [Disney BRDF analysis Tool](http://www.disneyanimation.com/technology/brdf.html)
 - [Survey on BRDF Representation](http://www.cs.princeton.edu/~smr/cs348c-97/surveypaper.html)
 - [BRDF Database](http://people.csail.mit.edu/wojciech/BRDFDatabase/)
@@ -103,6 +104,10 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 ## Tessellation
 ---
 
+### useful papers
+- [Approximating Catmull-Clark Subdivision Surfaces with Bicubic Patches](http://www.cs.cmu.edu/afs/cs/academic/class/15869-f11/www/readings/loop08_accpatches.pdf)
+
+### useful links
 - [Nvida](http://www.nvidia.com/object/tessellation.html) 
 - [Math forum](http://mathforum.org/sum95/suzanne/whattess.html) 
 - [Math fun](https://www.mathsisfun.com/geometry/tessellation.html) 
