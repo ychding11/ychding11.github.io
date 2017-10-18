@@ -94,6 +94,11 @@ A typical render function does following things:
 6. set rasterizer state.
 7. bind vertex data and set primitive type.
 8. Draw() call
+
+### Compile Shader
+*D3DCompileFromFile()* compiles hlsl code into byte code for specified target, for example, hs_5_0.
+Its second parameter *in_opt  const D3D_SHADER_MACRO pDefines*, can insert user-defined macro into compiling.
+
 ### environment map
 It is a GPU programming hack to implement *specular refelctive surface* by a cube map.
 - Generate a cube map to represent the eviroment irradiance. It depends on camera view, so it needs to be dynamically generated.
