@@ -1,4 +1,4 @@
----
+H---
 layout: post
 title: "3D Graphics Library" 
 date: 2017-09-09
@@ -53,15 +53,15 @@ There is a DX11 sample to implement exploding model by gemomery shader only.
 
 
 ### tessellation
-It converts control patch into surface patch. GPU does it in parallel. GPU Hardware includes three stage:
-hull shader stage, fixed-function tessellator and domain shader stage.
+GPU Hardware includes three stages: hull shader stage, fixed-function tessellator and domain shader stage.
+Hull Shader process control patch. HW Tessellator generates lots of samples in domain field by a predefined rule.
+Domain Shader converts domain samples into vertex by control patch processed by Hull Shader.
 
 - Hull Shader accecpts control patch from vertex shader. It can be divded into two phases,
 	1. Hull Shader processes once per output control point and its attribute indepently, controlled by the *outputcontrolpoints* attribute of Hull Shader.
 	2. Hull Shader processes once per patch, controlled by the "patchconstantfunc* attribute of Hull Shader. 
 - Output control points pass on to domain shader directly. "pathconstantfunc" output tessellator factors.  
-- Hull Shader would be regarded as a "data setup stage" of tessellation, accepting standard control patch and converting its format accoding to 
-  application configuration.
+- Hull Shader would be regarded as a "data setup stage" of tessellation, accepting standard control patch and converting its format accoding to application configuration.
 - Tessellator accepts tessellator factors and partition mode domain then generates uvw coordinates and output primitives.
 - Tessellator does not care about control points at all.
 - Domain Shader accepts Control patch, uv coordinates and generates final vertex.
