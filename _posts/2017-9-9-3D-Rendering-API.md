@@ -68,6 +68,11 @@ hull shader stage, fixed-function tessellator and domain shader stage.
 Bezeir surface is good example to demostrate this ideas, because it is very simple and easy to understand.
 code on [github](https://github.com/ychding11/directx-sdk-samples/blob/master/SimpleBezier11/SimpleBezier11.hlsl)
 
+- sematic value *SV_InsideTessFactor*, defines tessellation mount within a patch surface. [details](https://msdn.microsoft.com/zh-cn/library/windows/desktop/ff471572(v=vs.85).aspx)
+- sematic value *SV_TessFactor*,  defines tessellation mount on patch edge.[details](https://msdn.microsoft.com/zh-cn/library/windows/desktop/ff471574(v=vs.85).aspx)
+- sematic value *SV_DomainLocation*, it is an output value uvw coordinates by tessellator, defines the location on the hull of current domain point.
+- *SV_InsideTessFactor* and *SV_TessFactor* are required input of Domain shader, Why? 
+
 ### rasterizer
 1. How many HW rasterizers in GPU? It handles a primitive one time.
 2. Before rasterize begin, the primitive should have transformed from world space into clip space,
