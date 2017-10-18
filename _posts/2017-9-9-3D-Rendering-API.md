@@ -7,10 +7,12 @@ date: 2017-09-09
 This post lists key points of graphic Library.
 
 
-## DirectX3D
+## D3D11
 ---
+### Input Layout
+How to understand inputlayout object in GPU Hardware and D3D11 framework?
 
-### GPU resources and its view
+### GPU resources and views
 vertex buffer, index buffer, constant buffer, stream output buffer, these four buffers can be bind to pipeline directly.
 Other buffers need a resource view to bind to pipeline.
 - render target view, pipeline output buffer.
@@ -51,22 +53,52 @@ There is a DX11 sample to implement exploding model by gemomery shader only.
 
 
 ### tessellation
-It converts control patch into surface patch. GPU do it in parallel. It includes three stage: hull shader stage, fixed-function tessellator and
-domain shader.
-- Hull Shader accecpts control patch from vertex shader. It process every control point and its attribute indepently.
-- Constant Hull Shader processes every control patch indepently. 
-- Tessellator generates uv coordinates.
+It converts control patch into surface patch. GPU does it in parallel. GPU Hardware includes three stage:
+hull shader stage, fixed-function tessellator and domain shader stage.
+
+- Hull Shader accecpts control patch from vertex shader. It can be divded into two phases,
+	1. Hull Shader processes once per output control point and its attribute indepently, controlled by the *outputcontrolpoints* attribute of Hull Shader.
+	2. Hull Shader processes once per patch, controlled by the "patchconstantfunc* attribute of Hull Shader. 
+- Output control points pass on to domain shader directly. "pathconstantfunc" output tessellator factors.  
+- Hull Shader would be regarded as a "data setup stage" of tessellation, accepting standard control patch and converting its format accoding to 
+  application configuration.
+- Tessellator accepts tessellator factors and partition mode domain then generates uvw coordinates and output primitives.
+- Tessellator does not care about control points at all.
 - Domain Shader accepts Control patch, uv coordinates and generates final vertex.
 
 Bezeir surface is good example to demostrate this ideas, because it is very simple and easy to understand.
+code on [github](https://github.com/ychding11/directx-sdk-samples/blob/master/SimpleBezier11/SimpleBezier11.hlsl)
+
+- sematic value *SV_InsideTessFactor*, defines tessellation mount within a patch surface. [details](https://msdn.microsoft.com/zh-cn/library/windows/desktop/ff471572(v=vs.85).aspx)
+- sematic value *SV_TessFactor*,  defines tessellation mount on patch edge.[details](https://msdn.microsoft.com/zh-cn/library/windows/desktop/ff471574(v=vs.85).aspx)
+- sematic value *SV_DomainLocation*, it is an output value uvw coordinates by tessellator, defines the location on the hull of current domain point.
+- *SV_InsideTessFactor* and *SV_TessFactor* are required input of Domain shader, Why? 
 
 ### rasterizer
 1. How many HW rasterizers in GPU? It handles a primitive one time.
 2. Before rasterize begin, the primitive should have transformed from world space into clip space,
    divide by w and mapped into render target by viewport. Rasterizer determines primitive covered
    square in render target. How about a "pixel square" shared by multiple primitives? What if MSAA applies?
-3. HW rasterizer just handles 3 kinds primitives: point, line and triangle. What's the rules for these
-   primitives? 
+3. HW rasterizer just handles 3 kinds primitives: point, line and triangle. What's the rules for these primitives? 
+4. In D3D11, *D3D11_FILL_MODE* only support two modes: *D3D11_FILL_WIREFRAME* and *D3D11_FILL_SOLID*. [details](https://msdn.microsoft.com/en-us/library/windows/desktop/ff476131(v=vs.85).aspx)
+
+### what happens after Draw() is called?
+"Each draw method renders a single topology type.During rendering, incomplete primitives are silently discarded." This description is from microsoft msdn.
+What hanppens to D3D11 state and GPU Hardware State? It is not very clear.
+
+A typical render function does following things:
+1. update word, view, projection infomation from user input.
+2. Update perframe related infomation in constant buffer.
+3. clear render target and depth stencil.
+4. bind constant buffers of all stages.
+5. set shaders of each stage.
+6. set rasterizer state.
+7. bind vertex data and set primitive type.
+8. Draw() call
+
+### Compile Shader
+*D3DCompileFromFile()* compiles hlsl code into byte code for specified target, for example, hs_5_0.
+Its second parameter *in_opt  const D3D_SHADER_MACRO pDefines*, can insert user-defined macro into compiling.
 
 ### environment map
 It is a GPU programming hack to implement *specular refelctive surface* by a cube map.
