@@ -55,12 +55,18 @@ There is a DX11 sample to implement exploding model by gemomery shader only.
 It converts control patch into surface patch. GPU does it in parallel. GPU Hardware includes three stage:
 hull shader stage, fixed-function tessellator and domain shader stage.
 
-- Hull Shader accecpts control patch from vertex shader. It process every control point and its attribute indepently.
-- Constant Hull Shader processes every control patch indepently. 
-- Tessellator generates uv coordinates.
+- Hull Shader accecpts control patch from vertex shader. It can be divded into two phases,
+	1. Hull Shader processes once per output control point and its attribute indepently, controlled by the *outputcontrolpoints* attribute of Hull Shader.
+	2. Hull Shader processes once per patch, controlled by the "patchconstantfunc* attribute of Hull Shader. 
+- Output control points pass on to domain shader directly. "pathconstantfunc" output tessellator factors.  
+- Hull Shader would be regarded as a "data setup stage" of tessellation, accepting standard control patch and converting its format accoding to 
+  application configuration.
+- Tessellator accepts tessellator factors and partition mode domain then generates uvw coordinates and output primitives.
+- Tessellator does not care about control points at all.
 - Domain Shader accepts Control patch, uv coordinates and generates final vertex.
 
 Bezeir surface is good example to demostrate this ideas, because it is very simple and easy to understand.
+code on [github](https://github.com/ychding11/directx-sdk-samples/blob/master/SimpleBezier11/SimpleBezier11.hlsl)
 
 ### rasterizer
 1. How many HW rasterizers in GPU? It handles a primitive one time.
