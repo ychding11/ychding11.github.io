@@ -17,6 +17,7 @@ Other buffers need a resource view to bind to pipeline.
 - depth-stencil view, pipeline output buffer.
 - shader resource view, bind to shader stage, read only.
 - unordered access view, only bind to pixel shader, read and write by lots of thread.
+- *ID3D11DeviceChild::SetPrivateData()* with GUID "WKPDID_D3DDebugObjectName" defined in d3dcommon.h can assign a debug name to resource.
 
 ### Geometry Shader & Subdivision
 Geomery Shader is different from Vertex shader.
