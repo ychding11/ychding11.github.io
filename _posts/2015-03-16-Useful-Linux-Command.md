@@ -76,12 +76,10 @@ This post summaries the commom usefull commands on Linux Platform.
    word *question* instead of displaying matched lines. Default match mode is *NOT* 
    exact match the whole word. `'\<question\>'` pattern tell *grep* matches whole 
    world only. 
-- `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;` search 
-  "menuMode" in all mel files. "{}" represents the current processing file.
-- `sed -i 's/Do_Movement/cameraMovement/g' ./shadow_mapping.cpp` Find and replace Do_Movement with cameraMovement 
-   in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp file created.  
-- *sed* and *grep* can cooperate. That is *grep* can suply the file list containing the specified pattern while 
-  *sed* edit those files one by one. for example: sed -i 's/pattern/newstr/g' `grep -rl pattern ./`.
+- `grep -v pattern filename`, only output "pattern not matched" items.
+- `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;` search "menuMode" in all mel files. "{}" represents the current processing file.
+- `sed -i 's/Do_Movement/cameraMovement/g' ./shadow_mapping.cpp` Find and replace Do_Movement with cameraMovement in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp file created.  
+- *sed* and *grep* can cooperate. That is *grep* can suply the file list containing the specified pattern while *sed* edit those files one by one. for example: sed -i 's/pattern/newstr/g' `grep -rl pattern ./`.
 
 ## VIM tips for quick Reference
 ----------
