@@ -1,4 +1,4 @@
-H---
+---
 layout: post
 title: "3D Graphics Library" 
 date: 2017-09-09
@@ -49,7 +49,7 @@ There is a DX11 sample to implement exploding model by gemomery shader only.
 1. calculate surface normal of the triangle.
 2. calculate the cector position of the triangle.
 3. generate three triangles with center point with position extruding towards surface normal.
-4. complete shader on [github](https://github.com/ychding11/directx-sdk-samples/blob/master/Direct3D11TutorialsFX11/Tutorial13/Tutorial13.fx).
+4. complete geometry shader on [github](https://github.com/ychding11/directx-sdk-samples/blob/master/Direct3D11TutorialsFX11/Tutorial13/Tutorial13.fx).
 
 
 ### tessellation
@@ -99,6 +99,7 @@ A typical render function does following things:
 ### Compile Shader
 *D3DCompileFromFile()* compiles hlsl code into byte code for specified target, for example, hs_5_0.
 Its second parameter *in_opt  const D3D_SHADER_MACRO pDefines*, can insert user-defined macro into compiling.
+- What happens from byte code to specified shader program?
 
 ### environment map
 It is a GPU programming hack to implement *specular refelctive surface* by a cube map.
