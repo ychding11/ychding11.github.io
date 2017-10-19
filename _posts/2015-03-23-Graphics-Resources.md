@@ -83,8 +83,7 @@ The surface is based on math equation.
 
 - [Survey on NURBS](http://design.osu.edu/carlson/history/PDFs/Piegl-NURBS-91.pdf)
 - [OpenGL Programming about NURBS](http://www.glprogramming.com/red/chapter12.html)
-- [Splines Surface Math Representation](http://mrl.nyu.edu/~perlin/courses/spring2009/splines4.html)
-    clear to understand.
+- [Splines Surface Math Representation](http://mrl.nyu.edu/~perlin/courses/spring2009/splines4.html), it is clear and easy to understand.
 - [Deformation Styles on github repo](https://github.com/sp4cerat/Deformation-Styles-using-Spline-Skinning)
 
 ## BRDF
@@ -211,6 +210,9 @@ Other buffers need a resource view to bind to pipeline.
 - [softart](http://www.cnblogs.com/gongminmin/archive/2009/12/09/SoftArt.html)
 - [GPU memory type comparision](https://www.microway.com/hpc-tech-tips/gpu-memory-types-performance-comparison/), it points out that *SHared Memory* is a very 
    important type of memory and introduce some internals in it.
-- Texture memory is global memory. The difference is that it accessed by a dedicated cache. [reference](https://stackoverflow.com/questions/8767059/texture-memory-in-cuda-concept-and-simple-example-to-demonstrate-performance)
+- Texture memory is global memory. It is accessed by a dedicated pipe and caches. [reference on stackoverflow](https://stackoverflow.com/questions/8767059/texture-memory-in-cuda-concept-and-simple-example-to-demonstrate-performance)
+- Bound Const Memory is accessed as c[bankIdx][offset], offset is 4 bytes aligned, bankIdx is the bank index.
+- Bindless Const Memory is access as cx[memoryHeader][offset], offset is 4 bytes aligned. Memory header is consist of a Uniform register pair, totaly 64 bits.
+  19 bits MSB is 16 bytes aligned for bank size with max size 64KB, 45 bits LSB is 16 bytes aligned for virtual address.
 
 
