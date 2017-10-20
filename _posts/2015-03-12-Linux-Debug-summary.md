@@ -82,7 +82,7 @@ The average hash chain length determines effectiveness of dynamic liner's hash a
 
 Symbol relocation may be delayed to some later time when a symbol is actually used. This is called *lazy relocation process*. linker option *-z now* can cancell this feature. 
 
-### useful skills 
+### useful tips 
 - *-Wl,option* is an gcc option to transfer *option* into linkers.
 - *-Wl,-rpath,'$ORIGIN'* option will tell linker to search current directory for needed libraries.
 - env variable *LD_LIBRARY_PATH*, control dynamic library search path.
@@ -95,30 +95,29 @@ Symbol relocation may be delayed to some later time when a symbol is actually us
 ## GDB Skills
 ---
 
-A debuger is an important tool to analyse runtime errors. Compared with MSVC debuger, I found gdb is not friendly to use.
+GDB is an important tool to analyse runtime errors. Compared with MSVC debuger, I found gdb is not very friendly to use.
 
+### features wanted
 - browser source code quickly.
 - set breakpoints quickly.
 - display complex object clearly.
 - eximamine memory friendly.
+
+### tips
+- list current source files and its full path: `info source`
+- list current shared libs(xxx.so) current process loaded: `info files`
+- show or set debuged program's arguments. `show args` and `set args xxxxx`
 - disassemble binary code. `disassemble/m $pc-20, $pc+20`
 - check current instruction. `print $pc`
 - set break points. `break filename:lineno`
 - check source file. `layout src` 
-- show or set debuged program's arguments. `show args`, `set args xxxxx`
-
-When encounter a memory access violation, progress will receive a signal to 
-terminate itself. 
-
-+ check which address caused segment fault. `p $_siginfo._sifields._sigfault.si_addr`
++ print the address causing segment fault: `p $_siginfo._sifields._sigfault.si_addr`. When encountering a memory access violation, process will receive a signal from OS to terminate itself. 
 + current instruction. `layout asm` and `ctrl+x+a` quit layout mode.
 + check register value. `info registers`
 + check PC value. `p $pc`, $pc = %rip.
 + check progress memory map. `cat /proc/pid/maps`
-+ list source files. `info source` and `info files`
 + check type details. `ptype typename`
-+ check macro info. `p macro-name` print evaluated value. `macro expand macro-name` print expanded expression.
-  NOTE: add -g3 compiler option to keep macro info presented in program.
++ check macro info. `p macro-name` print evaluated value. `macro expand macro-name` print expanded expression. NOTE: add -g3 compiler option to keep macro info presented in program.
 + set source files search path, `dir path-to-source`
 + set breakpoints, `b file::line`
 + disable breakpoints, `disable b` and `disable b no`
