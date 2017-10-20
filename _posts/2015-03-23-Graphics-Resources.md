@@ -203,6 +203,11 @@ Other buffers need a resource view to bind to pipeline.
 - [Monte Carlo Simulation](http://ww2.odu.edu/~agodunov/teaching/notes/Cp01_random.pdf)
 - [PBRT Document](http://pbrt.org/users-guide.html)
 
+## 3D Model Repo
+---
+
+-[a free 3D Model repo](http://threedscans.com/), it is scanned models and free of charge.
+
 ## GPU Hardware 
 ---
 
