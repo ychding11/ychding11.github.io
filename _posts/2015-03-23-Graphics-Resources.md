@@ -31,6 +31,8 @@ This post lists a collection of usefull graphic resources.
 - [Stanford Matt homepage](https://graphics.stanford.edu/~mdfisher/index.html)
 - [Pixar Engineer Prideout github page](http://github.prideout.net/)
 - [hardware github repo](https://github.com/hardware)
+- [Visual Computing Systems, CMU](http://graphics.cs.cmu.edu/courses/15869/fall2014/)
+- [Parallel Computer Architecture and Programming, CMU](http://15418.courses.cs.cmu.edu/spring2016/home)
 
 ## OpenGL
 ---
