@@ -20,19 +20,21 @@ This post lists a collection of usefull graphic resources.
 - [Reconstruction of Personalized 3D Face Rigs from Monocular Video](http://gvv.mpi-inf.mpg.de/projects/PersonalizedFaceRig/)
 - [Realtime 3D Eye Gaze Animation Using a Single RGB Camera](http://faculty.cs.tamu.edu/jchai/projects/projects.htm)
 
-## Graphic Course & Homepage 
+## Computer Graphics Courses & Useful Homepage 
 ---
 
-- [Real-Time High Quality Rendering](http://cseweb.ucsd.edu/~ravir/274/15/274.html) The course has some advanced topics.
-- [CMU Graphics Course Collection](http://graphics.cs.cmu.edu/?page_id=16) Lots of materials for you to start CG explore.
-- [Stanford Graphics Course Collection](http://graphics.stanford.edu/courses/) Slides Papers and Assignments   
-- [UBC Computer Graphics Course Modeling](http://www.cs.ubc.ca/~sheffa/dgp/sylabus.html)
+- [Visual Computing Systems, CMU](http://graphics.cs.cmu.edu/courses/15869/fall2014/)
+- [Parallel Computer Architecture and Programming, CMU](http://15418.courses.cs.cmu.edu/spring2016/home)
+- [Real-Time High Quality Rendering, UCSanDiego](http://cseweb.ucsd.edu/~ravir/274/15/274.html) The course has some advanced topics.
+- [Graphics Course Collection, CMU](http://graphics.cs.cmu.edu/?page_id=16) Lots of materials for you to start CG explore.
+- [Graphics Course Collection, Stanford](http://graphics.stanford.edu/courses/) Slides Papers and Assignments   
+- [Computer Graphics Course Modeling, UBC](http://www.cs.ubc.ca/~sheffa/dgp/sylabus.html)
 - [Introduction to 3D Image Generation](http://web.cse.ohio-state.edu/~hwshen/781/Site/Main.html)
+
+
 - [Stanford Matt homepage](https://graphics.stanford.edu/~mdfisher/index.html)
 - [Pixar Engineer Prideout github page](http://github.prideout.net/)
 - [hardware github repo](https://github.com/hardware)
-- [Visual Computing Systems, CMU](http://graphics.cs.cmu.edu/courses/15869/fall2014/)
-- [Parallel Computer Architecture and Programming, CMU](http://15418.courses.cs.cmu.edu/spring2016/home)
 
 ## OpenGL
 ---
@@ -208,7 +210,7 @@ Other buffers need a resource view to bind to pipeline.
 ## 3D Model Repo
 ---
 
--[a free 3D Model repo](http://threedscans.com/), it is scanned models and free of charge.
+- [3D Scans, a free 3D Model repo](http://threedscans.com/)
 
 ## GPU Hardware 
 ---
