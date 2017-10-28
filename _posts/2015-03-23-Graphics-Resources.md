@@ -6,7 +6,7 @@ date: 2016-10-20
 
 This post lists a collection of usefull graphic resources.
 
-## SIGGRAPH 
+## Useful Papers 
 ---
 
 - [Computer Graphics Paper collection](http://kesen.realtimerendering.com/) 
@@ -19,10 +19,14 @@ This post lists a collection of usefull graphic resources.
 - [The Sketchy Database: Learning to Retrieve Badly Drawn Bunnies](http://sketchy.eye.gatech.edu/)
 - [Reconstruction of Personalized 3D Face Rigs from Monocular Video](http://gvv.mpi-inf.mpg.de/projects/PersonalizedFaceRig/)
 - [Realtime 3D Eye Gaze Animation Using a Single RGB Camera](http://faculty.cs.tamu.edu/jchai/projects/projects.htm)
+- [Approximating Catmull-Clark Subdivision Surfaces with Bicubic Patches](http://www.cs.cmu.edu/afs/cs/academic/class/15869-f11/www/readings/loop08_accpatches.pdf)
+- [A Language for Shading and Lighting Calculations](http://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15869-f11/www/readings/hanrahan90_rsl.pdf)
+
 
 ## Computer Graphics Courses & Useful Homepage 
 ---
 
+### courses
 - [Visual Computing Systems, CMU](http://graphics.cs.cmu.edu/courses/15869/fall2014/)
 - [Parallel Computer Architecture and Programming, CMU](http://15418.courses.cs.cmu.edu/spring2016/home)
 - [Real-Time High Quality Rendering, UCSanDiego](http://cseweb.ucsd.edu/~ravir/274/15/274.html) The course has some advanced topics.
@@ -31,7 +35,7 @@ This post lists a collection of usefull graphic resources.
 - [Computer Graphics Course Modeling, UBC](http://www.cs.ubc.ca/~sheffa/dgp/sylabus.html)
 - [Introduction to 3D Image Generation](http://web.cse.ohio-state.edu/~hwshen/781/Site/Main.html)
 
-
+### homepages
 - [Stanford Matt homepage](https://graphics.stanford.edu/~mdfisher/index.html)
 - [Pixar Engineer Prideout github page](http://github.prideout.net/)
 - [hardware github repo](https://github.com/hardware)
@@ -106,9 +110,6 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 
 ## Tessellation
 ---
-
-### useful papers
-- [Approximating Catmull-Clark Subdivision Surfaces with Bicubic Patches](http://www.cs.cmu.edu/afs/cs/academic/class/15869-f11/www/readings/loop08_accpatches.pdf)
 
 ### useful links
 - [Nvida](http://www.nvidia.com/object/tessellation.html) 
