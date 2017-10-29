@@ -86,6 +86,8 @@ Symbol relocation may be delayed to some later time when a symbol is actually us
 - *-Wl,option* is an gcc option to transfer *option* into linkers.
 - *-Wl,-rpath,'$ORIGIN'* option will tell linker to search current directory for needed libraries.
 - env variable *LD_LIBRARY_PATH*, control dynamic library search path.
+- in *bash*, use `export LD_LIBRARY_PATH=/usr/lib64` to modify its value.
+- in *tsh*, use `setenv`.
 - `readlink -f filename`, display the full path of file.
 
 ### reference
