@@ -16,13 +16,15 @@ This post lists key points of graphic Library.
 	- with input layout object decribing each element of each slot and each buffer's stride, GPU hardware should know how to read vertex data correctly.
 
 ### GPU resources and views
-vertex buffer, index buffer, constant buffer, stream output buffer, these four buffers can be bind to pipeline directly.
-Other buffers need a resource view to bind to pipeline.
-- render target view, pipeline output buffer.
-- depth-stencil view, pipeline output buffer.
-- shader resource view, bind to shader stage, read only.
-- unordered access view, only bind to pixel shader, read and write by lots of thread.
-- *ID3D11DeviceChild::SetPrivateData()* with GUID "WKPDID_D3DDebugObjectName" defined in d3dcommon.h can assign a debug name to resource.
+- vertex buffer, index buffer, constant buffer, stream output buffer, these four kinds buffer can be bind to pipe directly.
+- Other buffers need a resource view in order to bind to pipeline.
+	- render target view, pipeline output buffer.
+	- depth-stencil view, pipeline output buffer.
+	- shader resource view, bind to shader stage, read only.
+	- unordered access view, only bind to pixel shader, read and write by lots of thread.
+- *ID3D11DeviceChild::SetPrivateData()* with GUID "WKPDID_D3DDebugObjectName" defined in d3dcommon.h can assign a debug name to GPU resource.
+- How to understand GPU Buffer like *ID3D11Buffer* ? What infomation does the object hold ? A pointer to GPU buffer? CPu can access GPU's memory 
+  directly ?
 
 ### Geometry Shader & Subdivision
 Geomery Shader is different from Vertex shader.
