@@ -22,9 +22,7 @@ This post summarizes debugging skills with examples on Linux Platform.
   for some wildcard for references.   
 - Analyse dumped core file with gdb. Rebuild code with debug info added,for example adding -g compile option for gcc. 
   Use command to open core file. `gdb a.out /tmp/corefiles/core-a.out-12754-1457789593`
-
-### parameters reference  
-
+- parameters reference  
 	+ *%e*  executable filename (without path prefix) 
 	+ *%p*  PID of dumped process, as seen in the PID namespace in which the process resides
 	+ *%t*  time of dump, expressed as seconds since the Epoch,1970-01-01 00:00:00 +0000 (UTC)
