@@ -24,7 +24,7 @@ This post lists key points of graphic Library.
 	- unordered access view, only bind to pixel shader, read and write by lots of thread.
 - *ID3D11DeviceChild::SetPrivateData()* with GUID "WKPDID_D3DDebugObjectName" defined in d3dcommon.h can assign a debug name to GPU resource.
 - How to understand GPU Buffer like *ID3D11Buffer* ? What infomation does the object hold ? A pointer to GPU buffer? CPu can access GPU's memory 
-  directly ?
+  by mapping ? What does mapping mean ? Add page table entry of CPU?
 
 ### Geometry Shader & Subdivision
 Geomery Shader is different from Vertex shader.
