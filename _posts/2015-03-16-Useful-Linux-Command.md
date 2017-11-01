@@ -49,27 +49,21 @@ This post summaries the commom usefull commands on Linux Platform.
  
 ## Search and Replace
 
-- `locate -b '\qmake'` find qmake location using exact name match.
-  Another equal command is `locate -r /qmake$` here *r* does not mean recursive.
-- `find /home/ding/ -type f` Find regular files in directory /home/ding.
-  `-type` option specifies file type.  f equals to regular file, d equals to directory.  
-- `find ./misc/ -exec file '{}' \;`. Execute `file` command to every file in directory
-  `./misc`. `-exec` option specifies the command to execute. ';' indicates the ending
-  of command. `\` is to escape in case of shell interpreting it as another meaning.
-  `{}` stands for the current processing file.   
-- *find* command matchs file name other than file content. 
-  `find . -regex '.*\.\(c\|cpp\|h\)$' -print` print whole file name matching 
-  the regular expression. `-print` append each matching item with new line, 
-  it is a default behavior, while `-print0` with null character. The command 
-  lists all c source files, including cpp files and h files in current 
-  directories and its subdirectories.   
-- *find* has many options, such as *-regex*, *-name*, *-iname*. They belog 
-  to the same category, telling *find* how to match the specified *pattern* 
-  in command line. Command manual has detail info, here I just give a brief 
-  description.  *-name* only matches file name excluding the pre-directories.  
-  *-iname* the same with *-name*, except that the match is case insensitive.    
-  *-regex* matches whole file path, including pre directories and regular 
-  expression is different with *-name*.
+- `locate -b '\qmake'` find qmake location using exact name match. An equal command is `locate -r /qmake$` here *r* does not mean recursive.
+- `find /home/ding/ -type f`, Find regular files in directory /home/ding. `-type` option specifies file type.  *f* equals to regular file, *d* equals to directory.  
+- `find ./misc/ -exec file '{}' \;`. Execute `file` command to every file in directory `./misc`.
+	+ `-exec` option specifies the command to execute.
+	+ ';' indicates the ending of command. 
+	+ \` is to escape in case of shell interpreting it as another meaning.
+	+ `{}` stands for the current processing file.   
+- *find* command matches file name other than file content. `find . -regex '.*\.\(c\|cpp\|h\)$' -print`, prints whole file name matching the regular expression.
+  The command lists all c source files, including cpp files and h files in current directories and its subdirectories.   
+	+ `-print` append each matching item with new line, it is a default behavior.
+	+ `-print0` with null character.
+- *find* has many options, such as *-regex*, *-name*, *-iname*. They are used to tell *find* how to match the *pattern* specified in command line.
+	+ *-name* only matches file name excluding the pre-directories.  
+	+ *-iname* the same with *-name*, except that the match is case insensitive.    
+	+ *-regex* matches whole file path, including pre directories and the regular expression is different with *-name*.
 + grep commonly used options.
 	- default match mode is *NOT* exact match the whole word. `'\<question\>'` tells *grep* to matche whole world. 
 	- `grep -i 'question' -r ./`, it Searches all files recursively in current directory to match lines containing key word *question*.
