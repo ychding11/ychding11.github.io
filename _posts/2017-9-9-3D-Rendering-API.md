@@ -10,10 +10,10 @@ This post lists key points of graphic Library.
 ## D3D11
 ---
 ### Input Layout
-How to understand inputlayout object in 3D11 framework and GPU Hardware how to use them ?
-	- *D3D11_INPUT_ELEMENT_DESC*, describes each element's property, including data format, wich slot to bind, offset in each stride.
-	- *IASetVertexBuffers()*, binds vertex buffer to input assembler stage. including the beginning slot, number of buffers, array of buffer address, stride and offset.
-	- with input layout object decribing each element of each slot and each buffer's stride, GPU hardware should know how to read vertex data correctly.
++ How to understand inputlayout object in 3D11 framework and GPU Hardware how to use them ?
+ - *D3D11_INPUT_ELEMENT_DESC*, describes each element's property, including data format, wich slot to bind, offset in each stride.
+ - *IASetVertexBuffers()*, binds vertex buffer to input assembler stage. including the beginning slot, number of buffers, array of buffer address, stride and offset.
+ - with input layout object decribing each element of each slot and each buffer's stride, GPU hardware should know how to read vertex data correctly.
 
 ### GPU resources and views
 vertex buffer, index buffer, constant buffer, stream output buffer, these four buffers can be bind to pipeline directly.
