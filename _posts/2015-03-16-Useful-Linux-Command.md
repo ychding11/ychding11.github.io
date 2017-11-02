@@ -14,14 +14,14 @@ This post summaries the commom usefull commands on Linux Platform.
 - `ls | wc -l` tell how many files in current directory 
 - `ls -l | grep ^d` list directory items in current directory
 - `lspci | grep -i vga` query graphic cards info as following. Output maybe like this: 
-	00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
-  In addition, you can query driver info by lspci command, for example: `lspci -vs 00:02.0`.  It can tell you which driver module is in use now.   
+		00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
+   In addition, you can query driver info by lspci command, for example: `lspci -vs 00:02.0`.  It can tell you which driver module is in use now.   
 
 - `buildcommand 2>&1 | tee build.log` This command can save the build log to a file and at the same time output it to the screen. A very useful command to analyse build errors.
 - After installed a new graphics card, graphic interface may not start successfully. So we need to start linux in text mode to install graphic card driver.
   In grub edit mode, we can modify linux kernel command line temporarily to let linux start in text mode.
 	+ `cat /proc/cmdline` Retrieve kernel command line info of current booting from proc file system.
-	+ `BOOT_IMAGE=/vmlinuz-3.10.0-327.4.4.el7.x86_64 root=/dev/mapper/centos-root ro rd.lvm.lv=centos/root rd.lvm.lv=centos/swap crashkernel=auto rhgb quiet rdblacklist=nouveau 3 `
+	+ `BOOT_IMAGE=/vmlinuz-3.10.0-327.4.4.el7.x86_64 root=/dev/mapper/centos-root ro rd.lvm.lv=centos/root rd.lvm.lv=centos/swap crashkernel=auto rhgb quiet rdblacklist=nouveau 3`
 - `sudo fdisk -l`, list storage devices of current system. It is usefull when mounting a movable device but don't know it's device name. `sudo fdisk -l /dev/sda` 
    for example, the command can display some detailed info about the device /dev/sda, such as file system type. NOTE: this command needs root.
 
@@ -31,11 +31,11 @@ This post summaries the commom usefull commands on Linux Platform.
 - ` sudo apt-get install bcmwl-kernel-source` install BCM43142 wifi driver.
 - `mount -t "ntfs" -o ro /dev/sda1 /mountpoint` mount with read-only option.
 - `pkg-config --static --libs glfw3`, It tells how to link glfw3 dependency libs in correct order  
-- rpm commands on centos.
+- rpm package manage commands on centos.
 	+ `rpm -qa`, list all installed package in centos system.
-	+ `rpm -q --list package-name` list all files related to package.
+	+ `rpm -q --list package-name`, list all files related to package.
 	+ `rpm -q --state package-name`, query package state. 
-- `df -lf` query current available volume on mounted devices.
+- `df -lf`, query current available volume on mounted devices.
  
 ## Search and Replace
 
