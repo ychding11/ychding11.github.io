@@ -21,6 +21,8 @@ This post lists a collection of usefull graphic resources.
 - [Realtime 3D Eye Gaze Animation Using a Single RGB Camera](http://faculty.cs.tamu.edu/jchai/projects/projects.htm)
 - [Approximating Catmull-Clark Subdivision Surfaces with Bicubic Patches](http://www.cs.cmu.edu/afs/cs/academic/class/15869-f11/www/readings/loop08_accpatches.pdf)
 - [A Language for Shading and Lighting Calculations](http://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15869-f11/www/readings/hanrahan90_rsl.pdf)
+- [State of the Art in Monte Carlo Ray Tracing for Realistic Image Synthesis](https://inst.eecs.berkeley.edu/~cs294-13/fa09/lectures/course29sig01.pdf)
+- [A Framework for Realistic Image Synthesis](http://www.graphics.cornell.edu/pubs/1997/GTS+97.pdf)
 
 
 ## Computer Graphics Courses & Useful Homepage 
