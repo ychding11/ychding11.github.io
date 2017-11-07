@@ -91,6 +91,7 @@ This post summaries the commom usefull commands on Linux Platform.
 - `/\%Vpattern`, search pattern in visual area.
 - `:!commandname`, run shell command.
 - `:r !commandname`, run shell command and insert the commant output in next line.
+- `sed -n '100,200p' filename`, print content from line 100 to line 200.
 
 ### reference
 - [vim regular expression](http://www.cnblogs.com/PegasusWang/p/3153300.html)
