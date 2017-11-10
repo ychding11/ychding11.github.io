@@ -60,7 +60,11 @@ This post summaries the commom usefull commands on Linux Platform.
 	- `grep -i question -rl ./`, it lists all files in current directory matching key word *question* instead of displaying matched lines.
 	- `grep -v pattern filename`, only output "pattern not matched" items.
 	- `grep -I pattern -r .`, ignore binary files.
-	- `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;` search "menuMode" in all mel files. "{}" represents the current processing file.
+	- `grep -A 3 -B 4 -i 'test' -r .`, *-A 3* print 3 lines before matched lines. 
+	- `grep -Hn -i "test" -r .`, *-Hn*, print matched lines with its file name and line number.
+	- `grep -iw "test" -r .`, match the pattern "test" as a whole word.
+	- `grep -e "-test" -r .`, *-e* , specify a regex, multiple *-e* is *or* in logic.
+	- `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;`, search "menuMode" in all mel files. "{}" represents the current processing file.
 - `sed -i 's/Do_Movement/cameraMovement/g' ./shadow_mapping.cpp` Find and replace Do_Movement with cameraMovement in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp file created.  
 - *sed* and *grep* can cooperate. That is *grep* can suply the file list containing the specified pattern while *sed* edit those files one by one. for example: sed -i 's/pattern/newstr/g' `grep -rl pattern ./`.
 
