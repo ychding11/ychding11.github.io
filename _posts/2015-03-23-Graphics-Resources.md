@@ -42,6 +42,9 @@ This post lists a collection of usefull graphic resources.
 - [Pixar Engineer Prideout github page](http://github.prideout.net/)
 - [hardware github repo](https://github.com/hardware)
 
+## misc
+- [Lighting Model](http://huanzhewu.github.io/2015/08/06/%E3%80%90CG%E8%AF%AD%E8%A8%80%E3%80%91%E5%B8%B8%E8%A7%81%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B%E8%A7%A3%E6%9E%90.html)
+
 ## OpenGL
 ---
 
@@ -52,14 +55,11 @@ This post lists a collection of usefull graphic resources.
     OpenGL, OpenGL ES, WebGL. It is very helpful to new beginners. Next generation API design is the main focus of slide, a
     comparison list about traditional API and next-generation API design can tell lots of stories. Platform diversity and
     radically changed GPU architecture drive such changes. 
-- [Ambient Diffuse Specular Lighting Model](http://www.learnopengl.com/#!Lighting/Basic-Lighting) The web link may help to understand 
-    basic ideas of ADS.  
-- [Graphics Gems PDF Version](https://github.com/tl3shi/books/tree/master/GameDev/Graphics) It is a very good collection of Graphics 
-    related books.  
-- [OpenGL Shader tutorials](https://www.opengl.org/sdk/docs/tutorials/TyphoonLabs/Chapter_4.pdf) talks about some advancted lighting 
-    techniques widely used in OpenGL, including per-pixel illumination model, bump mapping, displacement mapping and so on.
-- [glsl Debugger](http://glsl-debugger.github.io/)
-- [OGL Extensions Introduce](https://www.opengl.org/archives/resources/features/OGLextensions/)
+- [Ambient Diffuse Specular Lighting Model](http://www.learnopengl.com/#!Lighting/Basic-Lighting), The link explains basic ideas of ADS.  
+- [Graphics Gems PDF on github](https://github.com/tl3shi/books/tree/master/GameDev/Graphics), It is a collection of Graphics development books on github.  
+- [OpenGL Shader tutorials](https://www.opengl.org/sdk/docs/tutorials/TyphoonLabs/Chapter_4.pdf), It talks about some advancted lighting techniques,including bump mapping, displacement mapping and so on.
+- [glsl Debugger on github](http://glsl-debugger.github.io/)
+- [OGL Extensions](https://www.opengl.org/archives/resources/features/OGLextensions/)
 
 ## Bump Mapping, Normal Mapping and Displacement mapping
 ----
