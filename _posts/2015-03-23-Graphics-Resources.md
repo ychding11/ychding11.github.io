@@ -10,9 +10,8 @@ This post lists a collection of usefull graphic resources.
 ---
 
 - [Computer Graphics Paper collection](http://kesen.realtimerendering.com/) 
-- [Casting curved shadows on curved surface](http://cseweb.ucsd.edu/~ravir/274/15/papers/p270-williams.pdf) This is the original idea 
-    of shadow mapping which widely used in shadow computation. No math formula in paper, it is very good for beginners.
-- [Simulation of Wrinkled Surfaces](http://research.microsoft.com/pubs/73939/p286-blinn.pdf) The paper presents normal mapping ideas first time. 
+- [Casting curved shadows on curved surface](http://cseweb.ucsd.edu/~ravir/274/15/papers/p270-williams.pdf), The paper demostrates the idea of shadow mapping in real time shadow computation.
+- [Simulation of Wrinkled Surfaces](http://research.microsoft.com/pubs/73939/p286-blinn.pdf), The paper presents normal mapping ideas first time. 
 - [Multi-View Intrinsic Images of Outdoors Scenes with an Application to Relighting](http://www-sop.inria.fr/reves/Basilic/2015/DRCLLPD15/)
 - [Real-Time Polygonal-Light Shading with Linearly Transformed Cosines](https://eheitzresearch.wordpress.com/415-2/)
 - [A System for Rapid Exploration of Shader Optimization Choices](http://graphics.cs.cmu.edu/projects/spire/)
@@ -23,6 +22,7 @@ This post lists a collection of usefull graphic resources.
 - [A Language for Shading and Lighting Calculations](http://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15869-f11/www/readings/hanrahan90_rsl.pdf)
 - [State of the Art in Monte Carlo Ray Tracing for Realistic Image Synthesis](https://inst.eecs.berkeley.edu/~cs294-13/fa09/lectures/course29sig01.pdf)
 - [A Framework for Realistic Image Synthesis](http://www.graphics.cornell.edu/pubs/1997/GTS+97.pdf)
+- [Physics and Math in PBR in Siggraph 2015](http://blog.selfshadow.com/publications/s2015-shading-course/hoffman/s2015_pbs_physics_math_slides.pdf)
 
 
 ## Computer Graphics Courses & Useful Homepage 
@@ -48,13 +48,8 @@ This post lists a collection of usefull graphic resources.
 ## OpenGL
 ---
 
-- [OpenGL3.x Specification](https://www.opengl.org/registry/doc/glspec32.core.20091207.pdf) This is an OpenGL specifications 
-    containing lots of detailed description of OpenGL design. Perhaps We should regard it as a dictionary for lookup when in need.  
-- [Next Generation OpenGL](https://www.khronos.org/assets/uploads/events/Next-Generation-OpenGL-Dec14.pdf)The slide has a very
-    concrete description about 3D API of Khonoros group. It provides a family tree clearly depicting the relationship between
-    OpenGL, OpenGL ES, WebGL. It is very helpful to new beginners. Next generation API design is the main focus of slide, a
-    comparison list about traditional API and next-generation API design can tell lots of stories. Platform diversity and
-    radically changed GPU architecture drive such changes. 
+- [OpenGL3.x Specification](https://www.opengl.org/registry/doc/glspec32.core.20091207.pdf) 
+- [Next Generation OpenGL](https://www.khronos.org/assets/uploads/events/Next-Generation-OpenGL-Dec14.pdf)The slide gives a very concrete description about 3D APIs of Khonoros group. It provides a family tree depicting the relationship between OpenGL, OpenGL ES and WebGL. It is very helpful to new beginners. Next generation API design is the main focus of slide, a comparison list about traditional API and next-generation API design can tell lots of stories. Platform diversity and radically changed GPU architecture drive such changes. 
 - [Ambient Diffuse Specular Lighting Model](http://www.learnopengl.com/#!Lighting/Basic-Lighting), The link explains basic ideas of ADS.  
 - [Graphics Gems PDF on github](https://github.com/tl3shi/books/tree/master/GameDev/Graphics), It is a collection of Graphics development books on github.  
 - [OpenGL Shader tutorials](https://www.opengl.org/sdk/docs/tutorials/TyphoonLabs/Chapter_4.pdf), It talks about some advancted lighting techniques,including bump mapping, displacement mapping and so on.
