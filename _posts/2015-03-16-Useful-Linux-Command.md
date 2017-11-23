@@ -65,8 +65,8 @@ This post summaries the commom usefull commands on Linux Platform.
 	- `grep -iw "test" -r .`, match the pattern "test" as a whole word.
 	- `grep -e "-test" -r .`, *-e* , specify a regex, multiple *-e* is *or* in logic.
 	- `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;`, search "menuMode" in all mel files. "{}" represents the current processing file.
-- `sed -i 's/Do_Movement/cameraMovement/g' ./shadow_mapping.cpp` Find and replace Do_Movement with cameraMovement in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp file created.  
-- *sed* and *grep* can cooperate. That is *grep* can suply the file list containing the specified pattern while *sed* edit those files one by one. for example: sed -i 's/pattern/newstr/g' `grep -rl pattern ./`.
+	- `grep "patten" file --color=auto`, print matched pattern with highlight.
+	- `grep -n -i "pattern" -r filename | cut -f1 -d:`, print matched line numbers.
 
 ## VIM tips for quick Reference
 ----------
@@ -95,7 +95,6 @@ This post summaries the commom usefull commands on Linux Platform.
 - `/\%Vpattern`, search pattern in visual area.
 - `:!commandname`, run shell command.
 - `:r !commandname`, run shell command and insert the commant output in next line.
-- `sed -n '100,200p' filename`, print content from line 100 to line 200.
 
 ### reference
 - [vim regular expression](http://www.cnblogs.com/PegasusWang/p/3153300.html)
@@ -116,6 +115,7 @@ This post summaries the commom usefull commands on Linux Platform.
 This shell is a improved c-shell in unix. It is not so friendly to use.
 - `setenv VAR XXXX`, set environment variable in terminal.
 - `:` is a special character in tcsh terminal.
+- *bash* and *csh* has much difference in *if-else* statement
 
 ### useful commands
 - `echo $?`, query shell exit status. *man bash* and search *special parameters* for more details about Linux bash special parameters.
@@ -123,18 +123,19 @@ This shell is a improved c-shell in unix. It is not so friendly to use.
 - `echo $PATH | awk -F: '{for(i=1; i <= NF; ++i) print "Path: ",$i;}' | grep "bin"`, display PATH content line by line. NF is field number.
    -F: specify ':' as delimeter.
 - `awk 'BEGIN{IGNORECASE=1}NR>=1000&&NR<=2000&&(/pattern1/||/pattern2/){print NR,$0}' file`
-- *bash* and *csh* has much difference in *if-else* statement
-- `grep "patten" file --color=auto`, print matched pattern with highlight.
 - `rm -rf `ls amod*.* -d``, remove matched subdirectories in current directory.
-- `sed -n '/tgen.pl.*amodel/p' dl.log | cat | sed 's/^.\{8\}//g'`, How to write multiple expression into one.
 
-### regular expression
+### sed command
 - `sed -n '/pattern/{=;p}' filename`, print matched lines with its line no.
 - `sed -n '/pattern/,+2p' filename`, print matched lines with its following 2 lines.
 - `sed -n '/\<aa/{=;p}' filename`,  match word begin with aa while `aa\>` matches word end. 
-- `\bxx` also matches word begins with *xx*.
+	- `\bxx` also matches word begins with *xx*.
 - `sed -n '/^.*R33.*R32.*$/p' file`, print lines which matches both R33 and R32.
 - `sed '/pattern/d -ibak file'`, delete the matched lines and save origin file as backup.
+- `sed -n '/tgen.pl.*amodel/p' dl.log | cat | sed 's/^.\{8\}//g'`, How to write multiple expression into one.
+- `sed -i 's/Do_Movement/cameraMovement/g' ./shadow_mapping.cpp` Find and replace Do_Movement with cameraMovement in file shadow_mapping.cpp. -i option tells sed to use inplace mode, no temp file created.  
+- *sed* and *grep* can cooperate. That is *grep* can suply the file list containing the specified pattern while *sed* edit those files one by one. for example: sed -i 's/pattern/newstr/g' `grep -rl pattern ./`.
+- `sed -n '100,200p' filename`, print content from line 100 to line 200.
 
 ### reference
 - [awk blog1](http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)
