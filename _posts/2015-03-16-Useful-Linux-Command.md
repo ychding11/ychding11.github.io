@@ -96,9 +96,59 @@ This post summaries the commom usefull commands on Linux Platform.
 - `:!commandname`, run shell command.
 - `:r !commandname`, run shell command and insert the commant output in next line.
 
+### character range
+
+[123] and [321] define the same character range.
+Examples:
+
+| [0-9a-zA-Z] | letters and digits                                                                                              |
+|-------------|-----------------------------------------------------------------------------------------------------------------|
+| [^A-Z]      | not want to matched character.   "^" will lose its special meaning if it's not the first character in the range |
+| "[^"]\+"    | match quoted text                                                                                               |
+| \.\s\+[a-z] | match new sentence does not start with a capital letter. \. escape the special meaning of .                     |
+
+### vim regular expression quantifier and metacharacters
+
+These quantifiers are trying to match as much as possible texts.
+
+| Greedy Quantifier | Description                                                                                                        |
+|-------------------|--------------------------------------------------------------------------------------------------------------------|
+| *                 | matches 0 or more of the preceding characters, ranges or metacharacters .* matches everything including empty line |
+| \+                | matches 1 or more of the preceding characters...                                                                   |
+| \=                | matches 0 or 1 more of the preceding characters...                                                                 |
+| \{n,m}            | matches from n to m of the preceding characters...                                                                 |
+| \{n}              | matches exactly n times of the preceding characters...                                                             |
+| \{,m}             | matches at most m (from 0 to m) of the preceding characters...                                                     |
+| \{n,}             | matches at least n of of the preceding characters...                                                               |
+| NOTE              | n > 0 && m > 0                                                                                                     |
+
+Non-greedy quantifiers can be very useful sometimes.
+
+| Non-greedy Quantifier | Description                                                 |
+|-----------------------|-------------------------------------------------------------|
+| \{-}                  | matches 0 or more of the preceding atom, as few as possible |
+| \{-n,m}               | matches 1 or more of the preceding characters...            |
+| \{-n,}                | matches at lease or more of the preceding characters...     |
+| \{-,m}                | matches 1 or more of the preceding characters...            |
+| NOTE                  | where n and m are positive integers (>0)                    |
+
+Metacharacters coming with quantifiers give magic power in regular expression match.
+
+| #  | Matching                                           | #  | Matching                      |
+|----|----------------------------------------------------|----|-------------------------------|
+| .  | any character except new line                      |    |                               |
+| \s | whitespace character                               | \S | non-whitespace character      |
+| \d | digit                                              | \D | non-digit                     |
+| \x | hex digit                                          | \X | non-hex digit                 |
+| \o | octal digit                                        | \O | non-octal digit               |
+| \h | head of word character (a,b,c...z,A,B,C...Z and _) | \H | non-head of word character    |
+| \p | printable character                                | \P | like \p, but excluding digits |
+| \w | word character                                     | \W | non-word character            |
+
 ### reference
 - [vim regular expression](http://www.cnblogs.com/PegasusWang/p/3153300.html)
 - [vim doc](http://vimdoc.sourceforge.net/htmldoc/pattern.html)
+- [vimregex](http://vimregex.com/). It is very usefull.
 
 ## Grub2
 ----------
