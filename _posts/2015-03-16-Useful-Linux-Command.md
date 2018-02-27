@@ -36,7 +36,30 @@ This post summaries the commom usefull commands on Linux Platform.
 	+ `rpm -q --list package-name`, list all files related to package.
 	+ `rpm -q --state package-name`, query package state. 
 - `df -lf`, query current available volume on mounted devices.
- 
+
+### tr 
+It operates on character sets and can be used to translate and delete texts. It can also be used to squeezing repeated characters.
+
+example usage： 
+
+- `tr a-z A-Z`
+- `tr '\r\n' ' '`
+- `tr -d 't'`
+- `echo "This   is                           for testing" | tr -s ' '`
+- `echo "my username is 432234" | tr -c 0-9 1`, '-c' means complement.
+
+### xargs
+It builds and executes command lines from standard input. It accepts input from stdin and builds a command with init arguments.
+
+example usage： search keyword like a for loop.
+
+- `cat temp1.txt | xargs -d'\n' grep -o -m 1 "run_tests_grid_composition.py.*[0-9]*" > temp.txt`, temp1.txt is a file list containing a list of
+   file name. xargs builds grep command and executes it each time after receiving input.
+
+reference:
+
+- [xargs' page](https://linux.die.net/man/1/xargs)
+
 ## Search and Replace
 
 - `locate -b '\qmake'` find qmake location using exact name match. An equal command is `locate -r /qmake$` here *r* does not mean recursive.
@@ -68,7 +91,7 @@ This post summaries the commom usefull commands on Linux Platform.
 	- `grep "patten" file --color=auto`, print matched pattern with highlight.
 	- `grep -n -i "pattern" -r filename | cut -f1 -d:`, print matched line numbers.
 
-## VIM tips for quick Reference
+## vim tips for quick reference
 ----------
 
 - `vim --version | grep clipboard`, It can tell whether vim is able to transfer data with clipboard.
