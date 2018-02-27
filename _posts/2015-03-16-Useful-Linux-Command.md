@@ -47,6 +47,7 @@ example usage：
 - `tr -d 't'`
 - `echo "This   is                           for testing" | tr -s ' '`
 - `echo "my username is 432234" | tr -c 0-9 1`, '-c' means complement.
+- `tr 'e' 'E' < fmod_debug_crc1517905402078/gen.log`
 
 ### xargs
 It builds and executes command lines from standard input. It accepts input from stdin and builds a command with init arguments.
