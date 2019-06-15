@@ -18,7 +18,9 @@ This post summaries the commonly used commands.
 - `lspci | grep -i vga` query graphic cards info. Output maybe like this: 
 		00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
    In addition, lspci command, for example: `lspci -vs 00:02.0` can tell which driver module is in use now.   
-- `sudo fdisk -l`, list storage devices of current system. It is usefull when mounting a movable device but don't know it's device name.   `sudo fdisk -l /dev/sda`  for example, the command can display some detailed info about the device /dev/sda, such as file system type.    NOTE: **It requires root**.
+- `sudo fdisk -l`, list storage devices of current system. `sudo fdisk -l /dev/sda` the command can display some detailed 
+   info about the device /dev/sda, such as file system type. NOTE: **It requires root**.    
+   use `diskutil list` on mac os.
 - `df -lf`, query current available volume on mounted devices.
 - `lshw -class disk`, lists all available disks in system. `lshw -short -C disk` run this command with root, it can give a summary.
 - `sudo lshw -class network`, displays detailed info about network adapter such as discription, product name, vendor, configuration. By    these info, we can check device driver version in use. `modinfo driver-name` command can do that. It is helpful to solve issue such      as wifi does not work.
@@ -179,8 +181,12 @@ Metacharacters coming with quantifiers give magic power in regular expression ma
 - On CentOS `grub2-mkconfig` to generate new settings.
 - Parameter *nomodeset*,Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.
 
-## Shell script
+## Shell
 ----------
+### shell in mac os
+- `Ctrl + a` Move cursor to the start of line.
+- `Ctrl + e` Move cursor to the end of line.
+- `echo "set completion-ignore-case On" >> ~/.inputrc` case insensitive auto-complete
 
 ### tcsh shell
 This shell is a improved c-shell in unix. It is not so friendly to use.
