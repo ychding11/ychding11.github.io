@@ -14,6 +14,7 @@ This post list links of widely used building tools.
   external file. Search path priorty is listed in link.
 - [add_subdirectory()](https://cmake.org/cmake/help/v3.0/command/add_subdirectory.html) add a 
   submodule into build. This submodule always resident in a independent folder.
+- judge a varialbe in CMake. `if(NOT DEFINED VAR_NAME) and if(NOT DEFINED ${VAR_NAME})` . The first one is for varialbe, the second is for contents of the variable.
 
 ## MSBuild
 - Build release version, `MSBuild.exe mySolution.sln /p:Configuration=Release /p:DebugSymbols=false`.
