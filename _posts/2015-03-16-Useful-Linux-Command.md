@@ -90,6 +90,7 @@ reference:
 	- `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;`, search "menuMode" in all mel files. "{}" represents the current processing file.
 	- `grep "patten" file --color=auto`, print matched pattern with highlight.
 	- `grep -n -i "pattern" -r filename | cut -f1 -d:`, print matched line numbers.
+	- `grep -n -P '\t'  xxx.cpp`, list all lines contains a tab, '\t' is NOT treated as a tab in grep [link](https://askubuntu.com/questions/53071/how-to-grep-for-tabs-without-using-literal-tabs-and-why-does-t-not-work).
 
 ## vim tips for quick reference
 ----------
