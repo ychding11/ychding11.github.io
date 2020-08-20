@@ -97,7 +97,7 @@ reference:
 
 - `vim --version | grep clipboard`, It can tell whether vim is able to transfer data with clipboard.
 - `sudo apt-get install vim-gnome`, in Ubuntu it can enhance vim with the abiltiy.
-- *Display full file path when editing a file* Sometimes is helpful to us. `:help statusline` and `:help laststatus` give detailed info for reference.
+- `:help statusline` and `:help laststatus` give detailed info for reference.*it can show full file path when editing a file* .
 - `set ignorecase` or `:set ic`, Sometimes we want *case insensitive* search.
 - `set noic` cancel *case insensitive search*. 
 - `set ruler` display colum number and row number on the right bottom coner.
@@ -106,6 +106,7 @@ reference:
 - `set tabstop=4` Set the number of spaces a *TAB* counts for, default value is 8.
 - `set expandtab` When set, use a certain number of space to insert a *TAB*.
 - `:set invlist`, Make invisible characters visible. For example, $ represents for enter and ^I for tab. `:set nolist` Makes vim return to normal mode.
+- `set list  set listchars=tab:>-,trail:$`, visualize tabs. [link](https://vi.stackexchange.com/questions/422/displaying-tabs-as-characters)
 - `%` jumps to matching braces. `y%` yanking contents between an item and its matching item. `d%` deleting in the same way. vim object-select can do the similar block 
   selection in virsual mode. `:help object-select` and `:help text-objects`for details.
 - 3 types of visual modes:
@@ -119,6 +120,7 @@ reference:
 - `/\%Vpattern`, search pattern in visual area.
 - `:!commandname`, run shell command.
 - `:r !commandname`, run shell command and insert the commant output in next line.
+- `:%s!\t!    !g`, replace tab with 4 spaces. *!* is delimeter. [link](https://irian.to/blogs/vim-global-command/)
 
 ### character range
 
