@@ -64,12 +64,15 @@ reference:
 ## Search and Replace
 - `locate -b '\qmake'` find qmake location using exact name match. An equal command is `locate -r /qmake$` here *r* does not mean recursive.
 - `find /home/ding/ -type f`, Find regular files in directory /home/ding. `-type` option specifies file type.  *f* equals to regular file, *d* equals to directory.  
-- `find ./misc/ -exec file '{}' \;`. Execute `file` command to every file in directory `./misc`.
+- `find . -type f -size +1000M` , find all files with size bigger than 1000M.
+- `find . -type d -empty -delete` , find all empty directories and delete them all.
+- `find . -type f -not -name "*.dll"` , find files not matching the patten. [link](http://alvinalexander.com/unix/edu/examples/find.shtml)
+- `find ./misc/ -exec file '{}' \;`. Execute `file` command to every file in directory `./misc`. [link](https://shapeshed.com/unix-find/)
 	+ `-exec` option specifies the command to execute.
 	+ *;* indicates the ending of command. 
 	+ `\` is to escape in case of shell interpreting it as another meaning.
 	+ `{}` stands for the current processing file.   
-- *find* command matches file name other than file content. `find . -regex '.*\.\(c\|cpp\|h\)$' -print`, prints whole file name matching the regular expression.
+- *find* command works with regular expression. `find . -regex '.*\.\(c\|cpp\|h\)$' -print`, prints whole file name matching the regular expression.
   The command lists all c source files, including cpp files and h files in current directories and its subdirectories.   
 	+ `-print` append each matching item with new line, it is a default behavior.
 	+ `-print0` with null character.
@@ -78,7 +81,7 @@ reference:
 	+ *-iname* the same with *-name*, except that the match is case insensitive.    
 	+ *-regex* matches whole file path, including pre directories and the regular expression is different with *-name*.
 + grep commonly used options.
-	- default match mode is *NOT* exact match the whole word. `'\<question\>'` tells *grep* to matche whole world. 
+	- default match mode is *NOT* exactly match whole word. `'\<question\>'` tells *grep* to matche whole world. 
 	- `grep -i 'question' -r ./`, it Searches all files recursively in current directory to match lines containing key word *question*.
 	- `grep -i question -rl ./`, it lists all files in current directory matching key word *question* instead of displaying matched lines.
 	- `grep -v pattern filename`, only output "pattern not matched" items.
