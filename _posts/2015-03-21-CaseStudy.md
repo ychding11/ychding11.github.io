@@ -6,6 +6,17 @@ date: 2016-11-24
 
 The post summarizes some software bugs and how to debug thme. It also talk about some ideas about software design.
 
+## Avoid maintain different shader source code for differrent Graphics API
+------------
+It should always be put on the first consideration how to maintain your shader source code in a unified rendering engine.
+A source code for DX11, one for DX12, one for Metal, one for Vulkan. It will be a disaster when adding new effect features which should be supported on all platforms.
+You should do it one by one, revising code, debugging, testing.
+
+## Put Index Buffer & Vertex Buffer on the same device buffer cause problems
+------------
+As suggested, you shall not put IB & VB in the same device buffer. GPU hardware & driver may treat IB & VB in very different ways on some architecture.
+So put them together is not a good idea. Sometimes, it leads to very strange drawing issue.
+
 ## Infinite Function call loop
 ------------
 
