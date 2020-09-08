@@ -8,17 +8,9 @@ The post summarizes new features of c++ and list available internet resources ab
 
 
 ## overloaded virtual function
-----------
-
-[Discussion of GCC -Woverloaded-virtual option](https://gcc.gnu.org/ml/gcc/1999-02n/msg00180.html) 
-introduce this issue. Compiler is unable to tell "I am creating a new virtual function" from
-"I am overriding a virtual function from my baseclass". So GCC adds this option 
-to detect potential errors. But I think the option is not a good idea, especially
-when c++11 introduce a new key word *override* to explicitly tell compiler whether
-it wants to override existing virtual function or create new virtual function.
-For quick reference, I list some frequently used GCC compile options here. More
-compiler options please refer gcc manual. 
-
+------
+[Discussion of GCC -Woverloaded-virtual option](https://gcc.gnu.org/ml/gcc/1999-02n/msg00180.html) introduce this issue. Compiler is unable to tell "I am creating a new virtual function" from "I am overriding a virtual function from my baseclass". So GCC adds this option to detect potential errors. But I think the option is not a good idea, especially
+when c++11 introduce a new key word *override* to explicitly tell compiler whether it wants to override existing virtual function or create new virtual function. For quick reference, I list some frequently used GCC compile options here. More compiler options please refer gcc manual.    
 - Werror, Treat all warnings as errors.
 - Wall, 
 - Wextra,
