@@ -19,16 +19,13 @@ when c++11 introduce a new key word *override* to explicitly tell compiler wheth
 
 ## const reference
 ----------
-
 Under what condition is this type useful? What problems will it cause?
-When user-defined complex type used as an input parameter, it is a good 
-choice and  highly recommanded in google c++ code style.     
-It is a very bad idea when used as a data holder. It almost has no flexibility.
-For example, following design,  using reference type in union. Copiler always complains
-that xxx need to be initialized. Obviously, in this case, const pointer type is good choice.
+- When user-defined complex type used as an input parameter, it is a good choice and  highly recommanded in google c++ code style.     
+- Otherwise it is a very bad idea when used as a data holder. It almost has no flexibility. 
 
-{% highlight cpp linenos %}
+For example, following design,  using reference type in union. Copiler always complains that xxx need to be initialized. Obviously, in this case, const pointer type is good choice.
 
+```
 struct Holder
 {
 	int type;
@@ -38,8 +35,7 @@ struct Holder
 		float &rf;
 	};
 };
-
-{% endhighlight %}
+```
 
 ## using statement
 ----------
@@ -260,14 +256,10 @@ vtable for 'Derived' @ 0x400d50 (subobject @ 0x7fffffffdf10):
 ----------
 
 ### const_cast<type-id>
-
-Const type cast is used to add or remove the constness of an object pointed
-by a pointer. For example `const_cast< const type*>(pointer)` or 
-`const_cast<type*>(pointer)`. The latter one is always used to match interface.
-*When using, be caution, write operation will cause undefined behavior.*
+Const type cast is used to add or remove the constness of an object pointed by a pointer. For example `const_cast< const type*>(pointer)` or 
+`const_cast<type*>(pointer)`. The latter one is always used to match interface. *When using, be caution, write operation will cause undefined behavior.*
 
 ### static_cast<type-id> & dynamic_cast<type-id>
-
 These two type cast can do pointer upcast and downcast. Upcast is converting
 a pointer-to-derived to a pointer-to-base. Downcast is converting a 
 pointer-to-base to a pointer-to-derived. static_cast does this conversion without runtime 
@@ -276,7 +268,6 @@ Dynamic_cast requires runtime type info to check object type, and above usage wi
 Some compilers don't support runtime-type-info, dynamic_cast won't work correctly as expected.
 
 ### reinterpret_cast<type-id>
-
 This operation is not safe other than reintepret a pointer into an intege which is not available for static_cast.
 
 ### reference
