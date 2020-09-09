@@ -157,7 +157,6 @@ class Base
     virtual void f(int)
     { std::cout << "Base::f(int)" << std::endl; }
 };
-
 class Derived : public Base
 {
 public:
@@ -171,7 +170,6 @@ public:
     virtual void f(int)
     { std::cout << "Derived::f(int)" << std::endl; }
 };
-
 int main()
 {
    Base base;
@@ -213,7 +211,6 @@ class Base
     virtual void f(int)
     { std::cout << "Base::f(int)" << std::endl; }
 };
-
 class Derived : public Base
 {
 public:
@@ -252,8 +249,9 @@ vtable for 'Derived' @ 0x400d50 (subobject @ 0x7fffffffdf10):
 ----------
 
 ### const_cast<type-id>
-Const type cast is used to add or remove the constness of an object pointed by a pointer. For example `const_cast< const type*>(pointer)` or 
-`const_cast<type*>(pointer)`. The latter one is always used to match interface. *When using, be caution, write operation will cause undefined behavior.*
+Const type cast is used to add or remove the constness of an object pointed by a pointer. 
+- Usage `const_cast< const type*>(pointer)` & `const_cast<type*>(pointer)`. 
+- The latter one is always used to match interface. *When using, be caution, write operation will cause undefined behavior.*
 
 ### static_cast<type-id> & dynamic_cast<type-id>
 These two type cast can do pointer upcast and downcast. Upcast is converting
@@ -272,10 +270,9 @@ This operation is not safe other than reintepret a pointer into an intege which 
 
 ## cross initialization && switch-case
 ----------
+Following code demostrate this kind of compiler error.
 
-Following code demostrate this kind of error.
-
-{% highlight cpp linenos %}
+```
 switch(a)
 {
 	case 1: 
@@ -284,22 +281,15 @@ switch(a)
 	default:
 		break
 }
-{% endhighlight %}
+```
 
-switch-case is something like jump table. [stackoverflow link](http://stackoverflow.com/questions/92396/why-cant-variables-be-declared-in-a-switch-statement)
-has a detailed discussion about this kind of error.
-This [page](http://www.complete-concrete-concise.com/programming/c/keyword-switch-case-default)
-explains c/c++ switch-case keyword.
+- switch-case is something like jump table. 
+- [stackoverflow link](http://stackoverflow.com/questions/92396/why-cant-variables-be-declared-in-a-switch-statement) has a detailed discussion about this kind of error.
+- [keyword-switch-case-default](http://www.complete-concrete-concise.com/programming/c/keyword-switch-case-default) explains c/c++ switch-case keyword.
 
 ## inline and virtual
 ----------
-
-Using *inline* and *virtual* for the same member function does 
-make sense. virtual function is a member function. When calling
-virtual function by a base class pointer or reference, late binding
-applies. But for a known object, function call can be resolved at 
-ompile time, *inline* makes sense here. Remember that *inline* is 
-ust a hint to compiler, it is up to compiler to decide inline it or not.
+Using *inline* and *virtual* for the same member function does make sense. virtual function is a member function. When calling virtual function by a base class pointer or reference, late binding applies. But for a known object, function call can be resolved at ompile time, *inline* makes sense here. Remember that *inline* is just a hint to compiler, it is up to compiler to decide inline it or not.
 
 
 ## auto_ptr
@@ -330,28 +320,17 @@ This [page](https://isocpp.org/wiki/faq/private-inheritance) has a detailed expl
 
 ## operator overload
 ----------
-
-*operator overload* is to tell compiler how built-in operators apply to 
-user-defined data types by function overloading. Properly written
-operator overload can lead to more readable and maintainable code.
+*operator overload* is to tell compiler how built-in operators apply to user-defined data types by function overloading. Properly written *operator overload* can lead to more readable and maintainable code.
 
 - overloaded operators are just regular function.
 - operator overload can be implemented as a class member function or a free function.
-- lvalue and rvalue are key concepts in operator overload. The overloaded operators need to return 
-  somethings. When they returns const type, it is rvalue. non-const type, lvalue.
-- *operator ++* and *operator --* are different from other operators. Because they have two versions:
-  prefix and postfix. When overloading, compiler needs to tell one from another. They are unary operators.
-  when overloading as a member function, no input parameter is needed. In order to different them,
-  postfix operator accepts an int type parameter. 
-- In operator overload, prefix ++ and -- are more efficient than posfix ones. It is a good choice to implement posfix ones 
-  in terms of prefix ones.
-- Rational operator overload, just need to overload *operator <* correctly. All other rational operators
-  can based on it. For a user-defined data type, after overloading *operator <*, it can be insert into STL 
-  containers. In addition, *operator <* must adhere two laws: Trichotomy and tansitivity.
-- stream insert *operator <<*  and *operator >>* should be overloaded as a free function and decare the 
-  function as an friend of the user-defined data type. 
-- Some operators can not be overloaded, because from their meaning, they should not be reinterpreted 
-  by user-defined data type. For example, scop resolution ::, member selection ., sizeof, typid, typcast, ternary condition ?:.
+- lvalue and rvalue are key concepts in operator overload. The overloaded operators need to return something. When returning const type, it is rvalue. non-const type, lvalue.
+- *operator ++* and *operator --* are different from other operators. Because they can be prefix or postfix. When overloading, compiler needs to tell one from another. They are unary operators. when overloading as a member function, no input parameter is needed. In order to different them, postfix operator accepts an int type parameter. 
+- In operator overload, prefix ++ and -- are more efficient than posfix ones. It is a good choice to implement posfix ones in terms of prefix ones.
+- Rational operator overload, just need to overload *operator <* correctly. All other rational operators can base on it. For a user-defined data type, after overloading *operator <*, it can be insert into STL containers. In addition, *operator <* must adhere two laws: Trichotomy and tansitivity.
+- stream insert *operator <<*  and *operator >>* should be overloaded as a free function and decare the function as an friend of the user-defined data type. 
+- Some operators can not be overloaded, because from their meaning, they should not be reinterpreted by user-defined data type. 
+  - For example, scop resolution ::, member selection ., sizeof, typid, typcast, ternary condition ?:.
 - [reference](http://www.keithschwarz.com/cs106l/fall2010/course-reader/Ch10_OperatorOverloading.pdf)
 
 ### new & delete
@@ -368,10 +347,9 @@ There are some special considerations about this memory allocating operator.
 4. Can an operator be reloaed as static function of a class?
 5. [manual about operator new](http://www.cplusplus.com/reference/new/operator%20new/?kw=operator%20new)
 
-I write a sample code to demo how to use new to allocate an object when its constructor is declared as
-protected or private by this method.
+I write a sample code to demo how to use new to allocate an object when its constructor is declared as protected or private by this method.
 
-{% highlight c++ linenos %}
+```
 class MyTest
 {
 public:
@@ -381,7 +359,6 @@ private:
 
 	int dat;
 };
-
 // overload the operator new.
 void * operator new(size_t n, int x)
 {
@@ -391,7 +368,6 @@ void * operator new(size_t n, int x)
 	MyTest *pi = new (p) MyTest(x); // placement new
 	return p;
 }
-
 int main(void)
 {
 	// How to call operator new, it is in global space.
@@ -399,7 +375,7 @@ int main(void)
 	printf("- Press any key to exit.");
 	std::cin.get();
 }
-{% endhighlight %}
+```
 
 ## random number generator
 ----------
