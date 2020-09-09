@@ -308,9 +308,7 @@ gives several good examples for reference.
 ## private inheritance
 ----------
 
-private inheritance is something like composition(has-a).
-while, Inheritance, in general, is a is-a. It has some
-unique features compared to composition.
+private inheritance is something like composition(has-a). while, Inheritance, in general, is a is-a. It has some unique features compared to composition.
 
 - use protected interface of Base class.
 - tye case to Base class.
@@ -385,15 +383,15 @@ is a good introduction to the backgroud of random number generator. Presudorando
 into software. It is based on some generating algorithms, for example, middle-square-method presented by Von Neumann.
 Generated random sequence is periodic because of the limitation of computer.
 
-## IEE745 Float Point Number Representation
+## IEEE745 Float Point Number Representation
 ----------
 
-The link is a Web based [live demo](http://babbage.cs.qc.cuny.edu/IEEE-754/). It gives
+There is a Web based [live demo](http://babbage.cs.qc.cuny.edu/IEEE-754/). It gives
 binary format when users input an real number. It is a very interesting place to learn IEEE745 standard.  
 There is difference between integer number and floating number when diving by zero.
 Floating number does not cause an exception, instead it returns an inf. Following is Sample code:
 
-{% highlight c++ linenos %}
+```
 int main()
 {
 
@@ -401,15 +399,14 @@ int main()
     cout << -1.0 / 0.0 << std::endl;
     return 0;                                                                                                                                                                                                  
 }
-{% endhighlight %}
-
+```
 Result:
 
-{% highlight bash %}
+```
 $ ./a.out 
 inf
 -inf
-{% endhighlight %}
+```
 
 ### reference
 1. [IEEE745](http://cs.boisestate.edu/~alark/cs354/lectures/ieee754.pdf),the document includes binary formats, ranges and examples.
@@ -430,8 +427,8 @@ case is like: `new (allocator.allocate(sizeof(DataType))) DataType()`.
 
 ## only destructor declared as private or protected
 
-It can force the class only can be allocate dynamically. 
-That is object can only be created by new(). Object allocate in such way `Type obj` is forbidden.
+It can force the class object only can be allocate dynamically. 
+That is the object can only be created by new(). Object allocate in such a way `Type obj;` is forbidden.
 
 ## default member initializer
   The behavior is the same with constructor initializing list.
