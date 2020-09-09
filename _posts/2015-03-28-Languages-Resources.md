@@ -52,18 +52,15 @@ The web [link](http://en.cppreference.com/w/cpp/language/using_declaration) give
 
 ## vtbl & vptr
 ----------
-
-Where is vtable stored? Is it compiler dependent?
-Is vptr always offset 0 in an object memory layout?
-How about multiple inheritance?
-
-Is vtbl class specified? Derived class and base class
-have their own vtbl even no function override occur?
+- Where is vtable stored ? 
+- Is it compiler dependent ? 
+- Is vptr always offset 0 in an object memory layout ?
+- How about multiple inheritance ?
+- Is vtbl class specified? Derived class and base class have their own vtbl even no function override ?
 
 derived class does not override base class virtual function.
 
-{% highlight cpp linenos %}
-
+```
 class Base
 {
 public:
@@ -88,11 +85,11 @@ int main()
    Derived derive;
    return 0;
 }                                                    
-{% endhighlight %}
+```
 
 vtbl info:
 
-{% highlight bash %}
+```
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400c30 (subobject @ 0x7fffffffdf20):
 [0]: 0x400a86 <Base::f(int, int)>
@@ -101,11 +98,11 @@ vtable for 'Base' @ 0x400c30 (subobject @ 0x7fffffffdf20):
 vtable for 'Derived' @ 0x400c10 (subobject @ 0x7fffffffdf10):
 [0]: 0x400a86 <Base::f(int, int)>
 [1]: 0x400ab6 <Base::f(int)>
-{% endhighlight %}
+```
 
 derived class partly overrides base class virtual function
 
-{% highlight cpp linenos %}
+```
 class Base
 {
  public:
@@ -132,11 +129,11 @@ int main()
    Derived derive;
    return 0;
 }                                                   
-{% endhighlight %}
+```
 
-virtual function pointer info.
+virtual function pointer table info.
 
-{% highlight bash %}
+```
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400c70 (subobject @ 0x7fffffffdf20):
 [0]: 0x400a86 <Base::f(int, int)>
@@ -145,12 +142,11 @@ vtable for 'Base' @ 0x400c70 (subobject @ 0x7fffffffdf20):
 vtable for 'Derived' @ 0x400c50 (subobject @ 0x7fffffffdf10):
 [0]: 0x400a86 <Base::f(int, int)>
 [1]: 0x400b30 <Derived::f(int)>
-{% endhighlight %}
+```
 
-derived class completely overrides base class virtual function and 
-create new virtual function.
+derived class completely overrides base class virtual function and create new virtual function.
 
-{% highlight cpp linenos %}
+```
 class Base
 {
  public:
@@ -184,11 +180,11 @@ int main()
    b->f(0, 1);
    return 0;
 }                                     
-{% endhighlight %}
+```
 
 Corresponding vtbl info:
 
-{% highlight bash %}
+```
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400df0 (subobject @ 0x7fffffffdf20):
 [0]: 0x400b52 <Base::f(int, int)>
@@ -202,11 +198,11 @@ vtable for 'Derived' @ 0x400db0 (subobject @ 0x7fffffffdf10):
 vtable for 'Base' @ 0x400db0 (subobject @ 0x7fffffffdf10):
 [0]: 0x400c30 <Derived::f(int, int)>
 [1]: 0x400c60 <Derived::f(int)>
-{% endhighlight %}
+```
 
 virtual function pointer order in vtbl is determined by declare order in Base class.
 
-{% highlight cpp linenos %}
+```
 class Base
 {
  public:
@@ -237,11 +233,11 @@ int main()
    p->f(0);
    return 0;
 }                            
-{% endhighlight %}
+```
 
 Check the virutal table.
 
-{% highlight bash %}
+```
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400d70 (subobject @ 0x7fffffffdf20):
 [0]: 0x400b52 <Base::f(int, int)>
@@ -250,7 +246,7 @@ vtable for 'Base' @ 0x400d70 (subobject @ 0x7fffffffdf20):
 vtable for 'Derived' @ 0x400d50 (subobject @ 0x7fffffffdf10):
 [0]: 0x400c2a <Derived::f(int, int)>
 [1]: 0x400bfc <Derived::f(int)>
-{% endhighlight %}
+```
 
 ## type casting
 ----------
