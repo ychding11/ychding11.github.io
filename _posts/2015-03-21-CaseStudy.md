@@ -5,8 +5,11 @@ date: 2016-11-24
 ---
 
 The post summarizes some software bugs and how to debug thme. It also talk about some ideas about software design.
+## Always notice whether you are static link or dynamic link
+------------
+It means duplicate when using static link. ImGUI initilization issue is just an good example.
 
-## Avoid maintain different shader source code for differrent Graphics API
+## Avoid maintaining different shader source codes for differrent Graphics APIs
 ------------
 It should always be put on the first consideration how to maintain your shader source code in a unified rendering engine.
 A source code for DX11, one for DX12, one for Metal, one for Vulkan. It will be a disaster when adding new effect features which should be supported on all platforms.
