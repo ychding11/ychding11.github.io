@@ -19,9 +19,14 @@ This post summaries the commonly used commands.
 - `ls -l | grep ^d` list directories in current directory
 
 ### hardware query
-- `lspci | grep -i vga` query graphic cards info. Output maybe like this: 
-        00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
-   In addition, lspci command, for example: `lspci -vs 00:02.0` can tell which driver module is in use now.   
+- `lspci | grep -i vga` query graphic cards info.
+  Output maybe like this:
+        
+  ```
+  00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
+  ```
+        
+  In addition, lspci command, for example: `lspci -vs 00:02.0` can tell which driver module is in use now.   
 - `sudo fdisk -l`, list storage devices of current system. `sudo fdisk -l /dev/sda` the command can display some detailed 
    info about the device /dev/sda, such as file system type. NOTE: **It requires root**. Use `diskutil list` on Mac OS.
 - `df -lf`, query current available volume on mounted devices.
