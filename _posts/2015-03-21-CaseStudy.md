@@ -5,45 +5,42 @@ date: 2016-11-24
 ---
 The post summarizes some software bugs and how to debug thme. It also talk about some ideas about software design.
 
-## Always notice whether you are static link or dynamic link
-------------
+
+## Always notice whether you are using static link or dynamic link
+
 It means duplicate when using static link. ImGUI initilization issue is just an good example.
 
 ## Avoid maintaining different shader source codes for differrent Graphics APIs
-------------
+
 It should always be put on the first consideration how to maintain your shader source code in a unified rendering engine.
 A source code for DX11, one for DX12, one for Metal, one for Vulkan. It will be a disaster when adding new effect features which should be supported on all platforms.
 You should do it one by one, revising code, debugging, testing.
 
 ## Put Index Buffer & Vertex Buffer on the same device buffer cause problems
-------------
+
 As suggested, you shall not put IB & VB in the same device buffer. GPU hardware & driver may treat IB & VB in very different ways on some architecture.
 So put them together is not a good idea. Sometimes, it leads to very strange drawing issue.
 
 ## Infinite Function call loop
-------------
-
-  Infinite Function Call Loop can lead to stack overflow, How can we detect it in runtime?   
-  For example,A-->B-->C-->A. In other case, a very deep function call may also produce
-  the same problem. It is more an design issue than a bug. In our design, for example,
-  evaluating value in a DAG we should add such detection to avoid crash.
+  
+Infinite Function Call Loop can lead to stack overflow, How can we detect it in runtime?   
+For example,A-->B-->C-->A. In other case, a very deep function call may also produce
+the same problem. It is more an design issue than a bug. In our design, for example,
+evaluating value in a DAG we should add such detection to avoid crash.
 
 - C++11 introduces lamba expression, what is the advantage of the feature? Does it make program 
   run faster than before or use less memory? Does this expression debug friendly? Watch varible,
   set breakpoints, evaluate expression is more convenient?   
 
 ## Access Violation
-------------
-
-  Access violation at address XXXX is a popular runtime error. Address 0x00000 always means 
-  null pointer access, Address 0x12345AB or something like that maybe indicate array index is 
-  out of bound. How the system distinguish one from another? following disassembly code confused me. 
+Access violation at address XXXX is a popular runtime error. Address 0x00000 always means 
+null pointer access, Address 0x12345AB or something like that maybe indicate array index is 
+out of bound. How the system distinguish one from another? following disassembly code confused me. 
 
 	00007FFC54FC9D76  mov  rax,qword ptr [this]  just loads this value into rax, not the value pointed by this.
 	00007FFC54FC9D87  mov  rcx,qword ptr [rcx]   loads rcx referenced memory into rcx. 
 
 ## Question: From perspective of assembly language, is *this* an address?	
-------------
 
 - What is the purpose of a protected or private destructor except that it prevents
   class instanced? Singleton pattern is not included.
@@ -61,20 +58,16 @@ So put them together is not a good idea. Sometimes, it leads to very strange dra
   ideas to solve this problems? 
 
 ## How does a c++ compiler know a virtual funcation is called
-------------
 
-  `pBasepter->f()` How compiler knows f() is a virtual function or
-  an ordinary member function ?
+  `pBasepter->f()` How compiler knows f() is a virtual function or an ordinary member function ?
  
 ## When is static class member destroyed
-------------
 
-  Suppose designing a class which has static member variables. When do these static members
-  destroyed? If they resides in a shared lib, lib unload operation can lead these variables 
-  to destroy. Can any other things make these static members partially destroyed?
+Suppose designing a class which has static member variables. When do these static members
+destroyed? If they resides in a shared lib, lib unload operation can lead these variables 
+to destroy. Can any other things make static members partially destroyed?
 
-## delete[] operation causes crash issue.
-------------
+## delete[] operation causes crash
 
 ```
 delete[] mPtr;
@@ -90,13 +83,11 @@ problems is not visible immediately. It appears at a later time when excute stat
 *delete []mPtr*
 
 ## assert() cause segment fault when program exits
-------------
 
-It is an common error in huge software development that assert() may inform user with a message by a dialog.
-Sometimes GUI moudle destroyed earlier than the depended module,So it will cause segments fault issue.
+It is an common ideas in huge software development that `assert()` inform user with a message by a dialog.
+Sometimes GUI moudle destroyed earlier than the depended module which use `assert()` So it will cause segments fault issue.
 
 ## badly designed public interface will cause desaster
-------------
 
 public interface is the key of module design.For example *int ASimpleTexture::SizeInMemory(EMemoryScope scope).*
 It is very unwise to use int to represent memory size. size_t is an obvious much better choice. Signed int can 
@@ -106,7 +97,6 @@ you will found it is widely used in your code at the same time. There is no resc
 code.
 
 ## steps of debugging OpenGL lib loading error On Linux
-------------
 
 For example:
 
@@ -116,6 +106,7 @@ For example:
 You can use the following steps to locate the problem.
 
 1. set `export LIBGL_DEBUG=verbose` and run program again. More details will be output.  
+
 ```
 libGL: screen 0 does not appear to be DRI2 capable
 libGL: OpenDriver: trying /usr/lib/dri/tls/swrast_dri.so
@@ -127,14 +118,18 @@ libGL: dlopen /usr/lib64/dri/swrast_dri.so failed (/usr/lib64/dri/swrast_dri.so:
 libGL error: unable to load driver: swrast_dri.so
 libGL error: failed to load driver: swrast
 ``` 
+
 It use the software raster, but I have a nvidia graphic card installed. 
 2. check lib symbols `readelf -Ws /usr/lib64/dri/swrast_dri.so |grep _glapi_tls`
+
 ```
 109: 0000000000000000     0 TLS     GLOBAL DEFAULT  UND _glapi_tls_Dispatch 
 401: 0000000000000000     0 TLS     GLOBAL DEFAULT  UND _glapi_tls_Context 
-```	
+```
+
 3. explore systme log `cat /var/log/Xorg.0.log | grep  "GL"` to check graphics related modules.
 4. check GL lib on my 64bit arch, `find /usr/lib64 -name "libGL.so*" `
+
 ```
 /usr/lib64/libGL.so.1
 /usr/lib64/libGL.so.352.63  hardware driver
@@ -145,7 +140,6 @@ It use the software raster, but I have a nvidia graphic card installed.
 So I believe system configuration makes mistakes. After reinstall graphic card driver, the problem disapears.
 
 ## random crash caused by unintialized local varibles
-------------
 
 Following code:
 
@@ -163,7 +157,6 @@ other GL external modules. The risk is that when your context does not support G
 with random value will make systme behavior unpredictable and very hard to guess failing root cause.
 
 ## abs() result in unwanted behavior
-------------
 
 Following code:
 
@@ -180,9 +173,9 @@ that it is not obvious to use which one. The runtime result is that It works fin
 I prefer to use function `fabs` because the data type is float under current context.
 
 ## uncaught exception crashes system
-------------
+
 waiting for updating.
 
 ## operator overload leads to unpredicted behavor
-------------
+
 waiting for updating.
