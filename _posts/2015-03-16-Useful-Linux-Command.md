@@ -7,35 +7,40 @@ date: 2016-03-16
 This post summaries the commonly used commands. 
 
 ## Linux Commands
+
 ### ELF format
+
 - `objdump -t a.out`, display symbol table of elf file a.out
 - `objdump -h a.out`, display sections of elf file a.out
 - `readelf -p .comment ./a.out` read .comment section info from elf file a.out
+
 ### files & directories
 - `ls | wc -l` tell how many files in current directory 
 - `ls -l | grep ^d` list directories in current directory
+
 ### hardware query
 - `lspci | grep -i vga` query graphic cards info. Output maybe like this: 
-		00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
+        00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
    In addition, lspci command, for example: `lspci -vs 00:02.0` can tell which driver module is in use now.   
 - `sudo fdisk -l`, list storage devices of current system. `sudo fdisk -l /dev/sda` the command can display some detailed 
-   info about the device /dev/sda, such as file system type. NOTE: **It requires root**.    
-   use `diskutil list` on mac os.
+   info about the device /dev/sda, such as file system type. NOTE: **It requires root**. Use `diskutil list` on Mac OS.
 - `df -lf`, query current available volume on mounted devices.
 - `lshw -class disk`, lists all available disks in system. `lshw -short -C disk` run this command with root, it can give a summary.
-- `sudo lshw -class network`, displays detailed info about network adapter such as discription, product name, vendor, configuration. By    these info, we can check device driver version in use. `modinfo driver-name` command can do that. It is helpful to solve issue such      as wifi does not work.
+- `sudo lshw -class network`, displays detailed info about network adapter such as discription, product name, vendor, configuration.
+   By these info, we can check device driver version in use. `modinfo driver-name` command can do that.
+   It is helpful to solve issue such as wifi does not work.
 - After installed a new graphics card, It may not work. So we need to restart linux in text mode to install graphic card driver.
   In grub edit mode, we can modify linux kernel command line temporarily to let linux start in text mode.
-	+ `cat /proc/cmdline` Retrieve kernel command line info of current booting from proc file system.
-	+ `BOOT_IMAGE=/vmlinuz-3.10.0-327.4.4.el7.x86_64 root=/dev/mapper/centos-root ro rd.lvm.lv=centos/root rd.lvm.lv=centos/swap crashkernel=auto rhgb quiet rdblacklist=nouveau 3`
+    + `cat /proc/cmdline` Retrieve kernel command line info of current booting from proc file system.
+    + `BOOT_IMAGE=/vmlinuz-3.10.0-327.4.4.el7.x86_64 root=/dev/mapper/centos-root ro rd.lvm.lv=centos/root rd.lvm.lv=centos/swap crashkernel=auto rhgb quiet rdblacklist=nouveau 3`
 - `sudo apt-get install bcmwl-kernel-source` install BCM43142 wifi driver.
 - `mount -t "ntfs" -o ro /dev/sda1 /mountpoint` mount with read-only option.
 ### package management
 - `pkg-config --static --libs glfw3`, It tells how to link glfw3 dependency libs in correct order  
 - rpm package manage commands on centos.
-	+ `rpm -qa`, list all installed package in centos system.
-	+ `rpm -q --list package-name`, list all files related to package.
-	+ `rpm -q --state package-name`, query package state. 
+    + `rpm -qa`, list all installed package in centos system.
+    + `rpm -q --list package-name`, list all files related to package.
+    + `rpm -q --state package-name`, query package state. 
 ### others
 - `buildcommand 2>&1 | tee build.log` This command can save the build log to a file and at the same time output it to the screen. A very useful command to analyse build errors.
 ### tr 
@@ -45,7 +50,7 @@ example usage：
 - `tr a-z A-Z`
 - `tr '\r\n' ' '`
 - `tr -d 't'`
-- `echo "This   is                           for testing" | tr -s ' '`
+- `echo "This is for testing" | tr -s ' '`
 - `echo "my username is 432234" | tr -c 0-9 1`, '-c' means complement.
 - `tr 'e' 'E' < fmod_debug_crc1517905402078/gen.log`
 
@@ -68,32 +73,32 @@ reference:
 - `find . -type d -empty -delete` , find all empty directories and delete them all.
 - `find . -type f -not -name "*.dll"` , find files not matching the patten. [link](http://alvinalexander.com/unix/edu/examples/find.shtml)
 - `find ./misc/ -exec file '{}' \;`. Execute `file` command to every file in directory `./misc`. [link](https://shapeshed.com/unix-find/)
-	+ `-exec` option specifies the command to execute.
-	+ *;* indicates the ending of command. 
-	+ `\` is to escape in case of shell interpreting it as another meaning.
-	+ `{}` stands for the current processing file.   
+    + `-exec` option specifies the command to execute.
+    + *;* indicates the ending of command. 
+    + `\` is to escape in case of shell interpreting it as another meaning.
+    + `{}` stands for the current processing file.   
 - *find* command works with regular expression. `find . -regex '.*\.\(c\|cpp\|h\)$' -print`, prints whole file name matching the regular expression.
   The command lists all c source files, including cpp files and h files in current directories and its subdirectories.   
-	+ `-print` append each matching item with new line, it is a default behavior.
-	+ `-print0` with null character.
+    + `-print` append each matching item with new line, it is a default behavior.
+    + `-print0` with null character.
 - *find* has many options, such as *-regex*, *-name*, *-iname*. They are used to tell *find* how to match the *pattern* specified in command line.
-	+ *-name* only matches file name excluding the pre-directories.  
-	+ *-iname* the same with *-name*, except that the match is case insensitive.    
-	+ *-regex* matches whole file path, including pre directories and the regular expression is different with *-name*.
+    + *-name* only matches file name excluding the pre-directories.  
+    + *-iname* the same with *-name*, except that the match is case insensitive.    
+    + *-regex* matches whole file path, including pre directories and the regular expression is different with *-name*.
 + grep commonly used options.
-	- default match mode is *NOT* exactly match whole word. `'\<question\>'` tells *grep* to matche whole world. 
-	- `grep -i 'question' -r ./`, it Searches all files recursively in current directory to match lines containing key word *question*.
-	- `grep -i question -rl ./`, it lists all files in current directory matching key word *question* instead of displaying matched lines.
-	- `grep -v pattern filename`, only output "pattern not matched" items.
-	- `grep -I pattern -r .`, ignore binary files.
-	- `grep -A 3 -B 4 -i 'test' -r .`, *-A 3* print 3 lines before matched lines. 
-	- `grep -Hn -i "test" -r .`, *-Hn*, print matched lines with its file name and line number.
-	- `grep -iw "test" -r .`, match the pattern "test" as a whole word.
-	- `grep -e "-test" -r .`, *-e* , specify a regex, multiple *-e* is *or* in logic.
-	- `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;`, search "menuMode" in all mel files. "{}" represents the current processing file.
-	- `grep "patten" file --color=auto`, print matched pattern with highlight.
-	- `grep -n -i "pattern" -r filename | cut -f1 -d:`, print matched line numbers.
-	- `grep -n -P '\t'  xxx.cpp`, list all lines contains a tab, '\t' is NOT treated as a tab in grep [link](https://askubuntu.com/questions/53071/how-to-grep-for-tabs-without-using-literal-tabs-and-why-does-t-not-work).
+    - default match mode is *NOT* exactly match whole word. `'\<question\>'` tells *grep* to matche whole world. 
+    - `grep -i 'question' -r ./`, it Searches all files recursively in current directory to match lines containing key word *question*.
+    - `grep -i question -rl ./`, it lists all files in current directory matching key word *question* instead of displaying matched lines.
+    - `grep -v pattern filename`, only output "pattern not matched" items.
+    - `grep -I pattern -r .`, ignore binary files.
+    - `grep -A 3 -B 4 -i 'test' -r .`, *-A 3* print 3 lines before matched lines. 
+    - `grep -Hn -i "test" -r .`, *-Hn*, print matched lines with its file name and line number.
+    - `grep -iw "test" -r .`, match the pattern "test" as a whole word.
+    - `grep -e "-test" -r .`, *-e* , specify a regex, multiple *-e* is *or* in logic.
+    - `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;`, search "menuMode" in all mel files. "{}" represents the current processing file.
+    - `grep "patten" file --color=auto`, print matched pattern with highlight.
+    - `grep -n -i "pattern" -r filename | cut -f1 -d:`, print matched line numbers.
+    - `grep -n -P '\t'  xxx.cpp`, list all lines contains a tab, '\t' is NOT treated as a tab in grep [link](https://askubuntu.com/questions/53071/how-to-grep-for-tabs-without-using-literal-tabs-and-why-does-t-not-work).
 
 ## vim tips for quick reference
 ----------
@@ -114,9 +119,9 @@ reference:
   selection in virsual mode. `:help object-select` and `:help text-objects`for details.
 - 3 types of visual modes:
 ```
-	v --> visual mode for multi-character selection and edit    
-	V --> visual line mode for multi-line selection and edit    
-	Ctrl + v --> visual mode for block selection and edit, it is more flexible    
+    v --> visual mode for multi-character selection and edit    
+    V --> visual line mode for multi-line selection and edit    
+    Ctrl + v --> visual mode for block selection and edit, it is more flexible    
 ```
 - In visual mode, press *<* and *>* can do auto-indent.
 - `Shift+V`, select current line and enter visual mode.
@@ -212,7 +217,7 @@ This shell is a improved c-shell in unix. It is not so friendly to use.
 - `sed -n '/pattern/{=;p}' filename`, print matched lines with its line no.
 - `sed -n '/pattern/,+2p' filename`, print matched lines with its following 2 lines.
 - `sed -n '/\<aa/{=;p}' filename`,  match word begin with aa while `aa\>` matches word end. 
-	- `\bxx` also matches word begins with *xx*.
+    - `\bxx` also matches word begins with *xx*.
 - `sed -n '/^.*R33.*R32.*$/p' file`, print lines which matches both R33 and R32.
 - `sed '/pattern/d -ibak file'`, delete the matched lines and save origin file as backup.
 - `sed -n '/tgen.pl.*amodel/p' dl.log | cat | sed 's/^.\{8\}//g'`, How to write multiple expression into one.
