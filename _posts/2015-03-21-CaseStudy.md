@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Design and debug case study" 
+title: "Case study - Design & Debug " 
 date: 2016-11-24
 ---
-
 The post summarizes some software bugs and how to debug thme. It also talk about some ideas about software design.
+
 ## Always notice whether you are static link or dynamic link
 ------------
 It means duplicate when using static link. ImGUI initilization issue is just an good example.
