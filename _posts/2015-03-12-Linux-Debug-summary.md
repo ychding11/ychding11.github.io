@@ -76,7 +76,7 @@ Symbol relocation may be delayed to some later time when a symbol is actually us
 
 ### reference
 - [How to write shared Libaries](https://www.akkadia.org/drepper/dsohowto.pdf) 
-- [This paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf) introduces debug skils about load dependencies errors. Some of them are very interesting.
+- [This paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf) introduces debug skills about load dependencies errors. Some of them are very interesting.
 
 ## GDB Skills
 GDB is an important tool to analyze runtime errors. Compared with MSVC debugger, I found **gdb** is not very friendly to use.
@@ -90,6 +90,7 @@ GDB is an important tool to analyze runtime errors. Compared with MSVC debugger,
 ### tips
 - list current source files and its full path: `info source`
 - list current shared libs(xxx.so) current process loaded: `info files`
+- after in gdb mode, gdb command`run argument-list` can run the executables with argument list.
 - show or set debugged program's arguments. `show args` and `set args xxxxx`
 - disassemble binary code. `disassemble/m $pc-20, $pc+20`
 - check current instruction. `print $pc`
@@ -119,7 +120,6 @@ GDB is an important tool to analyze runtime errors. Compared with MSVC debugger,
 - [GDB mannual](http://sourceware.org/gdb/current/onlinedocs/gdb/) char extend to int using sign extension.
 
 ## GCC extension
----
 
 ### GCC __attribute__
 
@@ -128,16 +128,8 @@ applied to specified function. Sometimes it is helpful to analyse errors only
 occured in release version. This Gcc extension can also be applied to function template.
 
 ## Simple debug Case Summary
----
 
-1. Parameter *this* is overrided by write operations from within function. It leads to memory
-   access violation when accessing object member variable. In addition, the bug only occurs on Linux platform. So I trend to believe stack layout is
-   different between Linux and Windows.
-2. When an image library parses a psd file. It consumes lots of time and crash
-   the running program. Crash issue maybe caused by memory access violation or
-   stack overflow. Performance issue is always difficult to handle. This time
-   I use debugger to step every statements to dig the bottleneck. At the end
-   I found several parsed elements is extremely large. They control loops and
-   decide memory allocation size. These operations do non-sense things and consume
-   lots of time. 
+1. Parameter *this* is overridden by write operations from within function. 
+   - It leads to memory access violation when accessing object member variable. In addition, the bug only occurs on Linux platform. So I trend to believe stack layout is different between Linux and Windows.
+2. When an image library parses a psd file. It consumes lots of time and crash the running program. Crash issue maybe caused by memory access violation or stack overflow. Performance issue is always difficult to handle. This time I use debugger to step every statements to dig the bottleneck. At the end I found several parsed elements is extremely large. They control loops and determine memory allocation size. These operations do non-sense things and consume lots of time. 
 
