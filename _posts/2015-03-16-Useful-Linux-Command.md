@@ -72,7 +72,49 @@ reference:
 
 - [xargs' page](https://linux.die.net/man/1/xargs)
 
+## Settings & Configs
+- export OptiX_INSTALL_DIR=/home/malei/Downloads/NVIDIA-OptiX-SDK-7.0.0-linux64
+- environment settings can be recorded into ~/.profile.
+  - .bash_profile and .bashrc are specific to bash,
+  - .profile is read by many shells in the absence of their own shell-specific config files. 
+  - the idea behind this was that one-time setup was done by .profile and per-shell stuff by .bashrc. 
+  - /etc/bash_profile (fallback /etc/profile) is read before the user's .profile for system-wide configuration.
+  - Many systems including Ubuntu also use an /etc/profile.d directory containing shell scriptlets.
+  - `echo $SHELL`  & `echo $0`  check the the current shell name.
+### Configure shell prompt
+- $PS1 is the environment variable that store the default prompt setting when we log in the console.
+- set $PS1 in .profile so that it can show current git branch
+  - `git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'`
+  - [configure PS1](https://dev.to/sonyarianto/how-to-add-git-branch-name-to-shell-prompt-in-ubuntu-1gdj)
+  - [bash colors](https://www.shellhacks.com/bash-colors/)
+
+```
+# function to fetch current git branch name 
+git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w \[\033[00;32m\]\$(git_branch)\[\033[00m\]\$"
+```
+
+### Package manager
+- check package name by dpkg
+  - `dpkg -l | grep nvidia-driver | awk '{print $2}' `
+  - `dpkg -l | grep vnc | awk '{print $2}' `
+- remove a package and it configuration
+  - `sudo apt purge tightvncserver`
+
+### Video Driver 
+- `lshw -c video` check driver info
+  - find following in output `configuration: driver=nvidia`
+  - check module info by command `modinfo nvidia`
+- `nvidia-smi` is also a good command for NV card
+- uninstall NV driver `sudo bash NVIDIA-Linux-x86_64-XXX.XX.run --uninstall`
+  - it is a [reference](https://linuxconfig.org/how-to-uninstall-the-nvidia-drivers-on-ubuntu-20-04-focal-fossa-linux) for detailed info
+- cuda includes a matching video driver, it is better to use this one, `sudo sh cuda_11.0.2_450.51.05_linux.run`
+
 ## Search and Replace
+
 - `locate -b '\qmake'` find qmake location using exact name match. An equal command is `locate -r /qmake$` here *r* does not mean recursive.
 
 - `which nvcc` tell the whole path of nvcc.
