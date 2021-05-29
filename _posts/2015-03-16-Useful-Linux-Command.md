@@ -226,7 +226,7 @@ Metacharacters coming with quantifiers give magic power in regular expression ma
 - Parameter *nomodeset*,Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.
 
 ## Shell
-----------
+
 ### shell in mac os
 - `Ctrl + a` Move cursor to the start of line.
 - `Ctrl + e` Move cursor to the end of line.
@@ -267,7 +267,6 @@ This shell is a improved c-shell in unix. It is not so friendly to use.
 - [sed chinese blog](http://www.cnblogs.com/ctaixw/p/5860221.html), including *regular expression* summary.
 
 ## Linux GUI 
-----------
 
 ### X Windows
 - [X Window offical site](https://wiki.archlinux.org/index.php/Xorg)
@@ -277,13 +276,11 @@ This shell is a improved c-shell in unix. It is not so friendly to use.
 - `xkill -all` 
 
 ## simulate keyboard and mouse event
-----------
 
 On windows platform, [autohotky](https://autohotkey.com/) is a good choice and
 [xdotool](http://tuxradar.com/content/xdotool-script-your-mouse) for Linux platform.
 
 ## miscs
-----------
 
 - `control.exe /name Microsoft.ProgramsAndFeatures` Open program windows in command mode.
 - Input `chrome://version` into chrome browser to check chrome info.
