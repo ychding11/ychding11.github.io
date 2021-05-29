@@ -77,7 +77,7 @@ reference:
 
 - `which nvcc` tell the whole path of nvcc.
 
-    ### find commonly used options
+### find commonly used options
 
 - `find /home/ding/ -type f`, Find regular files in directory /home/ding. `-type` option specifies file type.  *f* equals to regular file, *d* equals to directory.  
 
@@ -119,21 +119,39 @@ reference:
 - `grep -n -i "pattern" -r filename | cut -f1 -d:`, print matched line numbers.
 - `grep -n -P '\t'  xxx.cpp`, list all lines contains a tab, '\t' is NOT treated as a tab in grep [link](https://askubuntu.com/questions/53071/how-to-grep-for-tabs-without-using-literal-tabs-and-why-does-t-not-work).
 
-## vim tips for quick reference
+## vim configuration
 - `vim --version | grep clipboard`, It can tell whether vim is able to transfer data with clipboard.
+
 - `sudo apt-get install vim-gnome`, in Ubuntu it can enhance vim with the abiltiy.
+
 - `:help statusline` and `:help laststatus` give detailed info for reference.*it can show full file path when editing a file* .
+
 - `set ignorecase` or `:set ic`, Sometimes we want *case insensitive* search.
+
 - `set noic` cancel *case insensitive search*. 
-- `set ruler` display colum number and row number on the right bottom coner.
-- `set incsearch` Vim default behavior is that search begins after you enter pattern. After setting incsearch, incremental search begins.
+
+- `set ruler` display Colum number and row number on the right bottom corner.
+
+- `set incsearch` Vim default behavior is that search begins after you enter pattern. If setting `incsearch` , **incremental search** begins.
+
 - `set hlsearch`, highlight matched result.
+
 - `set tabstop=4` Set the number of spaces a *TAB* counts for, default value is 8.
+
 - `set expandtab` When set, use a certain number of space to insert a *TAB*.
+
 - `:set invlist`, Make invisible characters visible. For example, $ represents for enter and ^I for tab. `:set nolist` Makes vim return to normal mode.
+
 - `set list  set listchars=tab:>-,trail:$`, visualize tabs. [link](https://vi.stackexchange.com/questions/422/displaying-tabs-as-characters)
-- `%` jumps to matching braces. `y%` yanking contents between an item and its matching item. `d%` deleting in the same way. vim object-select can do the similar block 
-  selection in virsual mode. `:help object-select` and `:help text-objects`for details.
+
+- command `%` jumps to matching braces. 
+
+  - `y%` yanking contents between an item and its matching item. 
+
+  - `d%` deleting in the same way. 
+
+  - vim object-select can do the similar block selection in virsual mode. `:help object-select` and `:help text-objects`for details.
+
 - 3 types of visual modes:
 ```
     v --> visual mode for multi-character selection and edit    
