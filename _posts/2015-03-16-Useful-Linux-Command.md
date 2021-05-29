@@ -21,19 +21,16 @@ This post summaries the commonly used commands.
 ### hardware query
 - `lspci | grep -i vga` query graphic cards info.
   Output maybe like this:
-        
+  
   ```
   00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
   ```
-        
-  In addition, lspci command, for example: `lspci -vs 00:02.0` can tell which driver module is in use now.   
-- `sudo fdisk -l`, list storage devices of current system. `sudo fdisk -l /dev/sda` the command can display some detailed 
-   info about the device /dev/sda, such as file system type. NOTE: **It requires root**. Use `diskutil list` on Mac OS.
+  
+  In addition, `lspci` command, for example: `lspci -vs 00:02.0` can tell which driver module is in use now.   
+- `sudo fdisk -l`, list storage devices of current system. `sudo fdisk -l /dev/sda` the command can display some detailed info about the device /dev/sda, such as file system type. NOTE: **It requires root**. Use `diskutil list` on Mac OS.
 - `df -lf`, query current available volume on mounted devices.
 - `lshw -class disk`, lists all available disks in system. `lshw -short -C disk` run this command with root, it can give a summary.
-- `sudo lshw -class network`, displays detailed info about network adapter such as discription, product name, vendor, configuration.
-   By these info, we can check device driver version in use. `modinfo driver-name` command can do that.
-   It is helpful to solve issue such as wifi does not work.
+- `sudo lshw -class network`, displays detailed info about network adapter such as discription, product name, vendor, configuration. By these info, we can check device driver version in use. `modinfo driver-name` command can do that. It is helpful to solve issue such as wifi does not work.
 - After installed a new graphics card, It may not work. So we need to restart linux in text mode to install graphic card driver.
   In grub edit mode, we can modify linux kernel command line temporarily to let linux start in text mode.
     + `cat /proc/cmdline` Retrieve kernel command line info of current booting from proc file system.
@@ -46,8 +43,9 @@ This post summaries the commonly used commands.
     + `rpm -qa`, list all installed package in centos system.
     + `rpm -q --list package-name`, list all files related to package.
     + `rpm -q --state package-name`, query package state. 
-### others
-- `buildcommand 2>&1 | tee build.log` This command can save the build log to a file and at the same time output it to the screen. A very useful command to analyse build errors.
+### build log
+- `buildcommand 2>&1 | tee build.log`  A very useful command to analyze build errors.
+- This command can save the build log to a file and at the same time output it to the screen. 
 ### tr 
 It operates on character sets and can be used to translate and delete texts. It can also be used to squeezing repeated characters.
 example usage： 
@@ -64,8 +62,11 @@ It builds and executes command lines from standard input. It accepts input from 
 
 example usage： search keyword like a for loop.
 
-- `cat temp1.txt | xargs -d'\n' grep -o -m 1 "run_tests_grid_composition.py.*[0-9]*" > temp.txt`, temp1.txt is a file list containing a list of
-   file name. xargs builds grep command and executes it each time after receiving input.
+- `cat temp1.txt | xargs -d'\n' grep -o -m 1 "run_tests_grid_composition.py.*[0-9]*" > temp.txt`, 
+
+   - temp1.txt is a file contains a list of file names
+
+   - Command `xargs` builds grep command and executes it for each line of file **temp1.txt** 
 
 reference:
 
@@ -73,41 +74,52 @@ reference:
 
 ## Search and Replace
 - `locate -b '\qmake'` find qmake location using exact name match. An equal command is `locate -r /qmake$` here *r* does not mean recursive.
+
+- `which nvcc` tell the whole path of nvcc.
+
+    ### find commonly used options
+
 - `find /home/ding/ -type f`, Find regular files in directory /home/ding. `-type` option specifies file type.  *f* equals to regular file, *d* equals to directory.  
+
 - `find . -type f -size +1000M` , find all files with size bigger than 1000M.
+
 - `find . -type d -empty -delete` , find all empty directories and delete them all.
+
 - `find . -type f -not -name "*.dll"` , find files not matching the patten. [link](http://alvinalexander.com/unix/edu/examples/find.shtml)
+
 - `find ./misc/ -exec file '{}' \;`. Execute `file` command to every file in directory `./misc`. [link](https://shapeshed.com/unix-find/)
     + `-exec` option specifies the command to execute.
     + *;* indicates the ending of command. 
     + `\` is to escape in case of shell interpreting it as another meaning.
     + `{}` stands for the current processing file.   
+    
 - *find* command works with regular expression. `find . -regex '.*\.\(c\|cpp\|h\)$' -print`, prints whole file name matching the regular expression.
   The command lists all c source files, including cpp files and h files in current directories and its subdirectories.   
     + `-print` append each matching item with new line, it is a default behavior.
     + `-print0` with null character.
+  
 - *find* has many options, such as *-regex*, *-name*, *-iname*. They are used to tell *find* how to match the *pattern* specified in command line.
     + *-name* only matches file name excluding the pre-directories.  
     + *-iname* the same with *-name*, except that the match is case insensitive.    
     + *-regex* matches whole file path, including pre directories and the regular expression is different with *-name*.
-+ grep commonly used options.
-    - default match mode is *NOT* exactly match whole word. `'\<question\>'` tells *grep* to matche whole world. 
-    - `grep -i 'question' -r ./`, it Searches all files recursively in current directory to match lines containing key word *question*.
-    - `grep -i question -rl ./`, it lists all files in current directory matching key word *question* instead of displaying matched lines.
-    - `grep -v pattern filename`, only output "pattern not matched" items.
-    - `grep -I pattern -r .`, ignore binary files.
-    - `grep -A 3 -B 4 -i 'test' -r .`, *-A 3* print 3 lines before matched lines. 
-    - `grep -Hn -i "test" -r .`, *-Hn*, print matched lines with its file name and line number.
-    - `grep -iw "test" -r .`, match the pattern "test" as a whole word.
-    - `grep -e "-test" -r .`, *-e* , specify a regex, multiple *-e* is *or* in logic.
-    - `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;`, search "menuMode" in all mel files. "{}" represents the current processing file.
-    - `grep "patten" file --color=auto`, print matched pattern with highlight.
-    - `grep -n -i "pattern" -r filename | cut -f1 -d:`, print matched line numbers.
-    - `grep -n -P '\t'  xxx.cpp`, list all lines contains a tab, '\t' is NOT treated as a tab in grep [link](https://askubuntu.com/questions/53071/how-to-grep-for-tabs-without-using-literal-tabs-and-why-does-t-not-work).
+
+### grep commonly used options
+
+- default match mode is *NOT*  **exactly match whole word** . `'\<question\>'` tells *grep* to match whole world. 
+- `grep -i 'question' -r ./`, it searches all files recursively in current directory to match lines containing key word *question*.
+- `grep -i question -rl ./`, it lists all files in current directory matching key word *question* instead of displaying matched lines.
+- `grep -v pattern filename`, only output "pattern not matched" items.
+- `grep -I pattern -r .` ignore binary files.
+- `grep -A 3 -B 4 -i 'test' -r .`, *-A 3* print 3 lines before matched lines. 
+- `grep -Hn -i "test" -r .`, *-Hn*, print matched lines with its file name and line number.
+- `grep -iw "test" -r .`, match the pattern "test" as a whole word.
+- `grep -e "-test" -r .`, *-e* , specify a regex, multiple *-e* is *or* in logic.
+- `find ../src/ -type f -iname "*.mel" -exec grep -n "menuMode" '{}' \;`, search "menuMode" in all mel files. "{}" represents the current processing file.
+- `grep "patten" file --color=auto`, print matched pattern with highlight.
+- `grep -n -i "pattern" -r filename | cut -f1 -d:`, print matched line numbers.
+- `grep -n -P '\t'  xxx.cpp`, list all lines contains a tab, '\t' is NOT treated as a tab in grep [link](https://askubuntu.com/questions/53071/how-to-grep-for-tabs-without-using-literal-tabs-and-why-does-t-not-work).
 
 ## vim tips for quick reference
-----------
-
 - `vim --version | grep clipboard`, It can tell whether vim is able to transfer data with clipboard.
 - `sudo apt-get install vim-gnome`, in Ubuntu it can enhance vim with the abiltiy.
 - `:help statusline` and `:help laststatus` give detailed info for reference.*it can show full file path when editing a file* .
@@ -190,8 +202,6 @@ Metacharacters coming with quantifiers give magic power in regular expression ma
 - [vimregex](http://vimregex.com/). It is very usefull.
 
 ## Grub2
-----------
-
 - Edit configure file /etc/default/grub to set kernel command line and other settings.
 - On Ubuntu `update-grub` to generate new settings for grub.
 - On CentOS `grub2-mkconfig` to generate new settings.
