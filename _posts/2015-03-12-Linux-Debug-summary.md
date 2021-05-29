@@ -7,8 +7,6 @@ date: 2016-12-7
 This post summarizes debugging skills with examples on Linux Platform.
 
 ## Core dump
----
-
 - Check whether core dump is enabled. Using command to check default core file size.
   `ulimit -c` command is to query the default size of dumped core size. 0 means core
   dump is not enabled yet. You must enble core dump functionaliy first.
@@ -33,50 +31,38 @@ This post summarizes debugging skills with examples on Linux Platform.
 - [Debug a runnig process](http://dirac.org/linux/gdb/06-Debugging_A_Running_Process.php)
 
 ## x64 Assembly Disassemble
----
+   When program crashes, Windows will pop a dialog informing user of error. Mostly it is a memory access violation. We need assembly language knowledge to analyze disassembly code. x64 assembly language is different from that of 32-bit version.  Register files and function calling conventions are key to understand disassemble code. 
 
-   When program crashes, Windows will pop a dialog informing user of error,
-   mostly memory access violation. We need assembly language knowledge to 
-   analyse disassembly code. x64 assembly language is different from that of 
-   32-bit version. Register files and function calling conventions are key 
-   to understand disassemble code. C++ non-static member function calling 
-   convention: Implicit first parameter is *this* pointer transferred by 
-   rcx register. Implicit second parameter is used for returning object 
-   which is not fit rax register. Usually return value is transferred by 
-   *rax* register. But for user-defined complex type register *rax* is unable 
-   to transfer. It requires an implicit parameter to transfer. By default, 
-   second parameter is transferred by register *rdx*. In addition, the max 
-   number of parameters which can be transferred by register is 4.
+C++ non-static member function calling convention:
 
-   Because the first four parameters are transferred by register, in function 
-   design we should keep this point in mind. Register access is much faster than 
+- Implicit first parameter is *this* pointer transferred by rcx register. 
+- Implicit second parameter is used for returning object which is not fit rax register. 
+- Usually return value is transferred by *rax* register. But for user-defined complex type, register *rax* is unable to transfer. It requires an implicit parameter to transfer. By default, second parameter is transferred by register *rdx*. 
+- In addition, the max number of parameters which can be transferred by register is 4.
+
+   Because the first four parameters are transferred by register, in function design we should keep this point in mind. Register access is much faster than 
    memory access.
 
 ### reference
-- [Calling Conventions for different platform C++ compilers](http://www.agner.org/optimize/calling_conventions.pdf) It is a very
-   comprehensive material for reference. It should be referenced at first time when having problems. 
-- [MicroSoft document about disassembly code](https://msdn.microsoft.com/en-us/library/windows/hardware/ff538083(v=vs.85).aspx) 
-   has lots of C++ disassembly code examples. Learning such examples does much help to crash issues.
+- [Calling Conventions for different platform C++ compilers](http://www.agner.org/optimize/calling_conventions.pdf) It is a very comprehensive material for reference. It should be referenced at first time when having problems. 
+- [MicroSoft document about disassembly code](https://msdn.microsoft.com/en-us/library/windows/hardware/ff538083(v=vs.85).aspx)  has lots of C++ disassembly code examples. Learning such examples does much help to crash issues.
 - [C++ this pointer storage](http://stackoverflow.com/questions/16585562/where-is-the-this-pointer-stored-in-computer-memory)     
 - [Introduce to x64 assemble under Linux Platform](https://cs.nyu.edu/courses/fall11/CSCI-GA.2130-001/x64-intro.pdf) The paper mainly focus on C Compiler. 
 - [LEA instruction explaination](https://courses.engr.illinois.edu/ece390/archive/spr2002/books/labmanual/inst-ref-lea.html) *lea* instruction only calculate effective memory address, no memory access happens.
 - [The link](http://stackoverflow.com/questions/1699748/what-is-the-difference-between-mov-and-lea) gives an comparison between *lea* instruction and *mov* instruction.
 
 ## Dynamic Shared Library
----
-
-When loading into memory, program using dynamic shared libraries needs to know dynamic linker location. OS will load dynamic linker into memory, then transfer the control to 
-dynamic linker. It will do 3 things:
+When loading into memory, program using dynamic shared libraries needs to know dynamic linker location. OS will load dynamic linker into memory, then transfer the control to dynamic linker. It will do 3 things:
 	1. determine and load all dependencies,
 	2. relocation all addresses in program and dependencies,
 	3. initialize program and all dependencies only once.
-In a complex software, it may need to apply toplogical sort to determine correct odependencies order. 
+	In a complex software, it may need to apply topological sort to determine correct dependencies order. 
 
-Symbol relocation is  very expensive. Relocated results are stored in data segment.Hash algorithm is applied in symbol search.
-Every shared lib organise its symbols in hash bucket. For every symbol, dynamic linker will loop each dynamic shared lib in current lookup scope.
-So the match alogrithm is to use resolving symbol's hash value to match hash chain in each lib. Once matched, the algorithm ends.
+Symbol relocation is  very expensive. Relocated results are stored in data segment. Hash algorithm is applied in symbol search.
+Every shared lib organize its symbols in hash bucket. For every symbol, dynamic linker will loop each dynamic shared lib in current lookup scope.
+So the match algorithm is to use resolving symbol's hash value to match hash chain in each lib. Once matched, the algorithm ends.
 So multiple definition for a same symbol is ok, the first matched will be used.
-The average hash chain length determines effectiveness of dynamic liner's hash algorithms. It is for both for successfull match and unsuccessful match. 
+The average hash chain length determines effectiveness of dynamic liner's hash algorithms. It is for both for successful match and unsuccessful match. 
 
 Symbol relocation may be delayed to some later time when a symbol is actually used. This is called *lazy relocation process*. linker option *-z now* can cancell this feature. 
 
@@ -93,20 +79,18 @@ Symbol relocation may be delayed to some later time when a symbol is actually us
 - [This paper](https://cseweb.ucsd.edu/~gbournou/CSE131/the_inside_story_on_shared_libraries_and_dynamic_loading.pdf) introduces debug skils about load dependencies errors. Some of them are very interesting.
 
 ## GDB Skills
----
-
-GDB is an important tool to analyse runtime errors. Compared with MSVC debuger, I found gdb is not very friendly to use.
+GDB is an important tool to analyze runtime errors. Compared with MSVC debugger, I found **gdb** is not very friendly to use.
 
 ### features wanted
 - browser source code quickly.
 - set breakpoints quickly.
 - display complex object clearly.
-- eximamine memory friendly.
+- examine memory friendly.
 
 ### tips
 - list current source files and its full path: `info source`
 - list current shared libs(xxx.so) current process loaded: `info files`
-- show or set debuged program's arguments. `show args` and `set args xxxxx`
+- show or set debugged program's arguments. `show args` and `set args xxxxx`
 - disassemble binary code. `disassemble/m $pc-20, $pc+20`
 - check current instruction. `print $pc`
 - set break points. `break filename:lineno`
@@ -128,7 +112,7 @@ GDB is an important tool to analyse runtime errors. Compared with MSVC debuger, 
 + run shell command under gdb context. `shell ls -l`
 + search process name and id. `shell pgrep -l pattern`
 + stop current current process and put it into background. `Ctrl + z`
-+ watch memory localtion `watch/rwatch -l expression`
++ watch memory location `watch/rwatch -l expression`
 - running program, `next, step` and `nexti, stepi`
 
 ### reference
