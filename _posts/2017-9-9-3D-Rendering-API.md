@@ -8,12 +8,11 @@ This post lists key points of graphic Library.
 
 
 ## D3D11
----
 ### Input Layout
-+ How to understand inputlayout object in 3D11 framework and GPU Hardware how to use them ?
-	- *D3D11_INPUT_ELEMENT_DESC*, describes each element's property, including data format, wich slot to bind, offset in each stride.
-	- *IASetVertexBuffers()*, binds vertex buffer to input assembler stage. including the beginning slot, number of buffers, array of buffer address, stride and offset.
-	- with input layout object decribing each element of each slot and each buffer's stride, GPU hardware should know how to read vertex data correctly.
++ How to understand input layout object in 3D11 framework and  how does GPU Hardware use them ?
+	- *D3D11_INPUT_ELEMENT_DESC*, describes each element's property, including data format, binding slot, offset, and stride.
+	- `IASetVertexBuffers()`, binds vertex buffer to input assembler stage. including the beginning slot, number of buffers, array of buffer address, stride and offset.
+	- with input layout object describing each element of each slot and each buffer's stride, GPU hardware should know how to read vertex data correctly.
 
 ### GPU resources and views
 - vertex buffer, index buffer, constant buffer, stream output buffer, these four kinds buffer can be bind to pipe directly.
@@ -34,19 +33,17 @@ Geomery Shader is different from Vertex shader.
 
 In DX11 a geometry shader example is as following:
 
-{% highlight c++ %}
-
-//--------------------------------------------------------------------------------------
-// Geometry Shader
-//--------------------------------------------------------------------------------------
-[maxvertexcount(12)]
-void GS( triangle GSPS_INPUT input[3], inout TriangleStream<GSPS_INPUT> TriStream )
-
-{% endhighlight %}
+```
+  //--------------------------------------------------------------------------------------
+  // Geometry Shader
+  //--------------------------------------------------------------------------------------
+  [maxvertexcount(12)]
+  void GS( triangle GSPS_INPUT input[3], inout TriangleStream<GSPS_INPUT> TriStream )
+```
 
 - key word *maxvertexcount*, limit the output vertex number.
 - key word *triangle*, specify the operated primitive type.*GSPS_INPUT*, specify the vertex format, maybe user-defined structure.
-  identifier *input*, specify that 3 vertex will be eat in.
+- identifier *input*, specify that 3 vertex will be eat in.
 - key word *TriangleStream*, specify the output will be *triangle strip*.
 - After assemble an triangle, *TriStream.RestartStrip()* function call will cut *triangle strip* into *triangle list*.
 
@@ -88,12 +85,12 @@ code on [github](https://github.com/ychding11/directx-sdk-samples/blob/master/Si
 4. In D3D11, *D3D11_FILL_MODE* only support two modes: *D3D11_FILL_WIREFRAME* and *D3D11_FILL_SOLID*. [details](https://msdn.microsoft.com/en-us/library/windows/desktop/ff476131(v=vs.85).aspx)
 
 ### what happens after Draw() is called?
-"Each draw method renders a single topology type.During rendering, incomplete primitives are silently discarded." This description is from microsoft msdn.
-What hanppens to D3D11 state and GPU Hardware State? It is not very clear.
+"Each draw method renders a single topology type. During rendering, incomplete primitives are silently discarded." 
+What happens to D3D11 state and GPU Hardware State? It is not very clear.
 
 A typical render function does following things:
-1. update word, view, projection infomation from user input.
-2. Update perframe related infomation in constant buffer.
+1. update word, view, projection information from user input.
+2. Update per-frame information in constant buffer.
 3. clear render target and depth stencil.
 4. bind constant buffers of all stages.
 5. set shaders of each stage.
