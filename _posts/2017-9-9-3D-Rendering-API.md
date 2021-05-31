@@ -58,20 +58,17 @@ There is a DX11 sample to implement exploding model by geometry shader only.
 
 
 ### tessellation
-GPU Hardware includes three stages: hull shader stage, fixed-function tessellator and domain shader stage.
-Hull Shader process control patch. HW Tessellator generates lots of samples in domain field by a predefined rule.
-Domain Shader converts domain samples into vertex by control patch processed by Hull Shader.
+GPU Hardware includes three stages: **hull shader stage**, **fixed-function tessellator** and **domain shader stage**. Hull Shader process control patch. HW Tessellator generates lots of samples in domain field by a predefined rule. Domain Shader converts domain samples into vertex by control patch processed by Hull Shader.
 
-- Hull Shader accecpts control patch from vertex shader. It can be divded into two phases,
-	1. Hull Shader processes once per output control point and its attribute indepently, controlled by the *outputcontrolpoints* attribute of Hull Shader.
-	2. Hull Shader processes once per patch, controlled by the "patchconstantfunc* attribute of Hull Shader. 
-- Output control points pass on to domain shader directly. "pathconstantfunc" output tessellator factors.  
-- Hull Shader would be regarded as a "data setup stage" of tessellation, accepting standard control patch and converting its format accoding to application configuration.
-- Tessellator accepts tessellator factors and partition mode domain then generates uvw coordinates and output primitives.
-- Tessellator does not care about control points at all.
+- Hull Shader accepts control patch from vertex shader. It can be divided into two phases,
+	1. Hull Shader processes once per **output control point** and its attribute independently, controlled by the **outputcontrolpoints** attribute of Hull Shader.
+	2. Hull Shader processes once per **patch**, controlled by the**patchconstantfunc** attribute of Hull Shader. 
+- Output control points pass on to domain shader directly. **pathconstantfunc** output tessellator factors.  
+- Hull Shader would be regarded as a "data setup stage" of tessellation, accepting standard control patch and converting its format according to application configuration by APIs.
+- Tessellator accepts tessellator factors and partition mode domain then generates uvw coordinates and output primitives. Tessellator does not care about control points at all.
 - Domain Shader accepts Control patch, uv coordinates and generates final vertex.
 
-Bezeir surface is good example to demostrate this ideas, because it is very simple and easy to understand.
+Bezeir surface is good example to demonstrate this ideas, because it is very simple and easy to understand.
 code on [github](https://github.com/ychding11/directx-sdk-samples/blob/master/SimpleBezier11/SimpleBezier11.hlsl)
 
 - sematic value *SV_InsideTessFactor*, defines tessellation mount within a patch surface. [details](https://msdn.microsoft.com/zh-cn/library/windows/desktop/ff471572(v=vs.85).aspx)
