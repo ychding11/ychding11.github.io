@@ -15,21 +15,24 @@ This post lists key points of graphic Library.
 	- with input layout object describing each element of each slot and each buffer's stride, GPU hardware should know how to read vertex data correctly.
 
 ### GPU resources and views
-- vertex buffer, index buffer, constant buffer, stream output buffer, these four kinds buffer can be bind to pipe directly.
-- Other buffers need a resource view in order to bind to pipeline.
-	- render target view, pipeline output buffer.
-	- depth-stencil view, pipeline output buffer.
-	- shader resource view, bind to shader stage, read only.
-	- unordered access view, only bind to pixel shader, read and write by lots of thread.
+- vertex buffer, index buffer, constant buffer, stream output buffer, these four kinds of buffer can be bind to pipe directly.
+- Other buffers require a resource view in order to bind to pipe.
+	- render target view(RTV), pipeline output buffer.
+	- depth-stencil view(DSV), pipeline output buffer.
+	- shader resource view(SRV), bind to shader stage, read only.
+	- unordered access view(UAV), only bind to pixel shader, read and write by lots of thread.
 - *ID3D11DeviceChild::SetPrivateData()* with GUID "WKPDID_D3DDebugObjectName" defined in d3dcommon.h can assign a debug name to GPU resource.
-- How to understand GPU Buffer like *ID3D11Buffer* ? What infomation does the object hold ? A pointer to GPU buffer? CPu can access GPU's memory 
-  by mapping ? What does mapping mean ? Add page table entry of CPU?
+- How to understand GPU Buffer like *ID3D11Buffer* ? 
+  - What information does the object hold ? A pointer to GPU buffer? 
+  - CPU can access GPU's memory by mapping ? 
+  - What does mapping mean ? 
+  - Add page table entry of CPU ?
 
 ### Geometry Shader & Subdivision
-Geomery Shader is different from Vertex shader.
+Geometry Shader is different from Vertex shader.
 - It is a per-primitive level processing. For example, point, line and triangle.
 - It eats in a primitive and output zero or multiple primitive.
-- New algorithms based on primitive can be applied. For example it can subdivison a surface.
+- New algorithms based on primitive can be applied. For example it can subdivide a surface.
 
 In DX11 a geometry shader example is as following:
 
@@ -41,15 +44,15 @@ In DX11 a geometry shader example is as following:
   void GS( triangle GSPS_INPUT input[3], inout TriangleStream<GSPS_INPUT> TriStream )
 ```
 
-- key word *maxvertexcount*, limit the output vertex number.
-- key word *triangle*, specify the operated primitive type.*GSPS_INPUT*, specify the vertex format, maybe user-defined structure.
+- key word **maxvertexcount**, limit the output vertex number.
+- key word **triangle**, specify the operated primitive type.*GSPS_INPUT*, specify the vertex format, maybe user-defined structure.
 - identifier *input*, specify that 3 vertex will be eat in.
-- key word *TriangleStream*, specify the output will be *triangle strip*.
+- key word **TriangleStream**, specify the output will be *triangle strip*.
 - After assemble an triangle, *TriStream.RestartStrip()* function call will cut *triangle strip* into *triangle list*.
 
-There is a DX11 sample to implement exploding model by gemomery shader only.
+There is a DX11 sample to implement exploding model by geometry shader only.
 1. calculate surface normal of the triangle.
-2. calculate the cector position of the triangle.
+2. calculate the center position of the triangle.
 3. generate three triangles with center point with position extruding towards surface normal.
 4. complete geometry shader on [github](https://github.com/ychding11/directx-sdk-samples/blob/master/Direct3D11TutorialsFX11/Tutorial13/Tutorial13.fx).
 
@@ -99,17 +102,17 @@ A typical render function does following things:
 8. Draw() call
 
 ### Compile Shader
-*D3DCompileFromFile()* compiles hlsl code into byte code for specified target, for example, hs_5_0.
-Its second parameter *in_opt  const D3D_SHADER_MACRO pDefines*, can insert user-defined macro into compiling.
-- What happens from byte code to specified shader program?
+*D3DCompileFromFile()* compiles hlsl code into byte code for specified target, for example, hs_5_0. The second parameter **in_opt  const D3D_SHADER_MACRO pDefines** can add user-defined macro into compiler.
+
+- What happens from byte code to specified shader program ?
 
 ### environment map
-It is a GPU programming hack to implement *specular refelctive surface* by a cube map.
-- Generate a cube map to represent the eviroment irradiance. It depends on camera view, so it needs to be dynamically generated.
+It is a GPU programming hack to implement **specular reflective surface** by a cube map.
+- Generate a cube map to represent the environment irradiance. It depends on camera view, so it needs to be dynamically generated.
 - It is in Pixel Shader to sample cube map to get the reflected irradiance. The sample vector is key point.
-- In order to reduce compute, sample vector can be calculated in Vertex Shader in view space. Then interpolate in screnn space.
+- In order to reduce compute, sample vector can be calculated in Vertex Shader in view space. Then interpolate in screen space.
 
-A goode example is preferred.
+A good example is preferred.
 
 ### shadow map
 It is to generate shadow by two pass render.
