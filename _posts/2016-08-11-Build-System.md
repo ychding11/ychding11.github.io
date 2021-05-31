@@ -7,6 +7,7 @@ This post summarize widely used building tools
 
 ## CMake 
 - `cmake -DCMAKE_BUILD_TYPE=Debug/Release  path-to-CMakeList.txt`
+  - `cmake .. -DCMAKE_BUILD_TYPE=DEBUG` is an example
 - `cmake -h` checks available generator. `cmake -G generator_name` specifies the generator name.
 - - judge a varialbe in CMake. `if(NOT DEFINED VAR_NAME) and if(NOT DEFINED ${VAR_NAME})` . The first one is for varialbe, the second is for contents of the variable.
 - [cmake useful variables](https://cmake.org/Wiki/CMake_Useful_Variables). predefined cmake varialbles.
