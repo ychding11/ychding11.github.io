@@ -325,10 +325,21 @@ On windows platform, [autohotky](https://autohotkey.com/) is a good choice and
 ## miscs
 
 - `control.exe /name Microsoft.ProgramsAndFeatures` Open program windows in command mode.
+
 - Input `chrome://version` into chrome browser to check chrome info.
+
 - [vimvs faq](https://github.com/jaredpar/VsVim/wiki/faq)
-- `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -vcodec copy -acodec copy output-video-name`. This command is used to
-  split a piece of video from original video. *-ss xxx* specifies starting time.
-  *-t xxx* specifies the length of the video you want to split. *copy* means the same codec with original file.
+
+### ffmpeg
+
+- `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -vcodec copy -acodec copy output-video-name`. This command is used to split a piece of video from original video.
+  - **-ss xxx** specifies starting time.
+  - **-t xxx** specifies the length of the video you want to split. *copy* means the same codec with original file.
+
 - `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -acodec copy -s wxh output-video-name`.  add resize output video size.
+
 - `ffmpeg -ss xx:xx:xx -t xx:xx:xx -i input-video-name -f gif  output-file-name`.
+  - extract video to gif image
+
+- `ffmpeg.exe -r 5 -start_number 0 -i %04d.png -c:v hevc_nvenc -pix_fmt yuv420p out.mp4`
+  - encode image sequence into video
