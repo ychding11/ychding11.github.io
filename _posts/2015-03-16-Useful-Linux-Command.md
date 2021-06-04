@@ -129,7 +129,7 @@ export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w \[\033[00;32m\]\$(git_bra
 
 - `find . -type f -not -name "*.dll"` , find files not matching the patten. [link](http://alvinalexander.com/unix/edu/examples/find.shtml)
 
-- `find ./misc/ -exec file '{}' \;`. Execute `file` command to every file in directory `./misc`. [link](https://shapeshed.com/unix-find/)
+- `find ./misc/ -exec file '{}' \;`. Execute `file` command to every file in directory `./misc`.   [link](https://shapeshed.com/unix-find/)
     + `-exec` option specifies the command to execute.
     + *;* indicates the ending of command. 
     + `\` is to escape in case of shell interpreting it as another meaning.
@@ -283,8 +283,10 @@ This shell is a improved c-shell in unix. It is not so friendly to use.
 ### useful commands
 - `echo $?`, query shell exit status. *man bash* and search *special parameters* for more details about Linux bash special parameters.
 - `echo $0`, display shell name used by terminal.
-- `echo $PATH | awk -F: '{for(i=1; i <= NF; ++i) print "Path: ",$i;}' | grep "bin"`, display PATH content line by line. NF is field number.
-   -F: specify ':' as delimeter.
+- `echo $PATH | awk -F: '{for(i=1; i <= NF; ++i) print "Path: ",$i;}' | grep "bin"`, 
+   - display environment variable PATH content line by line. 
+   - NF is field number. 
+   - -F: specify ':' as delimeter.
 - `awk 'BEGIN{IGNORECASE=1}NR>=1000&&NR<=2000&&(/pattern1/||/pattern2/){print NR,$0}' file`
 - `rm -rf `ls amod*.* -d``, remove matched subdirectories in current directory.
 
@@ -319,8 +321,7 @@ This shell is a improved c-shell in unix. It is not so friendly to use.
 
 ## simulate keyboard and mouse event
 
-On windows platform, [autohotky](https://autohotkey.com/) is a good choice and
-[xdotool](http://tuxradar.com/content/xdotool-script-your-mouse) for Linux platform.
+On windows platform, [autohotky](https://autohotkey.com/) is a good choice and [xdotool](http://tuxradar.com/content/xdotool-script-your-mouse) for Linux platform.
 
 ## miscs
 
@@ -332,14 +333,19 @@ On windows platform, [autohotky](https://autohotkey.com/) is a good choice and
 
 ### ffmpeg
 
-- `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -vcodec copy -acodec copy output-video-name`. This command is used to split a piece of video from original video.
+- `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -vcodec copy -acodec copy output-video-name`. 
+
+  - This command is used to extract a piece of video from original video.
+
   - **-ss xxx** specifies starting time.
   - **-t xxx** specifies the length of the video you want to split. *copy* means the same codec with original file.
 
-- `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -acodec copy -s wxh output-video-name`.  add resize output video size.
+- `ffmpeg -ss 03:15:00 -i input-video-name -t 00:48:00 -acodec copy -s wxh output-video-name` 
+
+  -  resize & output video
 
 - `ffmpeg -ss xx:xx:xx -t xx:xx:xx -i input-video-name -f gif  output-file-name`.
-  - extract video to gif image
+  - extract video & generate gif image
 
 - `ffmpeg.exe -r 5 -start_number 0 -i %04d.png -c:v hevc_nvenc -pix_fmt yuv420p out.mp4`
   - encode image sequence into video
