@@ -77,16 +77,14 @@ code on [github](https://github.com/ychding11/directx-sdk-samples/blob/master/Si
 - *SV_InsideTessFactor* and *SV_TessFactor* are required input of Domain shader, Why? 
 
 ### rasterizer
-1. How many HW rasterizers in GPU? It handles a primitive one time.
-2. Before rasterize begin, the primitive should have transformed from world space into clip space,
-   divide by w and mapped into render target by viewport. Rasterizer determines primitive covered
-   square in render target. How about a "pixel square" shared by multiple primitives? What if MSAA applies?
+1. How many HW rasterizers in GPU ? It handles a primitive one time.
+2. Before rasterize begin, the primitive should have transformed from world space into clip space, divide by w and mapped into render target by viewport. Rasterizer determines primitive covered square in render target. How about a "pixel square" shared by multiple primitives? What if MSAA applies?
 3. HW rasterizer just handles 3 kinds primitives: point, line and triangle. What's the rules for these primitives? 
 4. In D3D11, *D3D11_FILL_MODE* only support two modes: *D3D11_FILL_WIREFRAME* and *D3D11_FILL_SOLID*. [details](https://msdn.microsoft.com/en-us/library/windows/desktop/ff476131(v=vs.85).aspx)
 
-### what happens after Draw() is called?
+### what  does it require to draw a mesh ?
 "Each draw method renders a single topology type. During rendering, incomplete primitives are silently discarded." 
-What happens to D3D11 state and GPU Hardware State? It is not very clear.
+What happens to Render Pipe state ? 
 
 A typical render function does following things:
 1. update word, view, projection information from user input.
@@ -102,21 +100,23 @@ A typical render function does following things:
 *D3DCompileFromFile()* compiles hlsl code into byte code for specified target, for example, hs_5_0. The second parameter **in_opt  const D3D_SHADER_MACRO pDefines** can add user-defined macro into compiler.
 
 - What happens from byte code to specified shader program ?
+- The compiling is done by API, is it possible to compile in multi-thread ?
 
 ### environment map
-It is a GPU programming hack to implement **specular reflective surface** by a cube map.
-- Generate a cube map to represent the environment irradiance. It depends on camera view, so it needs to be dynamically generated.
-- It is in Pixel Shader to sample cube map to get the reflected irradiance. The sample vector is key point.
-- In order to reduce compute, sample vector can be calculated in Vertex Shader in view space. Then interpolate in screen space.
+It is a GPU programming hack to implement **specular reflective surface** by texture sampling.
+- Generate a cube map to represent the environment irradiance. Specular effect depends on view. It is either only for static surroundings or dynamically generating texture .
+- It is Pixel Shader to sample cube map normally. The sampling vector is reflected by view vector.
+- In order to reduce computing, sampling vector can be calculated in Vertex Shader in view space. Then interpolate in screen space.
 
 A good example is preferred.
 
 ### shadow map
 It is to generate shadow by two pass render.
-1. render a depth map in light camera, that is so called shadow map.
-2. In Pixel Shader,when determin whether a pixel is in shadow.
-3. convert pixel(x, y) into world space, then convert into light camera clip space.
-4. compare newly generated z with stored in shadow map to determin whether it is in shadow.
+1. Render a depth map in light camera.  Z value in which space is better ?
+2. Pixel Shader determine whether a pixel is in shadow by sampling the depth map.
+   - convert pixel(x, y) into world space, then convert into light camera space.
+   - compare newly generated z with stored in shadow map to determine whether it is in shadow.
+   - caution for z flighting because of precision issue.
 
 ### reference
 - [MSDN Subscription Download](https://msdn.microsoft.com/en-us/subscriptions/downloads/)
