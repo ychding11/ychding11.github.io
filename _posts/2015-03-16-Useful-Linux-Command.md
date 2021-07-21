@@ -192,10 +192,10 @@ export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w \[\033[00;32m\]\$(git_bra
 
   - `d%` deleting in the same way. 
 
-  - vim object-select can do the similar block selection in virsual mode. `:help object-select` and `:help text-objects`for details.
+  - vim object-select can do the similar block selection in visual mode. `:help object-select` and `:help text-objects`for details.
 
 - 3 types of visual modes:
-```
+```bash
     v --> visual mode for multi-character selection and edit    
     V --> visual line mode for multi-line selection and edit    
     Ctrl + v --> visual mode for block selection and edit, it is more flexible    
@@ -204,8 +204,8 @@ export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w \[\033[00;32m\]\$(git_bra
 - `Shift+V`, select current line and enter visual mode.
 - `/\%Vpattern`, search pattern in visual area.
 - `:!commandname`, run shell command.
-- `:r !commandname`, run shell command and insert the commant output in next line.
-- `:%s!\t!    !g`, replace tab with 4 spaces. *!* is delimeter. [link](https://irian.to/blogs/vim-global-command/)
+- `:r !commandname`, run shell command and insert the command output in next line.
+- `:%s!\t!    !g`, replace tab with 4 spaces. *!* is delimiter, [reference link](https://irian.to/blogs/vim-global-command/)
 
 ### character range
 
@@ -259,7 +259,7 @@ Metacharacters coming with quantifiers give magic power in regular expression ma
 ### reference
 - [vim regular expression](http://www.cnblogs.com/PegasusWang/p/3153300.html)
 - [vim doc](http://vimdoc.sourceforge.net/htmldoc/pattern.html)
-- [vimregex](http://vimregex.com/). It is very usefull.
+- [vimregex](http://vimregex.com/). It is very useful.
 
 ## Grub2
 - Edit configure file /etc/default/grub to set kernel command line and other settings.
@@ -269,7 +269,7 @@ Metacharacters coming with quantifiers give magic power in regular expression ma
 
 ## Shell
 
-### shell in mac os
+### shell in Mac  OS
 - `Ctrl + a` Move cursor to the start of line.
 - `Ctrl + e` Move cursor to the end of line.
 - `echo "set completion-ignore-case On" >> ~/.inputrc` case insensitive auto-complete
