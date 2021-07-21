@@ -19,15 +19,14 @@ This post summaries the commonly used commands.
 - `ls -l | grep ^d` list directories in current directory
 
 ### hardware query
-- `lspci | grep -i vga` query graphic cards info.
-  Output maybe like this:
-  
-  ```
-  00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
-  ```
-  
-  In addition, `lspci` command, for example: `lspci -vs 00:02.0` can tell which driver module is in use now.   
-- `sudo fdisk -l`, list storage devices of current system. `sudo fdisk -l /dev/sda` the command can display some detailed info about the device /dev/sda, such as file system type. NOTE: **It requires root**. Use `diskutil list` on Mac OS.
+- `lspci | grep -i vga` query graphic cards info.Output maybe like this:
+    > 00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
+- In addition, `lspci` command, for example: `lspci -vs 00:02.0` can tell which driver module is in use now.   
+
+- `sudo fdisk -l`, list storage devices of current system.
+- `sudo fdisk -l /dev/sda` the command display detailed info about the device /dev/sda, such as file system type. NOTE: **It requires root**.
+  - Use `diskutil list` on Mac OS.
+
 - `df -lf`, query current available volume on mounted devices.
 - `lshw -class disk`, lists all available disks in system. `lshw -short -C disk` run this command with root, it can give a summary.
 - `sudo lshw -class network`, displays detailed info about network adapter such as discription, product name, vendor, configuration. By these info, we can check device driver version in use. `modinfo driver-name` command can do that. It is helpful to solve issue such as wifi does not work.
@@ -161,7 +160,9 @@ export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w \[\033[00;32m\]\$(git_bra
 - `grep -n -i "pattern" -r filename | cut -f1 -d:`, print matched line numbers.
 - `grep -n -P '\t'  xxx.cpp`, list all lines contains a tab, '\t' is NOT treated as a tab in grep [link](https://askubuntu.com/questions/53071/how-to-grep-for-tabs-without-using-literal-tabs-and-why-does-t-not-work).
 
-## vim configuration
+## vim 
+
+### vim configuration
 - `vim --version | grep clipboard`, It can tell whether vim is able to transfer data with clipboard.
 
 - `sudo apt-get install vim-gnome`, in Ubuntu it can enhance vim with the abiltiy.
@@ -186,6 +187,7 @@ export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w \[\033[00;32m\]\$(git_bra
 
 - `set list  set listchars=tab:>-,trail:$`, visualize tabs. [link](https://vi.stackexchange.com/questions/422/displaying-tabs-as-characters)
 
+### vim command 
 - command `%` jumps to matching braces. 
 
   - `y%` yanking contents between an item and its matching item. 
@@ -195,17 +197,23 @@ export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w \[\033[00;32m\]\$(git_bra
   - vim object-select can do the similar block selection in visual mode. `:help object-select` and `:help text-objects`for details.
 
 - 3 types of visual modes:
-```bash
+
+  ```bash
     v --> visual mode for multi-character selection and edit    
     V --> visual line mode for multi-line selection and edit    
     Ctrl + v --> visual mode for block selection and edit, it is more flexible    
-```
+  ```
 - In visual mode, press *<* and *>* can do auto-indent.
+
 - `Shift+V`, select current line and enter visual mode.
+
 - `/\%Vpattern`, search pattern in visual area.
-- `:!commandname`, run shell command.
-- `:r !commandname`, run shell command and insert the command output in next line.
-- `:%s!\t!    !g`, replace tab with 4 spaces. *!* is delimiter, [reference link](https://irian.to/blogs/vim-global-command/)
+
+- `:!command`, run shell command.
+
+- `:r !command`, run shell command and insert the command output in next line.
+
+- `:%s!\t!    !g`, replace tab with 4 spaces. *!* is delimiter, see [details](https://irian.to/blogs/vim-global-command/)
 
 ### character range
 
@@ -256,12 +264,14 @@ Metacharacters coming with quantifiers give magic power in regular expression ma
 | \p | printable character                                | \P | like \p, but excluding digits |
 | \w | word character                                     | \W | non-word character            |
 
-### reference
+### useful links 
+
 - [vim regular expression](http://www.cnblogs.com/PegasusWang/p/3153300.html)
 - [vim doc](http://vimdoc.sourceforge.net/htmldoc/pattern.html)
 - [vimregex](http://vimregex.com/). It is very useful.
 
 ## Grub2
+
 - Edit configure file /etc/default/grub to set kernel command line and other settings.
 - On Ubuntu `update-grub` to generate new settings for grub.
 - On CentOS `grub2-mkconfig` to generate new settings.
@@ -280,17 +290,19 @@ This shell is a improved c-shell in unix. It is not so friendly to use.
 - `:` is a special character in tcsh terminal.
 - *bash* and *csh* has much difference in *if-else* statement
 
-### useful commands
+### commands
 - `echo $?`, query shell exit status. *man bash* and search *special parameters* for more details about Linux bash special parameters.
 - `echo $0`, display shell name used by terminal.
+
 - `echo $PATH | awk -F: '{for(i=1; i <= NF; ++i) print "Path: ",$i;}' | grep "bin"`, 
    - display environment variable PATH content line by line. 
    - NF is field number. 
    - -F: specify ':' as delimeter.
 - `awk 'BEGIN{IGNORECASE=1}NR>=1000&&NR<=2000&&(/pattern1/||/pattern2/){print NR,$0}' file`
+
 - `rm -rf `ls amod*.* -d``, remove matched subdirectories in current directory.
 
-### sed command
+## sed command
 - `sed -n '/pattern/{=;p}' filename`, print matched lines with its line no.
 - `sed -n '/pattern/,+2p' filename`, print matched lines with its following 2 lines.
 - `sed -n '/\<aa/{=;p}' filename`,  match word begin with aa while `aa\>` matches word end. 
