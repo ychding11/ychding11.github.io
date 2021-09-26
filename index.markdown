@@ -12,7 +12,7 @@ layout: welcome
 	<nav id="avatarnav">
 		<ul>
 			<li><a href="/">Home</a></li>
-			<li><a href="/cv">CV</a></li>
+			<li><a href="/about/">CV</a></li>
 			<li><a href="/blogs.html">Blogs</a></li>
 		</ul>
 	</nav>
