@@ -9,7 +9,8 @@ body {
 /**** Welcome page style ****/
 body#welcomeBody {
    /* background: #ffffff;*/
-    margin:50px 0; 
+    
+    
     padding:0;
     text-align:center;
 	
@@ -193,10 +194,9 @@ margin:auto;
 
 /****  welcome avatar sketch wrap div style ****/
 div.wlecomContainer {
-	position: relative;
-	margin: 40px auto 40px;
-	padding:0;
-	text-align:center;
+  display: table;
+  margin-right: auto;
+  margin-left:  auto;
 }
 
 /****  welcome avatar image style ****/
