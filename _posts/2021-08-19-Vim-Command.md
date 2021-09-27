@@ -63,14 +63,14 @@ This post summaries the commonly used vim commands and examples.
 
 ### character range
 
-[123] and [321] define the same character range.
-Examples:
 
-| [0-9a-zA-Z] | letters and digits                                                                                              |
-|-------------|-----------------------------------------------------------------------------------------------------------------|
+| pattern     | letters and digits                                                                                              |
+| ------------|---------------------------------------------------------------------------------------------------------------- |
 | [^A-Z]      | not want to matched character.   "^" will lose its special meaning if it's not the first character in the range |
 | "[^"]\+"    | match quoted text                                                                                               |
 | \.\s\+[a-z] | match new sentence does not start with a capital letter. \. escape the special meaning of .                     |
+
+- Note: [123] and [321] define the same character range.
 
 ### vim regular expression quantifier and metacharacters
 
@@ -110,8 +110,7 @@ Metacharacters coming with quantifiers give magic power in regular expression ma
 | \p | printable character                                | \P | like \p, but excluding digits |
 | \w | word character                                     | \W | non-word character            |
 
-### useful links 
-
+### reference 
 - [vim regular expression](http://www.cnblogs.com/PegasusWang/p/3153300.html)
 - [vim doc](http://vimdoc.sourceforge.net/htmldoc/pattern.html)
 - [vimregex](http://vimregex.com/). It is very useful.
