@@ -8,7 +8,7 @@ The post summarizes new features of c++ and list available internet resources ab
 
 
 ## overloaded virtual function
-------
+
 [Discussion of GCC -Woverloaded-virtual option](https://gcc.gnu.org/ml/gcc/1999-02n/msg00180.html) introduce this issue. Compiler is unable to tell "I am creating a new virtual function" from "I am overriding a virtual function from my baseclass". So GCC adds this option to detect potential errors. But I think the option is not a good idea, especially
 when c++11 introduce a new key word *override* to explicitly tell compiler whether it wants to override existing virtual function or create new virtual function. For quick reference, I list some frequently used GCC compile options here. More compiler options please refer gcc manual.    
 - Werror, Treat all warnings as errors.
@@ -18,8 +18,8 @@ when c++11 introduce a new key word *override* to explicitly tell compiler wheth
 - g3, include macro infomation into debug info.
 
 ## const reference
-----------
-Under what condition is this type useful? What problems will it cause?
+
+Under which condition is this type useful? What problems will it cause?
 - When user-defined complex type used as an input parameter, it is a good choice and  highly recommanded in google c++ code style.     
 - Otherwise it is a very bad idea when used as a data holder. It almost has no flexibility. 
 
@@ -38,7 +38,6 @@ struct Holder
 ```
 
 ## using statement
-----------
 
 `using` keyword can introduce base class member into derived class.
 For example it can expose base class protected member to be public in drived 
@@ -51,7 +50,7 @@ newly introduced ones, but they  are not conflict with each other.
 The web [link](http://en.cppreference.com/w/cpp/language/using_declaration) gives the detailed info and a good example.
 
 ## vtbl & vptr
-----------
+
 - Where is vtable stored ? 
 - Is it compiler dependent ? 
 - Is vptr always offset 0 in an object memory layout ?
@@ -246,7 +245,6 @@ vtable for 'Derived' @ 0x400d50 (subobject @ 0x7fffffffdf10):
 ```
 
 ## type casting
-----------
 
 ### const_cast<type-id>
 Const type cast is used to add or remove the constness of an object pointed by a pointer. 
@@ -267,9 +265,8 @@ This operation is not safe other than reintepret a pointer into an intege which 
 ### reference
 - [microsoft doc](https://msdn.microsoft.com/en-us/library/e0w9f63b.aspx)
 
+## cross initialization & switch-case
 
-## cross initialization && switch-case
-----------
 Following code demostrate this kind of compiler error.
 
 ```
@@ -288,12 +285,11 @@ switch(a)
 - [keyword-switch-case-default](http://www.complete-concrete-concise.com/programming/c/keyword-switch-case-default) explains c/c++ switch-case keyword.
 
 ## inline and virtual
-----------
+
 Using *inline* and *virtual* for the same member function does make sense. virtual function is a member function. When calling virtual function by a base class pointer or reference, late binding applies. But for a known object, function call can be resolved at ompile time, *inline* makes sense here. Remember that *inline* is just a hint to compiler, it is up to compiler to decide inline it or not.
 
 
 ## auto_ptr
-----------
 
 *ownership* is the key to understand auto_ptr. At any time 
 an auto_ptr has an ownership to an object or in null state.
@@ -306,7 +302,6 @@ do dereference. Copy from it will cause error.
 gives several good examples for reference.
 
 ## private inheritance
-----------
 
 private inheritance is something like composition(has-a). while, Inheritance, in general, is a is-a. It has some unique features compared to composition.
 
@@ -317,7 +312,7 @@ private inheritance is something like composition(has-a). while, Inheritance, in
 This [page](https://isocpp.org/wiki/faq/private-inheritance) has a detailed explaination about private inheritance.
 
 ## operator overload
-----------
+
 *operator overload* is to tell compiler how built-in operators apply to user-defined data types by function overloading. Properly written *operator overload* can lead to more readable and maintainable code.
 
 - overloaded operators are just regular function.
@@ -332,7 +327,7 @@ This [page](https://isocpp.org/wiki/faq/private-inheritance) has a detailed expl
 - [reference](http://www.keithschwarz.com/cs106l/fall2010/course-reader/Ch10_OperatorOverloading.pdf)
 
 ### new & delete
-----
+
 There are some special considerations about this memory allocating operator.
 
 1. *operator new* is an ordinary operator which is the same with other operators such as "operator+".
@@ -376,7 +371,6 @@ int main(void)
 ```
 
 ## random number generator
-----------
 
 [This page](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/generating-random-numbers)
 is a good introduction to the backgroud of random number generator. Presudorandom-number-generator is more easily integrated 
@@ -412,7 +406,6 @@ inf
 1. [IEEE745](http://cs.boisestate.edu/~alark/cs354/lectures/ieee754.pdf),the document includes binary formats, ranges and examples.
 
 ## placement new
-----------
 
 It provides a mechnism to place an object to a paticular location in memory 
 when calling constructor. It also transfers the responsibility to programmer 
@@ -439,7 +432,6 @@ That is the object can only be created by new(). Object allocate in such a way `
 
 
 ## C++ 11 new feature
-----------
 
 ### defaulted function and deleted function.
 
@@ -469,9 +461,7 @@ design.
 - [IBM developerworks article](https://www.ibm.com/developerworks/community/blogs/5894415f-be62-4bc0-81c5-3956e82276f3/entry/deleted_functions_in_c_11?lang=en)
 - [MSDN comments](https://msdn.microsoft.com/en-us/library/dn457344.aspx)
 
-
 ## other learning materials
-----------
 
 - [Learn CPP websit](http://www.learncpp.com/) It provides very comprehensive 
   contents about c++, very good materials for references.
