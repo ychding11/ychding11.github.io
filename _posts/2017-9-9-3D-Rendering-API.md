@@ -61,8 +61,8 @@ There is a DX11 sample to implement exploding model by geometry shader only.
 GPU Hardware includes three stages: **hull shader stage**, **fixed-function tessellator** and **domain shader stage**. Hull Shader process control patch. HW Tessellator generates lots of samples in domain field by a predefined rule. Domain Shader converts domain samples into vertex by control patch processed by Hull Shader.
 
 - Hull Shader accepts control patch from vertex shader. It can be divided into two phases,
-	1. Hull Shader processes once per **output control point** and its attribute independently, controlled by the **outputcontrolpoints** attribute of Hull Shader.
-	2. Hull Shader processes once per **patch**, controlled by the**patchconstantfunc** attribute of Hull Shader. 
+  - Hull Shader processes once per **output control point** and its attribute independently, controlled by the **outputcontrolpoints** attribute of Hull Shader.
+  - Hull Shader processes once per **patch**, controlled by the**patchconstantfunc** attribute of Hull Shader. 
 - Output control points pass on to domain shader directly. **pathconstantfunc** output tessellator factors.  
 - Hull Shader would be regarded as a "data setup stage" of tessellation, accepting standard control patch and converting its format according to application configuration by APIs.
 - Tessellator accepts tessellator factors and partition mode domain then generates uvw coordinates and output primitives. Tessellator does not care about control points at all.
@@ -82,9 +82,8 @@ code on [github](https://github.com/ychding11/directx-sdk-samples/blob/master/Si
 3. HW rasterizer just handles 3 kinds primitives: point, line and triangle. What's the rules for these primitives? 
 4. In D3D11, *D3D11_FILL_MODE* only support two modes: *D3D11_FILL_WIREFRAME* and *D3D11_FILL_SOLID*. [details](https://msdn.microsoft.com/en-us/library/windows/desktop/ff476131(v=vs.85).aspx)
 
-### what  does it require to draw a mesh ?
-"Each draw method renders a single topology type. During rendering, incomplete primitives are silently discarded." 
-What happens to Render Pipe state ? 
+### what  does it require to draw a mesh
+"Each draw method renders a single topology type. During rendering, incomplete primitives are silently discarded." What happens to Render Pipe state ? 
 
 A typical render function does following things:
 1. update word, view, projection information from user input.
