@@ -8,18 +8,16 @@ This post summarizes debugging skills with examples on Linux Platform.
 
 ## Core dump
 - Check whether core dump is enabled. Using command to check default core file size.
-  `ulimit -c` command is to query the default size of dumped core size. 0 means core
-  dump is not enabled yet. You must enble core dump functionaliy first.
-- Enable core dump. This can be done by setting default core file size
-  to unlimited. Note that the setting is active only for current terminal.
-  `ulimit -c unlimited` command is to set core file size, unlimited means
-  dumped core file size has no limitation.
+  - `ulimit -c` command is to query the default size of dumped core size. 0 means core dump is not enabled yet.
+  -  You must enble core dump functionaliy first.
+- Enable core dump. This can be done by setting default core file size to unlimited.
+  - Note that the setting is active only for current terminal.
+  - `ulimit -c unlimited` command is to set core file size, unlimited means dumped core file size has no limitation.
 - Customizing dumped file name. Configure file */proc/sys/kernel/core_pattern*  controls core file name convention.
-  `echo "/tmp/corefiles/core-%e-%p-%t" >> /proc/sys/kernel/core_pattern` set a new pattern for generated core file.
-  To ensure command takes effects, read `cat /proc/sys/kernel/core_pattern` to check the settings. Below is simple list
-  for some wildcard for references.   
+  - `echo "/tmp/corefiles/core-%e-%p-%t" >> /proc/sys/kernel/core_pattern` set a new pattern for generated core file.
+  - To ensure command takes effects, read `cat /proc/sys/kernel/core_pattern` to check the settings. Below is simple list for some wildcard for references.   
 - Analyse dumped core file with gdb. Rebuild code with debug info added,for example adding -g compile option for gcc. 
-  Use command to open core file. `gdb a.out /tmp/corefiles/core-a.out-12754-1457789593`
+  - Use command to open core file. `gdb a.out /tmp/corefiles/core-a.out-12754-1457789593`
 - parameters reference  
 	+ *%e*  executable filename (without path prefix) 
 	+ *%p*  PID of dumped process, as seen in the PID namespace in which the process resides
@@ -31,17 +29,15 @@ This post summarizes debugging skills with examples on Linux Platform.
 - [Debug a runnig process](http://dirac.org/linux/gdb/06-Debugging_A_Running_Process.php)
 
 ## x64 Assembly Disassemble
-   When program crashes, Windows will pop a dialog informing user of error. Mostly it is a memory access violation. We need assembly language knowledge to analyze disassembly code. x64 assembly language is different from that of 32-bit version.  Register files and function calling conventions are key to understand disassemble code. 
+When program crashes, Windows will pop up a dialog to inform user of error. Mostly it is a memory access violation. We need assembly language knowledge to analyze disassembly code. x64 assembly language is different from that of 32-bit version.  Register files and function calling conventions are key to understand disassemble code. 
 
-C++ non-static member function calling convention:
+- C++ non-static member function calling convention:
 
 - Implicit first parameter is *this* pointer transferred by rcx register. 
 - Implicit second parameter is used for returning object which is not fit rax register. 
 - Usually return value is transferred by *rax* register. But for user-defined complex type, register *rax* is unable to transfer. It requires an implicit parameter to transfer. By default, second parameter is transferred by register *rdx*. 
 - In addition, the max number of parameters which can be transferred by register is 4.
-
-   Because the first four parameters are transferred by register, in function design we should keep this point in mind. Register access is much faster than 
-   memory access.
+  - Because the first four parameters are transferred by register, in function design we should keep this point in mind. Register access is much faster than memory access.
 
 ### reference
 - [Calling Conventions for different platform C++ compilers](http://www.agner.org/optimize/calling_conventions.pdf) It is a very comprehensive material for reference. It should be referenced at first time when having problems. 
