@@ -1,21 +1,21 @@
 ---
 layout: post
-title: "3D Graphics Library" 
+title: "Graphics API" 
 date: 2017-09-09
 ---
 
-This post lists key points of graphic Library.
+This post sumarize key points of graphic API.
 
 
 ## D3D11
 ### Input Layout
-+ How to understand input layout object in 3D11 framework and  how does GPU Hardware use them ?
-	- *D3D11_INPUT_ELEMENT_DESC*, describes each element's property, including data format, binding slot, offset, and stride.
-	- `IASetVertexBuffers()`, binds vertex buffer to input assembler stage. including the beginning slot, number of buffers, array of buffer address, stride and offset.
-	- with input layout object describing each element of each slot and each buffer's stride, GPU hardware should know how to read vertex data correctly.
+- How to understand input layout object in D3D11 and  how does GPU Hardware use them ?
+  - *D3D11_INPUT_ELEMENT_DESC*, describes each element's property, including data format, binding slot, offset, and stride.
+  - `IASetVertexBuffers()`, binds vertex buffer to input assembler stage. including the beginning slot, number of buffers, array of buffer address, stride and offset.
+  - with input layout object describing each element of each slot and each buffer's stride, GPU hardware should know how to read vertex data correctly.
 
 ### GPU resources and views
-- vertex buffer, index buffer, constant buffer, stream output buffer, these four kinds of buffer can be bind to pipe directly.
+- Vertex buffer, index buffer, constant buffer, stream output buffer, these four kinds of buffers can be bind to pipe directly.
 - Other buffers require a resource view in order to bind to pipe.
 	- render target view(RTV), pipeline output buffer.
 	- depth-stencil view(DSV), pipeline output buffer.
@@ -57,7 +57,7 @@ There is a DX11 sample to implement exploding model by geometry shader only.
 4. complete geometry shader on [github](https://github.com/ychding11/directx-sdk-samples/blob/master/Direct3D11TutorialsFX11/Tutorial13/Tutorial13.fx).
 
 
-### tessellation
+### Tessellation
 GPU Hardware includes three stages: **hull shader stage**, **fixed-function tessellator** and **domain shader stage**. Hull Shader process control patch. HW Tessellator generates lots of samples in domain field by a predefined rule. Domain Shader converts domain samples into vertex by control patch processed by Hull Shader.
 
 - Hull Shader accepts control patch from vertex shader. It can be divided into two phases,
