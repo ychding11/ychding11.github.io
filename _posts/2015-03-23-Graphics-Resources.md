@@ -7,7 +7,6 @@ date: 2016-10-20
 This post lists a collection of usefull graphic resources.
 
 ## Useful Papers 
----
 
 - [Computer Graphics Paper collection](http://kesen.realtimerendering.com/) 
 - [Casting curved shadows on curved surface](http://cseweb.ucsd.edu/~ravir/274/15/papers/p270-williams.pdf), The paper demostrates the idea of shadow mapping in real time shadow computation.
@@ -26,7 +25,6 @@ This post lists a collection of usefull graphic resources.
 
 
 ## Computer Graphics Courses & Useful Homepage 
----
 
 ### courses
 - [Visual Computing Systems, CMU](http://graphics.cs.cmu.edu/courses/15869/fall2014/)
@@ -45,8 +43,8 @@ This post lists a collection of usefull graphic resources.
 ## misc
 - [Lighting Model](http://huanzhewu.github.io/2015/08/06/%E3%80%90CG%E8%AF%AD%E8%A8%80%E3%80%91%E5%B8%B8%E8%A7%81%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B%E8%A7%A3%E6%9E%90.html)
 
+
 ## OpenGL
----
 
 - [OpenGL3.x Specification](https://www.opengl.org/registry/doc/glspec32.core.20091207.pdf) 
 - [Next Generation OpenGL](https://www.khronos.org/assets/uploads/events/Next-Generation-OpenGL-Dec14.pdf)The slide gives a very concrete description about 3D APIs of Khonoros group. It provides a family tree depicting the relationship between OpenGL, OpenGL ES and WebGL. It is very helpful to new beginners. Next generation API design is the main focus of slide, a comparison list about traditional API and next-generation API design can tell lots of stories. Platform diversity and radically changed GPU architecture drive such changes. 
@@ -57,7 +55,6 @@ This post lists a collection of usefull graphic resources.
 - [OGL Extensions](https://www.opengl.org/archives/resources/features/OGLextensions/)
 
 ## Bump Mapping, Normal Mapping and Displacement mapping
-----
 
 - [Bump Normal Displacement mapping comparison](http://blog.digitaltutors.com/bump-normal-and-displacement-maps/)
     This blog post gives a comparison about bump mapping, normal mapping, displacement mapping.
@@ -70,7 +67,6 @@ This post lists a collection of usefull graphic resources.
     displacement mapping by accidently. So I put it here.
 
 ## Geometry Shader & Subdivision
-----
 
 - [Pixar Open Subdiv](http://graphics.pixar.com/opensubdiv/docs/subdivision_surfaces.html)
 - [Maya NURBS Modeling](https://courses.cs.washington.edu/courses/cse459/06wi/help/mayaguide/Complete/NURBS.pdf)
@@ -92,7 +88,6 @@ The surface is based on math equation.
 - [Deformation Styles on github repo](https://github.com/sp4cerat/Deformation-Styles-using-Spline-Skinning)
 
 ## BRDF
----
 
 ### useful links
 - [Disney BRDF analysis Tool](http://www.disneyanimation.com/technology/brdf.html)
@@ -106,7 +101,6 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 
 
 ## Tessellation
----
 
 ### useful links
 - [Nvida](http://www.nvidia.com/object/tessellation.html) 
@@ -125,7 +119,6 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
     
 
 ## Maya
----
 
 - [Training Material of Maya Plugin](https://github.com/ADN-DevTech/Maya-Training-Material)
 - [Maya plugins on github](https://github.com/illmillrig?tab=repositories)
@@ -146,7 +139,6 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 -  *pluginInfo -q -loaded "dgProfiler"*
 
 ## Nvida Sample Code
----
 
 - [NVIDIA Direct3D SDK 10 Code Samples](http://developer.download.nvidia.com/SDK/10.5/direct3d/samples.html#InstancedTessellation)
 - [GPU GEMS 3 Articles](https://developer.nvidia.com/gpugems/GPUGems3/gpugems3_ch01.html)
@@ -160,7 +152,6 @@ It is convert from $$ (\theta_i, \phi_i, \theta_o, \phi_o)$$ to $$ (\theta_h, \t
 - [Windows Download](https://developer.microsoft.com/en-us/windows/downloads)
 
 ## Windows DirectX3D
----
 
 ### resources
 vertex buffer, index buffer, constant buffer, stream output buffer, these four buffers can be bind to pipeline directly.
@@ -191,7 +182,6 @@ Other buffers need a resource view to bind to pipeline.
 
 
 ## Ray Tracing
----
 
 - [Stanford course](http://candela.stanford.edu/cs348b-14/doku.php), It introduces the basic ideas about ray tracing.
 - [99 ines ray tracer](http://www.kevinbeason.com/smallpt/)
@@ -206,17 +196,14 @@ Other buffers need a resource view to bind to pipeline.
 - [PBRT Document](http://pbrt.org/users-guide.html)
 
 ## 3D Model Repo
----
 
 - [3D Scans, a free 3D Model repo](http://threedscans.com/)
 
 ## GPU Hardware 
----
 
 - [GPGPU-Sim](http://gpgpu-sim.org/) provides a detailed simulation model of a contemporary GPU running CUDA and/or OpenCL workloads.
 - [softart](http://www.cnblogs.com/gongminmin/archive/2009/12/09/SoftArt.html)
-- [GPU memory type comparision](https://www.microway.com/hpc-tech-tips/gpu-memory-types-performance-comparison/), it points out that *SHared Memory* is a very 
-   important type of memory and introduce some internals in it.
+- [GPU memory type comparision](https://www.microway.com/hpc-tech-tips/gpu-memory-types-performance-comparison/), it points out that *SHared Memory* is a very important type of memory and introduce some internals in it.
 - Texture memory is global memory. It is accessed by a dedicated pipe and caches. [reference on stackoverflow](https://stackoverflow.com/questions/8767059/texture-memory-in-cuda-concept-and-simple-example-to-demonstrate-performance)
 - Bound Const Memory is accessed as c[bankIdx][offset], offset is 4 bytes aligned, bankIdx is the bank index.
 - Bindless Const Memory is access as cx[memoryHeader][offset], offset is 4 bytes aligned. Memory header is consist of a Uniform register pair, totaly 64 bits.
