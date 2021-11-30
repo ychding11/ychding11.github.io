@@ -18,11 +18,19 @@ OpenGL is by itself a large state machine: a collection of variables on which Op
 
 ### Geometry data prepare 
 
+VAO
+
 ### Shading
+
+Shader build
 
 ### Show shading result
 
+GLFW
+
 ### Manipulation
+
+Camera
 
 ## Screen Shot
 
