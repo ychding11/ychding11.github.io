@@ -18,9 +18,54 @@ OpenGL is by itself a large state machine: a collection of variables on which Op
 
 ### Geometry data prepare 
 
-VAO
+A **Vertex Array Object** (VAO) is an [OpenGL Object](https://www.khronos.org/opengl/wiki/OpenGL_Object) that stores all of the state required for vertex data . It appears since Core profile 3.0.  In OpenGL compatibility  profile, VAO object 0 is a default object. But in OpenGL core profile it makes VAO object 0 not an object at all. 
+- The format of the vertex data （vertex attribute）
+  - Each attribute can be enabled or disabled 
+  - If access is disabled, any reads to that attribute would return a constant value (SPEC specify ?)
+  - A newly-created VAO disable  all attributes
+
+- Buffer Object(VBO) storing the vertex data
+- Map between Vertex buffer binding and vertex attribute
+
+ VAO have normal creation, destruction, and binding functions like other OpenGL Object. The following is just an example.
+
+```c
+        glGenVertexArrays(1, &m_vao_id);
+        glBindVertexArray(m_vao_id); //< only one target, No explicit specify
+
+        glGenBuffers(1, &m_vbo_id);
+        glBindBuffer(GL_ARRAY_BUFFER, m_vbo_id);
+        glBufferData(GL_ARRAY_BUFFER, m_vb_size_in_bytes, m_vertices.data(), GL_STATIC_DRAW);
+
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, vertexStride, 0);
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, vertexStride, (GLvoid*)normalOffset);
+        glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, vertexStride, (GLvoid*)tangentOffset);
+        glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, vertexStride, (GLvoid*)texcoordOffset);
+
+        glEnableVertexAttribArray(0);
+        glEnableVertexAttribArray(1);
+        glEnableVertexAttribArray(2);
+        glEnableVertexAttribArray(3);
+
+        glBindVertexArray(0);
+```
+
+
 
 ### Shading
+
+Shaders are the code which can be running on certain programmable stages of modern GPU for some purpose, such as visual computing, AI model training. OpenGL shaders are written in the [OpenGL Shading Language](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). Modern GPU supports the following shader type:
+
+- Vertex shader
+- Tessellation control shader
+- Tessellation evaluation shader
+- Geometry shader
+- Fragment shader
+- Compute shader
+
+Each of them serves different purpose.
+
+
 
 Shader build
 
@@ -40,5 +85,8 @@ Camera
 
 - [OpenGL - The Industry Standard for High Performance Graphics](https://www.opengl.org/)
 - [OpenGL registry](https://www.opengl.org/registry/),  the OpenGL specifications and extensions for all OpenGL versions.
+- [VAO](https://www.khronos.org/opengl/wiki/Vertex_Specification#Vertex_Array_Object)
+- [OpenGL Shader](https://www.khronos.org/opengl/wiki/Shader)
+- [OpenGL Shader Compilation](https://www.khronos.org/opengl/wiki/Shader_Compilation)
 - [solid wireframe]( https://developer.download.nvidia.com/whitepapers/2007/SDK10/SolidWireframe.pdf)
 
