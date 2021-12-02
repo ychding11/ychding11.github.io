@@ -54,7 +54,7 @@ A **Vertex Array Object** (VAO) is an [OpenGL Object](https://www.khronos.org/op
 
 ### Shading
 
-Shaders are the code which can be running on certain programmable stages of modern GPU for some purpose, such as visual computing, AI model training. OpenGL shaders are written in the [OpenGL Shading Language](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). Modern GPU supports the following shader type:
+Shaders are the code which can be running on certain programmable stages of modern GPU for some purpose, such as visual computing, AI model training. OpenGL shaders are written in the [OpenGL Shading Language](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). Modern GPU supports the following shader type. Each of them serves different purpose.
 
 - Vertex shader
 - Tessellation control shader
@@ -63,7 +63,43 @@ Shaders are the code which can be running on certain programmable stages of mode
 - Fragment shader
 - Compute shader
 
-Each of them serves different purpose.
+A [Program Object](https://www.khronos.org/opengl/wiki/Program_Object) can contain the executable code for all of the [Shader](https://www.khronos.org/opengl/wiki/Shader) stages. Building programs requires  two steps : Compile & Link.
+
+- shader source code is first fed into a compiler, it would generate a *shader object*
+  -  Shader compilation failure is not an [OpenGL Error](https://www.khronos.org/opengl/wiki/OpenGL_Error)
+  - developer need to check for it manually
+- one or more shader objects are linked into a program object
+
+An example of Shader code compiling is like following.
+
+```c
+
+	//< creates an empty shader object for the shader stage given by given type
+	GLuint shaderID = glCreateShader(type); 
+    char const* tempPtr = shaderCode.c_str();
+	//< Feed shader source code into OpenGL
+	//< here we feed 1 string
+	//< NULL, OpenGL will assume all of the strings are NULL-terminated
+    glShaderSource(shaderID, 1, &tempPtr, NULL);
+	//< Compiles the given shader
+    glCompileShader(shaderID);
+
+    GLint result = false;
+	GLint success = 0;
+    int infoLogLength;
+    glGetShaderiv(shaderID, GL_COMPILE_STATUS, &success);
+	if (success == GL_FALSE) //< the most recent compilation failed
+	{
+		//< query how many bytes to allocate, the length includes NULL terminator.
+		GLint maxLength = 0;
+		glGetShaderiv(shaderID, GL_INFO_LOG_LENGTH, &maxLength);
+		std::vector<GLchar> errorLog(maxLength);
+		//< NULL, don't care actually written bytes
+		glGetShaderInfoLog(shaderID, maxLength, NULL, &errorLog[0]);
+		Err("{}", std::string(errorLog.begin(), errorLog.end()));
+		return 0;
+	}
+```
 
 
 
