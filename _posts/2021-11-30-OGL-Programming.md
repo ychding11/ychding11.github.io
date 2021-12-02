@@ -52,7 +52,7 @@ A **Vertex Array Object** (VAO) is an [OpenGL Object](https://www.khronos.org/op
 
 
 
-### Shading
+### Shaders & Shading
 
 Shaders are the code which can be running on certain programmable stages of modern GPU for some purpose, such as visual computing, AI model training. OpenGL shaders are written in the [OpenGL Shading Language](https://www.khronos.org/opengl/wiki/OpenGL_Shading_Language). Modern GPU supports the following shader type. Each of them serves different purpose.
 
@@ -64,6 +64,8 @@ Shaders are the code which can be running on certain programmable stages of mode
 - Compute shader
 
 A [Program Object](https://www.khronos.org/opengl/wiki/Program_Object) can contain the executable code for all of the [Shader](https://www.khronos.org/opengl/wiki/Shader) stages. Building programs requires  two steps : Compile & Link.
+
+### shader compile
 
 - shader source code is first fed into a compiler, it would generate a *shader object*
   -  Shader compilation failure is not an [OpenGL Error](https://www.khronos.org/opengl/wiki/OpenGL_Error)
@@ -84,9 +86,7 @@ An example of Shader code compiling is like following.
 	//< Compiles the given shader
     glCompileShader(shaderID);
 
-    GLint result = false;
 	GLint success = 0;
-    int infoLogLength;
     glGetShaderiv(shaderID, GL_COMPILE_STATUS, &success);
 	if (success == GL_FALSE) //< the most recent compilation failed
 	{
@@ -101,9 +101,20 @@ An example of Shader code compiling is like following.
 	}
 ```
 
+### shader link
 
+- create a program object
 
-Shader build
+- attach shader program into it
+
+- linking
+
+- clean up
+
+  - After linking , it is a good idea to detach all shader objects 
+  - If the shader objects are NOT used in future, delete it
+
+  
 
 ### Show shading result
 
