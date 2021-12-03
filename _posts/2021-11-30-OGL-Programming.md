@@ -105,14 +105,57 @@ An example of Shader code compiling is like following.
 
 - create a program object
 
-- attach shader program into it
+  - ```c
+    GLuint glCreateProgram();
+    ```
+
+- attach shader objects into it
+
+  - ```c
+    void glAttachShader(GLuint program, GLuint shader);
+    ```
+
+  - It is OK to attach multiple shader objects for one shader type
+
+  - But only one of those shader objects can have a **main** function
 
 - linking
+
+  - Each shader stage's code is separate from others. They have their own global variables, functions ...
+  - Certain definitions are considered shared between shader stages
+    - [uniforms](https://www.khronos.org/opengl/wiki/Uniform_(GLSL))
+    - [buffer variables](https://www.khronos.org/opengl/wiki/Shader_Storage_Buffer_Object)
+    - buffer-backed interface blocks
+
+  - linking may fail because of
+    - mismatch between shader stage
+    - violation of shader stage limitations
+    - call to not defined functions
+
+  - linking errors can also be detected and fetched just like compiling errors
 
 - clean up
 
   - After linking , it is a good idea to detach all shader objects 
   - If the shader objects are NOT used in future, delete it
+
+
+### Program Introspection
+
+Program Introspection is a mechanism to querying information about a program object, so as to interact with it. For example, setting or getting a uniform variable.
+
+- The introspection API is built around basic types, see following example
+
+  ```glsl
+  struct A_Struct
+  {
+    vec4 first;
+    vec2 second;
+    vec2 third[3];
+  };
+  uniform A_Struct unif;
+  //< struct itself cannot be queried via the introspection API
+  ```
 
   
 
@@ -135,5 +178,6 @@ Camera
 - [VAO](https://www.khronos.org/opengl/wiki/Vertex_Specification#Vertex_Array_Object)
 - [OpenGL Shader](https://www.khronos.org/opengl/wiki/Shader)
 - [OpenGL Shader Compilation](https://www.khronos.org/opengl/wiki/Shader_Compilation)
+- [Program Introspection](https://www.khronos.org/opengl/wiki/Program_Introspection)
 - [solid wireframe]( https://developer.download.nvidia.com/whitepapers/2007/SDK10/SolidWireframe.pdf)
 
