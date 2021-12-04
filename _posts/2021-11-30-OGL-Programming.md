@@ -155,8 +155,9 @@ Program Introspection is a mechanism to querying information about a program obj
   };
   uniform A_Struct unif;
   //< struct itself cannot be queried via the introspection API
+  //< but its member such as unif.first can be
   ```
-
+  
   
 
 ### Show shading result
