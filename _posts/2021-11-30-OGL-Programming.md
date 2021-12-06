@@ -162,7 +162,49 @@ Program Introspection is a mechanism to querying information about a program obj
 
 ### Show shading result
 
-GLFW
+**GLFW** is an Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan development on the desktop. It provides a simple API for creating windows, contexts and surfaces, receiving input and events.
+
+```c
+#include <GLFW/glfw3.h>
+
+int main(void)
+{
+    GLFWwindow* window;
+
+    /* Initialize the library */
+    if (!glfwInit())
+        return -1;
+
+    /* Create a windowed mode window and its OpenGL context */
+    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    if (!window)
+    {
+        glfwTerminate();
+        return -1;
+    }
+
+    /* Make the window's context current */
+    glfwMakeContextCurrent(window);
+
+    /* Loop until the user closes the window */
+    while (!glfwWindowShouldClose(window))
+    {
+        /* Render here */
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        /* Swap front and back buffers */
+        glfwSwapBuffers(window);
+
+        /* Poll for and process events */
+        glfwPollEvents();
+    }
+
+    glfwTerminate();
+    return 0;
+}
+```
+
+
 
 ### Manipulation
 
@@ -180,5 +222,6 @@ Camera
 - [OpenGL Shader](https://www.khronos.org/opengl/wiki/Shader)
 - [OpenGL Shader Compilation](https://www.khronos.org/opengl/wiki/Shader_Compilation)
 - [Program Introspection](https://www.khronos.org/opengl/wiki/Program_Introspection)
+- https://www.glfw.org/
 - [solid wireframe]( https://developer.download.nvidia.com/whitepapers/2007/SDK10/SolidWireframe.pdf)
 
