@@ -161,21 +161,67 @@ Program Introspection is a mechanism to querying information about a program obj
   
 
 ### Show shading result
+GLFW is a free, Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan application development. It provides a simple, platform-independent API for creating windows, contexts and surfaces, reading input, handling events, etc.
 
-**GLFW** is an Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan development on the desktop. It provides a simple API for creating windows, contexts and surfaces, receiving input and events.
+GLFW has two primary coordinate systems: the *virtual screen* & the window *content area* 
+
+![](.\glfw-window-spaces.svg)
+
+Pointer lifetimes
+
+- GLFW will never free any pointer developer provide to it 
+
+- Developer must never free any pointer GLFW provides to you
+
+Reentrancy & Thread safety
+
+- GLFW event processing and object destruction are not reentrant
+- Before initialization the whole library is thread-unsafe.
+- Most GLFW functions must only be called from the main thread
+  - event processing must be performed on the main thread
+
+- Some may be called from any thread once the library initialized
+
+Code Example :
 
 ```c
 #include <GLFW/glfw3.h>
 
 int main(void)
 {
+    /*
+     - The GLFWwindow object encapsulates both a window and a context
+     - Created with glfwCreateWindow, Destroyed by glfwDestroyWindow, or glfwTerminate
+    */
     GLFWwindow* window;
 
-    /* Initialize the library */
+    /*
+     - Initialization hints are set before glfwInit 
+     - It affects how the library behaves until termination
+     - Initialization hints only take effect during initialization
+    */
+    glfwInitHint(GLFW_JOYSTICK_HAT_BUTTONS, GLFW_FALSE);
+    /*
+      - The library only needs to be initialized once 
+      - Additional calls to an already initialized library will return GLFW_TRUE immediately
+      - For a successfully initialized library, it should be terminated before the application exits
+    */
     if (!glfwInit())
         return -1;
 
-    /* Create a windowed mode window and its OpenGL context */
+    /* 
+     - The function that may be called regardless of whether GLFW is initialized 
+     - It is to fetch version at run time
+     */
+    int major, minor, revision;
+	glfwGetVersion(&major, &minor, &revision);
+	printf("Running against GLFW %i.%i.%i\n", major, minor, revision);
+    
+    /* 
+     - Create a windowed mode window and its OpenGL context 
+     - GLFW doesn't support creating contexts without an associated window
+     - But you can create an invisible window by glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
+     */
     window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
     if (!window)
     {
@@ -183,28 +229,47 @@ int main(void)
         return -1;
     }
 
-    /* Make the window's context current */
+    /* 
+      - Make the window's context current 
+      - Before calling OpenGL APIs, firstly need to have a current context of the correct type
+      - A context can only be current for a single thread at one time
+      - A thread can only have a single context current at one time
+    */
     glfwMakeContextCurrent(window);
 
+    /*
+	- If the interval is 0, the swap will take place immediately when glfwSwapBuffers is called 
+    - Otherwise, at least interval retraces will wait between each buffer swap
+    */
+    glfwSwapInterval(1);
+    
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
-        /* Swap front and back buffers */
+        /* 
+         - Swap front and back buffers 
+         - GLFW windows are by default double buffered
+         - The front buffer is being displayed while the back buffer is being rendered to
+         */
         glfwSwapBuffers(window);
 
         /* Poll for and process events */
+        /*
+         - The order of arrival of events is not guaranteed to be consistent across platforms.
+        */
         glfwPollEvents();
     }
 
+    /*
+     - Before application exits, developer should terminate the initialized GLFW library.
+    */
     glfwTerminate();
     return 0;
 }
 ```
-
-
 
 ### Manipulation
 
