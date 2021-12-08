@@ -20,7 +20,7 @@ This post summaries the commonly used commands.
 
 ### hardware query
 - `lspci | grep -i vga` query graphic cards info.Output maybe like this:
-    
+  
     > 00:02.0 VGA compatible controller: Intel Corporation 3rd Gen Core processor Graphics Controller (rev 09)
 - In addition, `lspci` command, for example: `lspci -vs 00:02.0` can tell which driver module is in use now.   
 
@@ -121,23 +121,54 @@ export PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w \[\033[00;32m\]\$(git_bra
 
 ### find commonly used options
 
-- `find /home/ding/ -type f`, Find regular files in directory /home/ding. `-type` option specifies file type.  *f* equals to regular file, *d* equals to directory.  
+- `find /home/ding/ -type f`, Find regular files in directory /home/ding.
 
-- `find . -type f -size +1000M` , find all files with size bigger than 1000M.
+    - Test `-type` specifies to test file type.  *f* : regular file, *d* : directory.  
+    - default action is `-print`
+
+- `find . -type f -size +1000M` , find all files with file size  >= 1000M.
 
 - `find . -type d -empty -delete` , find all empty directories and delete them all.
 
-- `find . -type f -not -name "*.dll"` , find files not matching the patten. [link](http://alvinalexander.com/unix/edu/examples/find.shtml)
+    - action is `-delete`
 
-- `find ./misc/ -exec file '{}' \;`. Execute `file` command to every file in directory `./misc`.   [link](https://shapeshed.com/unix-find/)
-    + `-exec` option specifies the command to execute.
-    + *;* indicates the ending of command. 
+- `find . -type f -not -name "*.dll"` , find files not matching the patten. 
+
+    - [more examples](http://alvinalexander.com/unix/edu/examples/find.shtml)
+    - operator `-not`  , [details](https://www.gnu.org/software/findutils/manual/html_mono/find.html#Combining-Primaries-With-Operators)
+
+- `find ./misc/ -exec file '{}' \;`. Execute `file` command to every file in directory `./misc`.  
+    
+    + action `-exec` specifies the command to execute.
+    + `;` indicates the ending of command. 
     + `\` is to escape in case of shell interpreting it as another meaning.
     + `{}` stands for the current processing file.   
+    +  [more examples](https://shapeshed.com/unix-find/)
     
+-  `find . -name '*.hpp' -o -name '*.cpp' -o -name '*.h'| xargs wc -l`
+
+  - do a coarse source code lines statistics.
+
+    ```sh
+     find . -name '*.hpp' -o -name '*.cpp' -o -name '*.h'| xargs wc -l
+       298 ./cfgParser.cpp
+        67 ./cfgParser.h
+      2709 ./cxxopts.hpp
+        28 ./Log.cpp
+        22 ./Log.h
+       333 ./main.cpp
+        30 ./process.cpp
+       104 ./process.hpp
+       315 ./process_win.cpp
+       499 ./utility.cpp
+       160 ./utility.h
+      4565 total
+    ```
+
 - *find* command works with regular expression. `find . -regex '.*\.\(c\|cpp\|h\)$' -print`, prints whole file name matching the regular expression.
   The command lists all c source files, including cpp files and h files in current directories and its subdirectories.   
-    + `-print` append each matching item with new line, it is a default behavior.
+  
+    + `-print` append each matching item with '\n', it is a default behavior.
     + `-print0` with null character.
   
 - *find* has many options, such as *-regex*, *-name*, *-iname*. They are used to tell *find* how to match the *pattern* specified in command line.
