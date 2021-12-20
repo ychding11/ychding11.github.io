@@ -273,11 +273,51 @@ int main(void)
 
 ### Manipulation
 
-Camera
+Camera is use to manipulate the 3D model. It provides the standard operation :
 
-## Screen Shot
+- left mouse button : rotate
+- middle mouse button : pan
+- right mouse button : zoom in/out
 
+```c++
+    //< public interface to operate camera
+    void rotate(glm::vec2 delta);
+    void zoom(float delta);
+    void pan(glm::vec2 delta);
 
+   //< public interface to provide camera matrix
+    glm::mat4 viewMatrix() const;
+    glm::mat4 projMatrix() const;
+
+	//< private interface, to update camera matrix after camera state changes
+    void update();
+
+```
+
+It requires to handle the mouse event from windows system (for example, glfw). 
+
+```c++
+    //< install mouse event hanlder for glfw window
+    glfwSetMouseButtonCallback(m_window, glfwindow_mouseButton_cb);
+    glfwSetCursorPosCallback(m_window, glfwindow_mouseMotion_cb);
+    
+```
+
+After mouse event handling, update the matrix(View matrix, Projection matrix). 
+
+During each frame rendering, camera matrix parameter would be updating to shader, and used in world space shader.
+
+```c++
+    // during rendering update camera matrix
+    glm::mat4 viewMatrix = camera.viewMatrix();
+    glm::mat4 projMatrix = camera.projMatrix();
+
+    m_solidWireframeShader.Active();
+    m_solidWireframeShader.SetMat4("M", modelMatrix);
+    m_solidWireframeShader.SetMat4("V", viewMatrix);
+    m_solidWireframeShader.SetMat4("P", projMatrix);
+    /* ... */
+```
 
 ## Reference
 
