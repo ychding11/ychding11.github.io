@@ -18,6 +18,9 @@ This post list python summary and related learning materials.
 ### Data
 
 - ***Objects***(identity, type and value) are Python’s abstraction for data.
+
+#### Type
+
 - **Type** : Type is an object. Types affect almost all aspects of object behavior. Standard type as following
   - **None** : There is a single object with this value. This object is accessed through the built-in name `None`
   - **NotImplemented** : There is a single object with this value. This object is accessed through the built-in name `NotImplemented`
@@ -31,13 +34,22 @@ This post list python summary and related learning materials.
     - Sequences also support **slicing**: `a[i:j]` selects all items with index *k* such that *i* `<=` *k* `<` *j*
     - Some sequences also support “extended slicing” with a third “step” parameter: `a[i:j:k]` selects all items of *a* with index *x* where `x = i + n*k`, *n* `>=` `0` and *i* `<=` *x* `<` *j*.
     - Immutable sequences : 
-      - Strings : 
-      - Tuples :
-      - Bytes :
+      - **Strings** : 
+      - **Tuples** :
+      - **Bytes** :
     - Mutable sequences :
-      - Lists :
-      - Byte Arrays :
-  - Callable types : to which the function call operation can be operate
+      - **Lists** :
+      - **Byte** **Arrays** :
+  - **Mappings** :
+  - **Set** : It represents **unordered**, finite sets of unique, **immutable** objects
+  - **Callable** : to which the function call operation can be applied
+
+#### Internal Type
+
+A few types used internally by the interpreter are exposed to the user.
+
+#### Garbage Collection
+
 - ***GC*** : CPython currently uses a reference-counting scheme with (optional) delayed detection of cyclically linked garbage
   - which collects most objects as soon as they become unreachable
   - but is not guaranteed to collect garbage containing circular references
