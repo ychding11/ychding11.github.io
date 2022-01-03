@@ -4,7 +4,7 @@ title: "C++ features and resources"
 date: 2016-11-24
 ---
 
-The post summarizes new features of c++ and list available internet resources about cpp.
+The post is to summarize new features of c++ and list available resources about C++.
 
 
 ## overloaded virtual function
@@ -59,7 +59,7 @@ The web [link](http://en.cppreference.com/w/cpp/language/using_declaration) give
 
 derived class does not override base class virtual function.
 
-```
+```c++
 class Base
 {
 public:
@@ -88,7 +88,7 @@ int main()
 
 vtbl info:
 
-```
+```shell
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400c30 (subobject @ 0x7fffffffdf20):
 [0]: 0x400a86 <Base::f(int, int)>
@@ -101,7 +101,7 @@ vtable for 'Derived' @ 0x400c10 (subobject @ 0x7fffffffdf10):
 
 derived class partly overrides base class virtual function
 
-```
+```c++
 class Base
 {
  public:
@@ -132,7 +132,7 @@ int main()
 
 virtual function pointer table info.
 
-```
+```shell
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400c70 (subobject @ 0x7fffffffdf20):
 [0]: 0x400a86 <Base::f(int, int)>
@@ -145,7 +145,7 @@ vtable for 'Derived' @ 0x400c50 (subobject @ 0x7fffffffdf10):
 
 derived class completely overrides base class virtual function and create new virtual function.
 
-```
+```c++
 class Base
 {
  public:
@@ -181,7 +181,7 @@ int main()
 
 Corresponding vtbl info:
 
-```
+```shell
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400df0 (subobject @ 0x7fffffffdf20):
 [0]: 0x400b52 <Base::f(int, int)>
@@ -199,7 +199,7 @@ vtable for 'Base' @ 0x400db0 (subobject @ 0x7fffffffdf10):
 
 virtual function pointer order in vtbl is determined by declare order in Base class.
 
-```
+```c++
 class Base
 {
  public:
@@ -233,7 +233,7 @@ int main()
 
 Check the virutal table.
 
-```
+```Shell
 (gdb) info vtbl base
 vtable for 'Base' @ 0x400d70 (subobject @ 0x7fffffffdf20):
 [0]: 0x400b52 <Base::f(int, int)>
@@ -244,7 +244,7 @@ vtable for 'Derived' @ 0x400d50 (subobject @ 0x7fffffffdf10):
 [1]: 0x400bfc <Derived::f(int)>
 ```
 
-## type casting
+## Type Casting
 
 ### const_cast<type-id>
 Const type cast is used to add or remove the constness of an object pointed by a pointer. 
@@ -286,7 +286,7 @@ switch(a)
 
 ## inline and virtual
 
-Using *inline* and *virtual* for the same member function does make sense. virtual function is a member function. When calling virtual function by a base class pointer or reference, late binding applies. But for a known object, function call can be resolved at ompile time, *inline* makes sense here. Remember that *inline* is just a hint to compiler, it is up to compiler to decide inline it or not.
+Using *inline* and *virtual* for the same member function does make sense. virtual function is a member function. When calling virtual function by a base class pointer or reference, late binding applies. But for a known object, function call can be resolved at compile time, *inline* makes sense here. Remember that *inline* is just a hint to compiler, it is up to compiler to decide inline it or not.
 
 
 ## auto_ptr
@@ -342,7 +342,7 @@ There are some special considerations about this memory allocating operator.
 
 I write a sample code to demo how to use new to allocate an object when its constructor is declared as protected or private by this method.
 
-```
+```c++
 class MyTest
 {
 public:
@@ -372,10 +372,7 @@ int main(void)
 
 ## random number generator
 
-[This page](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/generating-random-numbers)
-is a good introduction to the backgroud of random number generator. Presudorandom-number-generator is more easily integrated 
-into software. It is based on some generating algorithms, for example, middle-square-method presented by Von Neumann.
-Generated random sequence is periodic because of the limitation of computer.
+[This page](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/generating-random-numbers) is a good introduction to the background of random number generator. Pseudo random-number-generator is more easily integrated into software. It is based on some generating algorithms, for example, middle-square-method presented by Von Neumann. Generated random sequence is periodic because of the limitation of computer.
 
 ## IEEE745 Float Point Number Representation
 ----------
@@ -473,3 +470,4 @@ design.
   and runtime-type-info implementaion. It also mentioned the object construct 
   order, but no detailed explanations.
 - [Standford CS106L 2010 Fall](http://www.keithschwarz.com/cs106l/fall2010/)
+

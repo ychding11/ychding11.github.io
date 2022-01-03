@@ -48,6 +48,12 @@ This post list python summary and related learning materials.
 
 A few types used internally by the interpreter are exposed to the user.
 
+- Code objects
+- Frame objects
+- Traceback objects
+- Slice objects
+- 
+
 #### Garbage Collection
 
 - ***GC*** : CPython currently uses a reference-counting scheme with (optional) delayed detection of cyclically linked garbage
