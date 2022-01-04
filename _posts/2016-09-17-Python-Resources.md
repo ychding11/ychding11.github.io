@@ -61,6 +61,15 @@ A few types used internally by the interpreter are exposed to the user.
   - but is not guaranteed to collect garbage containing circular references
   - details : [gc page](https://docs.python.org/3/library/gc.html#module-gc)
 
+#### Import
+
+The [`import`](https://docs.python.org/3/reference/simple_stmts.html#import) statement is the **most common** way of invoking the import machinery. It searches for the named module, then it binds the results of that search to a name in the local scope. 
+
+- The search operation of the `import` statement is defined as a call to the [`__import__()`](https://docs.python.org/3/library/functions.html#import__) function.
+-  The return value of [`__import__()`](https://docs.python.org/3/library/functions.html#import__) is used to perform the name binding operation of the `import` statement. 
+
+
+
 ## Debug Skills
 - python module search path `import sys; sys.path`.
 - env variable *PYTHONPATH* can  specify python module search path. Contents of this variable will be added into *sys.path*.
