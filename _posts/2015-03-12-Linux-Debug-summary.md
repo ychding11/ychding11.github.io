@@ -119,9 +119,7 @@ GDB is an important tool to analyze runtime errors. Compared with MSVC debugger,
 
 ### GCC __attribute__
 
-`void __attribute__((optimize("O0"))) func() { }` can assure no optimization 
-applied to specified function. Sometimes it is helpful to analyse errors only 
-occured in release version. This Gcc extension can also be applied to function template.
+`void __attribute__((optimize("O0"))) func() { }` can assure no optimization applied to specified function. Sometimes it is helpful to analyze errors only  occured in release version. This GCC extension can also be applied to function template.
 
 ## Simple debug Case Summary
 
